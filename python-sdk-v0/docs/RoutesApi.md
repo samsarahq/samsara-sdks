@@ -112,7 +112,7 @@ No authorization required
 
 Get all routes
 
-<n class=\"warning\"> <nh> <i class=\"fa fa-exclamation-circle\"></i> This endpoint is still on our legacy API. </nh> </n>  Fetch all of the dispatch routes.
+<n class=\"warning\"> <nh> <i class=\"fa fa-exclamation-circle\"></i> This endpoint is still on our legacy API. </nh> </n>  Fetch all dispatch routes for a given time period. The time period is defined as `end_time` and the `duration` before which to query.  Routes are returned if the route's `scheduled_start_ms` and `scheduled_end_ms` overlap with the requested time period.  More concretely, if the route's `scheduled_start_ms` is before `end_time` and the `scheduled_end_ms` is within or after the given duration, then the route is returned.
 
 ### Example
 ```python
@@ -124,7 +124,7 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.RoutesApi()
-end_time = 789 # int | Time in unix milliseconds that represents the oldest routes to return. Used in combination with duration. Defaults to now. (optional)
+end_time = 789 # int | Time in unix milliseconds that represents the end time of the requested time interval. See above for a description of how routes are returned. Defaults to now. (optional)
 duration = 789 # int | Time in milliseconds that represents the duration before end_time to query. Defaults to 24 hours. (optional)
 
 try:
@@ -139,7 +139,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **end_time** | **int**| Time in unix milliseconds that represents the oldest routes to return. Used in combination with duration. Defaults to now. | [optional] 
+ **end_time** | **int**| Time in unix milliseconds that represents the end time of the requested time interval. See above for a description of how routes are returned. Defaults to now. | [optional] 
  **duration** | **int**| Time in milliseconds that represents the duration before end_time to query. Defaults to 24 hours. | [optional] 
 
 ### Return type
