@@ -49,7 +49,6 @@ from swagger_client.models.user_create import UserCreate
 from swagger_client.models.user_role import UserRole
 from swagger_client.models.user_role_input import UserRoleInput
 from swagger_client.models.user_role_response import UserRoleResponse
-from swagger_client.models.user_role_tiny_response import UserRoleTinyResponse
 from swagger_client.models.user_update import UserUpdate
 from swagger_client.models.v1_cargo_response import V1CargoResponse
 from swagger_client.models.v1_data_input_history_response import V1DataInputHistoryResponse

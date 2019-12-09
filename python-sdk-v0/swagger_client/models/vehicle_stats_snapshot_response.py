@@ -30,53 +30,23 @@ class VehicleStatsSnapshotResponse(object):
     """
     swagger_types = {
         'id': 'str',
-        'name': 'str',
-        'engine_state': 'VehicleEngineState',
-        'fuel_percent': 'VehicleFuelPercent',
-        'gps_odometer_meters': 'VehicleGpsOdometerMeters',
-        'obd_engine_seconds': 'VehicleObdEngineSeconds',
-        'obd_odometer_meters': 'VehicleObdOdometerMeters'
+        'name': 'str'
     }
-    if hasattr(VehicleTinyResponse, "swagger_types"):
-        swagger_types.update(VehicleTinyResponse.swagger_types)
 
     attribute_map = {
         'id': 'id',
-        'name': 'name',
-        'engine_state': 'engineState',
-        'fuel_percent': 'fuelPercent',
-        'gps_odometer_meters': 'gpsOdometerMeters',
-        'obd_engine_seconds': 'obdEngineSeconds',
-        'obd_odometer_meters': 'obdOdometerMeters'
+        'name': 'name'
     }
-    if hasattr(VehicleTinyResponse, "attribute_map"):
-        attribute_map.update(VehicleTinyResponse.attribute_map)
 
-    def __init__(self, id=None, name=None, engine_state=None, fuel_percent=None, gps_odometer_meters=None, obd_engine_seconds=None, obd_odometer_meters=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, name=None):  # noqa: E501
         """VehicleStatsSnapshotResponse - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
-        self._engine_state = None
-        self._fuel_percent = None
-        self._gps_odometer_meters = None
-        self._obd_engine_seconds = None
-        self._obd_odometer_meters = None
         self.discriminator = None
         if id is not None:
             self.id = id
         if name is not None:
             self.name = name
-        if engine_state is not None:
-            self.engine_state = engine_state
-        if fuel_percent is not None:
-            self.fuel_percent = fuel_percent
-        if gps_odometer_meters is not None:
-            self.gps_odometer_meters = gps_odometer_meters
-        if obd_engine_seconds is not None:
-            self.obd_engine_seconds = obd_engine_seconds
-        if obd_odometer_meters is not None:
-            self.obd_odometer_meters = obd_odometer_meters
-        VehicleTinyResponse.__init__(self, *args, **kwargs)
 
     @property
     def id(self):
@@ -123,111 +93,6 @@ class VehicleStatsSnapshotResponse(object):
         """
 
         self._name = name
-
-    @property
-    def engine_state(self):
-        """Gets the engine_state of this VehicleStatsSnapshotResponse.  # noqa: E501
-
-
-        :return: The engine_state of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :rtype: VehicleEngineState
-        """
-        return self._engine_state
-
-    @engine_state.setter
-    def engine_state(self, engine_state):
-        """Sets the engine_state of this VehicleStatsSnapshotResponse.
-
-
-        :param engine_state: The engine_state of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :type: VehicleEngineState
-        """
-
-        self._engine_state = engine_state
-
-    @property
-    def fuel_percent(self):
-        """Gets the fuel_percent of this VehicleStatsSnapshotResponse.  # noqa: E501
-
-
-        :return: The fuel_percent of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :rtype: VehicleFuelPercent
-        """
-        return self._fuel_percent
-
-    @fuel_percent.setter
-    def fuel_percent(self, fuel_percent):
-        """Sets the fuel_percent of this VehicleStatsSnapshotResponse.
-
-
-        :param fuel_percent: The fuel_percent of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :type: VehicleFuelPercent
-        """
-
-        self._fuel_percent = fuel_percent
-
-    @property
-    def gps_odometer_meters(self):
-        """Gets the gps_odometer_meters of this VehicleStatsSnapshotResponse.  # noqa: E501
-
-
-        :return: The gps_odometer_meters of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :rtype: VehicleGpsOdometerMeters
-        """
-        return self._gps_odometer_meters
-
-    @gps_odometer_meters.setter
-    def gps_odometer_meters(self, gps_odometer_meters):
-        """Sets the gps_odometer_meters of this VehicleStatsSnapshotResponse.
-
-
-        :param gps_odometer_meters: The gps_odometer_meters of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :type: VehicleGpsOdometerMeters
-        """
-
-        self._gps_odometer_meters = gps_odometer_meters
-
-    @property
-    def obd_engine_seconds(self):
-        """Gets the obd_engine_seconds of this VehicleStatsSnapshotResponse.  # noqa: E501
-
-
-        :return: The obd_engine_seconds of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :rtype: VehicleObdEngineSeconds
-        """
-        return self._obd_engine_seconds
-
-    @obd_engine_seconds.setter
-    def obd_engine_seconds(self, obd_engine_seconds):
-        """Sets the obd_engine_seconds of this VehicleStatsSnapshotResponse.
-
-
-        :param obd_engine_seconds: The obd_engine_seconds of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :type: VehicleObdEngineSeconds
-        """
-
-        self._obd_engine_seconds = obd_engine_seconds
-
-    @property
-    def obd_odometer_meters(self):
-        """Gets the obd_odometer_meters of this VehicleStatsSnapshotResponse.  # noqa: E501
-
-
-        :return: The obd_odometer_meters of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :rtype: VehicleObdOdometerMeters
-        """
-        return self._obd_odometer_meters
-
-    @obd_odometer_meters.setter
-    def obd_odometer_meters(self, obd_odometer_meters):
-        """Sets the obd_odometer_meters of this VehicleStatsSnapshotResponse.
-
-
-        :param obd_odometer_meters: The obd_odometer_meters of this VehicleStatsSnapshotResponse.  # noqa: E501
-        :type: VehicleObdOdometerMeters
-        """
-
-        self._obd_odometer_meters = obd_odometer_meters
 
     def to_dict(self):
         """Returns the model properties as a dict"""

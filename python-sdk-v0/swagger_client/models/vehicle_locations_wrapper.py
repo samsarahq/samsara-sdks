@@ -30,33 +30,23 @@ class VehicleLocationsWrapper(object):
     """
     swagger_types = {
         'id': 'str',
-        'name': 'str',
-        'locations': 'list[LocationsWrapper]'
+        'name': 'str'
     }
-    if hasattr(VehicleTinyResponse, "swagger_types"):
-        swagger_types.update(VehicleTinyResponse.swagger_types)
 
     attribute_map = {
         'id': 'id',
-        'name': 'name',
-        'locations': 'locations'
+        'name': 'name'
     }
-    if hasattr(VehicleTinyResponse, "attribute_map"):
-        attribute_map.update(VehicleTinyResponse.attribute_map)
 
-    def __init__(self, id=None, name=None, locations=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, name=None):  # noqa: E501
         """VehicleLocationsWrapper - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
-        self._locations = None
         self.discriminator = None
         if id is not None:
             self.id = id
         if name is not None:
             self.name = name
-        if locations is not None:
-            self.locations = locations
-        VehicleTinyResponse.__init__(self, *args, **kwargs)
 
     @property
     def id(self):
@@ -103,27 +93,6 @@ class VehicleLocationsWrapper(object):
         """
 
         self._name = name
-
-    @property
-    def locations(self):
-        """Gets the locations of this VehicleLocationsWrapper.  # noqa: E501
-
-
-        :return: The locations of this VehicleLocationsWrapper.  # noqa: E501
-        :rtype: list[LocationsWrapper]
-        """
-        return self._locations
-
-    @locations.setter
-    def locations(self, locations):
-        """Sets the locations of this VehicleLocationsWrapper.
-
-
-        :param locations: The locations of this VehicleLocationsWrapper.  # noqa: E501
-        :type: list[LocationsWrapper]
-        """
-
-        self._locations = locations
 
     def to_dict(self):
         """Returns the model properties as a dict"""

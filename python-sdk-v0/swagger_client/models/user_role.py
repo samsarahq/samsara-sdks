@@ -32,17 +32,13 @@ class UserRole(object):
         'id': 'str',
         'name': 'str'
     }
-    if hasattr(UserRoleTinyResponse, "swagger_types"):
-        swagger_types.update(UserRoleTinyResponse.swagger_types)
 
     attribute_map = {
         'id': 'id',
         'name': 'name'
     }
-    if hasattr(UserRoleTinyResponse, "attribute_map"):
-        attribute_map.update(UserRoleTinyResponse.attribute_map)
 
-    def __init__(self, id=None, name=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, name=None):  # noqa: E501
         """UserRole - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
@@ -51,7 +47,6 @@ class UserRole(object):
             self.id = id
         if name is not None:
             self.name = name
-        UserRoleTinyResponse.__init__(self, *args, **kwargs)
 
     @property
     def id(self):

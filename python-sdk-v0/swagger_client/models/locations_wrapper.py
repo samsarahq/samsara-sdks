@@ -29,102 +29,72 @@ class LocationsWrapper(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'heading': 'float',
-        'speed': 'float',
-        'time': 'Time'
+        'latitude': 'float',
+        'longitude': 'float'
     }
-    if hasattr(VehicleLocation, "swagger_types"):
-        swagger_types.update(VehicleLocation.swagger_types)
 
     attribute_map = {
-        'heading': 'heading',
-        'speed': 'speed',
-        'time': 'time'
+        'latitude': 'latitude',
+        'longitude': 'longitude'
     }
-    if hasattr(VehicleLocation, "attribute_map"):
-        attribute_map.update(VehicleLocation.attribute_map)
 
-    def __init__(self, heading=None, speed=None, time=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, latitude=None, longitude=None):  # noqa: E501
         """LocationsWrapper - a model defined in Swagger"""  # noqa: E501
-        self._heading = None
-        self._speed = None
-        self._time = None
+        self._latitude = None
+        self._longitude = None
         self.discriminator = None
-        if heading is not None:
-            self.heading = heading
-        if speed is not None:
-            self.speed = speed
-        self.time = time
-        VehicleLocation.__init__(self, *args, **kwargs)
+        self.latitude = latitude
+        self.longitude = longitude
 
     @property
-    def heading(self):
-        """Gets the heading of this LocationsWrapper.  # noqa: E501
+    def latitude(self):
+        """Gets the latitude of this LocationsWrapper.  # noqa: E501
 
-        Heading of the vehicle in degrees.  # noqa: E501
+        GPS latitude represented in degrees  # noqa: E501
 
-        :return: The heading of this LocationsWrapper.  # noqa: E501
+        :return: The latitude of this LocationsWrapper.  # noqa: E501
         :rtype: float
         """
-        return self._heading
+        return self._latitude
 
-    @heading.setter
-    def heading(self, heading):
-        """Sets the heading of this LocationsWrapper.
+    @latitude.setter
+    def latitude(self, latitude):
+        """Sets the latitude of this LocationsWrapper.
 
-        Heading of the vehicle in degrees.  # noqa: E501
+        GPS latitude represented in degrees  # noqa: E501
 
-        :param heading: The heading of this LocationsWrapper.  # noqa: E501
+        :param latitude: The latitude of this LocationsWrapper.  # noqa: E501
         :type: float
         """
+        if latitude is None:
+            raise ValueError("Invalid value for `latitude`, must not be `None`")  # noqa: E501
 
-        self._heading = heading
+        self._latitude = latitude
 
     @property
-    def speed(self):
-        """Gets the speed of this LocationsWrapper.  # noqa: E501
+    def longitude(self):
+        """Gets the longitude of this LocationsWrapper.  # noqa: E501
 
-        Speed of the vehicle in miles per hour.  # noqa: E501
+        GPS longitude represented in degrees  # noqa: E501
 
-        :return: The speed of this LocationsWrapper.  # noqa: E501
+        :return: The longitude of this LocationsWrapper.  # noqa: E501
         :rtype: float
         """
-        return self._speed
+        return self._longitude
 
-    @speed.setter
-    def speed(self, speed):
-        """Sets the speed of this LocationsWrapper.
+    @longitude.setter
+    def longitude(self, longitude):
+        """Sets the longitude of this LocationsWrapper.
 
-        Speed of the vehicle in miles per hour.  # noqa: E501
+        GPS longitude represented in degrees  # noqa: E501
 
-        :param speed: The speed of this LocationsWrapper.  # noqa: E501
+        :param longitude: The longitude of this LocationsWrapper.  # noqa: E501
         :type: float
         """
+        if longitude is None:
+            raise ValueError("Invalid value for `longitude`, must not be `None`")  # noqa: E501
 
-        self._speed = speed
-
-    @property
-    def time(self):
-        """Gets the time of this LocationsWrapper.  # noqa: E501
-
-
-        :return: The time of this LocationsWrapper.  # noqa: E501
-        :rtype: Time
-        """
-        return self._time
-
-    @time.setter
-    def time(self, time):
-        """Sets the time of this LocationsWrapper.
-
-
-        :param time: The time of this LocationsWrapper.  # noqa: E501
-        :type: Time
-        """
-        if time is None:
-            raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
-
-        self._time = time
+        self._longitude = longitude
 
     def to_dict(self):
         """Returns the model properties as a dict"""

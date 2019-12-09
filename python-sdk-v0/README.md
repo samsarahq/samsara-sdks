@@ -227,7 +227,6 @@ Class | Method | HTTP request | Description
  - [UserRole](docs/UserRole.md)
  - [UserRoleInput](docs/UserRoleInput.md)
  - [UserRoleResponse](docs/UserRoleResponse.md)
- - [UserRoleTinyResponse](docs/UserRoleTinyResponse.md)
  - [UserUpdate](docs/UserUpdate.md)
  - [V1CargoResponse](docs/V1CargoResponse.md)
  - [V1DataInputHistoryResponse](docs/V1DataInputHistoryResponse.md)

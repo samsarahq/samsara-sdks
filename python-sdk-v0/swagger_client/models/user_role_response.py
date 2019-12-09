@@ -29,7 +29,7 @@ class UserRoleResponse(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'role': 'UserRoleTinyResponse',
+        'role': 'UserRole',
         'tag': 'object'
     }
 
@@ -54,7 +54,7 @@ class UserRoleResponse(object):
 
 
         :return: The role of this UserRoleResponse.  # noqa: E501
-        :rtype: UserRoleTinyResponse
+        :rtype: UserRole
         """
         return self._role
 
@@ -64,7 +64,7 @@ class UserRoleResponse(object):
 
 
         :param role: The role of this UserRoleResponse.  # noqa: E501
-        :type: UserRoleTinyResponse
+        :type: UserRole
         """
 
         self._role = role

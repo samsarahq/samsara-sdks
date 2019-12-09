@@ -30,36 +30,21 @@ class VehicleLocation(object):
     """
     swagger_types = {
         'latitude': 'float',
-        'longitude': 'float',
-        'heading': 'float',
-        'speed': 'float'
+        'longitude': 'float'
     }
-    if hasattr(Location, "swagger_types"):
-        swagger_types.update(Location.swagger_types)
 
     attribute_map = {
         'latitude': 'latitude',
-        'longitude': 'longitude',
-        'heading': 'heading',
-        'speed': 'speed'
+        'longitude': 'longitude'
     }
-    if hasattr(Location, "attribute_map"):
-        attribute_map.update(Location.attribute_map)
 
-    def __init__(self, latitude=None, longitude=None, heading=None, speed=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, latitude=None, longitude=None):  # noqa: E501
         """VehicleLocation - a model defined in Swagger"""  # noqa: E501
         self._latitude = None
         self._longitude = None
-        self._heading = None
-        self._speed = None
         self.discriminator = None
         self.latitude = latitude
         self.longitude = longitude
-        if heading is not None:
-            self.heading = heading
-        if speed is not None:
-            self.speed = speed
-        Location.__init__(self, *args, **kwargs)
 
     @property
     def latitude(self):
@@ -110,52 +95,6 @@ class VehicleLocation(object):
             raise ValueError("Invalid value for `longitude`, must not be `None`")  # noqa: E501
 
         self._longitude = longitude
-
-    @property
-    def heading(self):
-        """Gets the heading of this VehicleLocation.  # noqa: E501
-
-        Heading of the vehicle in degrees.  # noqa: E501
-
-        :return: The heading of this VehicleLocation.  # noqa: E501
-        :rtype: float
-        """
-        return self._heading
-
-    @heading.setter
-    def heading(self, heading):
-        """Sets the heading of this VehicleLocation.
-
-        Heading of the vehicle in degrees.  # noqa: E501
-
-        :param heading: The heading of this VehicleLocation.  # noqa: E501
-        :type: float
-        """
-
-        self._heading = heading
-
-    @property
-    def speed(self):
-        """Gets the speed of this VehicleLocation.  # noqa: E501
-
-        Speed of the vehicle in miles per hour.  # noqa: E501
-
-        :return: The speed of this VehicleLocation.  # noqa: E501
-        :rtype: float
-        """
-        return self._speed
-
-    @speed.setter
-    def speed(self, speed):
-        """Sets the speed of this VehicleLocation.
-
-        Speed of the vehicle in miles per hour.  # noqa: E501
-
-        :param speed: The speed of this VehicleLocation.  # noqa: E501
-        :type: float
-        """
-
-        self._speed = speed
 
     def to_dict(self):
         """Returns the model properties as a dict"""

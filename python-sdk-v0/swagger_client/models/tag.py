@@ -30,63 +30,23 @@ class Tag(object):
     """
     swagger_types = {
         'id': 'str',
-        'name': 'str',
-        'addresses': 'list[TaggedObject]',
-        'assets': 'list[TaggedObject]',
-        'drivers': 'list[TaggedObject]',
-        'machines': 'list[TaggedObject]',
-        'parent_tag': 'ParentTag',
-        'sensors': 'list[TaggedObject]',
-        'vehicles': 'list[TaggedObject]'
+        'name': 'str'
     }
-    if hasattr(TinyTag, "swagger_types"):
-        swagger_types.update(TinyTag.swagger_types)
 
     attribute_map = {
         'id': 'id',
-        'name': 'name',
-        'addresses': 'addresses',
-        'assets': 'assets',
-        'drivers': 'drivers',
-        'machines': 'machines',
-        'parent_tag': 'parentTag',
-        'sensors': 'sensors',
-        'vehicles': 'vehicles'
+        'name': 'name'
     }
-    if hasattr(TinyTag, "attribute_map"):
-        attribute_map.update(TinyTag.attribute_map)
 
-    def __init__(self, id=None, name=None, addresses=None, assets=None, drivers=None, machines=None, parent_tag=None, sensors=None, vehicles=None, *args, **kwargs):  # noqa: E501
+    def __init__(self, id=None, name=None):  # noqa: E501
         """Tag - a model defined in Swagger"""  # noqa: E501
         self._id = None
         self._name = None
-        self._addresses = None
-        self._assets = None
-        self._drivers = None
-        self._machines = None
-        self._parent_tag = None
-        self._sensors = None
-        self._vehicles = None
         self.discriminator = None
         if id is not None:
             self.id = id
         if name is not None:
             self.name = name
-        if addresses is not None:
-            self.addresses = addresses
-        if assets is not None:
-            self.assets = assets
-        if drivers is not None:
-            self.drivers = drivers
-        if machines is not None:
-            self.machines = machines
-        if parent_tag is not None:
-            self.parent_tag = parent_tag
-        if sensors is not None:
-            self.sensors = sensors
-        if vehicles is not None:
-            self.vehicles = vehicles
-        TinyTag.__init__(self, *args, **kwargs)
 
     @property
     def id(self):
@@ -133,165 +93,6 @@ class Tag(object):
         """
 
         self._name = name
-
-    @property
-    def addresses(self):
-        """Gets the addresses of this Tag.  # noqa: E501
-
-        The addresses that belong to this tag.  # noqa: E501
-
-        :return: The addresses of this Tag.  # noqa: E501
-        :rtype: list[TaggedObject]
-        """
-        return self._addresses
-
-    @addresses.setter
-    def addresses(self, addresses):
-        """Sets the addresses of this Tag.
-
-        The addresses that belong to this tag.  # noqa: E501
-
-        :param addresses: The addresses of this Tag.  # noqa: E501
-        :type: list[TaggedObject]
-        """
-
-        self._addresses = addresses
-
-    @property
-    def assets(self):
-        """Gets the assets of this Tag.  # noqa: E501
-
-        The trailers, unpowered, and powered assets that belong to this tag.  # noqa: E501
-
-        :return: The assets of this Tag.  # noqa: E501
-        :rtype: list[TaggedObject]
-        """
-        return self._assets
-
-    @assets.setter
-    def assets(self, assets):
-        """Sets the assets of this Tag.
-
-        The trailers, unpowered, and powered assets that belong to this tag.  # noqa: E501
-
-        :param assets: The assets of this Tag.  # noqa: E501
-        :type: list[TaggedObject]
-        """
-
-        self._assets = assets
-
-    @property
-    def drivers(self):
-        """Gets the drivers of this Tag.  # noqa: E501
-
-        The drivers that belong to this tag.  # noqa: E501
-
-        :return: The drivers of this Tag.  # noqa: E501
-        :rtype: list[TaggedObject]
-        """
-        return self._drivers
-
-    @drivers.setter
-    def drivers(self, drivers):
-        """Sets the drivers of this Tag.
-
-        The drivers that belong to this tag.  # noqa: E501
-
-        :param drivers: The drivers of this Tag.  # noqa: E501
-        :type: list[TaggedObject]
-        """
-
-        self._drivers = drivers
-
-    @property
-    def machines(self):
-        """Gets the machines of this Tag.  # noqa: E501
-
-        The machines that belong to thistag.  # noqa: E501
-
-        :return: The machines of this Tag.  # noqa: E501
-        :rtype: list[TaggedObject]
-        """
-        return self._machines
-
-    @machines.setter
-    def machines(self, machines):
-        """Sets the machines of this Tag.
-
-        The machines that belong to thistag.  # noqa: E501
-
-        :param machines: The machines of this Tag.  # noqa: E501
-        :type: list[TaggedObject]
-        """
-
-        self._machines = machines
-
-    @property
-    def parent_tag(self):
-        """Gets the parent_tag of this Tag.  # noqa: E501
-
-
-        :return: The parent_tag of this Tag.  # noqa: E501
-        :rtype: ParentTag
-        """
-        return self._parent_tag
-
-    @parent_tag.setter
-    def parent_tag(self, parent_tag):
-        """Sets the parent_tag of this Tag.
-
-
-        :param parent_tag: The parent_tag of this Tag.  # noqa: E501
-        :type: ParentTag
-        """
-
-        self._parent_tag = parent_tag
-
-    @property
-    def sensors(self):
-        """Gets the sensors of this Tag.  # noqa: E501
-
-        The sensors that belong to this tag.  # noqa: E501
-
-        :return: The sensors of this Tag.  # noqa: E501
-        :rtype: list[TaggedObject]
-        """
-        return self._sensors
-
-    @sensors.setter
-    def sensors(self, sensors):
-        """Sets the sensors of this Tag.
-
-        The sensors that belong to this tag.  # noqa: E501
-
-        :param sensors: The sensors of this Tag.  # noqa: E501
-        :type: list[TaggedObject]
-        """
-
-        self._sensors = sensors
-
-    @property
-    def vehicles(self):
-        """Gets the vehicles of this Tag.  # noqa: E501
-
-        The vehicles that belong to this tag.  # noqa: E501
-
-        :return: The vehicles of this Tag.  # noqa: E501
-        :rtype: list[TaggedObject]
-        """
-        return self._vehicles
-
-    @vehicles.setter
-    def vehicles(self, vehicles):
-        """Sets the vehicles of this Tag.
-
-        The vehicles that belong to this tag.  # noqa: E501
-
-        :param vehicles: The vehicles of this Tag.  # noqa: E501
-        :type: list[TaggedObject]
-        """
-
-        self._vehicles = vehicles
 
     def to_dict(self):
         """Returns the model properties as a dict"""
