@@ -4289,9 +4289,6 @@
     "LocationsWrapper": {
       "allOf": [
         {
-          "$ref": "#/definitions/VehicleLocation"
-        },
-        {
           "type": "object",
           "required": [
             "time"
@@ -4301,6 +4298,9 @@
               "$ref": "#/definitions/time"
             }
           }
+        },
+        {
+          "$ref": "#/definitions/VehicleLocation"
         }
       ]
     },
@@ -4612,9 +4612,6 @@
     "Tag": {
       "allOf": [
         {
-          "$ref": "#/definitions/TinyTag"
-        },
-        {
           "type": "object",
           "properties": {
             "addresses": {
@@ -4663,6 +4660,9 @@
               }
             }
           }
+        },
+        {
+          "$ref": "#/definitions/TinyTag"
         }
       ]
     },
@@ -4861,11 +4861,18 @@
     "UserRole": {
       "description": "A user role object.",
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/userRoleTinyResponse"
+      "properties": {
+        "id": {
+          "description": "The unique ID for the role.",
+          "type": "string",
+          "example": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
+        },
+        "name": {
+          "description": "The name of the role.",
+          "type": "string",
+          "example": "Full Admin"
         }
-      ]
+      }   
     },
     "UserRoleInput": {
       "type": "object",
@@ -4899,7 +4906,7 @@
       "type": "object",
       "properties": {
         "role": {
-          "$ref": "#/definitions/userRoleTinyResponse"
+          "$ref": "#/definitions/UserRole"
         },
         "tag": {
           "allOf": [
@@ -8902,9 +8909,6 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/location"
-        },
-        {
           "type": "object",
           "properties": {
             "heading": {
@@ -8920,6 +8924,9 @@
               "example": 48.3
             }
           }
+        },
+        {
+          "$ref": "#/definitions/location"
         }
       ]
     },
@@ -8928,15 +8935,15 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/vehicleTinyResponse"
-        },
-        {
           "type": "object",
           "properties": {
             "location": {
               "$ref": "#/definitions/LocationsWrapper"
             }
           }
+        },
+        {
+          "$ref": "#/definitions/vehicleTinyResponse"
         }
       ]
     },
@@ -8975,9 +8982,6 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/vehicleTinyResponse"
-        },
-        {
           "type": "object",
           "properties": {
             "locations": {
@@ -8987,6 +8991,9 @@
               }
             }
           }
+        },
+        {
+          "$ref": "#/definitions/vehicleTinyResponse"
         }
       ]
     },
@@ -9313,9 +9320,6 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/vehicleTinyResponse"
-        },
-        {
           "type": "object",
           "properties": {
             "engineState": {
@@ -9334,6 +9338,9 @@
               "$ref": "#/definitions/VehicleObdOdometerMeters"
             }
           }
+        },
+        {
+          "$ref": "#/definitions/vehicleTinyResponse"
         }
       ]
     },
@@ -9462,22 +9469,6 @@
       "description": "UTC timestamp in RFC 3339 milliseconds format.",
       "type": "string",
       "example": "2019-05-03T04:30:31.492Z"
-    },
-    "userRoleTinyResponse": {
-      "description": "A minified user role object.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The unique ID for the role.",
-          "type": "string",
-          "example": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
-        },
-        "name": {
-          "description": "The name of the role.",
-          "type": "string",
-          "example": "Full Admin"
-        }
-      }
     },
     "vehicleTinyResponse": {
       "description": "A minified vehicle object.",
