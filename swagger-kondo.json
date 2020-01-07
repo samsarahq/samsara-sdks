@@ -3494,6 +3494,25 @@
     }
   },
   "definitions": {
+    "vehicleLocationWrapperLocation": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "$ref": "#/definitions/LocationsWrapper"
+        }
+      }
+    },
+    "vehicleLocationsWrapperLocation": {
+      "type": "object",
+      "properties": {
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocationsWrapper"
+          }
+        }
+      }
+    },
     "Address": {
       "description": "Information about an address/geofence. Geofences are either a circle or a polygon.",
       "type": "object",
@@ -8935,12 +8954,7 @@
       "type": "object",
       "allOf": [
         {
-          "type": "object",
-          "properties": {
-            "location": {
-              "$ref": "#/definitions/LocationsWrapper"
-            }
-          }
+          "$ref": "#/definitions/vehicleLocationWrapperLocation"
         },
         {
           "$ref": "#/definitions/vehicleTinyResponse"
@@ -8982,15 +8996,7 @@
       "type": "object",
       "allOf": [
         {
-          "type": "object",
-          "properties": {
-            "locations": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/LocationsWrapper"
-              }
-            }
-          }
+          "$ref": "#/definitions/vehicleLocationsWrapperLocation"
         },
         {
           "$ref": "#/definitions/vehicleTinyResponse"
@@ -9316,28 +9322,31 @@
         }
       }
     },
+    "VehicleStatsSnapshotResponseInner": {
+  "type": "object",
+    "properties": {
+      "engineState": {
+        "$ref": "#/definitions/VehicleEngineState"
+      },
+      "fuelPercent": {
+        "$ref": "#/definitions/VehicleFuelPercent"
+      },
+      "gpsOdometerMeters": {
+        "$ref": "#/definitions/VehicleGpsOdometerMeters"
+      },
+      "obdEngineSeconds": {
+        "$ref": "#/definitions/VehicleObdEngineSeconds"
+      },
+      "obdOdometerMeters": {
+        "$ref": "#/definitions/VehicleObdOdometerMeters"
+      }
+    }
+    },
     "VehicleStatsSnapshotResponse": {
       "type": "object",
       "allOf": [
         {
-          "type": "object",
-          "properties": {
-            "engineState": {
-              "$ref": "#/definitions/VehicleEngineState"
-            },
-            "fuelPercent": {
-              "$ref": "#/definitions/VehicleFuelPercent"
-            },
-            "gpsOdometerMeters": {
-              "$ref": "#/definitions/VehicleGpsOdometerMeters"
-            },
-            "obdEngineSeconds": {
-              "$ref": "#/definitions/VehicleObdEngineSeconds"
-            },
-            "obdOdometerMeters": {
-              "$ref": "#/definitions/VehicleObdOdometerMeters"
-            }
-          }
+          "$ref": "#/definitions/VehicleStatsSnapshotResponseInner"
         },
         {
           "$ref": "#/definitions/vehicleTinyResponse"
