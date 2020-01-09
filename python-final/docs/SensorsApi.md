@@ -1,4 +1,4 @@
-# openapi_client.SensorsApi
+# samsara.SensorsApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -24,13 +24,13 @@ Get all sensors
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SensorsApi()
-v1group_id_body_param = openapi_client.InlineObject9() # InlineObject9 |  (optional)
+api_instance = samsara.SensorsApi()
+v1group_id_body_param = samsara.InlineObject9() # InlineObject9 |  (optional)
 
 try:
     # Get all sensors
@@ -79,13 +79,13 @@ Get cargo status
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SensorsApi()
-v1sensor_param = openapi_client.InlineObject5() # InlineObject5 | 
+api_instance = samsara.SensorsApi()
+v1sensor_param = samsara.InlineObject5() # InlineObject5 | 
 
 try:
     # Get cargo status
@@ -134,13 +134,13 @@ Get door status
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SensorsApi()
-v1sensor_param = openapi_client.InlineObject6() # InlineObject6 | 
+api_instance = samsara.SensorsApi()
+v1sensor_param = samsara.InlineObject6() # InlineObject6 | 
 
 try:
     # Get door status
@@ -189,13 +189,13 @@ Get sensor history
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SensorsApi()
-history_param = openapi_client.InlineObject7() # InlineObject7 | 
+api_instance = samsara.SensorsApi()
+history_param = samsara.InlineObject7() # InlineObject7 | 
 
 try:
     # Get sensor history
@@ -244,13 +244,13 @@ Get humidity
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SensorsApi()
-v1sensor_param = openapi_client.InlineObject8() # InlineObject8 | 
+api_instance = samsara.SensorsApi()
+v1sensor_param = samsara.InlineObject8() # InlineObject8 | 
 
 try:
     # Get humidity
@@ -299,13 +299,13 @@ Get temperature
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SensorsApi()
-v1sensor_param = openapi_client.InlineObject10() # InlineObject10 | 
+api_instance = samsara.SensorsApi()
+v1sensor_param = samsara.InlineObject10() # InlineObject10 | 
 
 try:
     # Get temperature

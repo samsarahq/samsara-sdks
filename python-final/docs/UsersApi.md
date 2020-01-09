@@ -1,4 +1,4 @@
-# openapi_client.UsersApi
+# samsara.UsersApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -24,13 +24,13 @@ Add a user to the organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.UsersApi()
-user = openapi_client.UserCreate() # UserCreate | The user to create. (optional)
+api_instance = samsara.UsersApi()
+user = samsara.UserCreate() # UserCreate | The user to create. (optional)
 
 try:
     # Create a user
@@ -79,12 +79,12 @@ Delete the given user.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.UsersApi()
+api_instance = samsara.UsersApi()
 id = 'id_example' # str | Unique identifier for the user.
 
 try:
@@ -133,12 +133,12 @@ Get a specific user's information.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.UsersApi()
+api_instance = samsara.UsersApi()
 id = 'id_example' # str | Unique identifier for the user.
 
 try:
@@ -188,12 +188,12 @@ Returns a list of all user roles in an organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.UsersApi()
+api_instance = samsara.UsersApi()
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
@@ -245,12 +245,12 @@ Returns a list of all users in an organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.UsersApi()
+api_instance = samsara.UsersApi()
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
@@ -302,14 +302,14 @@ Update a specific user's information.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.UsersApi()
+api_instance = samsara.UsersApi()
 id = 'id_example' # str | Unique identifier for the user.
-user = openapi_client.UserUpdate() # UserUpdate | Updates to the user. (optional)
+user = samsara.UserUpdate() # UserUpdate | Updates to the user. (optional)
 
 try:
     # Update a user

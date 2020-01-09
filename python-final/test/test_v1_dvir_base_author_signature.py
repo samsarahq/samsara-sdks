@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_dvir_base_author_signature import V1DvirBaseAuthorSignature  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_dvir_base_author_signature import V1DvirBaseAuthorSignature  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1DvirBaseAuthorSignature(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1DvirBaseAuthorSignature(unittest.TestCase):
     def testV1DvirBaseAuthorSignature(self):
         """Test V1DvirBaseAuthorSignature"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_dvir_base_author_signature.V1DvirBaseAuthorSignature()  # noqa: E501
+        # model = samsara.models.v1_dvir_base_author_signature.V1DvirBaseAuthorSignature()  # noqa: E501
         pass
 
 

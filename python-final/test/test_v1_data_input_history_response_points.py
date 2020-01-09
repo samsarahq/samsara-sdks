@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_data_input_history_response_points import V1DataInputHistoryResponsePoints  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_data_input_history_response_points import V1DataInputHistoryResponsePoints  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1DataInputHistoryResponsePoints(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1DataInputHistoryResponsePoints(unittest.TestCase):
     def testV1DataInputHistoryResponsePoints(self):
         """Test V1DataInputHistoryResponsePoints"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_data_input_history_response_points.V1DataInputHistoryResponsePoints()  # noqa: E501
+        # model = samsara.models.v1_data_input_history_response_points.V1DataInputHistoryResponsePoints()  # noqa: E501
         pass
 
 

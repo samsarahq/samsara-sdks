@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_vision_run_by_camera_response_presence_absence_saturation_range import V1VisionRunByCameraResponsePresenceAbsenceSaturationRange  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_vision_run_by_camera_response_presence_absence_saturation_range import V1VisionRunByCameraResponsePresenceAbsenceSaturationRange  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1VisionRunByCameraResponsePresenceAbsenceSaturationRange(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1VisionRunByCameraResponsePresenceAbsenceSaturationRange(unittest.Tes
     def testV1VisionRunByCameraResponsePresenceAbsenceSaturationRange(self):
         """Test V1VisionRunByCameraResponsePresenceAbsenceSaturationRange"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_vision_run_by_camera_response_presence_absence_saturation_range.V1VisionRunByCameraResponsePresenceAbsenceSaturationRange()  # noqa: E501
+        # model = samsara.models.v1_vision_run_by_camera_response_presence_absence_saturation_range.V1VisionRunByCameraResponsePresenceAbsenceSaturationRange()  # noqa: E501
         pass
 
 

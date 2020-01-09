@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_vision_run_by_camera_response_presence_absence_grayscale_range import V1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_vision_run_by_camera_response_presence_absence_grayscale_range import V1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange(unittest.Test
     def testV1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange(self):
         """Test V1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_vision_run_by_camera_response_presence_absence_grayscale_range.V1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange()  # noqa: E501
+        # model = samsara.models.v1_vision_run_by_camera_response_presence_absence_grayscale_range.V1VisionRunByCameraResponsePresenceAbsenceGrayscaleRange()  # noqa: E501
         pass
 
 

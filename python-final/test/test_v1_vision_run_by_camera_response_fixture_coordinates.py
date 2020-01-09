@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_vision_run_by_camera_response_fixture_coordinates import V1VisionRunByCameraResponseFixtureCoordinates  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_vision_run_by_camera_response_fixture_coordinates import V1VisionRunByCameraResponseFixtureCoordinates  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1VisionRunByCameraResponseFixtureCoordinates(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1VisionRunByCameraResponseFixtureCoordinates(unittest.TestCase):
     def testV1VisionRunByCameraResponseFixtureCoordinates(self):
         """Test V1VisionRunByCameraResponseFixtureCoordinates"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_vision_run_by_camera_response_fixture_coordinates.V1VisionRunByCameraResponseFixtureCoordinates()  # noqa: E501
+        # model = samsara.models.v1_vision_run_by_camera_response_fixture_coordinates.V1VisionRunByCameraResponseFixtureCoordinates()  # noqa: E501
         pass
 
 

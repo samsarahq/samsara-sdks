@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.contact_input import ContactInput  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.contact_input import ContactInput  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestContactInput(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestContactInput(unittest.TestCase):
     def testContactInput(self):
         """Test ContactInput"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.contact_input.ContactInput()  # noqa: E501
+        # model = samsara.models.contact_input.ContactInput()  # noqa: E501
         pass
 
 

@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_document_type_field_types import V1DocumentTypeFieldTypes  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_document_type_field_types import V1DocumentTypeFieldTypes  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1DocumentTypeFieldTypes(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1DocumentTypeFieldTypes(unittest.TestCase):
     def testV1DocumentTypeFieldTypes(self):
         """Test V1DocumentTypeFieldTypes"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_document_type_field_types.V1DocumentTypeFieldTypes()  # noqa: E501
+        # model = samsara.models.v1_document_type_field_types.V1DocumentTypeFieldTypes()  # noqa: E501
         pass
 
 

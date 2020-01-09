@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.tagged_object import TaggedObject  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.tagged_object import TaggedObject  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestTaggedObject(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestTaggedObject(unittest.TestCase):
     def testTaggedObject(self):
         """Test TaggedObject"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.tagged_object.TaggedObject()  # noqa: E501
+        # model = samsara.models.tagged_object.TaggedObject()  # noqa: E501
         pass
 
 

@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_dispatch_job_all_of_documents import V1DispatchJobAllOfDocuments  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_dispatch_job_all_of_documents import V1DispatchJobAllOfDocuments  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1DispatchJobAllOfDocuments(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1DispatchJobAllOfDocuments(unittest.TestCase):
     def testV1DispatchJobAllOfDocuments(self):
         """Test V1DispatchJobAllOfDocuments"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_dispatch_job_all_of_documents.V1DispatchJobAllOfDocuments()  # noqa: E501
+        # model = samsara.models.v1_dispatch_job_all_of_documents.V1DispatchJobAllOfDocuments()  # noqa: E501
         pass
 
 

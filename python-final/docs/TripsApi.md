@@ -1,4 +1,4 @@
-# openapi_client.TripsApi
+# samsara.TripsApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -19,12 +19,12 @@ Get vehicle trips
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.TripsApi()
+api_instance = samsara.TripsApi()
 vehicle_id = 56 # int | Vehicle ID to query.
 start_ms = 56 # int | Beginning of the time range, specified in milliseconds UNIX time. Limited to a 90 day window with respect to startMs and endMs
 end_ms = 56 # int | End of the time range, specified in milliseconds UNIX time.

@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.driver_update_all_of import DriverUpdateAllOf  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.driver_update_all_of import DriverUpdateAllOf  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestDriverUpdateAllOf(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestDriverUpdateAllOf(unittest.TestCase):
     def testDriverUpdateAllOf(self):
         """Test DriverUpdateAllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.driver_update_all_of.DriverUpdateAllOf()  # noqa: E501
+        # model = samsara.models.driver_update_all_of.DriverUpdateAllOf()  # noqa: E501
         pass
 
 

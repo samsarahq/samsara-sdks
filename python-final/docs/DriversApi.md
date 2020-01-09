@@ -1,4 +1,4 @@
-# openapi_client.DriversApi
+# samsara.DriversApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -22,13 +22,13 @@ Add a driver to the organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DriversApi()
-driver = openapi_client.DriverCreate() # DriverCreate | The driver to create. (optional)
+api_instance = samsara.DriversApi()
+driver = samsara.DriverCreate() # DriverCreate | The driver to create. (optional)
 
 try:
     # Create a driver
@@ -77,12 +77,12 @@ Get information about a driver.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DriversApi()
+api_instance = samsara.DriversApi()
 id = 'id_example' # str | ID of the driver. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
 
 try:
@@ -132,12 +132,12 @@ Get all drivers in organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DriversApi()
+api_instance = samsara.DriversApi()
 is_deactivated = True # bool | If value is true, only drivers that are deactivated will appear in the response. This parameter will default to false if not provided (fetching only active drivers). (optional)
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
@@ -193,14 +193,14 @@ Update a specific driver's information. This can also be used to activate or de-
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DriversApi()
+api_instance = samsara.DriversApi()
 id = 'id_example' # str | ID of the driver. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
-driver = openapi_client.DriverUpdate() # DriverUpdate | Updates to the driver properties. (optional)
+driver = samsara.DriverUpdate() # DriverUpdate | Updates to the driver properties. (optional)
 
 try:
     # Update a driver

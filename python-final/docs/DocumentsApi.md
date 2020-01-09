@@ -1,4 +1,4 @@
-# openapi_client.DocumentsApi
+# samsara.DocumentsApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -22,14 +22,14 @@ Create a document
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DocumentsApi()
+api_instance = samsara.DocumentsApi()
 driver_id = 56 # int | ID of the driver for whom the document is created. Must contain only digits 0-9.
-create_document_params = openapi_client.V1DocumentCreate() # V1DocumentCreate | To create a document for a given document type, the document type's uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type’s list of field types in the correct order. In other words, a field's valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type’s valueType at index _i_.
+create_document_params = samsara.V1DocumentCreate() # V1DocumentCreate | To create a document for a given document type, the document type's uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type’s list of field types in the correct order. In other words, a field's valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type’s valueType at index _i_.
 
 try:
     # Create a document
@@ -79,12 +79,12 @@ Fetches a document
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DocumentsApi()
+api_instance = samsara.DocumentsApi()
 driver_id = 56 # int | ID of the driver who submitted the document. Must contain only digits 0-9.
 document_id = 'document_id_example' # str | ID of document.
 
@@ -136,12 +136,12 @@ Fetch document types
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DocumentsApi()
+api_instance = samsara.DocumentsApi()
 
 try:
     # Fetch document types
@@ -187,12 +187,12 @@ Fetch all documents
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.DocumentsApi()
+api_instance = samsara.DocumentsApi()
 end_ms = 56 # int | Time in unix milliseconds that represents the oldest documents to return. Used in combination with durationMs. Defaults to now. (optional)
 duration_ms = 56 # int | Time in milliseconds that represents the duration before endMs to query. Defaults to 24 hours. (optional)
 query_by = 'query_by_example' # str | Retrieve most recent documents based on either driverCreatedAtMs or serverUpdatedAtMs. If no value is provided, the default is driverCreatedAtMs. (optional)

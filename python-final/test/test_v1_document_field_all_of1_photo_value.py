@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_document_field_all_of1_photo_value import V1DocumentFieldAllOf1PhotoValue  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_document_field_all_of1_photo_value import V1DocumentFieldAllOf1PhotoValue  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1DocumentFieldAllOf1PhotoValue(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1DocumentFieldAllOf1PhotoValue(unittest.TestCase):
     def testV1DocumentFieldAllOf1PhotoValue(self):
         """Test V1DocumentFieldAllOf1PhotoValue"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_document_field_all_of1_photo_value.V1DocumentFieldAllOf1PhotoValue()  # noqa: E501
+        # model = samsara.models.v1_document_field_all_of1_photo_value.V1DocumentFieldAllOf1PhotoValue()  # noqa: E501
         pass
 
 

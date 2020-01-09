@@ -1,4 +1,4 @@
-# openapi_client.ContactsApi
+# samsara.ContactsApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -23,13 +23,13 @@ Add a contact to the organization
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
-contact = openapi_client.ContactInput() # ContactInput | Add a contact.
+api_instance = samsara.ContactsApi()
+contact = samsara.ContactInput() # ContactInput | Add a contact.
 
 try:
     # Create a contact
@@ -78,12 +78,12 @@ Delete the given contact.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
+api_instance = samsara.ContactsApi()
 id = 'id_example' # str | Unique identifier for the contact.
 
 try:
@@ -132,12 +132,12 @@ Get a specific contact's information.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
+api_instance = samsara.ContactsApi()
 id = 'id_example' # str | Unique identifier for the contact.
 
 try:
@@ -187,12 +187,12 @@ Returns a list of all contacts in an organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
+api_instance = samsara.ContactsApi()
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
@@ -244,14 +244,14 @@ Update a specific contact's information.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.ContactsApi()
+api_instance = samsara.ContactsApi()
 id = 'id_example' # str | Unique identifier for the contact.
-contact = openapi_client.ContactInput() # ContactInput | Updates to the contact. (optional)
+contact = samsara.ContactInput() # ContactInput | Updates to the contact. (optional)
 
 try:
     # Update a contact

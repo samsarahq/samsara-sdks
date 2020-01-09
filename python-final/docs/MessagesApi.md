@@ -1,4 +1,4 @@
-# openapi_client.MessagesApi
+# samsara.MessagesApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -20,13 +20,13 @@ Send a message to a list of driver ids.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.MessagesApi()
-create_messages = openapi_client.InlineObject3() # InlineObject3 | 
+api_instance = samsara.MessagesApi()
+create_messages = samsara.InlineObject3() # InlineObject3 | 
 
 try:
     # Send a message to a list of driver ids.
@@ -75,12 +75,12 @@ Get all messages.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.MessagesApi()
+api_instance = samsara.MessagesApi()
 end_ms = 56 # int | Time in unix milliseconds that represents the end of time range of messages to return. Used in combination with durationMs. Defaults to now. (optional)
 duration_ms = 56 # int | Time in milliseconds that represents the duration before endMs to query. Defaults to 24 hours. (optional)
 

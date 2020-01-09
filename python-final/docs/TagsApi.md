@@ -1,4 +1,4 @@
-# openapi_client.TagsApi
+# samsara.TagsApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -23,13 +23,13 @@ Create a new tag for the organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.TagsApi()
-tag_create_body_ = openapi_client.TagUpdate() # TagUpdate |  (optional)
+api_instance = samsara.TagsApi()
+tag_create_body_ = samsara.TagUpdate() # TagUpdate |  (optional)
 
 try:
     # Create a tag
@@ -78,12 +78,12 @@ Permanently deletes a tag.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.TagsApi()
+api_instance = samsara.TagsApi()
 id = 'id_example' # str | Unique identifier for the tag.
 
 try:
@@ -132,12 +132,12 @@ Return all of the tags for an organization.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.TagsApi()
+api_instance = samsara.TagsApi()
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
@@ -189,12 +189,12 @@ Fetch a tag by id.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.TagsApi()
+api_instance = samsara.TagsApi()
 id = 'id_example' # str | Unique identifier for the tag.
 
 try:
@@ -244,14 +244,14 @@ Update a tag with a new name and new members. This API call would replace all ol
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.TagsApi()
+api_instance = samsara.TagsApi()
 id = 'id_example' # str | Unique identifier for the tag.
-tag_update_body_ = openapi_client.TagUpdate() # TagUpdate |  (optional)
+tag_update_body_ = samsara.TagUpdate() # TagUpdate |  (optional)
 
 try:
     # Update a tag

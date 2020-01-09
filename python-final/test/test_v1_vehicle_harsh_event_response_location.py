@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_vehicle_harsh_event_response_location import V1VehicleHarshEventResponseLocation  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_vehicle_harsh_event_response_location import V1VehicleHarshEventResponseLocation  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1VehicleHarshEventResponseLocation(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1VehicleHarshEventResponseLocation(unittest.TestCase):
     def testV1VehicleHarshEventResponseLocation(self):
         """Test V1VehicleHarshEventResponseLocation"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_vehicle_harsh_event_response_location.V1VehicleHarshEventResponseLocation()  # noqa: E501
+        # model = samsara.models.v1_vehicle_harsh_event_response_location.V1VehicleHarshEventResponseLocation()  # noqa: E501
         pass
 
 

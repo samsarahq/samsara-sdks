@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_vision_run_by_camera_response import V1VisionRunByCameraResponse  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_vision_run_by_camera_response import V1VisionRunByCameraResponse  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1VisionRunByCameraResponse(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1VisionRunByCameraResponse(unittest.TestCase):
     def testV1VisionRunByCameraResponse(self):
         """Test V1VisionRunByCameraResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_vision_run_by_camera_response.V1VisionRunByCameraResponse()  # noqa: E501
+        # model = samsara.models.v1_vision_run_by_camera_response.V1VisionRunByCameraResponse()  # noqa: E501
         pass
 
 

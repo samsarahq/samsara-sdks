@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_vehicle_maintenance_passenger_diagnostic_trouble_codes import V1VehicleMaintenancePassengerDiagnosticTroubleCodes  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_vehicle_maintenance_passenger_diagnostic_trouble_codes import V1VehicleMaintenancePassengerDiagnosticTroubleCodes  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1VehicleMaintenancePassengerDiagnosticTroubleCodes(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1VehicleMaintenancePassengerDiagnosticTroubleCodes(unittest.TestCase)
     def testV1VehicleMaintenancePassengerDiagnosticTroubleCodes(self):
         """Test V1VehicleMaintenancePassengerDiagnosticTroubleCodes"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_vehicle_maintenance_passenger_diagnostic_trouble_codes.V1VehicleMaintenancePassengerDiagnosticTroubleCodes()  # noqa: E501
+        # model = samsara.models.v1_vehicle_maintenance_passenger_diagnostic_trouble_codes.V1VehicleMaintenancePassengerDiagnosticTroubleCodes()  # noqa: E501
         pass
 
 

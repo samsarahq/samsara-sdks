@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.address_all_of_tags import AddressAllOfTags  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.address_all_of_tags import AddressAllOfTags  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestAddressAllOfTags(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestAddressAllOfTags(unittest.TestCase):
     def testAddressAllOfTags(self):
         """Test AddressAllOfTags"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.address_all_of_tags.AddressAllOfTags()  # noqa: E501
+        # model = samsara.models.address_all_of_tags.AddressAllOfTags()  # noqa: E501
         pass
 
 

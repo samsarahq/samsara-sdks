@@ -1,4 +1,4 @@
-# openapi_client.SafetyApi
+# samsara.SafetyApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -21,12 +21,12 @@ Fetch driver safety score
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SafetyApi()
+api_instance = samsara.SafetyApi()
 driver_id = 56 # int | ID of the driver. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
 end_ms = 56 # int | Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
@@ -80,12 +80,12 @@ Fetch harsh events
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SafetyApi()
+api_instance = samsara.SafetyApi()
 vehicle_id = 56 # int | ID of the vehicle. Must contain only digits 0-9.
 timestamp = 56 # int | Timestamp in milliseconds representing the timestamp of a harsh event.
 
@@ -137,12 +137,12 @@ Fetch vehicle safety scores
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.SafetyApi()
+api_instance = samsara.SafetyApi()
 vehicle_id = 56 # int | ID of the vehicle. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
 end_ms = 56 # int | Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.

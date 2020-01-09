@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.remote_obd_test_records import RemoteObdTestRecords  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.remote_obd_test_records import RemoteObdTestRecords  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestRemoteObdTestRecords(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestRemoteObdTestRecords(unittest.TestCase):
     def testRemoteObdTestRecords(self):
         """Test RemoteObdTestRecords"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.remote_obd_test_records.RemoteObdTestRecords()  # noqa: E501
+        # model = samsara.models.remote_obd_test_records.RemoteObdTestRecords()  # noqa: E501
         pass
 
 

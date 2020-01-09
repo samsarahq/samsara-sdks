@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.user_create_roles import UserCreateRoles  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.user_create_roles import UserCreateRoles  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestUserCreateRoles(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestUserCreateRoles(unittest.TestCase):
     def testUserCreateRoles(self):
         """Test UserCreateRoles"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.user_create_roles.UserCreateRoles()  # noqa: E501
+        # model = samsara.models.user_create_roles.UserCreateRoles()  # noqa: E501
         pass
 
 

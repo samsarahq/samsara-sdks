@@ -1,4 +1,4 @@
-# openapi_client.AddressesApi
+# samsara.AddressesApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -23,13 +23,13 @@ Creates a new address in the organization
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.AddressesApi()
-address = openapi_client.AddressCreate() # AddressCreate | The address to create. (optional)
+api_instance = samsara.AddressesApi()
+address = samsara.AddressCreate() # AddressCreate | The address to create. (optional)
 
 try:
     # Create an address
@@ -78,12 +78,12 @@ Delete a specific address.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.AddressesApi()
+api_instance = samsara.AddressesApi()
 id = 'id_example' # str | Unique Samsara ID for the address
 
 try:
@@ -132,12 +132,12 @@ Returns a specific address.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.AddressesApi()
+api_instance = samsara.AddressesApi()
 id = 'id_example' # str | Unique Samsara ID for the address
 
 try:
@@ -187,12 +187,12 @@ Returns a list of all addresses in an organization
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.AddressesApi()
+api_instance = samsara.AddressesApi()
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -246,14 +246,14 @@ Update a specific address.
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.AddressesApi()
+api_instance = samsara.AddressesApi()
 id = 'id_example' # str | Unique Samsara ID for the address
-address = openapi_client.AddressPatch() # AddressPatch | The address fields to update. (optional)
+address = samsara.AddressPatch() # AddressPatch | The address fields to update. (optional)
 
 try:
     # Update an address

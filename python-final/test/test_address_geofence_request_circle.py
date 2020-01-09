@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.address_geofence_request_circle import AddressGeofenceRequestCircle  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.address_geofence_request_circle import AddressGeofenceRequestCircle  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestAddressGeofenceRequestCircle(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestAddressGeofenceRequestCircle(unittest.TestCase):
     def testAddressGeofenceRequestCircle(self):
         """Test AddressGeofenceRequestCircle"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.address_geofence_request_circle.AddressGeofenceRequestCircle()  # noqa: E501
+        # model = samsara.models.address_geofence_request_circle.AddressGeofenceRequestCircle()  # noqa: E501
         pass
 
 

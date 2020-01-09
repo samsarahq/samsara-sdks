@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_vision_run_by_camera_response_find_copies import V1VisionRunByCameraResponseFindCopies  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_vision_run_by_camera_response_find_copies import V1VisionRunByCameraResponseFindCopies  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1VisionRunByCameraResponseFindCopies(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1VisionRunByCameraResponseFindCopies(unittest.TestCase):
     def testV1VisionRunByCameraResponseFindCopies(self):
         """Test V1VisionRunByCameraResponseFindCopies"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_vision_run_by_camera_response_find_copies.V1VisionRunByCameraResponseFindCopies()  # noqa: E501
+        # model = samsara.models.v1_vision_run_by_camera_response_find_copies.V1VisionRunByCameraResponseFindCopies()  # noqa: E501
         pass
 
 

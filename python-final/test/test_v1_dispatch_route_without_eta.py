@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_dispatch_route_without_eta import V1DispatchRouteWithoutETA  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_dispatch_route_without_eta import V1DispatchRouteWithoutETA  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1DispatchRouteWithoutETA(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1DispatchRouteWithoutETA(unittest.TestCase):
     def testV1DispatchRouteWithoutETA(self):
         """Test V1DispatchRouteWithoutETA"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_dispatch_route_without_eta.V1DispatchRouteWithoutETA()  # noqa: E501
+        # model = samsara.models.v1_dispatch_route_without_eta.V1DispatchRouteWithoutETA()  # noqa: E501
         pass
 
 

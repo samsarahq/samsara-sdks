@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.vehicle_gps_odometer_meters_wrapper import VehicleGpsOdometerMetersWrapper  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.vehicle_gps_odometer_meters_wrapper import VehicleGpsOdometerMetersWrapper  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestVehicleGpsOdometerMetersWrapper(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestVehicleGpsOdometerMetersWrapper(unittest.TestCase):
     def testVehicleGpsOdometerMetersWrapper(self):
         """Test VehicleGpsOdometerMetersWrapper"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.vehicle_gps_odometer_meters_wrapper.VehicleGpsOdometerMetersWrapper()  # noqa: E501
+        # model = samsara.models.vehicle_gps_odometer_meters_wrapper.VehicleGpsOdometerMetersWrapper()  # noqa: E501
         pass
 
 

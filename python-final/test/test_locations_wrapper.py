@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.locations_wrapper import LocationsWrapper  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.locations_wrapper import LocationsWrapper  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestLocationsWrapper(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestLocationsWrapper(unittest.TestCase):
     def testLocationsWrapper(self):
         """Test LocationsWrapper"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.locations_wrapper.LocationsWrapper()  # noqa: E501
+        # model = samsara.models.locations_wrapper.LocationsWrapper()  # noqa: E501
         pass
 
 

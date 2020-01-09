@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.vehicle_obd_odometer_meters_wrapper_obd_odometer_meters import VehicleObdOdometerMetersWrapperObdOdometerMeters  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.vehicle_obd_odometer_meters_wrapper_obd_odometer_meters import VehicleObdOdometerMetersWrapperObdOdometerMeters  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestVehicleObdOdometerMetersWrapperObdOdometerMeters(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestVehicleObdOdometerMetersWrapperObdOdometerMeters(unittest.TestCase):
     def testVehicleObdOdometerMetersWrapperObdOdometerMeters(self):
         """Test VehicleObdOdometerMetersWrapperObdOdometerMeters"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.vehicle_obd_odometer_meters_wrapper_obd_odometer_meters.VehicleObdOdometerMetersWrapperObdOdometerMeters()  # noqa: E501
+        # model = samsara.models.vehicle_obd_odometer_meters_wrapper_obd_odometer_meters.VehicleObdOdometerMetersWrapperObdOdometerMeters()  # noqa: E501
         pass
 
 

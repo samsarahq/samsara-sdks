@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.v1_driver_daily_log_response import V1DriverDailyLogResponse  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.v1_driver_daily_log_response import V1DriverDailyLogResponse  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestV1DriverDailyLogResponse(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestV1DriverDailyLogResponse(unittest.TestCase):
     def testV1DriverDailyLogResponse(self):
         """Test V1DriverDailyLogResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.v1_driver_daily_log_response.V1DriverDailyLogResponse()  # noqa: E501
+        # model = samsara.models.v1_driver_daily_log_response.V1DriverDailyLogResponse()  # noqa: E501
         pass
 
 

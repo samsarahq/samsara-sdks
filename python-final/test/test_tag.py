@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.tag import Tag  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.tag import Tag  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestTag(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestTag(unittest.TestCase):
     def testTag(self):
         """Test Tag"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.tag.Tag()  # noqa: E501
+        # model = samsara.models.tag.Tag()  # noqa: E501
         pass
 
 

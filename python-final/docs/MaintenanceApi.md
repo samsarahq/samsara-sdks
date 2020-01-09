@@ -1,4 +1,4 @@
-# openapi_client.MaintenanceApi
+# samsara.MaintenanceApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -21,13 +21,13 @@ Create a DVIR
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.MaintenanceApi()
-create_dvir_param = openapi_client.InlineObject2() # InlineObject2 | 
+api_instance = samsara.MaintenanceApi()
+create_dvir_param = samsara.InlineObject2() # InlineObject2 | 
 
 try:
     # Create a DVIR
@@ -76,12 +76,12 @@ Get DVIRs
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.MaintenanceApi()
+api_instance = samsara.MaintenanceApi()
 end_ms = 56 # int | Time in millis until the last dvir log.
 duration_ms = 56 # int | Time in millis which corresponds to the duration before the end_ms.
 
@@ -133,12 +133,12 @@ Get vehicles with engine faults or check lights
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.MaintenanceApi()
+api_instance = samsara.MaintenanceApi()
 
 try:
     # Get vehicles with engine faults or check lights

@@ -1,4 +1,4 @@
-# openapi_client.HoursOfServiceApi
+# samsara.HoursOfServiceApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -22,14 +22,14 @@ Get daily HOS logs for a specific driver
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.HoursOfServiceApi()
+api_instance = samsara.HoursOfServiceApi()
 driver_id = 56 # int | ID of the driver with HOS logs.
-hos_logs_param = openapi_client.InlineObject() # InlineObject |  (optional)
+hos_logs_param = samsara.InlineObject() # InlineObject |  (optional)
 
 try:
     # Get daily HOS logs for a specific driver
@@ -79,12 +79,12 @@ Get HOS signin and signout
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.HoursOfServiceApi()
+api_instance = samsara.HoursOfServiceApi()
 driver_id = 56 # int | Driver ID to query.
 start_ms = 56 # int | Beginning of the time range, specified in milliseconds UNIX time.
 end_ms = 56 # int | End of the time range, specified in milliseconds UNIX time.
@@ -138,13 +138,13 @@ Get HOS logs for a specific driver
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.HoursOfServiceApi()
-hos_logs_param = openapi_client.InlineObject1() # InlineObject1 | 
+api_instance = samsara.HoursOfServiceApi()
+hos_logs_param = samsara.InlineObject1() # InlineObject1 | 
 
 try:
     # Get HOS logs for a specific driver
@@ -193,12 +193,12 @@ Get current HOS status for all drivers
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.HoursOfServiceApi()
+api_instance = samsara.HoursOfServiceApi()
 after = 'after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. (optional)
 limit = 3.4 # float | Pagination parameter indicating the number of results to return in this request. Used in conjunction with 'after'. (optional)
 

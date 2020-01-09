@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.vehicle_engine_states_wrapper import VehicleEngineStatesWrapper  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.vehicle_engine_states_wrapper import VehicleEngineStatesWrapper  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestVehicleEngineStatesWrapper(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestVehicleEngineStatesWrapper(unittest.TestCase):
     def testVehicleEngineStatesWrapper(self):
         """Test VehicleEngineStatesWrapper"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.vehicle_engine_states_wrapper.VehicleEngineStatesWrapper()  # noqa: E501
+        # model = samsara.models.vehicle_engine_states_wrapper.VehicleEngineStatesWrapper()  # noqa: E501
         pass
 
 

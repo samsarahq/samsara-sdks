@@ -1,4 +1,4 @@
-# openapi_client.IndustrialApi
+# samsara.IndustrialApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -28,12 +28,12 @@ Fetch runs by camera
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 duration_ms = 56 # int | DurationMs is a required param. This works with the EndMs parameter. Indicates the duration in which the visionRuns will be fetched
 end_ms = 56 # int | EndMs is an optional param. It will default to the current time. (optional)
@@ -87,12 +87,12 @@ Get industrial data
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 start_ms = 56 # int | Timestamp in unix milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. defaults to nowMs. (optional)
 end_ms = 56 # int | Timestamp in unix milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Defaults to nowMs. (optional)
 
@@ -144,12 +144,12 @@ Fetch industrial cameras
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 
 try:
     # Fetch industrial cameras
@@ -195,12 +195,12 @@ Get industrial data from a specific device
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 data_input_id = 56 # int | ID of the data input. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in unix milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. defaults to nowMs. (optional)
 end_ms = 56 # int | Timestamp in unix milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Defaults to nowMs. (optional)
@@ -254,12 +254,12 @@ Get machines
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 
 try:
     # Get machines
@@ -305,13 +305,13 @@ Get machine history
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
-history_param = openapi_client.InlineObject4() # InlineObject4 | 
+api_instance = samsara.IndustrialApi()
+history_param = samsara.InlineObject4() # InlineObject4 | 
 
 try:
     # Get machine history
@@ -360,12 +360,12 @@ Fetch the latest run for a camera or program by default. If startedAtMs is suppl
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 program_id = 56 # int | The configured program's ID on the camera. (optional)
 started_at_ms = 56 # int | EndMs is an optional param. It will default to the current time. (optional)
@@ -423,12 +423,12 @@ Fetch industrial camera programs
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 
 try:
@@ -478,12 +478,12 @@ Fetch runs
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 duration_ms = 56 # int | DurationMs is a required param. This works with the EndMs parameter. Indicates the duration in which the visionRuns will be fetched
 end_ms = 56 # int | EndMs is an optional param. It will default to the current time. (optional)
 
@@ -535,12 +535,12 @@ Fetch runs by camera and program
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.IndustrialApi()
+api_instance = samsara.IndustrialApi()
 camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 program_id = 56 # int | The configured program's ID on the camera.
 started_at_ms = 56 # int | Started_at_ms is a required param. Indicates the start time of the run to be fetched.

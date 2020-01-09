@@ -1,4 +1,4 @@
-# openapi_client.RoutesApi
+# samsara.RoutesApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -25,13 +25,13 @@ Create a new route
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.RoutesApi()
-create_dispatch_route_params = openapi_client.V1DispatchRouteCreate() # V1DispatchRouteCreate | 
+api_instance = samsara.RoutesApi()
+create_dispatch_route_params = samsara.V1DispatchRouteCreate() # V1DispatchRouteCreate | 
 
 try:
     # Create a new route
@@ -80,12 +80,12 @@ Delete a route
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.RoutesApi()
+api_instance = samsara.RoutesApi()
 route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
 
 try:
@@ -134,12 +134,12 @@ Get all routes
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.RoutesApi()
+api_instance = samsara.RoutesApi()
 end_time = 56 # int | Time in unix milliseconds that represents the end time of the requested time interval. See above for a description of how routes are returned. Defaults to now. (optional)
 duration = 56 # int | Time in milliseconds that represents the duration before end_time to query. Defaults to 24 hours. (optional)
 
@@ -191,12 +191,12 @@ Get route updates
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.RoutesApi()
+api_instance = samsara.RoutesApi()
 sequence_id = 'sequence_id_example' # str | Sequence ID from the response payload of the last request. Defaults to fetching updates from last 24 hours. (optional)
 include = 'include_example' # str | Optionally set include=route to include route object in response payload. (optional)
 
@@ -248,12 +248,12 @@ Get a route
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.RoutesApi()
+api_instance = samsara.RoutesApi()
 route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
 
 try:
@@ -303,12 +303,12 @@ Get route history
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.RoutesApi()
+api_instance = samsara.RoutesApi()
 route_id = 56 # int | ID of the route with history. Must contain only digits 0-9.
 start_time = 56 # int | Timestamp representing the start of the period to fetch, inclusive. Used in combination with end_time. Defaults to 0. (optional)
 end_time = 56 # int | Timestamp representing the end of the period to fetch, inclusive. Used in combination with start_time. Defaults to nowMs. (optional)
@@ -362,14 +362,14 @@ Update a route
 ```python
 from __future__ import print_function
 import time
-import openapi_client
-from openapi_client.rest import ApiException
+import samsara
+from samsara.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = openapi_client.RoutesApi()
+api_instance = samsara.RoutesApi()
 route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
-update_dispatch_route_params = openapi_client.V1DispatchRouteUpdate() # V1DispatchRouteUpdate | 
+update_dispatch_route_params = samsara.V1DispatchRouteUpdate() # V1DispatchRouteUpdate | 
 
 try:
     # Update a route

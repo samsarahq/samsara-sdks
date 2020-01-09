@@ -14,16 +14,16 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.api.hours_of_service_api import HoursOfServiceApi  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.api.hours_of_service_api import HoursOfServiceApi  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestHoursOfServiceApi(unittest.TestCase):
     """HoursOfServiceApi unit test stubs"""
 
     def setUp(self):
-        self.api = openapi_client.api.hours_of_service_api.HoursOfServiceApi()  # noqa: E501
+        self.api = samsara.api.hours_of_service_api.HoursOfServiceApi()  # noqa: E501
 
     def tearDown(self):
         pass

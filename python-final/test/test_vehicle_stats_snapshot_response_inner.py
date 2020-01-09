@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import openapi_client
-from openapi_client.models.vehicle_stats_snapshot_response_inner import VehicleStatsSnapshotResponseInner  # noqa: E501
-from openapi_client.rest import ApiException
+import samsara
+from samsara.models.vehicle_stats_snapshot_response_inner import VehicleStatsSnapshotResponseInner  # noqa: E501
+from samsara.rest import ApiException
 
 
 class TestVehicleStatsSnapshotResponseInner(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestVehicleStatsSnapshotResponseInner(unittest.TestCase):
     def testVehicleStatsSnapshotResponseInner(self):
         """Test VehicleStatsSnapshotResponseInner"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = openapi_client.models.vehicle_stats_snapshot_response_inner.VehicleStatsSnapshotResponseInner()  # noqa: E501
+        # model = samsara.models.vehicle_stats_snapshot_response_inner.VehicleStatsSnapshotResponseInner()  # noqa: E501
         pass
 
 
