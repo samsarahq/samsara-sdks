@@ -15,24 +15,23 @@ from __future__ import absolute_import
 import unittest
 
 import samsara
-from samsara.api.addresses_api import AddressesApi  # noqa: E501
+from samsara.models.default_error import DefaultError  # noqa: E501
 from samsara.rest import ApiException
 
 
-class TestAddressesApi(unittest.TestCase):
-    """AddressesApi unit test stubs"""
+class TestDefaultError(unittest.TestCase):
+    """DefaultError unit test stubs"""
 
     def setUp(self):
-        self.api = samsara.api.addresses_api.AddressesApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_list_addresses(self):
-        """Test case for list_addresses
-
-        List all addresses  # noqa: E501
-        """
+    def testDefaultError(self):
+        """Test DefaultError"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = samsara.models.default_error.DefaultError()  # noqa: E501
         pass
 
 

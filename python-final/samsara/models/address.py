@@ -33,73 +33,74 @@ class Address(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'geofence': 'object',
         'address_types': 'list[str]',
+        'contacts': 'list[ContactTinyObject]',
+        'external_ids': 'dict(str, str)',
         'formatted_address': 'str',
+        'geofence': 'AddressGeofence',
+        'id': 'str',
+        'latitude': 'float',
+        'longitude': 'float',
         'name': 'str',
-        'notes': 'str'
+        'notes': 'str',
+        'tags': 'list[TagTinyObject]'
     }
 
     attribute_map = {
-        'geofence': 'geofence',
         'address_types': 'addressTypes',
+        'contacts': 'contacts',
+        'external_ids': 'externalIds',
         'formatted_address': 'formattedAddress',
+        'geofence': 'geofence',
+        'id': 'id',
+        'latitude': 'latitude',
+        'longitude': 'longitude',
         'name': 'name',
-        'notes': 'notes'
+        'notes': 'notes',
+        'tags': 'tags'
     }
 
-    def __init__(self, geofence=None, address_types=None, formatted_address=None, name=None, notes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, address_types=None, contacts=None, external_ids=None, formatted_address=None, geofence=None, id=None, latitude=None, longitude=None, name=None, notes=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """Address - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._geofence = None
         self._address_types = None
+        self._contacts = None
+        self._external_ids = None
         self._formatted_address = None
+        self._geofence = None
+        self._id = None
+        self._latitude = None
+        self._longitude = None
         self._name = None
         self._notes = None
+        self._tags = None
         self.discriminator = None
 
-        if geofence is not None:
-            self.geofence = geofence
         if address_types is not None:
             self.address_types = address_types
-        if formatted_address is not None:
-            self.formatted_address = formatted_address
-        if name is not None:
-            self.name = name
+        if contacts is not None:
+            self.contacts = contacts
+        if external_ids is not None:
+            self.external_ids = external_ids
+        self.formatted_address = formatted_address
+        self.geofence = geofence
+        self.id = id
+        self.latitude = latitude
+        self.longitude = longitude
+        self.name = name
         if notes is not None:
             self.notes = notes
-
-    @property
-    def geofence(self):
-        """Gets the geofence of this Address.  # noqa: E501
-
-        The geofence that defines this address and its bounds. This can either be a circle, or a polygon  # noqa: E501
-
-        :return: The geofence of this Address.  # noqa: E501
-        :rtype: object
-        """
-        return self._geofence
-
-    @geofence.setter
-    def geofence(self, geofence):
-        """Sets the geofence of this Address.
-
-        The geofence that defines this address and its bounds. This can either be a circle, or a polygon  # noqa: E501
-
-        :param geofence: The geofence of this Address.  # noqa: E501
-        :type: object
-        """
-
-        self._geofence = geofence
+        if tags is not None:
+            self.tags = tags
 
     @property
     def address_types(self):
         """Gets the address_types of this Address.  # noqa: E501
 
-        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
+        Types associated with this address for ELD reporting purposes.  # noqa: E501
 
         :return: The address_types of this Address.  # noqa: E501
         :rtype: list[str]
@@ -110,7 +111,7 @@ class Address(object):
     def address_types(self, address_types):
         """Sets the address_types of this Address.
 
-        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
+        Types associated with this address for ELD reporting purposes.  # noqa: E501
 
         :param address_types: The address_types of this Address.  # noqa: E501
         :type: list[str]
@@ -127,10 +128,56 @@ class Address(object):
         self._address_types = address_types
 
     @property
+    def contacts(self):
+        """Gets the contacts of this Address.  # noqa: E501
+
+        List of contacts associated with this address.  # noqa: E501
+
+        :return: The contacts of this Address.  # noqa: E501
+        :rtype: list[ContactTinyObject]
+        """
+        return self._contacts
+
+    @contacts.setter
+    def contacts(self, contacts):
+        """Sets the contacts of this Address.
+
+        List of contacts associated with this address.  # noqa: E501
+
+        :param contacts: The contacts of this Address.  # noqa: E501
+        :type: list[ContactTinyObject]
+        """
+
+        self._contacts = contacts
+
+    @property
+    def external_ids(self):
+        """Gets the external_ids of this Address.  # noqa: E501
+
+        User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and **must be alphanumeric** (`_`'s, `-`', etc. are not allowed). Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.  # noqa: E501
+
+        :return: The external_ids of this Address.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._external_ids
+
+    @external_ids.setter
+    def external_ids(self, external_ids):
+        """Sets the external_ids of this Address.
+
+        User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and **must be alphanumeric** (`_`'s, `-`', etc. are not allowed). Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.  # noqa: E501
+
+        :param external_ids: The external_ids of this Address.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._external_ids = external_ids
+
+    @property
     def formatted_address(self):
         """Gets the formatted_address of this Address.  # noqa: E501
 
-        The full street address for this address/geofence, as it might be recognized by Google Maps.  # noqa: E501
+        Street address of this address.  # noqa: E501
 
         :return: The formatted_address of this Address.  # noqa: E501
         :rtype: str
@@ -141,16 +188,116 @@ class Address(object):
     def formatted_address(self, formatted_address):
         """Sets the formatted_address of this Address.
 
-        The full street address for this address/geofence, as it might be recognized by Google Maps.  # noqa: E501
+        Street address of this address.  # noqa: E501
 
         :param formatted_address: The formatted_address of this Address.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and formatted_address is None:  # noqa: E501
+            raise ValueError("Invalid value for `formatted_address`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 formatted_address is not None and len(formatted_address) > 1024):
             raise ValueError("Invalid value for `formatted_address`, length must be less than or equal to `1024`")  # noqa: E501
 
         self._formatted_address = formatted_address
+
+    @property
+    def geofence(self):
+        """Gets the geofence of this Address.  # noqa: E501
+
+
+        :return: The geofence of this Address.  # noqa: E501
+        :rtype: AddressGeofence
+        """
+        return self._geofence
+
+    @geofence.setter
+    def geofence(self, geofence):
+        """Sets the geofence of this Address.
+
+
+        :param geofence: The geofence of this Address.  # noqa: E501
+        :type: AddressGeofence
+        """
+        if self.local_vars_configuration.client_side_validation and geofence is None:  # noqa: E501
+            raise ValueError("Invalid value for `geofence`, must not be `None`")  # noqa: E501
+
+        self._geofence = geofence
+
+    @property
+    def id(self):
+        """Gets the id of this Address.  # noqa: E501
+
+        Unique identifier for the address.  # noqa: E501
+
+        :return: The id of this Address.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Address.
+
+        Unique identifier for the address.  # noqa: E501
+
+        :param id: The id of this Address.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
+    def latitude(self):
+        """Gets the latitude of this Address.  # noqa: E501
+
+        Latitude of the address. Either geocoded from the `formattedAddress` or defined on address creation.  # noqa: E501
+
+        :return: The latitude of this Address.  # noqa: E501
+        :rtype: float
+        """
+        return self._latitude
+
+    @latitude.setter
+    def latitude(self, latitude):
+        """Sets the latitude of this Address.
+
+        Latitude of the address. Either geocoded from the `formattedAddress` or defined on address creation.  # noqa: E501
+
+        :param latitude: The latitude of this Address.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and latitude is None:  # noqa: E501
+            raise ValueError("Invalid value for `latitude`, must not be `None`")  # noqa: E501
+
+        self._latitude = latitude
+
+    @property
+    def longitude(self):
+        """Gets the longitude of this Address.  # noqa: E501
+
+        Longitude of the address. Either geocoded from the `formattedAddress` or defined on address creation.  # noqa: E501
+
+        :return: The longitude of this Address.  # noqa: E501
+        :rtype: float
+        """
+        return self._longitude
+
+    @longitude.setter
+    def longitude(self, longitude):
+        """Sets the longitude of this Address.
+
+        Longitude of the address. Either geocoded from the `formattedAddress` or defined on address creation.  # noqa: E501
+
+        :param longitude: The longitude of this Address.  # noqa: E501
+        :type: float
+        """
+        if self.local_vars_configuration.client_side_validation and longitude is None:  # noqa: E501
+            raise ValueError("Invalid value for `longitude`, must not be `None`")  # noqa: E501
+
+        self._longitude = longitude
 
     @property
     def name(self):
@@ -172,6 +319,8 @@ class Address(object):
         :param name: The name of this Address.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 255):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `255`")  # noqa: E501
@@ -203,6 +352,29 @@ class Address(object):
             raise ValueError("Invalid value for `notes`, length must be less than or equal to `280`")  # noqa: E501
 
         self._notes = notes
+
+    @property
+    def tags(self):
+        """Gets the tags of this Address.  # noqa: E501
+
+        List of tags this address is associated with.  # noqa: E501
+
+        :return: The tags of this Address.  # noqa: E501
+        :rtype: list[TagTinyObject]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this Address.
+
+        List of tags this address is associated with.  # noqa: E501
+
+        :param tags: The tags of this Address.  # noqa: E501
+        :type: list[TagTinyObject]
+        """
+
+        self._tags = tags
 
     def to_dict(self):
         """Returns the model properties as a dict"""

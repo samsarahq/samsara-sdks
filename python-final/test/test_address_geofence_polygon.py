@@ -15,24 +15,23 @@ from __future__ import absolute_import
 import unittest
 
 import samsara
-from samsara.api.addresses_api import AddressesApi  # noqa: E501
+from samsara.models.address_geofence_polygon import AddressGeofencePolygon  # noqa: E501
 from samsara.rest import ApiException
 
 
-class TestAddressesApi(unittest.TestCase):
-    """AddressesApi unit test stubs"""
+class TestAddressGeofencePolygon(unittest.TestCase):
+    """AddressGeofencePolygon unit test stubs"""
 
     def setUp(self):
-        self.api = samsara.api.addresses_api.AddressesApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_list_addresses(self):
-        """Test case for list_addresses
-
-        List all addresses  # noqa: E501
-        """
+    def testAddressGeofencePolygon(self):
+        """Test AddressGeofencePolygon"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = samsara.models.address_geofence_polygon.AddressGeofencePolygon()  # noqa: E501
         pass
 
 

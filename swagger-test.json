@@ -10,51 +10,34 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "test swagger",
+    "description": "Integrate your data with the Samsara API, customize the Samsara experience, and join a community of developers building with Samsara.",
     "title": "Samsara API",
-    "version": "0.1.0"
+    "version": "2019-11-19"
   },
   "host": "api.samsara.com",
   "paths": {
     "/addresses": {
       "get": {
-        "description": "Returns a list of all addresses in an organization",
         "tags": [
           "Addresses"
         ],
         "summary": "List all addresses",
-        "operationId": "getAddresses",
+        "description": "Returns a list of all addresses in the organization's Address Book.",
+        "operationId": "listAddresses",
         "parameters": [
           {
-            "maximum": 512,
-            "minimum": 1,
-            "type": "integer",
-            "format": "int64",
-            "default": 512,
-            "description": "The limit for how many objects will be in the response. Default and max for this value is 512 objects.",
-            "name": "limit",
-            "in": "query"
+            "$ref": "#/parameters/limit"
           },
           {
-            "type": "string",
-            "description": "If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results.",
-            "name": "after",
-            "in": "query"
+            "$ref": "#/parameters/after"
           },
           {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "csv",
-            "description": "A comma-separated list of tag IDs. Example: `tagIds=1234,5678`",
-            "name": "tagIds",
-            "in": "query"
+            "$ref": "#/parameters/tagIds"
           }
         ],
         "responses": {
           "200": {
-            "description": "List of all addresses in the organization",
+            "description": "List of all addresses in the organization's Address Book.",
             "schema": {
               "properties": {
                 "data": {
@@ -70,475 +53,161 @@
             }
           },
           "default": {
-            "description": "Error response",
+            "description": "Error response.",
             "schema": {
-              "$ref": "#/definitions/standardErrorResponse"
-            }
-          }
-        }
-      },
-      "post": {
-        "description": "Creates a new address in the organization",
-        "tags": [
-          "Addresses"
-        ],
-        "summary": "Create an address",
-        "operationId": "createAddress",
-        "parameters": [
-          {
-            "description": "The address to create.",
-            "name": "address",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/AddressCreate"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Newly created address object with ID",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Address"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "schema": {
-              "$ref": "#/definitions/standardErrorResponse"
+              "$ref": "#/definitions/DefaultError"
             }
           }
         }
       }
-    },
-    "/addresses/{id}": {
-      "get": {
-        "description": "Returns a specific address.",
-        "tags": [
-          "Addresses"
-        ],
-        "summary": "Retrieve an address",
-        "operationId": "getAddressById",
-        "responses": {
-          "200": {
-            "description": "Newly created address object with ID",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Address"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "schema": {
-              "$ref": "#/definitions/standardErrorResponse"
-            }
-          }
-        }
-      },
-      "delete": {
-        "description": "Delete a specific address.",
-        "tags": [
-          "Addresses"
-        ],
-        "summary": "Delete an address",
-        "operationId": "deleteAddressById",
-        "responses": {
-          "204": {
-            "description": "Empty success body"
-          },
-          "default": {
-            "description": "Unexpected error.",
-            "schema": {
-              "$ref": "#/definitions/standardErrorResponse"
-            }
-          }
-        }
-      },
-      "patch": {
-        "description": "Update a specific address.",
-        "tags": [
-          "Addresses"
-        ],
-        "summary": "Update an address",
-        "operationId": "updateAddressById",
-        "parameters": [
-          {
-            "description": "The address fields to update.",
-            "name": "address",
-            "in": "body",
-            "schema": {
-              "$ref": "#/definitions/AddressPatch"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Updated address object with ID.",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Address"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "Error response",
-            "schema": {
-              "$ref": "#/definitions/standardErrorResponse"
-            }
-          }
-        }
-      },
-      "parameters": [
-        {
-          "type": "string",
-          "description": "Unique Samsara ID for the address",
-          "name": "id",
-          "in": "path",
-          "required": true
-        }
-      ]
     }
   },
   "definitions": {
     "Address": {
-      "description": "Information about an address/geofence. Geofences are either a circle or a polygon.",
+      "description": "An address in the organization's Address Book.",
       "type": "object",
-      "allOf": [
-        {
-          "required": [
-            "id"
-          ],
-          "properties": {
-            "contacts": {
-              "description": "An array of all contact mini-objects that are associated with the given address entry.",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/contactTinyResponse"
-              }
-            },
-            "id": {
-              "description": "Unique Samsara ID for the address.",
-              "type": "string",
-              "example": "7107471"
-            },
-            "latitude": {
-              "description": "Latitude of the address. Either inferred from the formatted address or defined on address creation.",
-              "type": "number",
-              "format": "double",
-              "example": 37.765363
-            },
-            "longitude": {
-              "description": "Longitude of the address. Either inferred from the formatted address or defined on address creation.",
-              "type": "number",
-              "format": "double",
-              "example": 37.765363
-            },
-            "tags": {
-              "description": "An array of all tag mini-objects that are associated with the given address entry.",
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/tagTinyResponse"
-              }
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/AddressResponseCore"
-        }
-      ]
-    },
-    "AddressPatch": {
-      "description": "Information about an address/geofence. Geofences are either a circle or a polygon.",
-      "type": "object",
-      "allOf": [
-        {
-          "properties": {
-            "contactIds": {
-              "description": "An array of IDs of contacts to associate with this address.",
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": "123"
-              }
-            },
-            "latitude": {
-              "description": "Optional latitude field to override the geocoded latitude from the formatted address.",
-              "type": "number",
-              "format": "double",
-              "example": 37.765363
-            },
-            "longitude": {
-              "description": "Optional longitude field to override the geocoded longitude from the formatted address.",
-              "type": "number",
-              "format": "double",
-              "example": 37.765363
-            },
-            "tagIds": {
-              "description": "An array of IDs of tags to associate with this address.",
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": "321"
-              }
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/AddressRequestCore"
-        }
-      ]
-    },
-    "AddressResponseCore": {
-      "type": "object",
-      "allOf": [
-        {
-          "properties": {
-            "geofence": {
-              "$ref": "#/definitions/AddressGeofenceResponse"
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/AddressCore"
-        }
-      ]
-    },
-    "AddressRequestCore": {
-      "type": "object",
-      "allOf": [
-        {
-          "properties": {
-            "geofence": {
-              "$ref": "#/definitions/AddressGeofenceRequest"
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/AddressCore"
-        }
-      ]
-    },
-    "AddressCreate": {
-      "description": "An address object.",
-      "type": "object",
-      "allOf": [
-        {
-          "required": [
-            "name",
-            "formattedAddress",
-            "geofence"
-          ],
-          "properties": {
-            "contactIds": {
-              "description": "An array of IDs of contacts to associate with this address.",
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": "22408"
-              }
-            },
-            "latitude": {
-              "description": "Optional latitude field to override the geocoded latitude from the formatted address.",
-              "type": "number",
-              "format": "double",
-              "example": 37.765363
-            },
-            "longitude": {
-              "description": "Optional longitude field to override the geocoded longitude from the formatted address.",
-              "type": "number",
-              "format": "double",
-              "example": 37.765363
-            },
-            "tagIds": {
-              "description": "An array of IDs of tags to associate with this address.",
-              "type": "array",
-              "items": {
-                "type": "string",
-                "example": "3914"
-              }
-            }
-          }
-        },
-        {
-          "$ref": "#/definitions/AddressRequestCore"
-        }
-      ]
-    },
-    "tagTinyResponse": {
-      "description": "A minified tag object",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "ID of the tag.",
-          "type": "string",
-          "example": "3914"
-        },
-        "name": {
-          "description": "Name of the tag.",
-          "type": "string",
-          "example": "East Coast"
-        }
-      }
-    },
-    "contactTinyResponse": {
-      "description": "A minified contact object",
-      "type": "object",
-      "properties": {
-        "firstName": {
-          "description": "First name of the contact.",
-          "type": "string",
-          "example": "Jane"
-        },
-        "id": {
-          "description": "ID of the contact.",
-          "type": "string",
-          "example": "22408"
-        },
-        "lastName": {
-          "description": "Last name of the contact.",
-          "type": "string",
-          "example": "Jones"
-        }
-      }
-    },
-    "AddressGeofenceResponse": {
-      "description": "The geofence that defines this address and its bounds. This can either be a circle, or a polygon",
-      "type": "object",
-      "properties": {
-        "circle": {
-          "description": "Information about a circular geofence. This field is only populated if the geofence is a circle.",
-          "type": "object",
-          "properties": {
-            "latitude": {
-              "description": "The latitude of the center of the circular geofence in decimal degrees.",
-              "type": "number",
-              "format": "double",
-              "example": 37.765363
-            },
-            "longitude": {
-              "description": "The longitude of the center of the circular geofence in decimal degrees.",
-              "type": "number",
-              "format": "double",
-              "example": -122.403098
-            },
-            "radiusMeters": {
-              "description": "The radius of the circular geofence in meters.",
-              "type": "number",
-              "example": 250
-            }
-          }
-        },
-        "polygon": {
-          "description": "Information about a polygon geofence. This field is only populated if the geofence is a polygon.",
-          "type": "object",
-          "properties": {
-            "vertices": {
-              "description": "The vertices of the polygon geofence. These geofence vertices describe the perimeter of the polygon.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "latitude": {
-                    "description": "The latitude of a geofence vertex in decimal degrees.",
-                    "type": "number",
-                    "format": "double"
-                  },
-                  "longitude": {
-                    "description": "The longitude of a geofence vertex in decimal degrees.",
-                    "type": "number",
-                    "format": "double"
-                  }
-                }
-              },
-              "example": [
-                {
-                  "latitude": 37.765363,
-                  "longitude": -122.403098
-                },
-                {
-                  "latitude": 38.765363,
-                  "longitude": -122.403098
-                },
-                {
-                  "latitude": 37.765363,
-                  "longitude": -123.403098
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
-    "AddressCore": {
-      "description": "Core fields used in both address creation and the actual address object.",
-      "type": "object",
+      "required": [
+        "formattedAddress",
+        "geofence",
+        "id",
+        "latitude",
+        "longitude",
+        "name"
+      ],
       "properties": {
         "addressTypes": {
-          "description": "Reporting location type associated with the address (used for ELD reporting purposes).",
+          "description": "Types associated with this address for ELD reporting purposes.",
           "type": "array",
           "items": {
             "type": "string",
             "enum": [
               "yard",
               "shortHaul"
-            ],
-            "example": "yard"
+            ]
           }
         },
+        "contacts": {
+          "description": "List of contacts associated with this address.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ContactTinyObject"
+          }
+        },
+        "externalIds": {
+          "$ref": "#/definitions/ExternalIds"
+        },
         "formattedAddress": {
-          "description": "The full street address for this address/geofence, as it might be recognized by Google Maps.",
+          "description": "Street address of this address.",
           "type": "string",
-          "maxLength": 1024,
-          "example": "350 Rhode Island St, San Francisco, CA"
+          "maxLength": 1024
+        },
+        "geofence": {
+          "description": "The geofence of this address. This can either be a circle or a polygon.",
+          "type": "object",
+          "properties": {
+            "circle": {
+              "description": "Properties of a circular geofence. This field is only present if the geofence is circular.",
+              "type": "object",
+              "properties": {
+                "latitude": {
+                  "description": "The latitude of the center of the geofence.",
+                  "type": "number",
+                  "format": "double"
+                },
+                "longitude": {
+                  "description": "The longitude of the center of the geofence.",
+                  "type": "number",
+                  "format": "double"
+                },
+                "radiusMeters": {
+                  "description": "The radius of the circular geofence in meters.",
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "polygon": {
+              "description": "Properties of a polygonal geofence. This field is only present if the geofence is polygonal.",
+              "type": "object",
+              "properties": {
+                "vertices": {
+                  "description": "The vertices of the geofence.",
+                  "type": "array",
+                  "items": {
+                    "description": "Vertex of a polygonal geofence.",
+                    "type": "object",
+                    "properties": {
+                      "latitude": {
+                        "description": "The latitude of the polygonal vertex.",
+                        "type": "number",
+                        "format": "double"
+                      },
+                      "longitude": {
+                        "description": "The longitude of the polygonal vertex.",
+                        "type": "number",
+                        "format": "double"
+                      }
+                    }
+                  },
+                  "minItems": 3
+                }
+              }
+            }
+          }
+        },
+        "id": {
+          "description": "Unique identifier for the address.",
+          "type": "string"
+        },
+        "latitude": {
+          "description": "Latitude of the address. Either geocoded from the `formattedAddress` or defined on address creation.",
+          "type": "number",
+          "format": "double"
+        },
+        "longitude": {
+          "description": "Longitude of the address. Either geocoded from the `formattedAddress` or defined on address creation.",
+          "type": "number",
+          "format": "double"
         },
         "name": {
           "description": "Name of the address.",
           "type": "string",
-          "maxLength": 255,
-          "example": "Samsara HQ"
+          "maxLength": 255
         },
         "notes": {
           "description": "Notes about the address.",
           "type": "string",
-          "maxLength": 280,
-          "example": "Hours of operation: 8am - 6pm; Truck entrance on the Rhode Island street side."
-        }
-      }
-    },
-    "paginationResponse": {
-      "description": "Pagination parameters.",
-      "type": "object",
-      "required": [
-        "endCursor",
-        "hasNextPage"
-      ],
-      "properties": {
-        "endCursor": {
-          "description": "Cursor identifier representing the last element in the response. This value should be used in conjunction with a subsequent request's 'after' query parameter. This may be an empty string if there are no more pages left to view.",
-          "type": "string",
-          "format": "string",
-          "example": "MjkY"
+          "maxLength": 280
         },
-        "hasNextPage": {
-          "description": "True if there are more pages of results immediately available after this endCursor.",
-          "type": "boolean",
-          "example": true
+        "tags": {
+          "description": "List of tags this address is associated with.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TagTinyObject"
+          }
         }
       }
     },
-    "standardErrorResponse": {
-      "description": "Error response",
+    "ContactTinyObject": {
+      "description": "A tiny version of the Contact object.",
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "description": "First name of the contact.",
+          "type": "string"
+        },
+        "id": {
+          "description": "Unique identifier for the contact.",
+          "type": "string"
+        },
+        "lastName": {
+          "description": "Last name of the contact.",
+          "type": "string"
+        }
+      }
+    },
+    "DefaultError": {
+      "description": "Error response.",
       "type": "object",
       "properties": {
         "message": {
@@ -550,7 +219,117 @@
           "type": "string"
         }
       }
+    },
+    "ExternalIds": {
+      "description": "User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and **must be alphanumeric** (`_`'s, `-`', etc. are not allowed). Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "TagTinyObject": {
+      "description": "A tiny version of the Tag object.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "Unique identifier for the tag.",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name of the tag.",
+          "type": "string"
+        }
+      }
     }
   },
-  "parameters": {}
+  "parameters": {
+    "after": {
+      "name": "after",
+      "in": "query",
+      "description": "If specified, this should be the `endCursor` value from the previous page of results. If specified, this request will return the next page of results that occur immediately after the previous page of results. See more details [here](https://developers.samsara.com/docs/common-structures#section-pagination).",
+      "type": "string"
+    },
+    "limit": {
+      "name": "limit",
+      "in": "query",
+      "description": "The limit for how many objects will be in the response. Default and max for this value is 512 objects. If the provided `limit` is less than the total number of objects, the results will be [paginated](https://developers.samsara.com/docs/common-structures#section-pagination).",
+      "type": "integer",
+      "format": "int64",
+      "default": 512,
+      "maximum": 512,
+      "minimum": 1
+    },
+    "tagIds": {
+      "name": "tagIds",
+      "in": "query",
+      "description": "A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,1235`.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "collectionFormat": "csv"
+    }
+  },
+  "tags": [
+    {
+      "description": "Address book entries in Samsara can be used to collect useful data about operations within a particular address's geofence area. Once an address book entry is established, this address can then subsequently be used in order to create routes, set geofence arrival alerts, or detect trips that begin or end within a given geofence area.",
+      "name": "Addresses"
+    },
+    {
+      "description": "Contacts are an easy way to manage which users receive alerts (via sms or email).",
+      "name": "Contacts"
+    },
+    {
+      "description": "The documents feature allows you to manage driver-submitted documents from the Samsara app. Submitted documents are grouped by document types, and back office users can create new types of documents. For more information on the driver workflow around documents, see this [KB article](https://kb.samsara.com/hc/en-us/articles/360006911551-Using-Documents-in-the-Dashboard).",
+      "name": "Documents"
+    },
+    {
+      "description": "Driver objects allow you to track your driver-vehicle assignments, manage driver profiles, and update mobile app credential logins. You can retrieve a list of all drivers, or you can fetch each driver object individually.\nDrivers can be either active or inactive. You should inactivate a driver if you wish to keep the driver's driving history and HOS logs. If your driver is inactive, you can still get information about a driver summary.",
+      "name": "Drivers"
+    },
+    {
+      "description": "Hours of Service refers to driver duty status logs.",
+      "name": "Hours of Service"
+    },
+    {
+      "description": "Maintenance refers to both DVIRs and reports on vehicle fault codes.",
+      "name": "Maintenance"
+    },
+    {
+      "description": "Fleet Admins can send direct free-form messages to drivers. This will send a message to the driver's Samsara driver app, in which you can track whether or not a message has been read by a given driver. For sending structured messages, see the Documents API.",
+      "name": "Messages"
+    },
+    {
+      "description": "Samsara's Routes feature allows you to build routes and track and share driver progress in real-time.",
+      "name": "Routes"
+    },
+    {
+      "description": "Samsara provides you with more visibility on whether or not your fleets are being safe. With the collection of safety endpoints, you can get aggregate metrics around the performance of a particular driver or vehicle, as well as detailed logs of all the harsh events that take place in an organization.",
+      "name": "Safety"
+    },
+    {
+      "description": "The sensor object describes a sensor's attributes and settings within Samsara. Samsara has many different types of sensors, such as temperature and humidity monitors, door monitors, and more.",
+      "name": "Sensors"
+    },
+    {
+      "description": "Tags are a simple way to organize vehicles, drivers, assets, and sensors into easily identifiable groups. You can add unlimited entities to each tag, and entities can have multiple different tags. You can also use tag hierarchies in order to create nested classes, such as parent tag 'Massachusetts' and child tag 'Boston'. For more information on tags functionality, see [this Knowledge Base article](https://kb.samsara.com/hc/en-us/articles/360026674631-Using-Tags-and-Tag-Nesting).",
+      "name": "Tags"
+    },
+    {
+      "description": "Driving activity is segmented into trips (travel between a start and a stop). Vehicle movement is broken down into trips along the following lines: a trip begins when a previously inactive vehicle achieves a speed of 5mph; the trip ends when the vehicle's speed remains below 5mph for 5 minutes, or when a vehicle crosses a state or national boundary.",
+      "name": "Trips"
+    },
+    {
+      "description": "The users API allows you to manage access to the Samsara dashboard. This can be particularly useful if you are looking to set up a connection with your identity provider to manage roles and permissions for certain types of users within your system.",
+      "name": "Users"
+    },
+    {
+      "description": "The vehicle object describes a vehicle's attributes and settings within Samsara. A vehicle is generated in the Samsara platform when a vehicle gateway is installed. The gateway often auto-populates information such as the VIN, make, model, and year.\nThe vehicle object is often referenced in other objects. For these references, you will see a mini-object of the vehicle, rather than the full vehicle information. The mini-object encompasses a smaller subset of commonly-referenced field, such as the Samsara ID, name, and external ID.",
+      "name": "Vehicles"
+    },
+    {
+      "description": "Access to industrial data",
+      "name": "Industrial"
+    }
+  ]
 }

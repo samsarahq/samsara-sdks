@@ -15,24 +15,23 @@ from __future__ import absolute_import
 import unittest
 
 import samsara
-from samsara.api.addresses_api import AddressesApi  # noqa: E501
+from samsara.models.contact_tiny_object import ContactTinyObject  # noqa: E501
 from samsara.rest import ApiException
 
 
-class TestAddressesApi(unittest.TestCase):
-    """AddressesApi unit test stubs"""
+class TestContactTinyObject(unittest.TestCase):
+    """ContactTinyObject unit test stubs"""
 
     def setUp(self):
-        self.api = samsara.api.addresses_api.AddressesApi()  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_list_addresses(self):
-        """Test case for list_addresses
-
-        List all addresses  # noqa: E501
-        """
+    def testContactTinyObject(self):
+        """Test ContactTinyObject"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = samsara.models.contact_tiny_object.ContactTinyObject()  # noqa: E501
         pass
 
 
