@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **list_addresses**
-> object list_addresses(limit=limit, after=after, tag_ids=tag_ids)
+> AddressResponse list_addresses(limit=limit, after=after, tag_ids=tag_ids)
 
 List all addresses
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**AddressResponse**](AddressResponse.md)
 
 ### Authorization
 

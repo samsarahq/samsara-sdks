@@ -52,10 +52,8 @@ class TagTinyObject(object):
         self._name = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if name is not None:
-            self.name = name
+        self.id = id
+        self.name = name
 
     @property
     def id(self):
@@ -77,6 +75,8 @@ class TagTinyObject(object):
         :param id: The id of this TagTinyObject.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -100,6 +100,8 @@ class TagTinyObject(object):
         :param name: The name of this TagTinyObject.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 

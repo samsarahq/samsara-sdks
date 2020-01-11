@@ -52,10 +52,8 @@ class AddressGeofencePolygonVertices(object):
         self._longitude = None
         self.discriminator = None
 
-        if latitude is not None:
-            self.latitude = latitude
-        if longitude is not None:
-            self.longitude = longitude
+        self.latitude = latitude
+        self.longitude = longitude
 
     @property
     def latitude(self):
@@ -77,6 +75,8 @@ class AddressGeofencePolygonVertices(object):
         :param latitude: The latitude of this AddressGeofencePolygonVertices.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and latitude is None:  # noqa: E501
+            raise ValueError("Invalid value for `latitude`, must not be `None`")  # noqa: E501
 
         self._latitude = latitude
 
@@ -100,6 +100,8 @@ class AddressGeofencePolygonVertices(object):
         :param longitude: The longitude of this AddressGeofencePolygonVertices.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and longitude is None:  # noqa: E501
+            raise ValueError("Invalid value for `longitude`, must not be `None`")  # noqa: E501
 
         self._longitude = longitude
 

@@ -19,6 +19,8 @@ from samsara.models.address_geofence import AddressGeofence
 from samsara.models.address_geofence_circle import AddressGeofenceCircle
 from samsara.models.address_geofence_polygon import AddressGeofencePolygon
 from samsara.models.address_geofence_polygon_vertices import AddressGeofencePolygonVertices
+from samsara.models.address_response import AddressResponse
 from samsara.models.contact_tiny_object import ContactTinyObject
 from samsara.models.default_error import DefaultError
+from samsara.models.pagination import Pagination
 from samsara.models.tag_tiny_object import TagTinyObject

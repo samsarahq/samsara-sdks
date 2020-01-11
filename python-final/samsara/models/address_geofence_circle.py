@@ -59,8 +59,7 @@ class AddressGeofenceCircle(object):
             self.latitude = latitude
         if longitude is not None:
             self.longitude = longitude
-        if radius_meters is not None:
-            self.radius_meters = radius_meters
+        self.radius_meters = radius_meters
 
     @property
     def latitude(self):
@@ -128,6 +127,8 @@ class AddressGeofenceCircle(object):
         :param radius_meters: The radius_meters of this AddressGeofenceCircle.  # noqa: E501
         :type: int
         """
+        if self.local_vars_configuration.client_side_validation and radius_meters is None:  # noqa: E501
+            raise ValueError("Invalid value for `radius_meters`, must not be `None`")  # noqa: E501
 
         self._radius_meters = radius_meters
 

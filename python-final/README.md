@@ -85,8 +85,10 @@ Class | Method | HTTP request | Description
  - [AddressGeofenceCircle](docs/AddressGeofenceCircle.md)
  - [AddressGeofencePolygon](docs/AddressGeofencePolygon.md)
  - [AddressGeofencePolygonVertices](docs/AddressGeofencePolygonVertices.md)
+ - [AddressResponse](docs/AddressResponse.md)
  - [ContactTinyObject](docs/ContactTinyObject.md)
  - [DefaultError](docs/DefaultError.md)
+ - [Pagination](docs/Pagination.md)
  - [TagTinyObject](docs/TagTinyObject.md)
 
 

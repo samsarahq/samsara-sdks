@@ -1,13 +1,7 @@
 {
-  "consumes": [
-    "application/json"
-  ],
-  "produces": [
-    "application/json"
-  ],
-  "schemes": [
-    "https"
-  ],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "schemes": ["https"],
   "swagger": "2.0",
   "info": {
     "description": "Integrate your data with the Samsara API, customize the Samsara experience, and join a community of developers building with Samsara.",
@@ -18,9 +12,7 @@
   "paths": {
     "/addresses": {
       "get": {
-        "tags": [
-          "Addresses"
-        ],
+        "tags": ["Addresses"],
         "summary": "List all addresses",
         "description": "Returns a list of all addresses in the organization's Address Book.",
         "operationId": "listAddresses",
@@ -39,17 +31,7 @@
           "200": {
             "description": "List of all addresses in the organization's Address Book.",
             "schema": {
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Address"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/paginationResponse"
-                }
-              }
+              "$ref": "#/definitions/AddressResponse"
             }
           },
           "default": {
@@ -80,10 +62,7 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": [
-              "yard",
-              "shortHaul"
-            ]
+            "enum": ["yard", "shortHaul"]
           }
         },
         "contacts": {
@@ -108,6 +87,9 @@
             "circle": {
               "description": "Properties of a circular geofence. This field is only present if the geofence is circular.",
               "type": "object",
+              "required": [
+                "radiusMeters"
+              ],
               "properties": {
                 "latitude": {
                   "description": "The latitude of the center of the geofence.",
@@ -136,6 +118,10 @@
                   "items": {
                     "description": "Vertex of a polygonal geofence.",
                     "type": "object",
+                    "required": [
+                      "latitude",
+                      "longitude"
+                    ],
                     "properties": {
                       "latitude": {
                         "description": "The latitude of the polygonal vertex.",
@@ -188,6 +174,25 @@
         }
       }
     },
+    "AddressResponse": {
+      "description": "List of all addresses in the organization's Address Book.",
+      "type": "object",
+      "required": [
+        "data",
+        "pagination"
+      ],
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/Pagination"
+        }
+      }
+    },
     "ContactTinyObject": {
       "description": "A tiny version of the Contact object.",
       "type": "object",
@@ -209,6 +214,10 @@
     "DefaultError": {
       "description": "Error response.",
       "type": "object",
+      "required": [
+        "message",
+        "requestId"
+      ],
       "properties": {
         "message": {
           "description": "The message of the error.",
@@ -227,9 +236,31 @@
         "type": "string"
       }
     },
+    "Pagination": {
+      "description": "Cursor and other information for pagination.",
+      "type": "object",
+      "required": [
+        "endCursor",
+        "hasNextPage"
+      ],
+      "properties": {
+        "endCursor": {
+          "description": "Cursor representing the last element in the response. Feed this value into an `after` parameter to get the next page of results. This will be an empty string if `hasNextPage` is `false`.",
+          "type": "string"
+        },
+        "hasNextPage": {
+          "description": "Indicates whether there are more pages of results for this query.",
+          "type": "boolean"
+        }
+      }
+    },
     "TagTinyObject": {
       "description": "A tiny version of the Tag object.",
       "type": "object",
+      "required": [
+        "id",
+        "name"
+      ],
       "properties": {
         "id": {
           "description": "Unique identifier for the tag.",
