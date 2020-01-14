@@ -9282,6 +9282,29 @@
         }
       }
     },
+    "VehicleStatsList": {
+      "type": "object",
+      "allOf":  [
+        {
+          "$ref": "#/definitions/vehicleTinyResponse"
+        },
+        {
+          "$ref": "#/definitions/VehicleEngineStatesWrapper"
+        },
+        {
+          "$ref": "#/definitions/VehicleFuelPercentsWrapper"
+        },
+        {
+          "$ref": "#/definitions/VehicleObdOdometerMetersWrapper"
+        },
+        {
+          "$ref": "#/definitions/VehicleGpsOdometerMetersWrapper"
+        },
+        {
+          "$ref": "#/definitions/VehicleObdEngineSecondsWrapper"
+        }
+      ]
+    },
     "VehicleStatsListResponse": {
       "type": "object",
       "properties": {
@@ -9289,36 +9312,11 @@
           "description": "An array of vehicle stat objects. Each object in the array represents a vehicle and will contain an array of stat object updates (a timestamp and value of the requested stat type).",
           "type": "array",
           "items": {
-            "type": "object",
-            "allOf": [
-              {
-                "$ref": "#/definitions/vehicleTinyResponse"
-              },
-              {
-                "$ref": "#/definitions/VehicleEngineStatesWrapper"
-              },
-              {
-                "$ref": "#/definitions/VehicleFuelPercentsWrapper"
-              },
-              {
-                "$ref": "#/definitions/VehicleObdOdometerMetersWrapper"
-              },
-              {
-                "$ref": "#/definitions/VehicleGpsOdometerMetersWrapper"
-              },
-              {
-                "$ref": "#/definitions/VehicleObdEngineSecondsWrapper"
-              }
-            ]
+            "$ref": "#/definitions/VehicleStatsList"
           }
         },
         "pagination": {
-          "type": "object",
-          "allOf": [
-            {
-              "$ref": "#/definitions/paginationResponse"
-            }
-          ]
+          "$ref": "#/definitions/paginationResponse"
         }
       }
     },
