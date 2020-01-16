@@ -2,12 +2,8 @@ from __future__ import print_function
 import time
 import openapi_client
 from openapi_client.rest import ApiException
-from pprint import pprint
-import os
-
 
 # Create an instance of the openapi_client
-
 # configuration = openapi_client.Configuration()
 with open('token', 'r') as f:
     # configuration.api_key_prefix["Authorization"] = "Bearer"
@@ -37,4 +33,4 @@ try:
             print('Waiting for new data...')
             time.sleep(5)
 except ApiException as e:
-    pprint(e)
+    print(e)
