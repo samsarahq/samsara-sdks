@@ -1,5 +1,6 @@
 import json
 import sys
+import os
 
 swagger_file_name = sys.argv[1]
 
@@ -25,5 +26,5 @@ for path_name in swagger['paths']:
                         '$ref': f'#/definitions/{operation["operationId"]}Response'
                     }
 
-with open(f'{swagger_file_name}-no-inline-objects.json', 'w') as f:
+with open(f'{os.path.splitext(swagger_file_name)[0]}-no-inline-responses.json', 'w') as f:
     json.dump(swagger, f, indent=2)
