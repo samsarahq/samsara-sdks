@@ -1,0 +1,1 @@
+wget https://raw.githubusercontent.com/samsarahq/api-docs/master/swagger.json
