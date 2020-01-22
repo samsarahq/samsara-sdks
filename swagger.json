@@ -10,7 +10,7 @@
   ],
   "swagger": "2.0",
   "info": {
-    "description": "\u003cstyle type=\"text/css\"\u003e\nn {\n    padding: 1em;\n    width: 100%;\n    display: block;\n    margin: 28px 0;\n}\nn.info {\n    background-color: rgba(0, 51, 160, 0.1);\n}\nn.warning {\n    background-color: #fdf6e3;\n}\ni:before {\n    margin-right: 6px;\n}\nnh {\n    font-size: 1.5rem;\n    font-weight: 700;\n    line-height: 1.1;\n    display: block;\n}\nnb {\n    margin-top: 10px;\n    padding-left: 22px;\n    display: block;\n}\n\u003c/style\u003e\n\n# Overview\n\n\u003cn class=\"info\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-info-circle\"\u003e\u003c/i\u003e\nSomething new!\n\u003c/nh\u003e\n\u003cnb\u003e\nWelcome Samsara's new and improved API. Check out our FAQ [here](https://developers.samsara.com/docs/introducing-our-next-generation-api) to see what's changed and learn how to get started.\u003cbr\u003e\n\u003cbr\u003e\nWant to access the legacy API docs? You can find them [here](https://www.samsara.com/api-legacy).\u003cbr\u003e\n\u003cbr\u003e\n*Note: Because this is a new set of APIs, we have not transitioned all endpoints over to this standard. Endpoints that still use the legacy standards are indicated in the reference documentation. If you can't find an API that you're looking for, we encourage you to look for it in our [legacy API docs](https://www.samsara.com/api-legacy) as we continue to transition all endpoints over. Check back here for updates!*\u003cbr\u003e\n\u003cbr\u003e\nSubmit your feedback [here](https://forms.gle/r4bs6HQshQAvBuwv6)!\n\u003c/nb\u003e\n\u003c/n\u003e\n\nSamsara provides API endpoints so that you can build powerful applications and custom solutions with sensor data. Samsara has endpoints available to track and analyze sensors, vehicles, and entire fleets.\n\nThe Samsara API is a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). It uses standard [HTTP](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol) authentication, verbs, and response codes, and it returns [JSON](http://www.json.org/) response bodies. If you're familiar with what you can build with a REST API, then this will be your go-to API reference.\n\nVisit [developers.samsara.com](https://developers.samsara.com) to find getting started guides and an API overview.\n\nIf you have any questions, reach out to us at [support@samsara.com](mailto:support@samsara.com).\n\n## Endpoints\n\nAll our APIs can be accessed through HTTP requests to URLs like:\n\n```\nhttps://api.samsara.com/\u003cendpoint\u003e\n```\n\nFor EU customers, this URL will be:\n\n```\nhttps://api.eu.samsara.com/\u003cendpoint\u003e\n```\n\n\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nNote\n\u003c/nh\u003e\n\u003cnb\u003e\nLegacy endpoints will have the URL: `https://api.samsara.com/v1/\u003cendpoint\u003e` or `https://api.eu.samsara.com/v1/\u003cendpoint\u003e`\n\u003c/nb\u003e\n\u003c/n\u003e\n\n## Authentication\n\nTo authenticate your API request you will need to include your secret token. You can manage your API tokens in the [Dashboard](https://cloud.samsara.com). They are visible under `Settings-\u003eOrganization-\u003eAPI Tokens`.\n\nYour API tokens carry many privileges, so be sure to keep them secure. Do not share your secret API tokens in publicly accessible areas such as GitHub, client-side code, and so on.\n\nAuthentication to the API is performed via Bearer Token in the HTTP Authorization header. Provide your API token as the `access_token` value in an `Authorization: Bearer` header. You do not need to provide a password:\n\n```curl\nAuthorization: Bearer {access_token}\n```\n\nAll API requests must be made over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). Calls made over plain HTTP or without authentication will fail.\n\n## Common Patterns\n\nYou can find more info about request methods, response codes, error codes, versioning, pagination, timestamps, and mini-objects [here](https://developers.samsara.com/docs/common-structures).\n",
+    "description": "Integrate your data with the Samsara API, customize the Samsara experience, and join a community of developers building with Samsara.",
     "title": "Samsara API",
     "version": "2019-12-12"
   },
@@ -1546,7 +1546,7 @@
     },
     "/v1/fleet/assets": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch all of the assets.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch all of the assets.",
         "tags": [
           "Assets"
         ],
@@ -1578,7 +1578,7 @@
     },
     "/v1/fleet/assets/locations": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch current locations of all assets.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch current locations of all assets.",
         "tags": [
           "Assets"
         ],
@@ -1634,7 +1634,7 @@
     },
     "/v1/fleet/assets/reefers": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetches all reefers and reefer-specific stats.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetches all reefers and reefer-specific stats.",
         "tags": [
           "Assets"
         ],
@@ -1706,7 +1706,7 @@
     },
     "/v1/fleet/assets/{asset_id}/locations": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nList historical locations for a given asset",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nList historical locations for a given asset",
         "tags": [
           "Assets"
         ],
@@ -1756,7 +1756,7 @@
     },
     "/v1/fleet/assets/{asset_id}/reefer": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch the reefer-specific stats of an asset.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch the reefer-specific stats of an asset.",
         "tags": [
           "Assets"
         ],
@@ -1806,7 +1806,7 @@
     },
     "/v1/fleet/dispatch/routes": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch all dispatch routes for a given time period. The time period is defined as `end_time` and the `duration` before which to query.\n\nRoutes are returned if the route's `scheduled_start_ms` and `scheduled_end_ms` overlap with the requested time period.\n\nMore concretely, if the route's `scheduled_start_ms` is before `end_time` and the `scheduled_end_ms` is within or after the given duration, then the route is returned.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch all dispatch routes for a given time period. The time period is defined as `end_time` and the `duration` before which to query.\n\nRoutes are returned if the route's `scheduled_start_ms` and `scheduled_end_ms` overlap with the requested time period.\n\nMore concretely, if the route's `scheduled_start_ms` is before `end_time` and the `scheduled_end_ms` is within or after the given duration, then the route is returned.",
         "tags": [
           "Routes"
         ],
@@ -1844,7 +1844,7 @@
         }
       },
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nCreate a new dispatch route.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nCreate a new dispatch route.",
         "tags": [
           "Routes"
         ],
@@ -1878,7 +1878,7 @@
     },
     "/v1/fleet/dispatch/routes/job_updates": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch all updates to a job including route data in the last 24 hours or subsequent to an sequence ID. Returns a maximum of 500 job updates. If more than 500 job updates are available, another request made with the prior request's sequence_id will return the next set of available job updates.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch all updates to a job including route data in the last 24 hours or subsequent to an sequence ID. Returns a maximum of 500 job updates. If more than 500 job updates are available, another request made with the prior request's sequence_id will return the next set of available job updates.",
         "tags": [
           "Routes"
         ],
@@ -1916,7 +1916,7 @@
     },
     "/v1/fleet/dispatch/routes/{route_id}": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch a dispatch route by id.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch a dispatch route by id.",
         "tags": [
           "Routes"
         ],
@@ -1938,7 +1938,7 @@
         }
       },
       "put": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nUpdate the dispatch route. Allowable updates include adding or removing jobs, and changing job locations and times.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nUpdate the dispatch route. Allowable updates include adding or removing jobs, and changing job locations and times.",
         "tags": [
           "Routes"
         ],
@@ -1970,7 +1970,7 @@
         }
       },
       "delete": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nDelete a dispatch route and its associated jobs.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nDelete a dispatch route and its associated jobs.",
         "tags": [
           "Routes"
         ],
@@ -2001,7 +2001,7 @@
     },
     "/v1/fleet/dispatch/routes/{route_id}/history": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch the history of a dispatch route.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch the history of a dispatch route.",
         "tags": [
           "Routes"
         ],
@@ -2049,7 +2049,7 @@
     },
     "/v1/fleet/drivers/document_types": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch all of the document types.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch all of the document types.",
         "tags": [
           "Documents"
         ],
@@ -2073,7 +2073,7 @@
     },
     "/v1/fleet/drivers/documents": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch all of the documents.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch all of the documents.",
         "tags": [
           "Documents"
         ],
@@ -2124,7 +2124,7 @@
     },
     "/v1/fleet/drivers/{driverId}/safety/score": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch the safety score for the driver.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch the safety score for the driver.",
         "tags": [
           "Safety"
         ],
@@ -2176,7 +2176,7 @@
     },
     "/v1/fleet/drivers/{driver_id}/documents": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nCreate a document for the given driver.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nCreate a document for the given driver.",
         "tags": [
           "Documents"
         ],
@@ -2184,7 +2184,7 @@
         "operationId": "V1createDriverDocument",
         "parameters": [
           {
-            "description": "To create a document for a given document type, the document type's uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type’s list of field types in the correct order. In other words, a field's valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type’s valueType at index _i_.",
+            "description": "To create a document for a given document type, the document type's uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type\u2019s list of field types in the correct order. In other words, a field's valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type\u2019s valueType at index _i_.",
             "name": "createDocumentParams",
             "in": "body",
             "required": true,
@@ -2221,7 +2221,7 @@
     },
     "/v1/fleet/drivers/{driver_id}/documents/{document_id}": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetches a single document submission by a specific driver.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetches a single document submission by a specific driver.",
         "tags": [
           "Documents"
         ],
@@ -2262,7 +2262,7 @@
     },
     "/v1/fleet/drivers/{driver_id}/hos_daily_logs": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet summarized daily Hours of Service charts for a specified driver.\n\nThe response will contain a list of `days`, where each entry in the list is the driver's summarized hours of service for that entire day.\n\nThe time range for a \"day\" is defined by the `driver`'s `eldDayStartHour`. By default, this is `0`, which indicates the `driver`'s \"day\" is from midnight to midnight in the `driver`'s respective `timezone`. This value is configurable per driver.\n\nThe `startMs` and `endMs` parameters indicate start and end for the date range you'd like to query. These parameters are inclusive. This means that the response will include the \"day\" that contains `startMs` and the \"day\" that contains `endMs`. For example:\n\nLet's say a `driver`'s `eldDayStartHour` is `0` and their timezone is `America/Chicago`.\n\nIf `startMs` was `1576080000000` (December 11, 2019 10:00:00 AM America/Chicago) and an `endMs` was `1576166400000` (December 12, 2019 10:00:00 AM America/Los_Angeles), then the response will contain a two `day` entries: [December 11, 2019 12:00:00 AM America/Chicago to December 12, 2019 12:00:00 AM America/Chicago], and [December 12, 2019 12:00:00 AM America/Chicago to December 13, 2019 12:00:00 AM America/Chicago].",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet summarized daily Hours of Service charts for a specified driver.\n\nThe response will contain a list of `days`, where each entry in the list is the driver's summarized hours of service for that entire day.\n\nThe time range for a \"day\" is defined by the `driver`'s `eldDayStartHour`. By default, this is `0`, which indicates the `driver`'s \"day\" is from midnight to midnight in the `driver`'s respective `timezone`. This value is configurable per driver.\n\nThe `startMs` and `endMs` parameters indicate start and end for the date range you'd like to query. These parameters are inclusive. This means that the response will include the \"day\" that contains `startMs` and the \"day\" that contains `endMs`. For example:\n\nLet's say a `driver`'s `eldDayStartHour` is `0` and their timezone is `America/Chicago`.\n\nIf `startMs` was `1576080000000` (December 11, 2019 10:00:00 AM America/Chicago) and an `endMs` was `1576166400000` (December 12, 2019 10:00:00 AM America/Los_Angeles), then the response will contain a two `day` entries: [December 11, 2019 12:00:00 AM America/Chicago to December 12, 2019 12:00:00 AM America/Chicago], and [December 12, 2019 12:00:00 AM America/Chicago to December 13, 2019 12:00:00 AM America/Chicago].",
         "tags": [
           "Hours of Service"
         ],
@@ -2321,7 +2321,7 @@
     },
     "/v1/fleet/hos_authentication_logs": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet the HOS (hours of service) signin and signout logs for the specified driver. The response includes 4 fields that are now deprecated.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet the HOS (hours of service) signin and signout logs for the specified driver. The response includes 4 fields that are now deprecated.",
         "tags": [
           "Hours of Service"
         ],
@@ -2371,7 +2371,7 @@
     },
     "/v1/fleet/hos_logs": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet the HOS (hours of service) logs for the specified driver. This method returns all the HOS statuses that the driver was in during this time period.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet the HOS (hours of service) logs for the specified driver. This method returns all the HOS statuses that the driver was in during this time period.",
         "tags": [
           "Hours of Service"
         ],
@@ -2428,7 +2428,7 @@
     },
     "/v1/fleet/hos_logs_summary": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet the current HOS status for all drivers. Note that this includes inactive as well as active drivers. You may need to upgrade your API token to version 2019-07-31 or later to leverage response pagination. [See here](https://kb.samsara.com/hc/en-us/articles/360026132972-Upgrading-API-Tokens)",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet the current HOS status for all drivers. Note that this includes inactive as well as active drivers. You may need to upgrade your API token to version 2019-07-31 or later to leverage response pagination. [See here](https://kb.samsara.com/hc/en-us/articles/360026132972-Upgrading-API-Tokens)",
         "tags": [
           "Hours of Service"
         ],
@@ -2467,7 +2467,7 @@
     },
     "/v1/fleet/maintenance/dvirs": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet DVIRs for the org within provided time constraints",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet DVIRs for the org within provided time constraints",
         "tags": [
           "Maintenance"
         ],
@@ -2506,7 +2506,7 @@
         }
       },
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nCreate a new dvir, marking a vehicle or trailer safe or unsafe.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nCreate a new dvir, marking a vehicle or trailer safe or unsafe.",
         "tags": [
           "Maintenance"
         ],
@@ -2612,7 +2612,7 @@
     },
     "/v1/fleet/maintenance/list": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet list of the vehicles with any engine faults or check light data.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet list of the vehicles with any engine faults or check light data.",
         "tags": [
           "Maintenance"
         ],
@@ -2644,7 +2644,7 @@
     },
     "/v1/fleet/messages": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet all messages.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet all messages.",
         "tags": [
           "Messages"
         ],
@@ -2688,7 +2688,7 @@
         }
       },
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nSend a message to a list of driver ids.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nSend a message to a list of driver ids.",
         "tags": [
           "Messages"
         ],
@@ -2754,7 +2754,7 @@
     },
     "/v1/fleet/trailers/assignments": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch trailer assignment data for all trailers in your organization.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch trailer assignment data for all trailers in your organization.",
         "tags": [
           "Trailer Assignments"
         ],
@@ -2824,7 +2824,7 @@
     },
     "/v1/fleet/trailers/{trailerId}/assignments": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch trailer assignment data for a single trailer.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch trailer assignment data for a single trailer.",
         "tags": [
           "Trailer Assignments"
         ],
@@ -2872,7 +2872,7 @@
     },
     "/v1/fleet/trips": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet historical trips data for specified vehicle. This method returns a set of historical trips data for the specified vehicle in the specified time range.",
         "tags": [
           "Trips"
         ],
@@ -2920,7 +2920,7 @@
     },
     "/v1/fleet/vehicles/{vehicleId}/safety/harsh_event": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch harsh event details for a vehicle.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch harsh event details for a vehicle.",
         "tags": [
           "Safety"
         ],
@@ -2964,7 +2964,7 @@
     },
     "/v1/fleet/vehicles/{vehicleId}/safety/score": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch the safety score for the vehicle.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch the safety score for the vehicle.",
         "tags": [
           "Safety"
         ],
@@ -3016,7 +3016,7 @@
     },
     "/v1/industrial/data": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch all of the data inputs.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch all of the data inputs.",
         "tags": [
           "Industrial"
         ],
@@ -3064,7 +3064,7 @@
     },
     "/v1/industrial/data/{data_input_id}": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch datapoints from a given data input.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch datapoints from a given data input.",
         "tags": [
           "Industrial"
         ],
@@ -3112,7 +3112,7 @@
     },
     "/v1/industrial/vision/cameras": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch all cameras.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch all cameras.",
         "tags": [
           "Industrial"
         ],
@@ -3136,7 +3136,7 @@
     },
     "/v1/industrial/vision/cameras/{camera_id}/programs": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch configured programs on the camera.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch configured programs on the camera.",
         "tags": [
           "Industrial"
         ],
@@ -3231,7 +3231,7 @@
     },
     "/v1/industrial/vision/runs": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch runs.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch runs.",
         "tags": [
           "Industrial"
         ],
@@ -3272,7 +3272,7 @@
     },
     "/v1/industrial/vision/runs/{camera_id}": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch runs by camera.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch runs by camera.",
         "tags": [
           "Industrial"
         ],
@@ -3321,7 +3321,7 @@
     },
     "/v1/industrial/vision/runs/{camera_id}/{program_id}/{started_at_ms}": {
       "get": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nFetch runs by camera and program.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nFetch runs by camera and program.",
         "tags": [
           "Industrial"
         ],
@@ -3377,7 +3377,7 @@
     },
     "/v1/machines/history": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet historical data for machine objects. This method returns a set of historical data for all machines",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet historical data for machine objects. This method returns a set of historical data for all machines",
         "tags": [
           "Industrial"
         ],
@@ -3428,7 +3428,7 @@
     },
     "/v1/machines/list": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet machine objects. This method returns a list of the machine objects in the Samsara Cloud and information about them.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet machine objects. This method returns a list of the machine objects in the Samsara Cloud and information about them.",
         "tags": [
           "Industrial"
         ],
@@ -3460,7 +3460,7 @@
     },
     "/v1/sensors/cargo": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet cargo monitor status (empty / full) for requested sensors.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet cargo monitor status (empty / full) for requested sensors.",
         "tags": [
           "Sensors"
         ],
@@ -3511,7 +3511,7 @@
     },
     "/v1/sensors/door": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet door monitor status (closed / open) for requested sensors.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet door monitor status (closed / open) for requested sensors.",
         "tags": [
           "Sensors"
         ],
@@ -3562,7 +3562,7 @@
     },
     "/v1/sensors/history": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet historical data for specified sensors. This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet historical data for specified sensors. This method returns a set of historical data for the specified sensors in the specified time range and at the specified time resolution.",
         "tags": [
           "Sensors"
         ],
@@ -3670,7 +3670,7 @@
     },
     "/v1/sensors/humidity": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet humidity for requested sensors. This method returns the current relative humidity for the requested sensors.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet humidity for requested sensors. This method returns the current relative humidity for the requested sensors.",
         "tags": [
           "Sensors"
         ],
@@ -3721,7 +3721,7 @@
     },
     "/v1/sensors/list": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet sensor objects. This method returns a list of the sensor objects in the Samsara Cloud and information about them.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet sensor objects. This method returns a list of the sensor objects in the Samsara Cloud and information about them.",
         "tags": [
           "Sensors"
         ],
@@ -3753,7 +3753,7 @@
     },
     "/v1/sensors/temperature": {
       "post": {
-        "description": "\u003cn class=\"warning\"\u003e\n\u003cnh\u003e\n\u003ci class=\"fa fa-exclamation-circle\"\u003e\u003c/i\u003e\nThis endpoint is still on our legacy API.\n\u003c/nh\u003e\n\u003c/n\u003e\n\nGet temperature for requested sensors. This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.",
+        "description": "<n class=\"warning\">\n<nh>\n<i class=\"fa fa-exclamation-circle\"></i>\nThis endpoint is still on our legacy API.\n</nh>\n</n>\n\nGet temperature for requested sensors. This method returns the current ambient temperature (and probe temperature if applicable) for the requested sensors.",
         "tags": [
           "Sensors"
         ],
@@ -6640,7 +6640,7 @@
               "example": "2018_42424242"
             },
             "orgId": {
-              "description": "Organization ID that the document \u0026 driver who submitted the doc belongs to",
+              "description": "Organization ID that the document & driver who submitted the doc belongs to",
               "type": "integer",
               "format": "int64",
               "example": 555
@@ -7314,7 +7314,7 @@
           "example": 1453449599999
         },
         "timeMs": {
-          "description": "Timestamp of when this DVIR was signed \u0026 completed, in UNIX milliseconds.",
+          "description": "Timestamp of when this DVIR was signed & completed, in UNIX milliseconds.",
           "type": "integer",
           "format": "int64",
           "example": 1453449599999
@@ -9312,7 +9312,7 @@
             "type": "object",
             "properties": {
               "angleTolerance": {
-                "description": "The orientation angle tolerance (+/- °)",
+                "description": "The orientation angle tolerance (+/- \u00b0)",
                 "type": "integer",
                 "format": "int64",
                 "example": 10
@@ -9907,7 +9907,7 @@
       }
     },
     "VehicleLocation": {
-      "description": "Location object with heading \u0026 speed",
+      "description": "Location object with heading & speed",
       "type": "object",
       "allOf": [
         {
@@ -10673,7 +10673,7 @@
       "in": "query"
     },
     "V1documentCreateParam": {
-      "description": "To create a document for a given document type, the document type's uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type’s list of field types in the correct order. In other words, a field's valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type’s valueType at index _i_.",
+      "description": "To create a document for a given document type, the document type's uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type\u2019s list of field types in the correct order. In other words, a field's valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type\u2019s valueType at index _i_.",
       "name": "createDocumentParams",
       "in": "body",
       "required": true,
