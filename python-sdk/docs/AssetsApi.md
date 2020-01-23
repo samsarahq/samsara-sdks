@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **v1get_all_asset_current_locations**
-> InlineResponse2009 v1get_all_asset_current_locations(starting_after=starting_after, ending_before=ending_before, limit=limit)
+> V1getAllAssetCurrentLocationsResponse v1get_all_asset_current_locations(starting_after=starting_after, ending_before=ending_before, limit=limit)
 
 List current location for all assets
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**V1getAllAssetCurrentLocationsResponse**](V1getAllAssetCurrentLocationsResponse.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_all_assets**
-> InlineResponse2008 v1get_all_assets()
+> V1getAllAssetsResponse v1get_all_assets()
 
 List all assets
 
@@ -102,7 +102,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**V1getAllAssetsResponse**](V1getAllAssetsResponse.md)
 
 ### Authorization
 
@@ -240,7 +240,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_assets_reefers**
-> InlineResponse20010 v1get_assets_reefers(start_ms, end_ms, starting_after=starting_after, ending_before=ending_before, limit=limit)
+> V1getAssetsReefersResponse v1get_assets_reefers(start_ms, end_ms, starting_after=starting_after, ending_before=ending_before, limit=limit)
 
 List stats for all reefers
 
@@ -283,7 +283,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**V1getAssetsReefersResponse**](V1getAssetsReefersResponse.md)
 
 ### Authorization
 

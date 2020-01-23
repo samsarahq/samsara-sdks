@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **create_user**
-> InlineResponse2006 create_user(user=user)
+> CreateUserResponse create_user(user=user)
 
 Create a user
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**CreateUserResponse**](CreateUserResponse.md)
 
 ### Authorization
 
@@ -122,7 +122,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_by_id**
-> InlineResponse2007 get_user_by_id(id)
+> GetUserByIdResponse get_user_by_id(id)
 
 Retrieve a user
 
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**GetUserByIdResponse**](GetUserByIdResponse.md)
 
 ### Authorization
 
@@ -177,7 +177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_roles**
-> object get_user_roles(limit=limit, after=after)
+> GetUserRolesResponse get_user_roles(limit=limit, after=after)
 
 List all user roles
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetUserRolesResponse**](GetUserRolesResponse.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_users**
-> object get_users(limit=limit, after=after)
+> GetUsersResponse get_users(limit=limit, after=after)
 
 List all users
 
@@ -271,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetUsersResponse**](GetUsersResponse.md)
 
 ### Authorization
 
@@ -291,7 +291,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_user_by_id**
-> InlineResponse2007 update_user_by_id(id, user=user)
+> UpdateUserByIdResponse update_user_by_id(id, user=user)
 
 Update a user
 
@@ -328,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**UpdateUserByIdResponse**](UpdateUserByIdResponse.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_driver**
-> InlineResponse2002 create_driver(driver=driver)
+> CreateDriverResponse create_driver(driver=driver)
 
 Create a driver
 
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**CreateDriverResponse**](CreateDriverResponse.md)
 
 ### Authorization
 
@@ -66,7 +66,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_driver_by_id**
-> InlineResponse2002 get_driver_by_id(id)
+> GetDriverByIdResponse get_driver_by_id(id)
 
 Retrieve a driver
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**GetDriverByIdResponse**](GetDriverByIdResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_drivers**
-> object get_drivers(is_deactivated=is_deactivated, limit=limit, after=after, tag_ids=tag_ids)
+> GetDriversResponse get_drivers(is_deactivated=is_deactivated, limit=limit, after=after, tag_ids=tag_ids)
 
 List all drivers
 
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetDriversResponse**](GetDriversResponse.md)
 
 ### Authorization
 
@@ -182,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_driver_by_id**
-> InlineResponse2002 update_driver_by_id(id, driver=driver)
+> UpdateDriverByIdResponse update_driver_by_id(id, driver=driver)
 
 Update a driver
 
@@ -219,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**UpdateDriverByIdResponse**](UpdateDriverByIdResponse.md)
 
 ### Authorization
 

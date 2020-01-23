@@ -56,17 +56,7 @@
           "200": {
             "description": "List of all addresses in the organization",
             "schema": {
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Address"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/paginationResponse"
-                }
-              }
+              "$ref": "#/definitions/getAddressesResponse"
             }
           },
           "default": {
@@ -98,12 +88,7 @@
           "200": {
             "description": "Newly created address object with ID",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Address"
-                }
-              }
+              "$ref": "#/definitions/createAddressResponse"
             }
           },
           "default": {
@@ -127,12 +112,7 @@
           "200": {
             "description": "Newly created address object with ID",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Address"
-                }
-              }
+              "$ref": "#/definitions/getAddressByIdResponse"
             }
           },
           "default": {
@@ -183,12 +163,7 @@
           "200": {
             "description": "Updated address object with ID.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Address"
-                }
-              }
+              "$ref": "#/definitions/updateAddressByIdResponse"
             }
           },
           "default": {
@@ -239,17 +214,7 @@
           "200": {
             "description": "List of all contacts",
             "schema": {
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Contact"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/paginationResponse"
-                }
-              }
+              "$ref": "#/definitions/getContactsResponse"
             }
           },
           "default": {
@@ -282,12 +247,7 @@
           "200": {
             "description": "Contact was successfully added.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Contact"
-                }
-              }
+              "$ref": "#/definitions/createContactResponse"
             }
           },
           "default": {
@@ -311,12 +271,7 @@
           "200": {
             "description": "Returns the specified contact.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Contact"
-                }
-              }
+              "$ref": "#/definitions/getContactByIdResponse"
             }
           },
           "default": {
@@ -367,12 +322,7 @@
           "200": {
             "description": "Updated contact object with given ID.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Contact"
-                }
-              }
+              "$ref": "#/definitions/updateContactByIdResponse"
             }
           },
           "default": {
@@ -439,17 +389,7 @@
           "200": {
             "description": "List of all driver objects.",
             "schema": {
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Driver"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/paginationResponse"
-                }
-              }
+              "$ref": "#/definitions/getDriversResponse"
             }
           },
           "default": {
@@ -481,12 +421,7 @@
           "200": {
             "description": "Newly created driver object, with Samsara-generated ID.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Driver"
-                }
-              }
+              "$ref": "#/definitions/createDriverResponse"
             }
           },
           "default": {
@@ -510,12 +445,7 @@
           "200": {
             "description": "Returns the specified driver.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Driver"
-                }
-              }
+              "$ref": "#/definitions/getDriverByIdResponse"
             }
           },
           "default": {
@@ -547,12 +477,7 @@
           "200": {
             "description": "Updated driver object, with ID.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Driver"
-                }
-              }
+              "$ref": "#/definitions/updateDriverByIdResponse"
             }
           },
           "default": {
@@ -852,23 +777,7 @@
           "200": {
             "description": "List of all vehicle stat objects and pagination parameters",
             "schema": {
-              "properties": {
-                "data": {
-                  "description": "An array of vehicle stat objects. Each object in the array represents a vehicle and will contain the most recent value of the requested stat type.",
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/VehicleStatsSnapshotResponse"
-                  }
-                },
-                "pagination": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "$ref": "#/definitions/paginationResponse"
-                    }
-                  ]
-                }
-              }
+              "$ref": "#/definitions/getVehicleStatsSnapshotResponse"
             }
           },
           "default": {
@@ -1042,12 +951,7 @@
           "200": {
             "description": "Returns the specified vehicle object.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/VehicleResponse"
-                }
-              }
+              "$ref": "#/definitions/getVehicleByIdResponse"
             }
           },
           "default": {
@@ -1079,12 +983,7 @@
           "200": {
             "description": "Returns the specified vehicle object.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/VehicleResponse"
-                }
-              }
+              "$ref": "#/definitions/updateVehicleByIdResponse"
             }
           },
           "default": {
@@ -1135,18 +1034,7 @@
           "200": {
             "description": "List of tags.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/Tag"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/paginationResponse"
-                }
-              }
+              "$ref": "#/definitions/getAllTagsResponse"
             }
           },
           "default": {
@@ -1177,12 +1065,7 @@
           "200": {
             "description": "Newly created tag object, including the new tag ID.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Tag"
-                }
-              }
+              "$ref": "#/definitions/createTagResponse"
             }
           },
           "default": {
@@ -1212,12 +1095,7 @@
           "200": {
             "description": "The tag corresponding to request id.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Tag"
-                }
-              }
+              "$ref": "#/definitions/getTagByIdResponse"
             }
           },
           "default": {
@@ -1248,12 +1126,7 @@
           "200": {
             "description": "The updated tag data.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/Tag"
-                }
-              }
+              "$ref": "#/definitions/putTagByIdResponse"
             }
           },
           "default": {
@@ -1323,17 +1196,7 @@
           "200": {
             "description": "List all user roles.",
             "schema": {
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/UserRole"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/paginationResponse"
-                }
-              }
+              "$ref": "#/definitions/getUserRolesResponse"
             }
           },
           "default": {
@@ -1375,17 +1238,7 @@
           "200": {
             "description": "List all users.",
             "schema": {
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/User"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/paginationResponse"
-                }
-              }
+              "$ref": "#/definitions/getUsersResponse"
             }
           },
           "default": {
@@ -1417,28 +1270,7 @@
           "200": {
             "description": "Newly created user object with ID.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/User"
-                }
-              },
-              "example": {
-                "data": {
-                  "authType": "default",
-                  "email": "user@company.com",
-                  "id": "123",
-                  "name": "Bob Smith",
-                  "roles": [
-                    {
-                      "role": {
-                        "id": "8a9371af-82d1-4158-bf91-4ecc8d3a114c",
-                        "name": "Full Admin"
-                      }
-                    }
-                  ]
-                }
-              }
+              "$ref": "#/definitions/createUserResponse"
             }
           },
           "default": {
@@ -1462,12 +1294,7 @@
           "200": {
             "description": "Returns the specified user.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/User"
-                }
-              }
+              "$ref": "#/definitions/getUserByIdResponse"
             }
           },
           "default": {
@@ -1518,12 +1345,7 @@
           "200": {
             "description": "Updated user object with ID.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/User"
-                }
-              }
+              "$ref": "#/definitions/updateUserByIdResponse"
             }
           },
           "default": {
@@ -1556,15 +1378,7 @@
           "200": {
             "description": "List of assets.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "assets": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1Asset"
-                  }
-                }
-              }
+              "$ref": "#/definitions/V1getAllAssetsResponse"
             }
           },
           "default": {
@@ -1609,18 +1423,7 @@
           "200": {
             "description": "List of assets and their current locations.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "assets": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1AssetCurrentLocationsResponse"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/V1Pagination"
-                }
-              }
+              "$ref": "#/definitions/V1getAllAssetCurrentLocationsResponse"
             }
           },
           "default": {
@@ -1681,18 +1484,7 @@
           "200": {
             "description": "All org reefers and reefer-specific details.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "data": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1AssetsReefer"
-                  }
-                },
-                "pagination": {
-                  "$ref": "#/definitions/V1Pagination"
-                }
-              }
+              "$ref": "#/definitions/V1getAssetsReefersResponse"
             }
           },
           "default": {
@@ -2622,15 +2414,7 @@
           "200": {
             "description": "List of vehicles and maintenance information about each.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "vehicles": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1VehicleMaintenance"
-                  }
-                }
-              }
+              "$ref": "#/definitions/V1getFleetMaintenanceListResponse"
             }
           },
           "default": {
@@ -2670,13 +2454,7 @@
           "200": {
             "description": "Returns the fetched messages from most recently sent to least recently sent.",
             "schema": {
-              "description": "A list of messages.",
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/V1MessagesResponse"
-                }
-              }
+              "$ref": "#/definitions/V1getMessagesResponse"
             }
           },
           "default": {
@@ -2734,13 +2512,7 @@
           "200": {
             "description": "Returns the created messages.",
             "schema": {
-              "description": "A list of created messages.",
-              "type": "object",
-              "properties": {
-                "data": {
-                  "$ref": "#/definitions/V1Messages"
-                }
-              }
+              "$ref": "#/definitions/V1createMessagesResponse"
             }
           },
           "default": {
@@ -2799,18 +2571,7 @@
           "200": {
             "description": "Returns trailer assignment data for all trailers in your organization",
             "schema": {
-              "type": "object",
-              "properties": {
-                "pagination": {
-                  "$ref": "#/definitions/V1Pagination"
-                },
-                "trailers": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1TrailerAssignmentsResponse"
-                  }
-                }
-              }
+              "$ref": "#/definitions/V1getAllTrailerAssignmentsResponse"
             }
           },
           "default": {
@@ -3042,15 +2803,7 @@
           "200": {
             "description": "List of data inputs.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "dataInputs": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1DataInputHistoryResponse"
-                  }
-                }
-              }
+              "$ref": "#/definitions/V1getAllDataInputsResponse"
             }
           },
           "default": {
@@ -3438,15 +3191,7 @@
           "200": {
             "description": "List of machine objects.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "machines": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1Machine"
-                  }
-                }
-              }
+              "$ref": "#/definitions/V1getMachinesResponse"
             }
           },
           "default": {
@@ -3731,15 +3476,7 @@
           "200": {
             "description": "List of sensor objects.",
             "schema": {
-              "type": "object",
-              "properties": {
-                "sensors": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/definitions/V1Sensor"
-                  }
-                }
-              }
+              "$ref": "#/definitions/V1getSensorsResponse"
             }
           },
           "default": {
@@ -10523,6 +10260,498 @@
           "example": "Midwest Truck #4"
         }
       }
+    },
+    "getAddressesResponse": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Address"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/paginationResponse"
+        }
+      },
+      "type": "object"
+    },
+    "createAddressResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Address"
+        }
+      }
+    },
+    "getAddressByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Address"
+        }
+      }
+    },
+    "updateAddressByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Address"
+        }
+      }
+    },
+    "getContactsResponse": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Contact"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/paginationResponse"
+        }
+      },
+      "type": "object"
+    },
+    "createContactResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Contact"
+        }
+      }
+    },
+    "getContactByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Contact"
+        }
+      }
+    },
+    "updateContactByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Contact"
+        }
+      }
+    },
+    "getDriversResponse": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Driver"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/paginationResponse"
+        }
+      },
+      "type": "object"
+    },
+    "createDriverResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Driver"
+        }
+      }
+    },
+    "getDriverByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Driver"
+        }
+      }
+    },
+    "updateDriverByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Driver"
+        }
+      }
+    },
+    "getVehicleStatsSnapshotResponse": {
+      "properties": {
+        "data": {
+          "description": "An array of vehicle stat objects. Each object in the array represents a vehicle and will contain the most recent value of the requested stat type.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/VehicleStatsSnapshotResponse"
+          }
+        },
+        "pagination": {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/paginationResponse"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "getVehicleByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/VehicleResponse"
+        }
+      }
+    },
+    "updateVehicleByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/VehicleResponse"
+        }
+      }
+    },
+    "getAllTagsResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Tag"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/paginationResponse"
+        }
+      }
+    },
+    "createTagResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Tag"
+        }
+      }
+    },
+    "getTagByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Tag"
+        }
+      }
+    },
+    "putTagByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/Tag"
+        }
+      }
+    },
+    "getUserRolesResponse": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserRole"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/paginationResponse"
+        }
+      },
+      "type": "object"
+    },
+    "getUsersResponse": {
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/User"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/paginationResponse"
+        }
+      },
+      "type": "object"
+    },
+    "createUserResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/User"
+        }
+      },
+      "example": {
+        "data": {
+          "authType": "default",
+          "email": "user@company.com",
+          "id": "123",
+          "name": "Bob Smith",
+          "roles": [
+            {
+              "role": {
+                "id": "8a9371af-82d1-4158-bf91-4ecc8d3a114c",
+                "name": "Full Admin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "getUserByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "updateUserByIdResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/User"
+        }
+      }
+    },
+    "V1getAllAssetsResponse": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1Asset"
+          }
+        }
+      }
+    },
+    "V1getAllAssetCurrentLocationsResponse": {
+      "type": "object",
+      "properties": {
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1AssetCurrentLocationsResponse"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/V1Pagination"
+        }
+      }
+    },
+    "V1getAssetsReefersResponse": {
+      "type": "object",
+      "properties": {
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1AssetsReefer"
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/V1Pagination"
+        }
+      }
+    },
+    "V1getFleetMaintenanceListResponse": {
+      "type": "object",
+      "properties": {
+        "vehicles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1VehicleMaintenance"
+          }
+        }
+      }
+    },
+    "V1getMessagesResponse": {
+      "description": "A list of messages.",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/V1MessagesResponse"
+        }
+      }
+    },
+    "V1createMessagesResponse": {
+      "description": "A list of created messages.",
+      "type": "object",
+      "properties": {
+        "data": {
+          "$ref": "#/definitions/V1Messages"
+        }
+      }
+    },
+    "V1getAllTrailerAssignmentsResponse": {
+      "type": "object",
+      "properties": {
+        "pagination": {
+          "$ref": "#/definitions/V1Pagination"
+        },
+        "trailers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1TrailerAssignmentsResponse"
+          }
+        }
+      }
+    },
+    "V1getAllDataInputsResponse": {
+      "type": "object",
+      "properties": {
+        "dataInputs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1DataInputHistoryResponse"
+          }
+        }
+      }
+    },
+    "V1getMachinesResponse": {
+      "type": "object",
+      "properties": {
+        "machines": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1Machine"
+          }
+        }
+      }
+    },
+    "V1getSensorsResponse": {
+      "type": "object",
+      "properties": {
+        "sensors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/V1Sensor"
+          }
+        }
+      }
+    },
+    "V1createDvirParam": {
+      "type": "object",
+      "required": [
+        "safe",
+        "inspectionType",
+        "userEmail"
+      ],
+      "properties": {
+        "inspectionType": {
+          "description": "Only type 'mechanic' is currently accepted.",
+          "type": "string",
+          "enum": [
+            "mechanic"
+          ],
+          "example": "mechanic"
+        },
+        "mechanicNotes": {
+          "description": "Any notes from the mechanic.",
+          "type": "string",
+          "example": "Replaced headlight on passenger side."
+        },
+        "odometerMiles": {
+          "description": "The current odometer of the vehicle.",
+          "type": "integer",
+          "example": 38426
+        },
+        "previousDefectsCorrected": {
+          "description": "Whether any previous defects were corrected. If this vehicle or trailer was previously marked unsafe, and this DVIR marks it as safe, either previousDefectsCorrected or previousDefectsIgnored must be true.",
+          "type": "boolean",
+          "example": true
+        },
+        "previousDefectsIgnored": {
+          "description": "Whether any previous defects were ignored. If this vehicle or trailer was previously marked unsafe, and this DVIR marks it as safe, either previousDefectsCorrected or previousDefectsIgnored must be true.",
+          "type": "boolean",
+          "example": false
+        },
+        "resolvedDefectIds": {
+          "description": "List of defect IDs to resolve.  The defects must be associated with the provided vehicle or trailer.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "example": [
+            18,
+            19
+          ]
+        },
+        "safe": {
+          "description": "Whether or not this vehicle or trailer is safe to drive.",
+          "type": "string",
+          "enum": [
+            "safe",
+            "unsafe"
+          ],
+          "example": "safe"
+        },
+        "trailerId": {
+          "description": "Id of trailer being inspected. Either vehicleId or trailerId must be provided.",
+          "type": "integer",
+          "example": 11
+        },
+        "userEmail": {
+          "description": "The Samsara login email for the person creating the DVIR. The email must correspond to a Samsara user's email.",
+          "type": "string",
+          "example": "j.smith@yahoo.com"
+        },
+        "vehicleId": {
+          "description": "Id of vehicle being inspected. Either vehicleId or trailerId must be provided.",
+          "type": "integer",
+          "example": 10
+        }
+      }
+    },
+    "V1createMessagesParam": {
+      "type": "object",
+      "required": [
+        "driverIds",
+        "text"
+      ],
+      "properties": {
+        "driverIds": {
+          "description": "IDs of the drivers for whom the messages are sent to.",
+          "type": "array",
+          "items": {
+            "type": "number",
+            "format": "int64",
+            "example": 555
+          },
+          "example": [
+            111,
+            222,
+            333
+          ]
+        },
+        "text": {
+          "description": "The text sent in the message.",
+          "type": "string",
+          "example": "This is a message."
+        }
+      }
+    },
+    "V1sensorParam": {
+      "type": "object",
+      "required": [
+        "sensors"
+      ],
+      "properties": {
+        "sensors": {
+          "description": "List of sensor IDs to query.",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "example": [
+            122
+          ]
+        }
+      }
     }
   },
   "parameters": {
@@ -10556,78 +10785,7 @@
       "in": "body",
       "required": true,
       "schema": {
-        "type": "object",
-        "required": [
-          "safe",
-          "inspectionType",
-          "userEmail"
-        ],
-        "properties": {
-          "inspectionType": {
-            "description": "Only type 'mechanic' is currently accepted.",
-            "type": "string",
-            "enum": [
-              "mechanic"
-            ],
-            "example": "mechanic"
-          },
-          "mechanicNotes": {
-            "description": "Any notes from the mechanic.",
-            "type": "string",
-            "example": "Replaced headlight on passenger side."
-          },
-          "odometerMiles": {
-            "description": "The current odometer of the vehicle.",
-            "type": "integer",
-            "example": 38426
-          },
-          "previousDefectsCorrected": {
-            "description": "Whether any previous defects were corrected. If this vehicle or trailer was previously marked unsafe, and this DVIR marks it as safe, either previousDefectsCorrected or previousDefectsIgnored must be true.",
-            "type": "boolean",
-            "example": true
-          },
-          "previousDefectsIgnored": {
-            "description": "Whether any previous defects were ignored. If this vehicle or trailer was previously marked unsafe, and this DVIR marks it as safe, either previousDefectsCorrected or previousDefectsIgnored must be true.",
-            "type": "boolean",
-            "example": false
-          },
-          "resolvedDefectIds": {
-            "description": "List of defect IDs to resolve.  The defects must be associated with the provided vehicle or trailer.",
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "example": [
-              18,
-              19
-            ]
-          },
-          "safe": {
-            "description": "Whether or not this vehicle or trailer is safe to drive.",
-            "type": "string",
-            "enum": [
-              "safe",
-              "unsafe"
-            ],
-            "example": "safe"
-          },
-          "trailerId": {
-            "description": "Id of trailer being inspected. Either vehicleId or trailerId must be provided.",
-            "type": "integer",
-            "example": 11
-          },
-          "userEmail": {
-            "description": "The Samsara login email for the person creating the DVIR. The email must correspond to a Samsara user's email.",
-            "type": "string",
-            "example": "j.smith@yahoo.com"
-          },
-          "vehicleId": {
-            "description": "Id of vehicle being inspected. Either vehicleId or trailerId must be provided.",
-            "type": "integer",
-            "example": 10
-          }
-        }
+        "$ref": "#/definitions/V1createDvirParam"
       }
     },
     "V1createMessagesParam": {
@@ -10636,32 +10794,7 @@
       "in": "body",
       "required": true,
       "schema": {
-        "type": "object",
-        "required": [
-          "driverIds",
-          "text"
-        ],
-        "properties": {
-          "driverIds": {
-            "description": "IDs of the drivers for whom the messages are sent to.",
-            "type": "array",
-            "items": {
-              "type": "number",
-              "format": "int64",
-              "example": 555
-            },
-            "example": [
-              111,
-              222,
-              333
-            ]
-          },
-          "text": {
-            "description": "The text sent in the message.",
-            "type": "string",
-            "example": "This is a message."
-          }
-        }
+        "$ref": "#/definitions/V1createMessagesParam"
       }
     },
     "V1dataInputEndTimeParam": {
@@ -10839,23 +10972,7 @@
       "in": "body",
       "required": true,
       "schema": {
-        "type": "object",
-        "required": [
-          "sensors"
-        ],
-        "properties": {
-          "sensors": {
-            "description": "List of sensor IDs to query.",
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int64"
-            },
-            "example": [
-              122
-            ]
-          }
-        }
+        "$ref": "#/definitions/V1sensorParam"
       }
     },
     "V1visionCameraIdParam": {

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_address**
-> InlineResponse200 create_address(address=address)
+> CreateAddressResponse create_address(address=address)
 
 Create an address
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**CreateAddressResponse**](CreateAddressResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_address_by_id**
-> InlineResponse200 get_address_by_id(id)
+> GetAddressByIdResponse get_address_by_id(id)
 
 Retrieve an address
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**GetAddressByIdResponse**](GetAddressByIdResponse.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addresses**
-> object get_addresses(limit=limit, after=after, tag_ids=tag_ids)
+> GetAddressesResponse get_addresses(limit=limit, after=after, tag_ids=tag_ids)
 
 List all addresses
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetAddressesResponse**](GetAddressesResponse.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_address_by_id**
-> InlineResponse200 update_address_by_id(id, address=address)
+> UpdateAddressByIdResponse update_address_by_id(id, address=address)
 
 Update an address
 
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](InlineResponse200.md)
+[**UpdateAddressByIdResponse**](UpdateAddressByIdResponse.md)
 
 ### Authorization
 

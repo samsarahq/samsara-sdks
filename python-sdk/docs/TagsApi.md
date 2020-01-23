@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_tag**
-> InlineResponse2005 create_tag(tag_create_body_=tag_create_body_)
+> CreateTagResponse create_tag(tag_create_body_=tag_create_body_)
 
 Create a tag
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**CreateTagResponse**](CreateTagResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_tags**
-> InlineResponse2004 get_all_tags(limit=limit, after=after)
+> GetAllTagsResponse get_all_tags(limit=limit, after=after)
 
 List all tags
 
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**GetAllTagsResponse**](GetAllTagsResponse.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_tag_by_id**
-> InlineResponse2005 get_tag_by_id(id)
+> GetTagByIdResponse get_tag_by_id(id)
 
 Retrieve a tag
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**GetTagByIdResponse**](GetTagByIdResponse.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_tag_by_id**
-> InlineResponse2005 put_tag_by_id(id, tag_update_body_=tag_update_body_)
+> PutTagByIdResponse put_tag_by_id(id, tag_update_body_=tag_update_body_)
 
 Update a tag
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](InlineResponse2005.md)
+[**PutTagByIdResponse**](PutTagByIdResponse.md)
 
 ### Authorization
 

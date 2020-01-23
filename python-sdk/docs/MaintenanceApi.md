@@ -122,7 +122,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_fleet_maintenance_list**
-> InlineResponse20011 v1get_fleet_maintenance_list()
+> V1getFleetMaintenanceListResponse v1get_fleet_maintenance_list()
 
 Get vehicles with engine faults or check lights
 
@@ -153,7 +153,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**V1getFleetMaintenanceListResponse**](V1getFleetMaintenanceListResponse.md)
 
 ### Authorization
 

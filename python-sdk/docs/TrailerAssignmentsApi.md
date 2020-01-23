@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **v1get_all_trailer_assignments**
-> InlineResponse20014 v1get_all_trailer_assignments(start_ms=start_ms, end_ms=end_ms, limit=limit, starting_after=starting_after, ending_before=ending_before)
+> V1getAllTrailerAssignmentsResponse v1get_all_trailer_assignments(start_ms=start_ms, end_ms=end_ms, limit=limit, starting_after=starting_after, ending_before=ending_before)
 
 List trailer assignments for all trailers
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**V1getAllTrailerAssignmentsResponse**](V1getAllTrailerAssignmentsResponse.md)
 
 ### Authorization
 

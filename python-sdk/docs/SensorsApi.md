@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **v1get_sensors**
-> InlineResponse20017 v1get_sensors()
+> V1getSensorsResponse v1get_sensors()
 
 Get all sensors
 
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**V1getSensorsResponse**](V1getSensorsResponse.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **v1create_messages**
-> InlineResponse20013 v1create_messages(create_messages)
+> V1createMessagesResponse v1create_messages(create_messages)
 
 Send a message to a list of driver ids.
 
@@ -44,7 +44,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**V1createMessagesResponse**](V1createMessagesResponse.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_messages**
-> InlineResponse20012 v1get_messages(end_ms=end_ms, duration_ms=duration_ms)
+> V1getMessagesResponse v1get_messages(end_ms=end_ms, duration_ms=duration_ms)
 
 Get all messages.
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**V1getMessagesResponse**](V1getMessagesResponse.md)
 
 ### Authorization
 

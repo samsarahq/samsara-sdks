@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_contact**
-> InlineResponse2001 create_contact(contact)
+> CreateContactResponse create_contact(contact)
 
 Create a contact
 
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**CreateContactResponse**](CreateContactResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_contact_by_id**
-> InlineResponse2001 get_contact_by_id(id)
+> GetContactByIdResponse get_contact_by_id(id)
 
 Retrieve a contact
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**GetContactByIdResponse**](GetContactByIdResponse.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_contacts**
-> object get_contacts(limit=limit, after=after)
+> GetContactsResponse get_contacts(limit=limit, after=after)
 
 List all contacts
 
@@ -213,7 +213,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetContactsResponse**](GetContactsResponse.md)
 
 ### Authorization
 
@@ -233,7 +233,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_contact_by_id**
-> InlineResponse2001 update_contact_by_id(id, contact=contact)
+> UpdateContactByIdResponse update_contact_by_id(id, contact=contact)
 
 Update a contact
 
@@ -270,7 +270,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**UpdateContactByIdResponse**](UpdateContactByIdResponse.md)
 
 ### Authorization
 

@@ -76,7 +76,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_all_data_inputs**
-> InlineResponse20015 v1get_all_data_inputs(start_ms=start_ms, end_ms=end_ms)
+> V1getAllDataInputsResponse v1get_all_data_inputs(start_ms=start_ms, end_ms=end_ms)
 
 Get industrial data
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**V1getAllDataInputsResponse**](V1getAllDataInputsResponse.md)
 
 ### Authorization
 
@@ -243,7 +243,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_machines**
-> InlineResponse20016 v1get_machines()
+> V1getMachinesResponse v1get_machines()
 
 Get machines
 
@@ -274,7 +274,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**V1getMachinesResponse**](V1getMachinesResponse.md)
 
 ### Authorization
 

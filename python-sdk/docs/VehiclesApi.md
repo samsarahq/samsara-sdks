@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **get_vehicle_by_id**
-> InlineResponse2003 get_vehicle_by_id(id)
+> GetVehicleByIdResponse get_vehicle_by_id(id)
 
 Retrieve a vehicle
 
@@ -51,7 +51,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**GetVehicleByIdResponse**](GetVehicleByIdResponse.md)
 
 ### Authorization
 
@@ -378,7 +378,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_vehicle_stats_snapshot**
-> object get_vehicle_stats_snapshot(types, after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
+> GetVehicleStatsSnapshotResponse get_vehicle_stats_snapshot(types, after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
 
 List most recent vehicle stats
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+[**GetVehicleStatsSnapshotResponse**](GetVehicleStatsSnapshotResponse.md)
 
 ### Authorization
 
@@ -498,7 +498,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_vehicle_by_id**
-> InlineResponse2003 update_vehicle_by_id(id, vehicle_patch_body=vehicle_patch_body)
+> UpdateVehicleByIdResponse update_vehicle_by_id(id, vehicle_patch_body=vehicle_patch_body)
 
 Update a vehicle
 
@@ -535,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**UpdateVehicleByIdResponse**](UpdateVehicleByIdResponse.md)
 
 ### Authorization
 
