@@ -36,6 +36,7 @@ class LocationsWrapper(object):
         'latitude': 'float',
         'longitude': 'float',
         'heading': 'float',
+        'reverse_geo': 'ReverseGeo',
         'speed': 'float',
         'time': 'str'
     }
@@ -44,11 +45,12 @@ class LocationsWrapper(object):
         'latitude': 'latitude',
         'longitude': 'longitude',
         'heading': 'heading',
+        'reverse_geo': 'reverseGeo',
         'speed': 'speed',
         'time': 'time'
     }
 
-    def __init__(self, latitude=None, longitude=None, heading=None, speed=None, time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, latitude=None, longitude=None, heading=None, reverse_geo=None, speed=None, time=None, local_vars_configuration=None):  # noqa: E501
         """LocationsWrapper - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class LocationsWrapper(object):
         self._latitude = None
         self._longitude = None
         self._heading = None
+        self._reverse_geo = None
         self._speed = None
         self._time = None
         self.discriminator = None
@@ -65,6 +68,8 @@ class LocationsWrapper(object):
         self.longitude = longitude
         if heading is not None:
             self.heading = heading
+        if reverse_geo is not None:
+            self.reverse_geo = reverse_geo
         if speed is not None:
             self.speed = speed
         self.time = time
@@ -141,6 +146,27 @@ class LocationsWrapper(object):
         """
 
         self._heading = heading
+
+    @property
+    def reverse_geo(self):
+        """Gets the reverse_geo of this LocationsWrapper.  # noqa: E501
+
+
+        :return: The reverse_geo of this LocationsWrapper.  # noqa: E501
+        :rtype: ReverseGeo
+        """
+        return self._reverse_geo
+
+    @reverse_geo.setter
+    def reverse_geo(self, reverse_geo):
+        """Sets the reverse_geo of this LocationsWrapper.
+
+
+        :param reverse_geo: The reverse_geo of this LocationsWrapper.  # noqa: E501
+        :type: ReverseGeo
+        """
+
+        self._reverse_geo = reverse_geo
 
     @property
     def speed(self):

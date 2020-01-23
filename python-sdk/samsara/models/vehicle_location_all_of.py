@@ -34,26 +34,31 @@ class VehicleLocationAllOf(object):
     """
     openapi_types = {
         'heading': 'float',
+        'reverse_geo': 'ReverseGeo',
         'speed': 'float'
     }
 
     attribute_map = {
         'heading': 'heading',
+        'reverse_geo': 'reverseGeo',
         'speed': 'speed'
     }
 
-    def __init__(self, heading=None, speed=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, heading=None, reverse_geo=None, speed=None, local_vars_configuration=None):  # noqa: E501
         """VehicleLocationAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._heading = None
+        self._reverse_geo = None
         self._speed = None
         self.discriminator = None
 
         if heading is not None:
             self.heading = heading
+        if reverse_geo is not None:
+            self.reverse_geo = reverse_geo
         if speed is not None:
             self.speed = speed
 
@@ -79,6 +84,27 @@ class VehicleLocationAllOf(object):
         """
 
         self._heading = heading
+
+    @property
+    def reverse_geo(self):
+        """Gets the reverse_geo of this VehicleLocationAllOf.  # noqa: E501
+
+
+        :return: The reverse_geo of this VehicleLocationAllOf.  # noqa: E501
+        :rtype: ReverseGeo
+        """
+        return self._reverse_geo
+
+    @reverse_geo.setter
+    def reverse_geo(self, reverse_geo):
+        """Sets the reverse_geo of this VehicleLocationAllOf.
+
+
+        :param reverse_geo: The reverse_geo of this VehicleLocationAllOf.  # noqa: E501
+        :type: ReverseGeo
+        """
+
+        self._reverse_geo = reverse_geo
 
     @property
     def speed(self):

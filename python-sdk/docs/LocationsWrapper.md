@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **latitude** | **float** | GPS latitude represented in degrees | 
 **longitude** | **float** | GPS longitude represented in degrees | 
 **heading** | **float** | Heading of the vehicle in degrees. | [optional] 
+**reverse_geo** | [**ReverseGeo**](ReverseGeo.md) |  | [optional] 
 **speed** | **float** | Speed of the vehicle in miles per hour. | [optional] 
 **time** | **str** | UTC timestamp in RFC 3339 milliseconds format. | 
 

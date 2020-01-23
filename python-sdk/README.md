@@ -221,6 +221,7 @@ Class | Method | HTTP request | Description
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
  - [RemoteObdTestRecords](docs/RemoteObdTestRecords.md)
+ - [ReverseGeo](docs/ReverseGeo.md)
  - [StandardErrorResponse](docs/StandardErrorResponse.md)
  - [Tag](docs/Tag.md)
  - [TagAllOf](docs/TagAllOf.md)

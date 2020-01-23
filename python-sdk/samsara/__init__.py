@@ -107,6 +107,7 @@ from samsara.models.locations_wrapper_all_of import LocationsWrapperAllOf
 from samsara.models.pagination_response import PaginationResponse
 from samsara.models.parent_tag import ParentTag
 from samsara.models.remote_obd_test_records import RemoteObdTestRecords
+from samsara.models.reverse_geo import ReverseGeo
 from samsara.models.standard_error_response import StandardErrorResponse
 from samsara.models.tag import Tag
 from samsara.models.tag_all_of import TagAllOf
