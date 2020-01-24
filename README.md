@@ -15,7 +15,7 @@ The automatically generated documentation can be a little confusing, and we have
 
 ### Installation
 
-The SDK should work with either Python 2 or Python 3, however, we've only tested it with Python 3 so far.
+The SDK should work with either Python 2 or Python 3. However, we've only tested it with Python 3 so far.
 
 1. Clone or download this project.
 2. Open a command prompt or terminal.
@@ -34,9 +34,8 @@ import samsara
 
 ```python
 import samsara
-from samsara.rest import ApiException
 
-# Create an ApiClient with an access `token`
+# Create an ApiClient with an API access `token`
 client = samsara.ApiClient(header_name='Authorization', header_value=f'Bearer {token}')
 
 # Create an instance of the Addresses Api
@@ -54,7 +53,7 @@ new_address = samsara.AddressCreate(
 )
 
 # Call `create_address` with the AddressCreate object
-response = addresses_api.create_address(address=sf6)
+response = addresses_api.create_address(address=new_address)
 
 # Access the id of the newly created address
 new_addres_id = response.data.id
