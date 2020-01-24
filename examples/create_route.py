@@ -1,10 +1,16 @@
 from __future__ import print_function
 import datetime
 import samsara
+import sys
+
+try:
+    token = sys.argv[1]
+except IndexError as e:
+    print('Please provide an access token. For example:')
+    print(f'python {sys.argv[0]} 2YotnFZFEjr1zCsicMWpAA')
+    sys.exit()
 
 # Create an ApiClient
-with open('token', 'r') as f:
-    token = f.read()
 client = samsara.ApiClient(header_name='Authorization', header_value=f'Bearer {token}')
 
 # Create an instance of some APIs
