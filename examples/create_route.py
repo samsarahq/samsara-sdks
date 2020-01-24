@@ -1,7 +1,6 @@
 from __future__ import print_function
 import datetime
 import samsara
-from samsara.rest import ApiException
 
 # Create an ApiClient
 with open('token', 'r') as f:
