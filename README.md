@@ -66,5 +66,5 @@ You can see more examples in the `examples` folder.
 To run the examples, you must provide an API access token:
 
 ```sh
-python examples/get_vehicle_locations.py 2YotnFZFEjr1zCsicMWpAA
+python examples/get_vehicle_locations.py <access token>
 ```

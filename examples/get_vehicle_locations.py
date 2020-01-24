@@ -7,7 +7,7 @@ try:
     token = sys.argv[1]
 except IndexError as e:
     print('Please provide an access token. For example:')
-    print(f'python {sys.argv[0]} 2YotnFZFEjr1zCsicMWpAA')
+    print(f'python {sys.argv[0]} <access token>')
     sys.exit()
 
 # Create an ApiClient
