@@ -1,5 +1,6 @@
 from __future__ import print_function
 import datetime
+import time
 import samsara
 import sys
 
@@ -7,11 +8,11 @@ try:
     token = sys.argv[1]
 except IndexError as e:
     print('Please provide an access token. For example:')
-    print(f'python {sys.argv[0]} <access token>')
+    print('python {program} <access token>'.format(program=sys.argv[0]))
     sys.exit()
 
 # Create an ApiClient
-client = samsara.ApiClient(header_name='Authorization', header_value=f'Bearer {token}')
+client = samsara.ApiClient(header_name='Authorization', header_value='Bearer {token}'.format(token=token))
 
 # Create an instance of some APIs
 routes_api = samsara.RoutesApi(api_client=client)
@@ -43,19 +44,15 @@ sj1 = samsara.AddressCreate(
 resp = addresses_api.create_address(address=sj1)
 address_ids['SJ1'] = resp.data.id
 
-# Helper func: Convert from datetime object to unix ms
-def ms(datetime):
-    return int(datetime.timestamp()*1000)
-
 # Create a route from SF6 to SJ1 and then delete everything for cleanup
 route = samsara.V1DispatchRouteCreate(
     name="SF6 to SJ1",
     start_location_address_id=address_ids['SF6'],
-    scheduled_start_ms=ms(datetime.datetime.now() + datetime.timedelta(days=1)),
+    scheduled_start_ms=(time.time() + datetime.timedelta(days=1).total_seconds())*1000,
     dispatch_jobs=[
         samsara.V1DispatchJobCreate(
             destination_address_id=address_ids['SJ1'],
-            scheduled_arrival_time_ms=ms(datetime.datetime.now() + datetime.timedelta(days=1, hours=1))
+            scheduled_arrival_time_ms=(time.time() + datetime.timedelta(days=1, hours=1).total_seconds())*1000
         )
     ],
 )

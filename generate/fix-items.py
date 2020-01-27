@@ -32,5 +32,5 @@ def fix_items(obj):
 fix_items(swagger)
 
 # Write to new file
-with open(f'{os.path.splitext(swagger_file_name)[0]}-broken-items.json', 'w') as f:
+with open('{file_name}-broken-items.json'.format(file_name=os.path.splitext(swagger_file_name)[0]), 'w') as f:
     json.dump(swagger, f, indent=2)

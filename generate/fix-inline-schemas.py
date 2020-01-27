@@ -25,9 +25,9 @@ for path_name in swagger['paths']:
                 if '$ref' not in schema:
                     if 'type' not in schema:
                         schema['type'] = 'object'
-                    swagger['definitions'][f'{operation["operationId"]}Response'] = schema
+                    swagger['definitions']['{operationId}Response'.format(operationId=operation["operationId"])] = schema
                     operation['responses'][response]['schema'] = {
-                        '$ref': f'#/definitions/{operation["operationId"]}Response'
+                        '$ref': '#/definitions/{operationId}Response'.format(operationId=operation["operationId"])
                     }
 
 # Fix schemas in parameters
@@ -40,7 +40,7 @@ for parameter_name in swagger['parameters']:
                 schema['type'] = 'object'
             swagger['definitions'][parameter_name] = schema
             parameter['schema'] = {
-                '$ref': f'#/definitions/{parameter_name}'
+                '$ref': '#/definitions/{parameter_name}'.format(parameter_name=parameter_name)
             }
 
 with open(swagger_file_name, 'w') as f:
