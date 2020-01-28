@@ -17,7 +17,7 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from samsara_test.api.addresses_api import AddressesApi
+from samsara_test.api.default_api import DefaultApi
 
 # import ApiClient
 from samsara_test.api_client import ApiClient

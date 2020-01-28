@@ -1,5 +1,7 @@
 import samsara_test
 
+with open('token', 'r') as f:
+    token = f.read()
 # Create an ApiClient with an API access `token`. You can provide your access token to the variable `token` below.
 client = samsara_test.ApiClient(header_name='Authorization', header_value='Bearer {token}'.format(token=token))
 

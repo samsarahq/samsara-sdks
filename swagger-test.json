@@ -18,9 +18,6 @@
   "paths": {
     "/addresses": {
       "get": {
-        "tags": [
-          "Addresses"
-        ],
         "summary": "List all addresses",
         "description": "Returns a list of all addresses in an organization",
         "operationId": "getAddresses",
@@ -51,9 +48,6 @@
         }
       },
       "post": {
-        "tags": [
-          "Addresses"
-        ],
         "summary": "Create an address",
         "description": "Creates a new address in the organization",
         "operationId": "createAddress",
@@ -94,9 +88,6 @@
         }
       ],
       "get": {
-        "tags": [
-          "Addresses"
-        ],
         "summary": "Retrieve an address",
         "description": "Returns a specific address.",
         "operationId": "getAddressById",
@@ -117,9 +108,6 @@
         }
       },
       "patch": {
-        "tags": [
-          "Addresses"
-        ],
         "summary": "Update an address",
         "description": "Update a specific address.",
         "operationId": "updateAddressById",
@@ -149,9 +137,6 @@
         }
       },
       "delete": {
-        "tags": [
-          "Addresses"
-        ],
         "summary": "Delete an address",
         "description": "Delete a specific address.",
         "operationId": "deleteAddressById",

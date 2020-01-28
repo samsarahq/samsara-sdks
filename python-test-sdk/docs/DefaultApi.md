@@ -1,14 +1,14 @@
-# samsara_test.AddressesApi
+# samsara_test.DefaultApi
 
 All URIs are relative to *https://api.samsara.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_address**](AddressesApi.md#create_address) | **POST** /addresses | Create an address
-[**delete_address_by_id**](AddressesApi.md#delete_address_by_id) | **DELETE** /addresses/{id} | Delete an address
-[**get_address_by_id**](AddressesApi.md#get_address_by_id) | **GET** /addresses/{id} | Retrieve an address
-[**get_addresses**](AddressesApi.md#get_addresses) | **GET** /addresses | List all addresses
-[**update_address_by_id**](AddressesApi.md#update_address_by_id) | **PATCH** /addresses/{id} | Update an address
+[**create_address**](DefaultApi.md#create_address) | **POST** /addresses | Create an address
+[**delete_address_by_id**](DefaultApi.md#delete_address_by_id) | **DELETE** /addresses/{id} | Delete an address
+[**get_address_by_id**](DefaultApi.md#get_address_by_id) | **GET** /addresses/{id} | Retrieve an address
+[**get_addresses**](DefaultApi.md#get_addresses) | **GET** /addresses | List all addresses
+[**update_address_by_id**](DefaultApi.md#update_address_by_id) | **PATCH** /addresses/{id} | Update an address
 
 
 # **create_address**
@@ -28,7 +28,7 @@ from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
+api_instance = samsara_test.DefaultApi()
 address = samsara_test.AddressCreate() # AddressCreate | The address to create. (optional)
 
 try:
@@ -36,7 +36,7 @@ try:
     api_response = api_instance.create_address(address=address)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddressesApi->create_address: %s\n" % e)
+    print("Exception when calling DefaultApi->create_address: %s\n" % e)
 ```
 
 ### Parameters
@@ -83,14 +83,14 @@ from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
+api_instance = samsara_test.DefaultApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
 try:
     # Delete an address
     api_instance.delete_address_by_id(id)
 except ApiException as e:
-    print("Exception when calling AddressesApi->delete_address_by_id: %s\n" % e)
+    print("Exception when calling DefaultApi->delete_address_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -137,7 +137,7 @@ from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
+api_instance = samsara_test.DefaultApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
 try:
@@ -145,7 +145,7 @@ try:
     api_response = api_instance.get_address_by_id(id)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddressesApi->get_address_by_id: %s\n" % e)
+    print("Exception when calling DefaultApi->get_address_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -192,7 +192,7 @@ from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
+api_instance = samsara_test.DefaultApi()
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -202,7 +202,7 @@ try:
     api_response = api_instance.get_addresses(limit=limit, after=after, tag_ids=tag_ids)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddressesApi->get_addresses: %s\n" % e)
+    print("Exception when calling DefaultApi->get_addresses: %s\n" % e)
 ```
 
 ### Parameters
@@ -251,7 +251,7 @@ from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
+api_instance = samsara_test.DefaultApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 address = samsara_test.AddressPatch() # AddressPatch | The address fields to update. (optional)
 
@@ -260,7 +260,7 @@ try:
     api_response = api_instance.update_address_by_id(id, address=address)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddressesApi->update_address_by_id: %s\n" % e)
+    print("Exception when calling DefaultApi->update_address_by_id: %s\n" % e)
 ```
 
 ### Parameters

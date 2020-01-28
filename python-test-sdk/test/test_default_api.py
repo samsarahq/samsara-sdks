@@ -15,15 +15,15 @@ from __future__ import absolute_import
 import unittest
 
 import samsara_test
-from samsara_test.api.addresses_api import AddressesApi  # noqa: E501
+from samsara_test.api.default_api import DefaultApi  # noqa: E501
 from samsara_test.rest import ApiException
 
 
-class TestAddressesApi(unittest.TestCase):
-    """AddressesApi unit test stubs"""
+class TestDefaultApi(unittest.TestCase):
+    """DefaultApi unit test stubs"""
 
     def setUp(self):
-        self.api = samsara_test.api.addresses_api.AddressesApi()  # noqa: E501
+        self.api = samsara_test.api.default_api.DefaultApi()  # noqa: E501
 
     def tearDown(self):
         pass

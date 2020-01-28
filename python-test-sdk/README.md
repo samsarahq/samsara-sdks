@@ -55,7 +55,7 @@ from pprint import pprint
 # Defining host is optional and default to https://api.samsara.com
 configuration.host = "https://api.samsara.com"
 # Create an instance of the API class
-api_instance = samsara_test.AddressesApi(samsara_test.ApiClient(configuration))
+api_instance = samsara_test.DefaultApi(samsara_test.ApiClient(configuration))
 address = samsara_test.AddressCreate() # AddressCreate | The address to create. (optional)
 
 try:
@@ -63,7 +63,7 @@ try:
     api_response = api_instance.create_address(address=address)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling AddressesApi->create_address: %s\n" % e)
+    print("Exception when calling DefaultApi->create_address: %s\n" % e)
 
 ```
 
@@ -73,11 +73,11 @@ All URIs are relative to *https://api.samsara.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AddressesApi* | [**create_address**](docs/AddressesApi.md#create_address) | **POST** /addresses | Create an address
-*AddressesApi* | [**delete_address_by_id**](docs/AddressesApi.md#delete_address_by_id) | **DELETE** /addresses/{id} | Delete an address
-*AddressesApi* | [**get_address_by_id**](docs/AddressesApi.md#get_address_by_id) | **GET** /addresses/{id} | Retrieve an address
-*AddressesApi* | [**get_addresses**](docs/AddressesApi.md#get_addresses) | **GET** /addresses | List all addresses
-*AddressesApi* | [**update_address_by_id**](docs/AddressesApi.md#update_address_by_id) | **PATCH** /addresses/{id} | Update an address
+*DefaultApi* | [**create_address**](docs/DefaultApi.md#create_address) | **POST** /addresses | Create an address
+*DefaultApi* | [**delete_address_by_id**](docs/DefaultApi.md#delete_address_by_id) | **DELETE** /addresses/{id} | Delete an address
+*DefaultApi* | [**get_address_by_id**](docs/DefaultApi.md#get_address_by_id) | **GET** /addresses/{id} | Retrieve an address
+*DefaultApi* | [**get_addresses**](docs/DefaultApi.md#get_addresses) | **GET** /addresses | List all addresses
+*DefaultApi* | [**update_address_by_id**](docs/DefaultApi.md#update_address_by_id) | **PATCH** /addresses/{id} | Update an address
 
 
 ## Documentation For Models
