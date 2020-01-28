@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import samsara-test
-from samsara-test.models.pagination_response import PaginationResponse  # noqa: E501
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.models.pagination_response import PaginationResponse  # noqa: E501
+from samsara_test.rest import ApiException
 
 
 class TestPaginationResponse(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestPaginationResponse(unittest.TestCase):
     def testPaginationResponse(self):
         """Test PaginationResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara-test.models.pagination_response.PaginationResponse()  # noqa: E501
+        # model = samsara_test.models.pagination_response.PaginationResponse()  # noqa: E501
         pass
 
 

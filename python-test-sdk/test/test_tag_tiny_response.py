@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import samsara-test
-from samsara-test.models.tag_tiny_response import TagTinyResponse  # noqa: E501
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.models.tag_tiny_response import TagTinyResponse  # noqa: E501
+from samsara_test.rest import ApiException
 
 
 class TestTagTinyResponse(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestTagTinyResponse(unittest.TestCase):
     def testTagTinyResponse(self):
         """Test TagTinyResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara-test.models.tag_tiny_response.TagTinyResponse()  # noqa: E501
+        # model = samsara_test.models.tag_tiny_response.TagTinyResponse()  # noqa: E501
         pass
 
 

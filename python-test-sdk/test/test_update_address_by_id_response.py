@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import samsara-test
-from samsara-test.models.update_address_by_id_response import UpdateAddressByIdResponse  # noqa: E501
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.models.update_address_by_id_response import UpdateAddressByIdResponse  # noqa: E501
+from samsara_test.rest import ApiException
 
 
 class TestUpdateAddressByIdResponse(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestUpdateAddressByIdResponse(unittest.TestCase):
     def testUpdateAddressByIdResponse(self):
         """Test UpdateAddressByIdResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara-test.models.update_address_by_id_response.UpdateAddressByIdResponse()  # noqa: E501
+        # model = samsara_test.models.update_address_by_id_response.UpdateAddressByIdResponse()  # noqa: E501
         pass
 
 

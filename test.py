@@ -1,12 +1,24 @@
-import samsara
+import samsara_test
 
-with open('token', 'r') as f:
-    # configuration.api_key_prefix["Authorization"] = "Bearer"
-    # configuration.api_key["Authorization"] = token.read()
-    token = f.read()
-client = samsara.ApiClient(header_name='Authorization', header_value=f'Bearer {token}')
+# Create an ApiClient with an API access `token`. You can provide your access token to the variable `token` below.
+client = samsara_test.ApiClient(header_name='Authorization', header_value='Bearer {token}'.format(token=token))
 
-# Create an instance of the VehiclesAPI
-api = samsara.VehiclesApi(api_client=client)
+# Create an instance of the Addresses Api
+addresses_api = samsara_test.AddressesApi(api_client=client)
 
-print(api.get_vehicle_stats_feed(types="engineStates"))
+# Instantiate an AddressCreate object to send to the Samsara_test API
+new_address = samsara_test.AddressCreate(
+    name="SF6",
+    formatted_address="350 Rhode Island St, San Francisco, CA",
+    geofence=samsara_test.AddressGeofenceRequest(
+        circle=samsara_test.AddressGeofenceRequestCircle(
+            radius_meters=25
+        )
+    )
+)
+
+# Call `create_address` with the AddressCreate object
+response = addresses_api.create_address(address=new_address)
+
+# Access the id of the newly created address
+new_address_id = response.data.id

@@ -23,7 +23,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import samsara-test 
+import samsara_test 
 ```
 
 ### Setuptools
@@ -37,7 +37,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import samsara-test
+import samsara_test
 ```
 
 ## Getting Started
@@ -47,16 +47,16 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 from __future__ import print_function
 import time
-import samsara-test
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.rest import ApiException
 from pprint import pprint
 
 
 # Defining host is optional and default to https://api.samsara.com
 configuration.host = "https://api.samsara.com"
 # Create an instance of the API class
-api_instance = samsara-test.AddressesApi(samsara-test.ApiClient(configuration))
-address = samsara-test.AddressCreate() # AddressCreate | The address to create. (optional)
+api_instance = samsara_test.AddressesApi(samsara_test.ApiClient(configuration))
+address = samsara_test.AddressCreate() # AddressCreate | The address to create. (optional)
 
 try:
     # Create an address

@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import samsara-test
-from samsara-test.models.address_geofence_response import AddressGeofenceResponse  # noqa: E501
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.models.address_geofence_response import AddressGeofenceResponse  # noqa: E501
+from samsara_test.rest import ApiException
 
 
 class TestAddressGeofenceResponse(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestAddressGeofenceResponse(unittest.TestCase):
     def testAddressGeofenceResponse(self):
         """Test AddressGeofenceResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara-test.models.address_geofence_response.AddressGeofenceResponse()  # noqa: E501
+        # model = samsara_test.models.address_geofence_response.AddressGeofenceResponse()  # noqa: E501
         pass
 
 

@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import samsara-test
-from samsara-test.models.address_create import AddressCreate  # noqa: E501
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.models.address_create import AddressCreate  # noqa: E501
+from samsara_test.rest import ApiException
 
 
 class TestAddressCreate(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestAddressCreate(unittest.TestCase):
     def testAddressCreate(self):
         """Test AddressCreate"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara-test.models.address_create.AddressCreate()  # noqa: E501
+        # model = samsara_test.models.address_create.AddressCreate()  # noqa: E501
         pass
 
 

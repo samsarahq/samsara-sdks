@@ -1,4 +1,4 @@
-# samsara-test.AddressesApi
+# samsara_test.AddressesApi
 
 All URIs are relative to *https://api.samsara.com*
 
@@ -23,13 +23,13 @@ Creates a new address in the organization
 ```python
 from __future__ import print_function
 import time
-import samsara-test
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara-test.AddressesApi()
-address = samsara-test.AddressCreate() # AddressCreate | The address to create. (optional)
+api_instance = samsara_test.AddressesApi()
+address = samsara_test.AddressCreate() # AddressCreate | The address to create. (optional)
 
 try:
     # Create an address
@@ -78,12 +78,12 @@ Delete a specific address.
 ```python
 from __future__ import print_function
 import time
-import samsara-test
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara-test.AddressesApi()
+api_instance = samsara_test.AddressesApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
 try:
@@ -132,12 +132,12 @@ Returns a specific address.
 ```python
 from __future__ import print_function
 import time
-import samsara-test
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara-test.AddressesApi()
+api_instance = samsara_test.AddressesApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
 try:
@@ -187,12 +187,12 @@ Returns a list of all addresses in an organization
 ```python
 from __future__ import print_function
 import time
-import samsara-test
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara-test.AddressesApi()
+api_instance = samsara_test.AddressesApi()
 limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
@@ -246,14 +246,14 @@ Update a specific address.
 ```python
 from __future__ import print_function
 import time
-import samsara-test
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.rest import ApiException
 from pprint import pprint
 
 # Create an instance of the API class
-api_instance = samsara-test.AddressesApi()
+api_instance = samsara_test.AddressesApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
-address = samsara-test.AddressPatch() # AddressPatch | The address fields to update. (optional)
+address = samsara_test.AddressPatch() # AddressPatch | The address fields to update. (optional)
 
 try:
     # Update an address

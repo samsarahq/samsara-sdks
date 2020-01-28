@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import samsara-test
-from samsara-test.models.get_addresses_response import GetAddressesResponse  # noqa: E501
-from samsara-test.rest import ApiException
+import samsara_test
+from samsara_test.models.get_addresses_response import GetAddressesResponse  # noqa: E501
+from samsara_test.rest import ApiException
 
 
 class TestGetAddressesResponse(unittest.TestCase):
@@ -31,7 +31,7 @@ class TestGetAddressesResponse(unittest.TestCase):
     def testGetAddressesResponse(self):
         """Test GetAddressesResponse"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara-test.models.get_addresses_response.GetAddressesResponse()  # noqa: E501
+        # model = samsara_test.models.get_addresses_response.GetAddressesResponse()  # noqa: E501
         pass
 
 
