@@ -74,7 +74,7 @@ All URIs are relative to *https://api.samsara.com*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**create_address**](docs/DefaultApi.md#create_address) | **POST** /addresses | Create an address
-*DefaultApi* | [**delete_address_by_id**](docs/DefaultApi.md#delete_address_by_id) | **DELETE** /addresses/{id} | Delete an address
+*DefaultApi* | [**delete_address**](docs/DefaultApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
 *DefaultApi* | [**get_address**](docs/DefaultApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
 *DefaultApi* | [**list_addresses**](docs/DefaultApi.md#list_addresses) | **GET** /addresses | List all addresses
 *DefaultApi* | [**update_address**](docs/DefaultApi.md#update_address) | **PATCH** /addresses/{id} | Update an address

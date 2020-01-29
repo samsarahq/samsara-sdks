@@ -5,7 +5,7 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_address**](DefaultApi.md#create_address) | **POST** /addresses | Create an address
-[**delete_address_by_id**](DefaultApi.md#delete_address_by_id) | **DELETE** /addresses/{id} | Delete an address
+[**delete_address**](DefaultApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
 [**get_address**](DefaultApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
 [**list_addresses**](DefaultApi.md#list_addresses) | **GET** /addresses | List all addresses
 [**update_address**](DefaultApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
@@ -66,8 +66,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_address_by_id**
-> delete_address_by_id(id)
+# **delete_address**
+> delete_address(id)
 
 Delete an address
 
@@ -88,9 +88,9 @@ id = 'id_example' # str | ID of the Address. This can either be the Samsara-prov
 
 try:
     # Delete an address
-    api_instance.delete_address_by_id(id)
+    api_instance.delete_address(id)
 except ApiException as e:
-    print("Exception when calling DefaultApi->delete_address_by_id: %s\n" % e)
+    print("Exception when calling DefaultApi->delete_address: %s\n" % e)
 ```
 
 ### Parameters

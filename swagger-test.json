@@ -138,7 +138,7 @@
       "delete": {
         "summary": "Delete an address",
         "description": "Delete a specific address.",
-        "operationId": "deleteAddressById",
+        "operationId": "deleteAddress",
         "responses": {
           "204": {
             "description": "Empty success body"

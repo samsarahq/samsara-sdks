@@ -35,8 +35,8 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_delete_address_by_id(self):
-        """Test case for delete_address_by_id
+    def test_delete_address(self):
+        """Test case for delete_address
 
         Delete an address  # noqa: E501
         """
