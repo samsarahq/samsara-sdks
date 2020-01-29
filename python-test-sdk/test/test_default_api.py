@@ -42,22 +42,22 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_get_address_by_id(self):
-        """Test case for get_address_by_id
+    def test_get_address(self):
+        """Test case for get_address
 
         Retrieve an address  # noqa: E501
         """
         pass
 
-    def test_get_addresses(self):
-        """Test case for get_addresses
+    def test_list_addresses(self):
+        """Test case for list_addresses
 
         List all addresses  # noqa: E501
         """
         pass
 
-    def test_update_address_by_id(self):
-        """Test case for update_address_by_id
+    def test_update_address(self):
+        """Test case for update_address
 
         Update an address  # noqa: E501
         """

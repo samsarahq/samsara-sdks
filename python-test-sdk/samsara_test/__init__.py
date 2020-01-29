@@ -29,19 +29,16 @@ from samsara_test.exceptions import ApiKeyError
 from samsara_test.exceptions import ApiException
 # import models into sdk package
 from samsara_test.models.address import Address
-from samsara_test.models.address_all_of import AddressAllOf
-from samsara_test.models.address_core import AddressCore
-from samsara_test.models.address_core_geofence import AddressCoreGeofence
-from samsara_test.models.address_core_geofence_circle import AddressCoreGeofenceCircle
-from samsara_test.models.address_core_geofence_polygon import AddressCoreGeofencePolygon
-from samsara_test.models.address_core_geofence_polygon_vertices import AddressCoreGeofencePolygonVertices
-from samsara_test.models.address_request import AddressRequest
+from samsara_test.models.address_geofence import AddressGeofence
+from samsara_test.models.address_geofence_circle import AddressGeofenceCircle
+from samsara_test.models.address_geofence_polygon import AddressGeofencePolygon
+from samsara_test.models.address_geofence_polygon_vertices import AddressGeofencePolygonVertices
 from samsara_test.models.address_response import AddressResponse
-from samsara_test.models.address_updates import AddressUpdates
 from samsara_test.models.contact_tiny_response import ContactTinyResponse
+from samsara_test.models.create_address_request import CreateAddressRequest
 from samsara_test.models.list_addresses_response import ListAddressesResponse
-from samsara_test.models.new_address import NewAddress
 from samsara_test.models.pagination_response import PaginationResponse
 from samsara_test.models.standard_error_response import StandardErrorResponse
 from samsara_test.models.tag_tiny_response import TagTinyResponse
+from samsara_test.models.update_address_request import UpdateAddressRequest
 

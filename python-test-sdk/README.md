@@ -56,7 +56,7 @@ from pprint import pprint
 configuration.host = "https://api.samsara.com"
 # Create an instance of the API class
 api_instance = samsara_test.DefaultApi(samsara_test.ApiClient(configuration))
-address = samsara_test.NewAddress() # NewAddress | The address to create. (optional)
+address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create. (optional)
 
 try:
     # Create an address
@@ -75,29 +75,26 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *DefaultApi* | [**create_address**](docs/DefaultApi.md#create_address) | **POST** /addresses | Create an address
 *DefaultApi* | [**delete_address_by_id**](docs/DefaultApi.md#delete_address_by_id) | **DELETE** /addresses/{id} | Delete an address
-*DefaultApi* | [**get_address_by_id**](docs/DefaultApi.md#get_address_by_id) | **GET** /addresses/{id} | Retrieve an address
-*DefaultApi* | [**get_addresses**](docs/DefaultApi.md#get_addresses) | **GET** /addresses | List all addresses
-*DefaultApi* | [**update_address_by_id**](docs/DefaultApi.md#update_address_by_id) | **PATCH** /addresses/{id} | Update an address
+*DefaultApi* | [**get_address**](docs/DefaultApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
+*DefaultApi* | [**list_addresses**](docs/DefaultApi.md#list_addresses) | **GET** /addresses | List all addresses
+*DefaultApi* | [**update_address**](docs/DefaultApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
 
 
 ## Documentation For Models
 
  - [Address](docs/Address.md)
- - [AddressAllOf](docs/AddressAllOf.md)
- - [AddressCore](docs/AddressCore.md)
- - [AddressCoreGeofence](docs/AddressCoreGeofence.md)
- - [AddressCoreGeofenceCircle](docs/AddressCoreGeofenceCircle.md)
- - [AddressCoreGeofencePolygon](docs/AddressCoreGeofencePolygon.md)
- - [AddressCoreGeofencePolygonVertices](docs/AddressCoreGeofencePolygonVertices.md)
- - [AddressRequest](docs/AddressRequest.md)
+ - [AddressGeofence](docs/AddressGeofence.md)
+ - [AddressGeofenceCircle](docs/AddressGeofenceCircle.md)
+ - [AddressGeofencePolygon](docs/AddressGeofencePolygon.md)
+ - [AddressGeofencePolygonVertices](docs/AddressGeofencePolygonVertices.md)
  - [AddressResponse](docs/AddressResponse.md)
- - [AddressUpdates](docs/AddressUpdates.md)
  - [ContactTinyResponse](docs/ContactTinyResponse.md)
+ - [CreateAddressRequest](docs/CreateAddressRequest.md)
  - [ListAddressesResponse](docs/ListAddressesResponse.md)
- - [NewAddress](docs/NewAddress.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [StandardErrorResponse](docs/StandardErrorResponse.md)
  - [TagTinyResponse](docs/TagTinyResponse.md)
+ - [UpdateAddressRequest](docs/UpdateAddressRequest.md)
 
 
 ## Documentation For Authorization

@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import samsara_test
-from samsara_test.models.address_core_geofence_polygon import AddressCoreGeofencePolygon  # noqa: E501
+from samsara_test.models.address_geofence_circle import AddressGeofenceCircle  # noqa: E501
 from samsara_test.rest import ApiException
 
 
-class TestAddressCoreGeofencePolygon(unittest.TestCase):
-    """AddressCoreGeofencePolygon unit test stubs"""
+class TestAddressGeofenceCircle(unittest.TestCase):
+    """AddressGeofenceCircle unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestAddressCoreGeofencePolygon(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAddressCoreGeofencePolygon(self):
-        """Test AddressCoreGeofencePolygon"""
+    def testAddressGeofenceCircle(self):
+        """Test AddressGeofenceCircle"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara_test.models.address_core_geofence_polygon.AddressCoreGeofencePolygon()  # noqa: E501
+        # model = samsara_test.models.address_geofence_circle.AddressGeofenceCircle()  # noqa: E501
         pass
 
 

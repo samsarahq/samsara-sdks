@@ -15,12 +15,12 @@ from __future__ import absolute_import
 import unittest
 
 import samsara_test
-from samsara_test.models.address_all_of import AddressAllOf  # noqa: E501
+from samsara_test.models.create_address_request import CreateAddressRequest  # noqa: E501
 from samsara_test.rest import ApiException
 
 
-class TestAddressAllOf(unittest.TestCase):
-    """AddressAllOf unit test stubs"""
+class TestCreateAddressRequest(unittest.TestCase):
+    """CreateAddressRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -28,10 +28,10 @@ class TestAddressAllOf(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAddressAllOf(self):
-        """Test AddressAllOf"""
+    def testCreateAddressRequest(self):
+        """Test CreateAddressRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = samsara_test.models.address_all_of.AddressAllOf()  # noqa: E501
+        # model = samsara_test.models.create_address_request.CreateAddressRequest()  # noqa: E501
         pass
 
 

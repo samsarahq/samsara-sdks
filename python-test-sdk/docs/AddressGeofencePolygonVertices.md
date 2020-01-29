@@ -1,4 +1,4 @@
-# AddressCoreGeofencePolygonVertices
+# AddressGeofencePolygonVertices
 
 ## Properties
 Name | Type | Description | Notes

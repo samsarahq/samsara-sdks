@@ -1,6 +1,6 @@
 # AddressResponse
 
-The response from creating an Address.
+An Address response body.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

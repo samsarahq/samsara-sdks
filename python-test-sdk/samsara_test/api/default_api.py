@@ -46,7 +46,7 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NewAddress address: The address to create.
+        :param CreateAddressRequest address: The address to create.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -71,7 +71,7 @@ class DefaultApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param NewAddress address: The address to create.
+        :param CreateAddressRequest address: The address to create.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -252,13 +252,13 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_address_by_id(self, id, **kwargs):  # noqa: E501
+    def get_address(self, id, **kwargs):  # noqa: E501
         """Retrieve an address  # noqa: E501
 
         Returns a specific address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_address_by_id(id, async_req=True)
+        >>> thread = api.get_address(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -275,15 +275,15 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_address_by_id_with_http_info(id, **kwargs)  # noqa: E501
+        return self.get_address_with_http_info(id, **kwargs)  # noqa: E501
 
-    def get_address_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
+    def get_address_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve an address  # noqa: E501
 
         Returns a specific address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_address_by_id_with_http_info(id, async_req=True)
+        >>> thread = api.get_address_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -314,14 +314,14 @@ class DefaultApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_address_by_id" % key
+                    " to method get_address" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `get_address_by_id`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `get_address`")  # noqa: E501
 
         collection_formats = {}
 
@@ -360,13 +360,13 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_addresses(self, **kwargs):  # noqa: E501
+    def list_addresses(self, **kwargs):  # noqa: E501
         """List all addresses  # noqa: E501
 
         Returns a list of all addresses in an organization  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_addresses(async_req=True)
+        >>> thread = api.list_addresses(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -385,15 +385,15 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.get_addresses_with_http_info(**kwargs)  # noqa: E501
+        return self.list_addresses_with_http_info(**kwargs)  # noqa: E501
 
-    def get_addresses_with_http_info(self, **kwargs):  # noqa: E501
+    def list_addresses_with_http_info(self, **kwargs):  # noqa: E501
         """List all addresses  # noqa: E501
 
         Returns a list of all addresses in an organization  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.get_addresses_with_http_info(async_req=True)
+        >>> thread = api.list_addresses_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -426,15 +426,15 @@ class DefaultApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method get_addresses" % key
+                    " to method list_addresses" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
 
         if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 512:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `limit` when calling `get_addresses`, must be a value less than or equal to `512`")  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_addresses`, must be a value less than or equal to `512`")  # noqa: E501
         if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `limit` when calling `get_addresses`, must be a value greater than or equal to `1`")  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `list_addresses`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -477,18 +477,18 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_address_by_id(self, id, **kwargs):  # noqa: E501
+    def update_address(self, id, **kwargs):  # noqa: E501
         """Update an address  # noqa: E501
 
         Update a specific address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_address_by_id(id, async_req=True)
+        >>> thread = api.update_address(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123` (required)
-        :param AddressUpdates address: The address fields to update.
+        :param UpdateAddressRequest address: The address fields to update.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -501,20 +501,20 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_address_by_id_with_http_info(id, **kwargs)  # noqa: E501
+        return self.update_address_with_http_info(id, **kwargs)  # noqa: E501
 
-    def update_address_by_id_with_http_info(self, id, **kwargs):  # noqa: E501
+    def update_address_with_http_info(self, id, **kwargs):  # noqa: E501
         """Update an address  # noqa: E501
 
         Update a specific address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_address_by_id_with_http_info(id, async_req=True)
+        >>> thread = api.update_address_with_http_info(id, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123` (required)
-        :param AddressUpdates address: The address fields to update.
+        :param UpdateAddressRequest address: The address fields to update.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -541,14 +541,14 @@ class DefaultApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method update_address_by_id" % key
+                    " to method update_address" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `update_address_by_id`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `update_address`")  # noqa: E501
 
         collection_formats = {}
 

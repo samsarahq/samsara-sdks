@@ -61,7 +61,7 @@ class ListAddressesResponse(object):
     def data(self):
         """Gets the data of this ListAddressesResponse.  # noqa: E501
 
-        List of addresses  # noqa: E501
+        A list of Addresses.  # noqa: E501
 
         :return: The data of this ListAddressesResponse.  # noqa: E501
         :rtype: list[Address]
@@ -72,7 +72,7 @@ class ListAddressesResponse(object):
     def data(self, data):
         """Sets the data of this ListAddressesResponse.
 
-        List of addresses  # noqa: E501
+        A list of Addresses.  # noqa: E501
 
         :param data: The data of this ListAddressesResponse.  # noqa: E501
         :type: list[Address]
