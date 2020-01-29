@@ -56,11 +56,11 @@ from pprint import pprint
 configuration.host = "https://api.samsara.com"
 # Create an instance of the API class
 api_instance = samsara_test.DefaultApi(samsara_test.ApiClient(configuration))
-address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create. (optional)
+address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create.
 
 try:
     # Create an address
-    api_response = api_instance.create_address(address=address)
+    api_response = api_instance.create_address(address)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->create_address: %s\n" % e)

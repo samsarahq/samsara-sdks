@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_address**
-> AddressResponse create_address(address=address)
+> AddressResponse create_address(address)
 
 Create an address
 
@@ -29,11 +29,11 @@ from pprint import pprint
 
 # Create an instance of the API class
 api_instance = samsara_test.DefaultApi()
-address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create. (optional)
+address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create.
 
 try:
     # Create an address
-    api_response = api_instance.create_address(address=address)
+    api_response = api_instance.create_address(address)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->create_address: %s\n" % e)
@@ -43,7 +43,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | [**CreateAddressRequest**](CreateAddressRequest.md)| The address to create. | [optional] 
+ **address** | [**CreateAddressRequest**](CreateAddressRequest.md)| The address to create. | 
 
 ### Return type
 

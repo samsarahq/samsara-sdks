@@ -56,6 +56,7 @@
             "in": "body",
             "name": "address",
             "description": "The address to create.",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/CreateAddressRequest"
             }

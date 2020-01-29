@@ -36,17 +36,17 @@ class DefaultApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_address(self, **kwargs):  # noqa: E501
+    def create_address(self, address, **kwargs):  # noqa: E501
         """Create an address  # noqa: E501
 
         Creates a new address in the organization  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_address(async_req=True)
+        >>> thread = api.create_address(address, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateAddressRequest address: The address to create.
+        :param CreateAddressRequest address: The address to create. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -59,19 +59,19 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_address_with_http_info(**kwargs)  # noqa: E501
+        return self.create_address_with_http_info(address, **kwargs)  # noqa: E501
 
-    def create_address_with_http_info(self, **kwargs):  # noqa: E501
+    def create_address_with_http_info(self, address, **kwargs):  # noqa: E501
         """Create an address  # noqa: E501
 
         Creates a new address in the organization  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_address_with_http_info(async_req=True)
+        >>> thread = api.create_address_with_http_info(address, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateAddressRequest address: The address to create.
+        :param CreateAddressRequest address: The address to create. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -102,6 +102,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
+        # verify the required parameter 'address' is set
+        if self.api_client.client_side_validation and ('address' not in local_var_params or  # noqa: E501
+                                                        local_var_params['address'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `address` when calling `create_address`")  # noqa: E501
 
         collection_formats = {}
 
