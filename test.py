@@ -8,22 +8,14 @@ client = samsara_test.ApiClient(header_name='Authorization', header_value='Beare
 # Create an instance of the Api
 api = samsara_test.DefaultApi(api_client=client)
 
-print("=======================================================================")
-
-# List Addresses
-resp = api.get_addresses()
-print("List Addresses Response:")
-print(resp)
-print("=======================================================================")
-
 # Create Address
-new_address = samsara_test.NewAddress(
+address = samsara_test.CreateAddressRequest(
     external_ids={
         "system1": "1234",
         "system2": "5678"
     },
-    geofence=samsara_test.AddressCoreGeofence(
-        circle=samsara_test.AddressCoreGeofenceCircle(
+    geofence=samsara_test.AddressGeofence(
+        circle=samsara_test.AddressGeofenceCircle(
             radius_meters=25
         )
     ),
@@ -40,32 +32,22 @@ new_address = samsara_test.NewAddress(
         "967208"
     ]
 )
-print(new_address)
-resp = api.create_address(address=new_address)
-new_address_id = resp.data.id
-print("Create Address Response:")
-print(resp)
-print("=======================================================================")
+resp = api.create_address(address)
+address_id = resp.data.id
 
-# Read Address
-resp = api.get_address_by_id(new_address_id)
-print("Read Address Response:")
-print(resp)
-print("=======================================================================")
+# Get Address
+api.get_address(address_id)
+
+# List Addresses
+api.list_addresses()
 
 # Update Address
-address_updates = samsara_test.AddressUpdates(
+address_updates = samsara_test.UpdateAddressRequest(
     external_ids={
         "system3": "0987"
     }
 )
-resp = api.update_address_by_id(new_address_id, address=address_updates)
-print("Update Address Response:")
-print(resp)
-print("=======================================================================")
+api.update_address(address_id, address_updates)
 
 # Delete Address
-resp = api.delete_address_by_id(new_address_id)
-print("Delete Address Response:")
-print(resp)
-print("=======================================================================")
+api.delete_address(address_id)
