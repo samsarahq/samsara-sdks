@@ -481,18 +481,18 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def update_address(self, id, **kwargs):  # noqa: E501
+    def update_address(self, id, address, **kwargs):  # noqa: E501
         """Update an address  # noqa: E501
 
         Update a specific address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_address(id, async_req=True)
+        >>> thread = api.update_address(id, address, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123` (required)
-        :param UpdateAddressRequest address: The address fields to update.
+        :param UpdateAddressRequest address: The address fields to update. (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -505,20 +505,20 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_address_with_http_info(id, **kwargs)  # noqa: E501
+        return self.update_address_with_http_info(id, address, **kwargs)  # noqa: E501
 
-    def update_address_with_http_info(self, id, **kwargs):  # noqa: E501
+    def update_address_with_http_info(self, id, address, **kwargs):  # noqa: E501
         """Update an address  # noqa: E501
 
         Update a specific address.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.update_address_with_http_info(id, async_req=True)
+        >>> thread = api.update_address_with_http_info(id, address, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123` (required)
-        :param UpdateAddressRequest address: The address fields to update.
+        :param UpdateAddressRequest address: The address fields to update. (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -553,6 +553,10 @@ class DefaultApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_address`")  # noqa: E501
+        # verify the required parameter 'address' is set
+        if self.api_client.client_side_validation and ('address' not in local_var_params or  # noqa: E501
+                                                        local_var_params['address'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `address` when calling `update_address`")  # noqa: E501
 
         collection_formats = {}
 

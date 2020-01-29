@@ -235,7 +235,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_address**
-> AddressResponse update_address(id, address=address)
+> AddressResponse update_address(id, address)
 
 Update an address
 
@@ -253,11 +253,11 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara_test.DefaultApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
-address = samsara_test.UpdateAddressRequest() # UpdateAddressRequest | The address fields to update. (optional)
+address = samsara_test.UpdateAddressRequest() # UpdateAddressRequest | The address fields to update.
 
 try:
     # Update an address
-    api_response = api_instance.update_address(id, address=address)
+    api_response = api_instance.update_address(id, address)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->update_address: %s\n" % e)
@@ -268,7 +268,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: &#x60;key:value&#x60;. For example, &#x60;crmId:abc123&#x60; | 
- **address** | [**UpdateAddressRequest**](UpdateAddressRequest.md)| The address fields to update. | [optional] 
+ **address** | [**UpdateAddressRequest**](UpdateAddressRequest.md)| The address fields to update. | 
 
 ### Return type
 

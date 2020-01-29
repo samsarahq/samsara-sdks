@@ -49,8 +49,7 @@ class AddressResponse(object):
         self._data = None
         self.discriminator = None
 
-        if data is not None:
-            self.data = data
+        self.data = data
 
     @property
     def data(self):
@@ -70,6 +69,8 @@ class AddressResponse(object):
         :param data: The data of this AddressResponse.  # noqa: E501
         :type: Address
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 

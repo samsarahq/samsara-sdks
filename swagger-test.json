@@ -116,6 +116,7 @@
             "in": "body",
             "name": "address",
             "description": "The address fields to update.",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/UpdateAddressRequest"
             }
@@ -427,7 +428,10 @@
         "data": {
           "$ref": "#/definitions/Address"
         }
-      }
+      },
+      "required": [
+        "data"
+      ]
     },
     "ListAddressesResponse": {
       "description": "A listAddresses response body.",
@@ -443,7 +447,11 @@
         "pagination": {
           "$ref": "#/definitions/PaginationResponse"
         }
-      }
+      },
+      "required": [
+        "data",
+        "pagination"
+      ]
     },
     "ContactTinyResponse": {
       "type": "object",
