@@ -312,6 +312,9 @@
       "description": "An Address object.",
       "type": "object",
       "properties": {
+        "addressTypes": {
+          "$ref": "#/definitions/AddressTypes"
+        },
         "contacts": {
           "$ref": "#/definitions/AddressContacts"
         },
@@ -354,6 +357,9 @@
       "description": "A create Address request body.",
       "type": "object",
       "properties": {
+        "addressTypes": {
+          "$ref": "#/definitions/AddressTypes"
+        },
         "contactIds": {
           "$ref": "#/definitions/AddressContactIds"
         },
@@ -392,6 +398,9 @@
       "description": "An update Address request body.",
       "type": "object",
       "properties": {
+        "addressTypes": {
+          "$ref": "#/definitions/AddressTypes"
+        },
         "contactIds": {
           "$ref": "#/definitions/AddressContactIds"
         },

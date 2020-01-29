@@ -33,6 +33,7 @@ class CreateAddressRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'address_types': 'list[str]',
         'contact_ids': 'list[str]',
         'external_ids': 'dict(str, str)',
         'formatted_address': 'str',
@@ -45,6 +46,7 @@ class CreateAddressRequest(object):
     }
 
     attribute_map = {
+        'address_types': 'addressTypes',
         'contact_ids': 'contactIds',
         'external_ids': 'externalIds',
         'formatted_address': 'formattedAddress',
@@ -56,12 +58,13 @@ class CreateAddressRequest(object):
         'tag_ids': 'tagIds'
     }
 
-    def __init__(self, contact_ids=None, external_ids=None, formatted_address=None, geofence=None, latitude=None, longitude=None, name=None, notes=None, tag_ids=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, address_types=None, contact_ids=None, external_ids=None, formatted_address=None, geofence=None, latitude=None, longitude=None, name=None, notes=None, tag_ids=None, local_vars_configuration=None):  # noqa: E501
         """CreateAddressRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._address_types = None
         self._contact_ids = None
         self._external_ids = None
         self._formatted_address = None
@@ -73,6 +76,8 @@ class CreateAddressRequest(object):
         self._tag_ids = None
         self.discriminator = None
 
+        if address_types is not None:
+            self.address_types = address_types
         if contact_ids is not None:
             self.contact_ids = contact_ids
         if external_ids is not None:
@@ -88,6 +93,37 @@ class CreateAddressRequest(object):
             self.notes = notes
         if tag_ids is not None:
             self.tag_ids = tag_ids
+
+    @property
+    def address_types(self):
+        """Gets the address_types of this CreateAddressRequest.  # noqa: E501
+
+        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
+
+        :return: The address_types of this CreateAddressRequest.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._address_types
+
+    @address_types.setter
+    def address_types(self, address_types):
+        """Sets the address_types of this CreateAddressRequest.
+
+        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
+
+        :param address_types: The address_types of this CreateAddressRequest.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["yard", "shortHaul"]  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                not set(address_types).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `address_types` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(address_types) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._address_types = address_types
 
     @property
     def contact_ids(self):
