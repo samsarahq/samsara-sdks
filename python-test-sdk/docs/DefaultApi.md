@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_address**
-> CreateAddressResponse create_address(address=address)
+> AddressResponse create_address(address=address)
 
 Create an address
 
@@ -29,7 +29,7 @@ from pprint import pprint
 
 # Create an instance of the API class
 api_instance = samsara_test.DefaultApi()
-address = samsara_test.AddressCreate() # AddressCreate | The address to create. (optional)
+address = samsara_test.NewAddress() # NewAddress | The address to create. (optional)
 
 try:
     # Create an address
@@ -43,11 +43,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | [**AddressCreate**](AddressCreate.md)| The address to create. | [optional] 
+ **address** | [**NewAddress**](NewAddress.md)| The address to create. | [optional] 
 
 ### Return type
 
-[**CreateAddressResponse**](CreateAddressResponse.md)
+[**AddressResponse**](AddressResponse.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_address_by_id**
-> GetAddressByIdResponse get_address_by_id(id)
+> AddressResponse get_address_by_id(id)
 
 Retrieve an address
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAddressByIdResponse**](GetAddressByIdResponse.md)
+[**AddressResponse**](AddressResponse.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_addresses**
-> GetAddressesResponse get_addresses(limit=limit, after=after, tag_ids=tag_ids)
+> ListAddressesResponse get_addresses(limit=limit, after=after, tag_ids=tag_ids)
 
 List all addresses
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAddressesResponse**](GetAddressesResponse.md)
+[**ListAddressesResponse**](ListAddressesResponse.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_address_by_id**
-> UpdateAddressByIdResponse update_address_by_id(id, address=address)
+> AddressResponse update_address_by_id(id, address=address)
 
 Update an address
 
@@ -253,7 +253,7 @@ from pprint import pprint
 # Create an instance of the API class
 api_instance = samsara_test.DefaultApi()
 id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
-address = samsara_test.AddressPatch() # AddressPatch | The address fields to update. (optional)
+address = samsara_test.AddressUpdates() # AddressUpdates | The address fields to update. (optional)
 
 try:
     # Update an address
@@ -268,11 +268,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: &#x60;key:value&#x60;. For example, &#x60;crmId:abc123&#x60; | 
- **address** | [**AddressPatch**](AddressPatch.md)| The address fields to update. | [optional] 
+ **address** | [**AddressUpdates**](AddressUpdates.md)| The address fields to update. | [optional] 
 
 ### Return type
 
-[**UpdateAddressByIdResponse**](UpdateAddressByIdResponse.md)
+[**AddressResponse**](AddressResponse.md)
 
 ### Authorization
 

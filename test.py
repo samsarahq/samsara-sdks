@@ -6,7 +6,7 @@ with open('token', 'r') as f:
 client = samsara_test.ApiClient(header_name='Authorization', header_value='Bearer {token}'.format(token=token))
 
 # Create an instance of the Addresses Api
-addresses_api = samsara_test.AddressesApi(api_client=client)
+api = samsara_test.DefaultApi(api_client=client)
 
 # Instantiate an AddressCreate object to send to the Samsara_test API
 new_address = samsara_test.AddressCreate(

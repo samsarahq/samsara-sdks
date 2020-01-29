@@ -33,39 +33,180 @@ class AddressCore(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'external_ids': 'dict(str, str)',
+        'latitude': 'float',
+        'longitude': 'float',
+        'geofence': 'AddressCoreGeofence',
+        'address_types': 'list[str]',
         'formatted_address': 'str',
         'name': 'str',
-        'notes': 'str',
-        'address_types': 'list[str]'
+        'notes': 'str'
     }
 
     attribute_map = {
+        'external_ids': 'externalIds',
+        'latitude': 'latitude',
+        'longitude': 'longitude',
+        'geofence': 'geofence',
+        'address_types': 'addressTypes',
         'formatted_address': 'formattedAddress',
         'name': 'name',
-        'notes': 'notes',
-        'address_types': 'addressTypes'
+        'notes': 'notes'
     }
 
-    def __init__(self, formatted_address=None, name=None, notes=None, address_types=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, external_ids=None, latitude=None, longitude=None, geofence=None, address_types=None, formatted_address=None, name=None, notes=None, local_vars_configuration=None):  # noqa: E501
         """AddressCore - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._external_ids = None
+        self._latitude = None
+        self._longitude = None
+        self._geofence = None
+        self._address_types = None
         self._formatted_address = None
         self._name = None
         self._notes = None
-        self._address_types = None
         self.discriminator = None
 
+        if external_ids is not None:
+            self.external_ids = external_ids
+        if latitude is not None:
+            self.latitude = latitude
+        if longitude is not None:
+            self.longitude = longitude
+        if geofence is not None:
+            self.geofence = geofence
+        if address_types is not None:
+            self.address_types = address_types
         if formatted_address is not None:
             self.formatted_address = formatted_address
         if name is not None:
             self.name = name
         if notes is not None:
             self.notes = notes
-        if address_types is not None:
-            self.address_types = address_types
+
+    @property
+    def external_ids(self):
+        """Gets the external_ids of this AddressCore.  # noqa: E501
+
+        User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.  # noqa: E501
+
+        :return: The external_ids of this AddressCore.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._external_ids
+
+    @external_ids.setter
+    def external_ids(self, external_ids):
+        """Sets the external_ids of this AddressCore.
+
+        User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.  # noqa: E501
+
+        :param external_ids: The external_ids of this AddressCore.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._external_ids = external_ids
+
+    @property
+    def latitude(self):
+        """Gets the latitude of this AddressCore.  # noqa: E501
+
+        Latitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
+
+        :return: The latitude of this AddressCore.  # noqa: E501
+        :rtype: float
+        """
+        return self._latitude
+
+    @latitude.setter
+    def latitude(self, latitude):
+        """Sets the latitude of this AddressCore.
+
+        Latitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
+
+        :param latitude: The latitude of this AddressCore.  # noqa: E501
+        :type: float
+        """
+
+        self._latitude = latitude
+
+    @property
+    def longitude(self):
+        """Gets the longitude of this AddressCore.  # noqa: E501
+
+        Longitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
+
+        :return: The longitude of this AddressCore.  # noqa: E501
+        :rtype: float
+        """
+        return self._longitude
+
+    @longitude.setter
+    def longitude(self, longitude):
+        """Sets the longitude of this AddressCore.
+
+        Longitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
+
+        :param longitude: The longitude of this AddressCore.  # noqa: E501
+        :type: float
+        """
+
+        self._longitude = longitude
+
+    @property
+    def geofence(self):
+        """Gets the geofence of this AddressCore.  # noqa: E501
+
+
+        :return: The geofence of this AddressCore.  # noqa: E501
+        :rtype: AddressCoreGeofence
+        """
+        return self._geofence
+
+    @geofence.setter
+    def geofence(self, geofence):
+        """Sets the geofence of this AddressCore.
+
+
+        :param geofence: The geofence of this AddressCore.  # noqa: E501
+        :type: AddressCoreGeofence
+        """
+
+        self._geofence = geofence
+
+    @property
+    def address_types(self):
+        """Gets the address_types of this AddressCore.  # noqa: E501
+
+        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
+
+        :return: The address_types of this AddressCore.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._address_types
+
+    @address_types.setter
+    def address_types(self, address_types):
+        """Sets the address_types of this AddressCore.
+
+        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
+
+        :param address_types: The address_types of this AddressCore.  # noqa: E501
+        :type: list[str]
+        """
+        allowed_values = ["yard", "shortHaul"]  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                not set(address_types).issubset(set(allowed_values))):  # noqa: E501
+            raise ValueError(
+                "Invalid values for `address_types` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(address_types) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
+            )
+
+        self._address_types = address_types
 
     @property
     def formatted_address(self):
@@ -144,37 +285,6 @@ class AddressCore(object):
             raise ValueError("Invalid value for `notes`, length must be less than or equal to `280`")  # noqa: E501
 
         self._notes = notes
-
-    @property
-    def address_types(self):
-        """Gets the address_types of this AddressCore.  # noqa: E501
-
-        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
-
-        :return: The address_types of this AddressCore.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._address_types
-
-    @address_types.setter
-    def address_types(self, address_types):
-        """Sets the address_types of this AddressCore.
-
-        Reporting location type associated with the address (used for ELD reporting purposes).  # noqa: E501
-
-        :param address_types: The address_types of this AddressCore.  # noqa: E501
-        :type: list[str]
-        """
-        allowed_values = ["yard", "shortHaul"]  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                not set(address_types).issubset(set(allowed_values))):  # noqa: E501
-            raise ValueError(
-                "Invalid values for `address_types` [{0}], must be a subset of [{1}]"  # noqa: E501
-                .format(", ".join(map(str, set(address_types) - set(allowed_values))),  # noqa: E501
-                        ", ".join(map(str, allowed_values)))
-            )
-
-        self._address_types = address_types
 
     def to_dict(self):
         """Returns the model properties as a dict"""

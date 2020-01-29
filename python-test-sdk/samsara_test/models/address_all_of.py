@@ -33,72 +33,34 @@ class AddressAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'id': 'str',
         'contacts': 'list[ContactTinyResponse]',
-        'tags': 'list[TagTinyResponse]',
-        'external_ids': 'dict(str, str)',
-        'latitude': 'float',
-        'longitude': 'float'
+        'id': 'str',
+        'tags': 'list[TagTinyResponse]'
     }
 
     attribute_map = {
-        'id': 'id',
         'contacts': 'contacts',
-        'tags': 'tags',
-        'external_ids': 'externalIds',
-        'latitude': 'latitude',
-        'longitude': 'longitude'
+        'id': 'id',
+        'tags': 'tags'
     }
 
-    def __init__(self, id=None, contacts=None, tags=None, external_ids=None, latitude=None, longitude=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, contacts=None, id=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """AddressAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._id = None
         self._contacts = None
+        self._id = None
         self._tags = None
-        self._external_ids = None
-        self._latitude = None
-        self._longitude = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
         if contacts is not None:
             self.contacts = contacts
+        if id is not None:
+            self.id = id
         if tags is not None:
             self.tags = tags
-        if external_ids is not None:
-            self.external_ids = external_ids
-        if latitude is not None:
-            self.latitude = latitude
-        if longitude is not None:
-            self.longitude = longitude
-
-    @property
-    def id(self):
-        """Gets the id of this AddressAllOf.  # noqa: E501
-
-        Unique Samsara ID for the address.  # noqa: E501
-
-        :return: The id of this AddressAllOf.  # noqa: E501
-        :rtype: str
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this AddressAllOf.
-
-        Unique Samsara ID for the address.  # noqa: E501
-
-        :param id: The id of this AddressAllOf.  # noqa: E501
-        :type: str
-        """
-
-        self._id = id
 
     @property
     def contacts(self):
@@ -124,6 +86,29 @@ class AddressAllOf(object):
         self._contacts = contacts
 
     @property
+    def id(self):
+        """Gets the id of this AddressAllOf.  # noqa: E501
+
+        ID of the Address.  # noqa: E501
+
+        :return: The id of this AddressAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this AddressAllOf.
+
+        ID of the Address.  # noqa: E501
+
+        :param id: The id of this AddressAllOf.  # noqa: E501
+        :type: str
+        """
+
+        self._id = id
+
+    @property
     def tags(self):
         """Gets the tags of this AddressAllOf.  # noqa: E501
 
@@ -145,75 +130,6 @@ class AddressAllOf(object):
         """
 
         self._tags = tags
-
-    @property
-    def external_ids(self):
-        """Gets the external_ids of this AddressAllOf.  # noqa: E501
-
-        User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.  # noqa: E501
-
-        :return: The external_ids of this AddressAllOf.  # noqa: E501
-        :rtype: dict(str, str)
-        """
-        return self._external_ids
-
-    @external_ids.setter
-    def external_ids(self, external_ids):
-        """Sets the external_ids of this AddressAllOf.
-
-        User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.  # noqa: E501
-
-        :param external_ids: The external_ids of this AddressAllOf.  # noqa: E501
-        :type: dict(str, str)
-        """
-
-        self._external_ids = external_ids
-
-    @property
-    def latitude(self):
-        """Gets the latitude of this AddressAllOf.  # noqa: E501
-
-        Latitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
-
-        :return: The latitude of this AddressAllOf.  # noqa: E501
-        :rtype: float
-        """
-        return self._latitude
-
-    @latitude.setter
-    def latitude(self, latitude):
-        """Sets the latitude of this AddressAllOf.
-
-        Latitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
-
-        :param latitude: The latitude of this AddressAllOf.  # noqa: E501
-        :type: float
-        """
-
-        self._latitude = latitude
-
-    @property
-    def longitude(self):
-        """Gets the longitude of this AddressAllOf.  # noqa: E501
-
-        Longitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
-
-        :return: The longitude of this AddressAllOf.  # noqa: E501
-        :rtype: float
-        """
-        return self._longitude
-
-    @longitude.setter
-    def longitude(self, longitude):
-        """Sets the longitude of this AddressAllOf.
-
-        Longitude of the address. Either inferred from the formatted address or defined on address creation.  # noqa: E501
-
-        :param longitude: The longitude of this AddressAllOf.  # noqa: E501
-        :type: float
-        """
-
-        self._longitude = longitude
 
     def to_dict(self):
         """Returns the model properties as a dict"""

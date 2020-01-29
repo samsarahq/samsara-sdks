@@ -56,7 +56,7 @@ from pprint import pprint
 configuration.host = "https://api.samsara.com"
 # Create an instance of the API class
 api_instance = samsara_test.DefaultApi(samsara_test.ApiClient(configuration))
-address = samsara_test.AddressCreate() # AddressCreate | The address to create. (optional)
+address = samsara_test.NewAddress() # NewAddress | The address to create. (optional)
 
 try:
     # Create an address
@@ -85,29 +85,19 @@ Class | Method | HTTP request | Description
  - [Address](docs/Address.md)
  - [AddressAllOf](docs/AddressAllOf.md)
  - [AddressCore](docs/AddressCore.md)
- - [AddressCreate](docs/AddressCreate.md)
- - [AddressCreateAllOf](docs/AddressCreateAllOf.md)
- - [AddressGeofenceRequest](docs/AddressGeofenceRequest.md)
- - [AddressGeofenceRequestCircle](docs/AddressGeofenceRequestCircle.md)
- - [AddressGeofenceRequestPolygon](docs/AddressGeofenceRequestPolygon.md)
- - [AddressGeofenceRequestPolygonVertices](docs/AddressGeofenceRequestPolygonVertices.md)
- - [AddressGeofenceResponse](docs/AddressGeofenceResponse.md)
- - [AddressGeofenceResponseCircle](docs/AddressGeofenceResponseCircle.md)
- - [AddressGeofenceResponsePolygon](docs/AddressGeofenceResponsePolygon.md)
- - [AddressPatch](docs/AddressPatch.md)
- - [AddressPatchAllOf](docs/AddressPatchAllOf.md)
- - [AddressRequestCore](docs/AddressRequestCore.md)
- - [AddressRequestCoreAllOf](docs/AddressRequestCoreAllOf.md)
- - [AddressResponseCore](docs/AddressResponseCore.md)
- - [AddressResponseCoreAllOf](docs/AddressResponseCoreAllOf.md)
+ - [AddressCoreGeofence](docs/AddressCoreGeofence.md)
+ - [AddressCoreGeofenceCircle](docs/AddressCoreGeofenceCircle.md)
+ - [AddressCoreGeofencePolygon](docs/AddressCoreGeofencePolygon.md)
+ - [AddressCoreGeofencePolygonVertices](docs/AddressCoreGeofencePolygonVertices.md)
+ - [AddressRequest](docs/AddressRequest.md)
+ - [AddressResponse](docs/AddressResponse.md)
+ - [AddressUpdates](docs/AddressUpdates.md)
  - [ContactTinyResponse](docs/ContactTinyResponse.md)
- - [CreateAddressResponse](docs/CreateAddressResponse.md)
- - [GetAddressByIdResponse](docs/GetAddressByIdResponse.md)
- - [GetAddressesResponse](docs/GetAddressesResponse.md)
+ - [ListAddressesResponse](docs/ListAddressesResponse.md)
+ - [NewAddress](docs/NewAddress.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [StandardErrorResponse](docs/StandardErrorResponse.md)
  - [TagTinyResponse](docs/TagTinyResponse.md)
- - [UpdateAddressByIdResponse](docs/UpdateAddressByIdResponse.md)
 
 
 ## Documentation For Authorization
