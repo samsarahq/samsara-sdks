@@ -18,6 +18,7 @@
   "paths": {
     "/addresses": {
       "get": {
+        "tags": ["Addresses"],
         "summary": "List all addresses",
         "description": "Returns a list of all addresses in an organization",
         "operationId": "listAddresses",
@@ -48,6 +49,7 @@
         }
       },
       "post": {
+        "tags": ["Addresses"],
         "summary": "Create an address",
         "description": "Creates a new address in the organization",
         "operationId": "createAddress",
@@ -89,6 +91,7 @@
         }
       ],
       "get": {
+        "tags": ["Addresses"],
         "summary": "Retrieve an address",
         "description": "Returns a specific address.",
         "operationId": "getAddress",
@@ -108,6 +111,7 @@
         }
       },
       "patch": {
+        "tags": ["Addresses"],
         "summary": "Update an address",
         "description": "Update a specific address.",
         "operationId": "updateAddress",
@@ -138,6 +142,7 @@
         }
       },
       "delete": {
+        "tags": ["Addresses"],
         "summary": "Delete an address",
         "description": "Delete a specific address.",
         "operationId": "deleteAddress",
@@ -147,6 +152,112 @@
           },
           "default": {
             "description": "Unexpected error.",
+            "schema": {
+              "$ref": "#/definitions/StandardErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/fleet/vehicles/locations": {
+      "get": {
+        "tags": ["Vehicles"],
+        "summary": "Get most recent vehicle locations",
+        "description": "Returns last known location for all vehicles (Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.",
+        "operationId": "getVehicleLocations",
+        "parameters": [
+          {
+            "$ref": "#/parameters/afterParam"
+          },
+          {
+            "$ref": "#/parameters/tagIdsParam"
+          },
+          {
+            "$ref": "#/parameters/vehicleIdsParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of all locations for the specified vehicles and time range.",
+            "schema": {
+              "$ref": "#/definitions/VehicleLocationsResponse"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/StandardErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/fleet/vehicles/locations/history": {
+      "get": {
+        "tags": ["Vehicles"],
+        "summary": "Get historical vehicle locations",
+        "description": "Returns all known vehicle location changes during the given time range for all vehicles (Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.",
+        "operationId": "getVehicleLocationsHistory",
+        "required": ["startTime", "endTime"],
+        "parameters": [
+          {
+            "$ref": "#/parameters/afterParam"
+          },
+          {
+            "$ref": "#/parameters/requiredStartTimeParam"
+          },
+          {
+            "$ref": "#/parameters/requiredEndTimeParam"
+          },
+          {
+            "$ref": "#/parameters/tagIdsParam"
+          },
+          {
+            "$ref": "#/parameters/vehicleIdsParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of all locations for the specified vehicles and time range.",
+            "schema": {
+              "$ref": "#/definitions/VehicleLocationsListResponse"
+            }
+          },
+          "default": {
+            "description": "Error response",
+            "schema": {
+              "$ref": "#/definitions/StandardErrorResponse"
+            }
+          }
+        }
+      }
+    },
+    "/fleet/vehicles/locations/feed": {
+      "get": {
+        "tags": ["Vehicles"],
+        "summary": "Follow a feed of vehicle locations",
+        "description": "Follow a continuous feed of all vehicle locations from Samsara Vehicle Gateways.\n\nYour first call to this endpoint will provide you with the most recent location for each vehicle and a `pagination` object that contains an `endCursor`.\n\nYou can provide the `endCursor` to the `after` parameter of this endpoint to get location updates since that `endCursor`. \n\nIf `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.\n\nSee [this guide](https://developers.samsara.com/docs/vehicle-locations#section-follow-a-real-time-feed-of-vehicle-locations) for more details.",
+        "operationId": "getVehicleLocationsFeed",
+        "parameters": [
+          {
+            "$ref": "#/parameters/afterParam"
+          },
+          {
+            "$ref": "#/parameters/tagIdsParam"
+          },
+          {
+            "$ref": "#/parameters/vehicleIdsParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of all locations for the specified vehicles.",
+            "schema": {
+              "$ref": "#/definitions/VehicleLocationsListResponse"
+            }
+          },
+          "default": {
+            "description": "Error response",
             "schema": {
               "$ref": "#/definitions/StandardErrorResponse"
             }
@@ -462,6 +573,135 @@
         "pagination"
       ]
     },
+    "VehicleLocationLatitude": {
+      "description": "GPS latitude represented in degrees",
+      "type": "number",
+      "format": "double",
+      "example": 122.142
+    },
+    "VehicelLocationLongitude": {
+      "description": "GPS longitude represented in degrees",
+      "type": "number",
+      "format": "double",
+      "example": -93.343
+    },
+    "VehicleLocationHeading": {
+      "description": "Heading of the vehicle in degrees.",
+      "type": "number",
+      "format": "double",
+      "example": 120.0
+    },
+    "VehicleLocationId": {
+      "description": "ID of the vehicle.",
+      "type": "string",
+      "example": "123456789"
+    },
+    "VehicleLocationName": {
+      "description": "Name of the vehicle.",
+      "type": "string",
+      "example": "Midwest Truck #4"
+    },
+    "VehicleLocationReverseGeo": {
+      "description": "Reverse geocoded information.",
+      "type": "object",
+      "properties": {
+        "formattedLocation": {
+          "description": "Formatted address of the reverse geocoding data.",
+          "type": "string",
+          "example": "16 N Fair Oaks Ave, Pasadena, CA 91103"
+        }
+      }
+    },
+    "VehicleLocationSpeed": {
+      "description": "GPS speed of the vehicle in miles per hour.",
+      "type": "number",
+      "format": "double",
+      "example": 48.3
+    },
+    "VehicleLocation": {
+      "description": "Vehicle location event.",
+      "type": "object",
+      "properties": {
+        "latitude": {
+          "$ref": "#/definitions/VehicleLocationLatitude"
+        },
+        "longitude": {
+          "$ref": "#/definitions/VehicleLocationLongitude"
+        },
+        "heading": {
+          "$ref": "#/definitions/VehicleLocationHeading"
+        },
+        "reverseGeo": {
+          "$ref": "#/definitions/VehicleLocationReverseGeo"
+        },
+        "speed": {
+          "$ref": "#/definitions/VehicleLocationSpeed"
+        },
+        "time": {
+          "$ref": "#/definitions/Time"
+        }
+      }
+    },
+    "VehicleLocationsResponse": {
+      "description": "Most recent vehicle locations and pagination info.",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "Most recent vehicle locations.",
+          "type": "array",
+          "items": {
+            "description": "A vehicle and its most recent location.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/VehicleLocationId"
+              },
+              "name": {
+                "$ref": "#/definitions/VehicleLocationName"
+              },
+              "location": {
+                "$ref": "#/definitions/VehicleLocation"
+              }
+            }
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/PaginationResponse"
+        }
+      }
+    },
+    "VehicleLocationsListResponse": {
+      "description": "List of vehicle locations and pagination info.",
+      "type": "object",
+      "properties": {
+        "data": {
+          "description": "List of vehicle locations.",
+          "type": "array",
+          "items": {
+            "description": "A vehicle and its list of location events.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/VehicleLocationId"
+              },
+              "name": {
+                "$ref": "#/definitions/VehicleLocationName"
+              },
+              "locations": {
+                "description": "A list of location events.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/VehicleLocation"
+                }
+              }
+            }
+          }
+        },
+        "pagination": {
+          "$ref": "#/definitions/PaginationResponse"
+        }
+      }
+    },
     "ContactTinyResponse": {
       "type": "object",
       "description": "A minified contact object",
@@ -544,6 +784,11 @@
           "example": "East Coast"
         }
       }
+    },
+    "Time": {
+      "type": "string",
+      "description": "UTC timestamp in RFC 3339 milliseconds format.",
+      "example": "2019-05-03T04:30:31.492Z"
     }
   },
   "parameters": {
@@ -572,6 +817,32 @@
       "items": {
         "type": "string"
       }
+    },
+    "vehicleIdsParam": {
+      "name": "vehicleIds",
+      "description": "A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678`",
+      "collectionFormat": "csv",
+      "in": "query",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "requiredStartTimeParam": {
+      "name": "startTime",
+      "description": "A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).",
+      "in": "query",
+      "type": "string",
+      "format": "date-time",
+      "required": true
+    },
+    "requiredEndTimeParam": {
+      "name": "endTime",
+      "description": "An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).",
+      "in": "query",
+      "type": "string",
+      "format": "date-time",
+      "required": true
     }
   }
 }
