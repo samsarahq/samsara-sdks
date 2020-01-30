@@ -18,7 +18,9 @@
   "paths": {
     "/addresses": {
       "get": {
-        "tags": ["Addresses"],
+        "tags": [
+          "Addresses"
+        ],
         "summary": "List all addresses",
         "description": "Returns a list of all addresses in an organization",
         "operationId": "listAddresses",
@@ -49,7 +51,9 @@
         }
       },
       "post": {
-        "tags": ["Addresses"],
+        "tags": [
+          "Addresses"
+        ],
         "summary": "Create an address",
         "description": "Creates a new address in the organization",
         "operationId": "createAddress",
@@ -91,7 +95,9 @@
         }
       ],
       "get": {
-        "tags": ["Addresses"],
+        "tags": [
+          "Addresses"
+        ],
         "summary": "Retrieve an address",
         "description": "Returns a specific address.",
         "operationId": "getAddress",
@@ -111,7 +117,9 @@
         }
       },
       "patch": {
-        "tags": ["Addresses"],
+        "tags": [
+          "Addresses"
+        ],
         "summary": "Update an address",
         "description": "Update a specific address.",
         "operationId": "updateAddress",
@@ -142,7 +150,9 @@
         }
       },
       "delete": {
-        "tags": ["Addresses"],
+        "tags": [
+          "Addresses"
+        ],
         "summary": "Delete an address",
         "description": "Delete a specific address.",
         "operationId": "deleteAddress",
@@ -161,7 +171,9 @@
     },
     "/fleet/vehicles/locations": {
       "get": {
-        "tags": ["Vehicles"],
+        "tags": [
+          "Vehicles"
+        ],
         "summary": "Get most recent vehicle locations",
         "description": "Returns last known location for all vehicles (Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.",
         "operationId": "getVehicleLocations",
@@ -194,11 +206,12 @@
     },
     "/fleet/vehicles/locations/history": {
       "get": {
-        "tags": ["Vehicles"],
+        "tags": [
+          "Vehicles"
+        ],
         "summary": "Get historical vehicle locations",
         "description": "Returns all known vehicle location changes during the given time range for all vehicles (Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.",
         "operationId": "getVehicleLocationsHistory",
-        "required": ["startTime", "endTime"],
         "parameters": [
           {
             "$ref": "#/parameters/afterParam"
@@ -234,7 +247,9 @@
     },
     "/fleet/vehicles/locations/feed": {
       "get": {
-        "tags": ["Vehicles"],
+        "tags": [
+          "Vehicles"
+        ],
         "summary": "Follow a feed of vehicle locations",
         "description": "Follow a continuous feed of all vehicle locations from Samsara Vehicle Gateways.\n\nYour first call to this endpoint will provide you with the most recent location for each vehicle and a `pagination` object that contains an `endCursor`.\n\nYou can provide the `endCursor` to the `after` parameter of this endpoint to get location updates since that `endCursor`. \n\nIf `hasNextPage` is `false`, no updates are readily available yet. We'd suggest waiting a minimum of 5 seconds before requesting updates.\n\nSee [this guide](https://developers.samsara.com/docs/vehicle-locations#section-follow-a-real-time-feed-of-vehicle-locations) for more details.",
         "operationId": "getVehicleLocationsFeed",
@@ -579,7 +594,7 @@
       "format": "double",
       "example": 122.142
     },
-    "VehicelLocationLongitude": {
+    "VehicleLocationLongitude": {
       "description": "GPS longitude represented in degrees",
       "type": "number",
       "format": "double",

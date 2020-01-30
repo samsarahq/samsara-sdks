@@ -17,7 +17,8 @@ from __future__ import absolute_import
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from samsara_test.api.default_api import DefaultApi
+from samsara_test.api.addresses_api import AddressesApi
+from samsara_test.api.vehicles_api import VehiclesApi
 
 # import ApiClient
 from samsara_test.api_client import ApiClient
@@ -41,4 +42,10 @@ from samsara_test.models.pagination_response import PaginationResponse
 from samsara_test.models.standard_error_response import StandardErrorResponse
 from samsara_test.models.tag_tiny_response import TagTinyResponse
 from samsara_test.models.update_address_request import UpdateAddressRequest
+from samsara_test.models.vehicle_location import VehicleLocation
+from samsara_test.models.vehicle_location_reverse_geo import VehicleLocationReverseGeo
+from samsara_test.models.vehicle_locations_list_response import VehicleLocationsListResponse
+from samsara_test.models.vehicle_locations_list_response_data import VehicleLocationsListResponseData
+from samsara_test.models.vehicle_locations_response import VehicleLocationsResponse
+from samsara_test.models.vehicle_locations_response_data import VehicleLocationsResponseData
 

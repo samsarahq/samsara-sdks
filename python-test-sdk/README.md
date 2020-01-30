@@ -55,7 +55,7 @@ from pprint import pprint
 # Defining host is optional and default to https://api.samsara.com
 configuration.host = "https://api.samsara.com"
 # Create an instance of the API class
-api_instance = samsara_test.DefaultApi(samsara_test.ApiClient(configuration))
+api_instance = samsara_test.AddressesApi(samsara_test.ApiClient(configuration))
 address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create.
 
 try:
@@ -63,7 +63,7 @@ try:
     api_response = api_instance.create_address(address)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling DefaultApi->create_address: %s\n" % e)
+    print("Exception when calling AddressesApi->create_address: %s\n" % e)
 
 ```
 
@@ -73,11 +73,14 @@ All URIs are relative to *https://api.samsara.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**create_address**](docs/DefaultApi.md#create_address) | **POST** /addresses | Create an address
-*DefaultApi* | [**delete_address**](docs/DefaultApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
-*DefaultApi* | [**get_address**](docs/DefaultApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
-*DefaultApi* | [**list_addresses**](docs/DefaultApi.md#list_addresses) | **GET** /addresses | List all addresses
-*DefaultApi* | [**update_address**](docs/DefaultApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
+*AddressesApi* | [**create_address**](docs/AddressesApi.md#create_address) | **POST** /addresses | Create an address
+*AddressesApi* | [**delete_address**](docs/AddressesApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
+*AddressesApi* | [**get_address**](docs/AddressesApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
+*AddressesApi* | [**list_addresses**](docs/AddressesApi.md#list_addresses) | **GET** /addresses | List all addresses
+*AddressesApi* | [**update_address**](docs/AddressesApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
+*VehiclesApi* | [**get_vehicle_locations**](docs/VehiclesApi.md#get_vehicle_locations) | **GET** /fleet/vehicles/locations | Get most recent vehicle locations
+*VehiclesApi* | [**get_vehicle_locations_feed**](docs/VehiclesApi.md#get_vehicle_locations_feed) | **GET** /fleet/vehicles/locations/feed | Follow a feed of vehicle locations
+*VehiclesApi* | [**get_vehicle_locations_history**](docs/VehiclesApi.md#get_vehicle_locations_history) | **GET** /fleet/vehicles/locations/history | Get historical vehicle locations
 
 
 ## Documentation For Models
@@ -95,6 +98,12 @@ Class | Method | HTTP request | Description
  - [StandardErrorResponse](docs/StandardErrorResponse.md)
  - [TagTinyResponse](docs/TagTinyResponse.md)
  - [UpdateAddressRequest](docs/UpdateAddressRequest.md)
+ - [VehicleLocation](docs/VehicleLocation.md)
+ - [VehicleLocationReverseGeo](docs/VehicleLocationReverseGeo.md)
+ - [VehicleLocationsListResponse](docs/VehicleLocationsListResponse.md)
+ - [VehicleLocationsListResponseData](docs/VehicleLocationsListResponseData.md)
+ - [VehicleLocationsResponse](docs/VehicleLocationsResponse.md)
+ - [VehicleLocationsResponseData](docs/VehicleLocationsResponseData.md)
 
 
 ## Documentation For Authorization
