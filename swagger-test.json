@@ -625,7 +625,10 @@
           "type": "string",
           "example": "16 N Fair Oaks Ave, Pasadena, CA 91103"
         }
-      }
+      },
+      "required": [
+        "formattedLocation"
+      ]
     },
     "VehicleLocationSpeed": {
       "description": "GPS speed of the vehicle in miles per hour.",
@@ -655,7 +658,15 @@
         "time": {
           "$ref": "#/definitions/Time"
         }
-      }
+      },
+      "required": [
+        "latitude",
+        "longitude",
+        "heading",
+        "reverseGeo",
+        "speed",
+        "time"
+      ]
     },
     "VehicleLocationsResponse": {
       "description": "Most recent vehicle locations and pagination info.",
@@ -677,13 +688,22 @@
               "location": {
                 "$ref": "#/definitions/VehicleLocation"
               }
-            }
+            },
+            "required": [
+              "id",
+              "name",
+              "location"
+            ]
           }
         },
         "pagination": {
           "$ref": "#/definitions/PaginationResponse"
         }
-      }
+      },
+      "required": [
+        "data",
+        "pagination"
+      ]
     },
     "VehicleLocationsListResponse": {
       "description": "List of vehicle locations and pagination info.",
@@ -709,13 +729,22 @@
                   "$ref": "#/definitions/VehicleLocation"
                 }
               }
-            }
+            },
+            "required": [
+              "id",
+              "name",
+              "locations"
+            ]
           }
         },
         "pagination": {
           "$ref": "#/definitions/PaginationResponse"
         }
-      }
+      },
+      "required": [
+        "data",
+        "pagination"
+      ]
     },
     "ContactTinyResponse": {
       "type": "object",

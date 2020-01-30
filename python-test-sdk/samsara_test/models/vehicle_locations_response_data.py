@@ -55,12 +55,9 @@ class VehicleLocationsResponseData(object):
         self._location = None
         self.discriminator = None
 
-        if id is not None:
-            self.id = id
-        if name is not None:
-            self.name = name
-        if location is not None:
-            self.location = location
+        self.id = id
+        self.name = name
+        self.location = location
 
     @property
     def id(self):
@@ -82,6 +79,8 @@ class VehicleLocationsResponseData(object):
         :param id: The id of this VehicleLocationsResponseData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
 
         self._id = id
 
@@ -105,6 +104,8 @@ class VehicleLocationsResponseData(object):
         :param name: The name of this VehicleLocationsResponseData.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
 
         self._name = name
 
@@ -126,6 +127,8 @@ class VehicleLocationsResponseData(object):
         :param location: The location of this VehicleLocationsResponseData.  # noqa: E501
         :type: VehicleLocation
         """
+        if self.local_vars_configuration.client_side_validation and location is None:  # noqa: E501
+            raise ValueError("Invalid value for `location`, must not be `None`")  # noqa: E501
 
         self._location = location
 

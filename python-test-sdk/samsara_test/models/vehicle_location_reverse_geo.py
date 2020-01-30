@@ -49,8 +49,7 @@ class VehicleLocationReverseGeo(object):
         self._formatted_location = None
         self.discriminator = None
 
-        if formatted_location is not None:
-            self.formatted_location = formatted_location
+        self.formatted_location = formatted_location
 
     @property
     def formatted_location(self):
@@ -72,6 +71,8 @@ class VehicleLocationReverseGeo(object):
         :param formatted_location: The formatted_location of this VehicleLocationReverseGeo.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and formatted_location is None:  # noqa: E501
+            raise ValueError("Invalid value for `formatted_location`, must not be `None`")  # noqa: E501
 
         self._formatted_location = formatted_location
 

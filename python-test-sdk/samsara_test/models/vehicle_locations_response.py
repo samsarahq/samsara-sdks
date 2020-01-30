@@ -52,10 +52,8 @@ class VehicleLocationsResponse(object):
         self._pagination = None
         self.discriminator = None
 
-        if data is not None:
-            self.data = data
-        if pagination is not None:
-            self.pagination = pagination
+        self.data = data
+        self.pagination = pagination
 
     @property
     def data(self):
@@ -77,6 +75,8 @@ class VehicleLocationsResponse(object):
         :param data: The data of this VehicleLocationsResponse.  # noqa: E501
         :type: list[VehicleLocationsResponseData]
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
 
@@ -98,6 +98,8 @@ class VehicleLocationsResponse(object):
         :param pagination: The pagination of this VehicleLocationsResponse.  # noqa: E501
         :type: PaginationResponse
         """
+        if self.local_vars_configuration.client_side_validation and pagination is None:  # noqa: E501
+            raise ValueError("Invalid value for `pagination`, must not be `None`")  # noqa: E501
 
         self._pagination = pagination
 

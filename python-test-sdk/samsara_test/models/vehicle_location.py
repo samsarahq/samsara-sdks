@@ -64,18 +64,12 @@ class VehicleLocation(object):
         self._time = None
         self.discriminator = None
 
-        if latitude is not None:
-            self.latitude = latitude
-        if longitude is not None:
-            self.longitude = longitude
-        if heading is not None:
-            self.heading = heading
-        if reverse_geo is not None:
-            self.reverse_geo = reverse_geo
-        if speed is not None:
-            self.speed = speed
-        if time is not None:
-            self.time = time
+        self.latitude = latitude
+        self.longitude = longitude
+        self.heading = heading
+        self.reverse_geo = reverse_geo
+        self.speed = speed
+        self.time = time
 
     @property
     def latitude(self):
@@ -97,6 +91,8 @@ class VehicleLocation(object):
         :param latitude: The latitude of this VehicleLocation.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and latitude is None:  # noqa: E501
+            raise ValueError("Invalid value for `latitude`, must not be `None`")  # noqa: E501
 
         self._latitude = latitude
 
@@ -120,6 +116,8 @@ class VehicleLocation(object):
         :param longitude: The longitude of this VehicleLocation.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and longitude is None:  # noqa: E501
+            raise ValueError("Invalid value for `longitude`, must not be `None`")  # noqa: E501
 
         self._longitude = longitude
 
@@ -143,6 +141,8 @@ class VehicleLocation(object):
         :param heading: The heading of this VehicleLocation.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and heading is None:  # noqa: E501
+            raise ValueError("Invalid value for `heading`, must not be `None`")  # noqa: E501
 
         self._heading = heading
 
@@ -164,6 +164,8 @@ class VehicleLocation(object):
         :param reverse_geo: The reverse_geo of this VehicleLocation.  # noqa: E501
         :type: VehicleLocationReverseGeo
         """
+        if self.local_vars_configuration.client_side_validation and reverse_geo is None:  # noqa: E501
+            raise ValueError("Invalid value for `reverse_geo`, must not be `None`")  # noqa: E501
 
         self._reverse_geo = reverse_geo
 
@@ -187,6 +189,8 @@ class VehicleLocation(object):
         :param speed: The speed of this VehicleLocation.  # noqa: E501
         :type: float
         """
+        if self.local_vars_configuration.client_side_validation and speed is None:  # noqa: E501
+            raise ValueError("Invalid value for `speed`, must not be `None`")  # noqa: E501
 
         self._speed = speed
 
@@ -210,6 +214,8 @@ class VehicleLocation(object):
         :param time: The time of this VehicleLocation.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and time is None:  # noqa: E501
+            raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
 
         self._time = time
 
