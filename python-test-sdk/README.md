@@ -23,7 +23,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import samsara_test 
+import samsara_test
 ```
 
 ### Setuptools
@@ -54,17 +54,19 @@ from pprint import pprint
 
 # Defining host is optional and default to https://api.samsara.com
 configuration.host = "https://api.samsara.com"
-# Create an instance of the API class
-api_instance = samsara_test.AddressesApi(samsara_test.ApiClient(configuration))
-address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create.
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.AddressesApi(api_client)
+    address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create.
 
-try:
-    # Create an address
-    api_response = api_instance.create_address(address)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddressesApi->create_address: %s\n" % e)
-
+    try:
+        # Create an address
+        api_response = api_instance.create_address(address)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddressesApi->create_address: %s\n" % e)
+    
 ```
 
 ## Documentation for API Endpoints

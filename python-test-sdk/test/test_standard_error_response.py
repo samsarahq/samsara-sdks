@@ -13,11 +13,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
 import samsara_test
 from samsara_test.models.standard_error_response import StandardErrorResponse  # noqa: E501
 from samsara_test.rest import ApiException
-
 
 class TestStandardErrorResponse(unittest.TestCase):
     """StandardErrorResponse unit test stubs"""
@@ -28,11 +28,25 @@ class TestStandardErrorResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test StandardErrorResponse
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = samsara_test.models.standard_error_response.StandardErrorResponse()  # noqa: E501
+        if include_optional :
+            return StandardErrorResponse(
+                message = '0', 
+                request_id = '0'
+            )
+        else :
+            return StandardErrorResponse(
+        )
+
     def testStandardErrorResponse(self):
         """Test StandardErrorResponse"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = samsara_test.models.standard_error_response.StandardErrorResponse()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

@@ -13,11 +13,11 @@
 from __future__ import absolute_import
 
 import unittest
+import datetime
 
 import samsara_test
 from samsara_test.models.address_geofence import AddressGeofence  # noqa: E501
 from samsara_test.rest import ApiException
-
 
 class TestAddressGeofence(unittest.TestCase):
     """AddressGeofence unit test stubs"""
@@ -28,11 +28,29 @@ class TestAddressGeofence(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def make_instance(self, include_optional):
+        """Test AddressGeofence
+            include_option is a boolean, when False only required
+            params are included, when True both required and
+            optional params are included """
+        # model = samsara_test.models.address_geofence.AddressGeofence()  # noqa: E501
+        if include_optional :
+            return AddressGeofence(
+                circle = samsara_test.models.address_geofence_circle.AddressGeofence_circle(
+                    latitude = 37.765363, 
+                    longitude = 37.765363, 
+                    radius_meters = 250, ), 
+                polygon = samsara_test.models.address_geofence_polygon.AddressGeofence_polygon(
+                    vertices = [{latitude=37.765363, longitude=-122.403098}, {latitude=38.765363, longitude=-122.403098}, {latitude=37.765363, longitude=-123.403098}], )
+            )
+        else :
+            return AddressGeofence(
+        )
+
     def testAddressGeofence(self):
         """Test AddressGeofence"""
-        # FIXME: construct object with mandatory attributes with example values
-        # model = samsara_test.models.address_geofence.AddressGeofence()  # noqa: E501
-        pass
+        inst_req_only = self.make_instance(include_optional=False)
+        inst_req_and_optional = self.make_instance(include_optional=True)
 
 
 if __name__ == '__main__':

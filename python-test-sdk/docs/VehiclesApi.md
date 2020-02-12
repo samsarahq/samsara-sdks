@@ -25,18 +25,20 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.VehiclesApi()
-after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.VehiclesApi(api_client)
+    after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
 vehicle_ids = ['vehicle_ids_example'] # list[str] | A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678` (optional)
 
-try:
-    # Get most recent vehicle locations
-    api_response = api_instance.get_vehicle_locations(after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VehiclesApi->get_vehicle_locations: %s\n" % e)
+    try:
+        # Get most recent vehicle locations
+        api_response = api_instance.get_vehicle_locations(after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling VehiclesApi->get_vehicle_locations: %s\n" % e)
 ```
 
 ### Parameters
@@ -84,18 +86,20 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.VehiclesApi()
-after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.VehiclesApi(api_client)
+    after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
 vehicle_ids = ['vehicle_ids_example'] # list[str] | A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678` (optional)
 
-try:
-    # Follow a feed of vehicle locations
-    api_response = api_instance.get_vehicle_locations_feed(after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VehiclesApi->get_vehicle_locations_feed: %s\n" % e)
+    try:
+        # Follow a feed of vehicle locations
+        api_response = api_instance.get_vehicle_locations_feed(after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling VehiclesApi->get_vehicle_locations_feed: %s\n" % e)
 ```
 
 ### Parameters
@@ -143,20 +147,22 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.VehiclesApi()
-start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.VehiclesApi(api_client)
+    start_time = '2013-10-20T19:20:30+01:00' # datetime | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 end_time = '2013-10-20T19:20:30+01:00' # datetime | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00).
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
 vehicle_ids = ['vehicle_ids_example'] # list[str] | A filter on the data based on this comma-separated list of vehicle IDs. Example: `vehicleIds=1234,5678` (optional)
 
-try:
-    # Get historical vehicle locations
-    api_response = api_instance.get_vehicle_locations_history(start_time, end_time, after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling VehiclesApi->get_vehicle_locations_history: %s\n" % e)
+    try:
+        # Get historical vehicle locations
+        api_response = api_instance.get_vehicle_locations_history(start_time, end_time, after=after, tag_ids=tag_ids, vehicle_ids=vehicle_ids)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling VehiclesApi->get_vehicle_locations_history: %s\n" % e)
 ```
 
 ### Parameters

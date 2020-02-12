@@ -27,16 +27,18 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
-address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create.
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.AddressesApi(api_client)
+    address = samsara_test.CreateAddressRequest() # CreateAddressRequest | The address to create.
 
-try:
-    # Create an address
-    api_response = api_instance.create_address(address)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddressesApi->create_address: %s\n" % e)
+    try:
+        # Create an address
+        api_response = api_instance.create_address(address)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddressesApi->create_address: %s\n" % e)
 ```
 
 ### Parameters
@@ -82,15 +84,17 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
-id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.AddressesApi(api_client)
+    id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
-try:
-    # Delete an address
-    api_instance.delete_address(id)
-except ApiException as e:
-    print("Exception when calling AddressesApi->delete_address: %s\n" % e)
+    try:
+        # Delete an address
+        api_instance.delete_address(id)
+    except ApiException as e:
+        print("Exception when calling AddressesApi->delete_address: %s\n" % e)
 ```
 
 ### Parameters
@@ -136,16 +140,18 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
-id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.AddressesApi(api_client)
+    id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 
-try:
-    # Retrieve an address
-    api_response = api_instance.get_address(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddressesApi->get_address: %s\n" % e)
+    try:
+        # Retrieve an address
+        api_response = api_instance.get_address(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddressesApi->get_address: %s\n" % e)
 ```
 
 ### Parameters
@@ -191,18 +197,20 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.AddressesApi(api_client)
+    limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 tag_ids = ['tag_ids_example'] # list[str] | A filter on the data based on this comma-separated list of tag IDs. Example: `tagIds=1234,5678` (optional)
 
-try:
-    # List all addresses
-    api_response = api_instance.list_addresses(limit=limit, after=after, tag_ids=tag_ids)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddressesApi->list_addresses: %s\n" % e)
+    try:
+        # List all addresses
+        api_response = api_instance.list_addresses(limit=limit, after=after, tag_ids=tag_ids)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddressesApi->list_addresses: %s\n" % e)
 ```
 
 ### Parameters
@@ -250,17 +258,19 @@ import samsara_test
 from samsara_test.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara_test.AddressesApi()
-id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
+# Enter a context with an instance of the API client
+with samsara_test.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara_test.AddressesApi(api_client)
+    id = 'id_example' # str | ID of the Address. This can either be the Samsara-provided ID or an external ID. External IDs are customer-specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `crmId:abc123`
 address = samsara_test.UpdateAddressRequest() # UpdateAddressRequest | The address fields to update.
 
-try:
-    # Update an address
-    api_response = api_instance.update_address(id, address)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AddressesApi->update_address: %s\n" % e)
+    try:
+        # Update an address
+        api_response = api_instance.update_address(id, address)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AddressesApi->update_address: %s\n" % e)
 ```
 
 ### Parameters
