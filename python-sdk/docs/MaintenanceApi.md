@@ -25,16 +25,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.MaintenanceApi()
-create_dvir_param = samsara.InlineObject2() # InlineObject2 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.MaintenanceApi(api_client)
+    create_dvir_param = samsara.InlineObject2() # InlineObject2 | 
 
-try:
-    # Create a DVIR
-    api_response = api_instance.v1create_dvir(create_dvir_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MaintenanceApi->v1create_dvir: %s\n" % e)
+    try:
+        # Create a DVIR
+        api_response = api_instance.v1create_dvir(create_dvir_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MaintenanceApi->v1create_dvir: %s\n" % e)
 ```
 
 ### Parameters
@@ -80,17 +82,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.MaintenanceApi()
-end_ms = 56 # int | Time in millis until the last dvir log.
-duration_ms = 56 # int | Time in millis which corresponds to the duration before the end_ms. Must be less than or equal to 90 days.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.MaintenanceApi(api_client)
+    end_ms = 56 # int | Time in millis until the last dvir log.
+duration_ms = 3.4 # float | Time in millis which corresponds to the duration before the end_ms. Must be less than or equal to 90 days.
 
-try:
-    # Get DVIRs
-    api_response = api_instance.v1get_dvirs(end_ms, duration_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MaintenanceApi->v1get_dvirs: %s\n" % e)
+    try:
+        # Get DVIRs
+        api_response = api_instance.v1get_dvirs(end_ms, duration_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MaintenanceApi->v1get_dvirs: %s\n" % e)
 ```
 
 ### Parameters
@@ -98,7 +102,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **end_ms** | **int**| Time in millis until the last dvir log. | 
- **duration_ms** | **int**| Time in millis which corresponds to the duration before the end_ms. Must be less than or equal to 90 days. | 
+ **duration_ms** | **float**| Time in millis which corresponds to the duration before the end_ms. Must be less than or equal to 90 days. | 
 
 ### Return type
 
@@ -122,7 +126,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_fleet_maintenance_list**
-> V1getFleetMaintenanceListResponse v1get_fleet_maintenance_list()
+> InlineResponse2003 v1get_fleet_maintenance_list()
 
 Get vehicles with engine faults or check lights
 
@@ -137,15 +141,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.MaintenanceApi()
-
-try:
-    # Get vehicles with engine faults or check lights
-    api_response = api_instance.v1get_fleet_maintenance_list()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MaintenanceApi->v1get_fleet_maintenance_list: %s\n" % e)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.MaintenanceApi(api_client)
+    
+    try:
+        # Get vehicles with engine faults or check lights
+        api_response = api_instance.v1get_fleet_maintenance_list()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MaintenanceApi->v1get_fleet_maintenance_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -153,7 +159,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**V1getFleetMaintenanceListResponse**](V1getFleetMaintenanceListResponse.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 

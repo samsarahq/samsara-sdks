@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **v1get_all_trailer_assignments**
-> V1getAllTrailerAssignmentsResponse v1get_all_trailer_assignments(start_ms=start_ms, end_ms=end_ms, limit=limit, starting_after=starting_after, ending_before=ending_before)
+> InlineResponse2006 v1get_all_trailer_assignments(start_ms=start_ms, end_ms=end_ms, limit=limit, starting_after=starting_after, ending_before=ending_before)
 
 List trailer assignments for all trailers
 
@@ -24,20 +24,22 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.TrailerAssignmentsApi()
-start_ms = 56 # int | Timestamp in Unix epoch miliseconds representing the start of the period to fetch. Omitting both startMs and endMs only returns current assignments. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TrailerAssignmentsApi(api_client)
+    start_ms = 56 # int | Timestamp in Unix epoch miliseconds representing the start of the period to fetch. Omitting both startMs and endMs only returns current assignments. (optional)
 end_ms = 56 # int | Timestamp in Unix epoch miliseconds representing the end of the period to fetch. Omitting endMs sets endMs as the current time (optional)
 limit = 3.4 # float | Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'. (optional)
 starting_after = 'starting_after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter. (optional)
 ending_before = 'ending_before_example' # str | Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter. (optional)
 
-try:
-    # List trailer assignments for all trailers
-    api_response = api_instance.v1get_all_trailer_assignments(start_ms=start_ms, end_ms=end_ms, limit=limit, starting_after=starting_after, ending_before=ending_before)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TrailerAssignmentsApi->v1get_all_trailer_assignments: %s\n" % e)
+    try:
+        # List trailer assignments for all trailers
+        api_response = api_instance.v1get_all_trailer_assignments(start_ms=start_ms, end_ms=end_ms, limit=limit, starting_after=starting_after, ending_before=ending_before)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TrailerAssignmentsApi->v1get_all_trailer_assignments: %s\n" % e)
 ```
 
 ### Parameters
@@ -52,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1getAllTrailerAssignmentsResponse**](V1getAllTrailerAssignmentsResponse.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -87,18 +89,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.TrailerAssignmentsApi()
-trailer_id = 56 # int | ID of trailer. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TrailerAssignmentsApi(api_client)
+    trailer_id = 56 # int | ID of trailer. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in Unix epoch milliseconds representing the start of the period to fetch. Omitting both startMs and endMs only returns current assignments. (optional)
 end_ms = 56 # int | Timestamp in Unix epoch milliseconds representing the end of the period to fetch. Omitting endMs sets endMs as the current time (optional)
 
-try:
-    # List trailer assignments for a given trailer
-    api_response = api_instance.v1get_fleet_trailer_assignments(trailer_id, start_ms=start_ms, end_ms=end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TrailerAssignmentsApi->v1get_fleet_trailer_assignments: %s\n" % e)
+    try:
+        # List trailer assignments for a given trailer
+        api_response = api_instance.v1get_fleet_trailer_assignments(trailer_id, start_ms=start_ms, end_ms=end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TrailerAssignmentsApi->v1get_fleet_trailer_assignments: %s\n" % e)
 ```
 
 ### Parameters

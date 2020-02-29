@@ -5,14 +5,14 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_contact**](ContactsApi.md#create_contact) | **POST** /contacts | Create a contact
-[**delete_contact_by_id**](ContactsApi.md#delete_contact_by_id) | **DELETE** /contacts/{id} | Delete a contact
-[**get_contact_by_id**](ContactsApi.md#get_contact_by_id) | **GET** /contacts/{id} | Retrieve a contact
-[**get_contacts**](ContactsApi.md#get_contacts) | **GET** /contacts | List all contacts
-[**update_contact_by_id**](ContactsApi.md#update_contact_by_id) | **PATCH** /contacts/{id} | Update a contact
+[**delete_contact**](ContactsApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
+[**get_contact**](ContactsApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
+[**list_contacts**](ContactsApi.md#list_contacts) | **GET** /contacts | List all contacts
+[**update_contact**](ContactsApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
 
 
 # **create_contact**
-> CreateContactResponse create_contact(contact)
+> ContactResponse create_contact(contact)
 
 Create a contact
 
@@ -27,27 +27,29 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.ContactsApi()
-contact = samsara.ContactInput() # ContactInput | Add a contact.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.ContactsApi(api_client)
+    contact = samsara.CreateContactRequest() # CreateContactRequest | The contact create parameters.
 
-try:
-    # Create a contact
-    api_response = api_instance.create_contact(contact)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->create_contact: %s\n" % e)
+    try:
+        # Create a contact
+        api_response = api_instance.create_contact(contact)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->create_contact: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contact** | [**ContactInput**](ContactInput.md)| Add a contact. | 
+ **contact** | [**CreateContactRequest**](CreateContactRequest.md)| The contact create parameters. | 
 
 ### Return type
 
-[**CreateContactResponse**](CreateContactResponse.md)
+[**ContactResponse**](ContactResponse.md)
 
 ### Authorization
 
@@ -66,8 +68,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_contact_by_id**
-> delete_contact_by_id(id)
+# **delete_contact**
+> delete_contact(id)
 
 Delete a contact
 
@@ -82,15 +84,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.ContactsApi()
-id = 'id_example' # str | Unique identifier for the contact.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.ContactsApi(api_client)
+    id = 'id_example' # str | Unique identifier for the contact.
 
-try:
-    # Delete a contact
-    api_instance.delete_contact_by_id(id)
-except ApiException as e:
-    print("Exception when calling ContactsApi->delete_contact_by_id: %s\n" % e)
+    try:
+        # Delete a contact
+        api_instance.delete_contact(id)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->delete_contact: %s\n" % e)
 ```
 
 ### Parameters
@@ -120,8 +124,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_contact_by_id**
-> GetContactByIdResponse get_contact_by_id(id)
+# **get_contact**
+> ContactResponse get_contact(id)
 
 Retrieve a contact
 
@@ -136,16 +140,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.ContactsApi()
-id = 'id_example' # str | Unique identifier for the contact.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.ContactsApi(api_client)
+    id = 'id_example' # str | Unique identifier for the contact.
 
-try:
-    # Retrieve a contact
-    api_response = api_instance.get_contact_by_id(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->get_contact_by_id: %s\n" % e)
+    try:
+        # Retrieve a contact
+        api_response = api_instance.get_contact(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->get_contact: %s\n" % e)
 ```
 
 ### Parameters
@@ -156,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetContactByIdResponse**](GetContactByIdResponse.md)
+[**ContactResponse**](ContactResponse.md)
 
 ### Authorization
 
@@ -175,8 +181,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_contacts**
-> GetContactsResponse get_contacts(limit=limit, after=after)
+# **list_contacts**
+> ListContactsResponse list_contacts(limit=limit, after=after)
 
 List all contacts
 
@@ -191,17 +197,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.ContactsApi()
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.ContactsApi(api_client)
+    limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
-try:
-    # List all contacts
-    api_response = api_instance.get_contacts(limit=limit, after=after)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->get_contacts: %s\n" % e)
+    try:
+        # List all contacts
+        api_response = api_instance.list_contacts(limit=limit, after=after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->list_contacts: %s\n" % e)
 ```
 
 ### Parameters
@@ -213,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetContactsResponse**](GetContactsResponse.md)
+[**ListContactsResponse**](ListContactsResponse.md)
 
 ### Authorization
 
@@ -232,8 +240,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_contact_by_id**
-> UpdateContactByIdResponse update_contact_by_id(id, contact=contact)
+# **update_contact**
+> ContactResponse update_contact(id, contact)
 
 Update a contact
 
@@ -248,17 +256,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.ContactsApi()
-id = 'id_example' # str | Unique identifier for the contact.
-contact = samsara.ContactInput() # ContactInput | Updates to the contact. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.ContactsApi(api_client)
+    id = 'id_example' # str | Unique identifier for the contact.
+contact = samsara.UpdateContactRequest() # UpdateContactRequest | Updates to the contact.
 
-try:
-    # Update a contact
-    api_response = api_instance.update_contact_by_id(id, contact=contact)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling ContactsApi->update_contact_by_id: %s\n" % e)
+    try:
+        # Update a contact
+        api_response = api_instance.update_contact(id, contact)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling ContactsApi->update_contact: %s\n" % e)
 ```
 
 ### Parameters
@@ -266,11 +276,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique identifier for the contact. | 
- **contact** | [**ContactInput**](ContactInput.md)| Updates to the contact. | [optional] 
+ **contact** | [**UpdateContactRequest**](UpdateContactRequest.md)| Updates to the contact. | 
 
 ### Return type
 
-[**UpdateContactByIdResponse**](UpdateContactByIdResponse.md)
+[**ContactResponse**](ContactResponse.md)
 
 ### Authorization
 

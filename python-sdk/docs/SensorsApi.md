@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **v1get_sensors**
-> V1getSensorsResponse v1get_sensors()
+> InlineResponse2009 v1get_sensors()
 
 Get all sensors
 
@@ -28,15 +28,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SensorsApi()
-
-try:
-    # Get all sensors
-    api_response = api_instance.v1get_sensors()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SensorsApi->v1get_sensors: %s\n" % e)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SensorsApi(api_client)
+    
+    try:
+        # Get all sensors
+        api_response = api_instance.v1get_sensors()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SensorsApi->v1get_sensors: %s\n" % e)
 ```
 
 ### Parameters
@@ -44,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**V1getSensorsResponse**](V1getSensorsResponse.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -79,16 +81,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SensorsApi()
-v1sensor_param = samsara.InlineObject5() # InlineObject5 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SensorsApi(api_client)
+    v1sensor_param = samsara.InlineObject5() # InlineObject5 | 
 
-try:
-    # Get cargo status
-    api_response = api_instance.v1get_sensors_cargo(v1sensor_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SensorsApi->v1get_sensors_cargo: %s\n" % e)
+    try:
+        # Get cargo status
+        api_response = api_instance.v1get_sensors_cargo(v1sensor_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SensorsApi->v1get_sensors_cargo: %s\n" % e)
 ```
 
 ### Parameters
@@ -134,16 +138,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SensorsApi()
-v1sensor_param = samsara.InlineObject6() # InlineObject6 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SensorsApi(api_client)
+    v1sensor_param = samsara.InlineObject6() # InlineObject6 | 
 
-try:
-    # Get door status
-    api_response = api_instance.v1get_sensors_door(v1sensor_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SensorsApi->v1get_sensors_door: %s\n" % e)
+    try:
+        # Get door status
+        api_response = api_instance.v1get_sensors_door(v1sensor_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SensorsApi->v1get_sensors_door: %s\n" % e)
 ```
 
 ### Parameters
@@ -189,16 +195,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SensorsApi()
-history_param = samsara.InlineObject7() # InlineObject7 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SensorsApi(api_client)
+    history_param = samsara.InlineObject7() # InlineObject7 | 
 
-try:
-    # Get sensor history
-    api_response = api_instance.v1get_sensors_history(history_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SensorsApi->v1get_sensors_history: %s\n" % e)
+    try:
+        # Get sensor history
+        api_response = api_instance.v1get_sensors_history(history_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SensorsApi->v1get_sensors_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -244,16 +252,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SensorsApi()
-v1sensor_param = samsara.InlineObject8() # InlineObject8 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SensorsApi(api_client)
+    v1sensor_param = samsara.InlineObject8() # InlineObject8 | 
 
-try:
-    # Get humidity
-    api_response = api_instance.v1get_sensors_humidity(v1sensor_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SensorsApi->v1get_sensors_humidity: %s\n" % e)
+    try:
+        # Get humidity
+        api_response = api_instance.v1get_sensors_humidity(v1sensor_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SensorsApi->v1get_sensors_humidity: %s\n" % e)
 ```
 
 ### Parameters
@@ -299,16 +309,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SensorsApi()
-v1sensor_param = samsara.InlineObject9() # InlineObject9 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SensorsApi(api_client)
+    v1sensor_param = samsara.InlineObject9() # InlineObject9 | 
 
-try:
-    # Get temperature
-    api_response = api_instance.v1get_sensors_temperature(v1sensor_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SensorsApi->v1get_sensors_temperature: %s\n" % e)
+    try:
+        # Get temperature
+        api_response = api_instance.v1get_sensors_temperature(v1sensor_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SensorsApi->v1get_sensors_temperature: %s\n" % e)
 ```
 
 ### Parameters

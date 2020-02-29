@@ -5,15 +5,15 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_user**](UsersApi.md#create_user) | **POST** /users | Create a user
-[**delete_user_by_id**](UsersApi.md#delete_user_by_id) | **DELETE** /users/{id} | Delete a user
-[**get_user_by_id**](UsersApi.md#get_user_by_id) | **GET** /users/{id} | Retrieve a user
-[**get_user_roles**](UsersApi.md#get_user_roles) | **GET** /user-roles | List all user roles
-[**get_users**](UsersApi.md#get_users) | **GET** /users | List all users
-[**update_user_by_id**](UsersApi.md#update_user_by_id) | **PATCH** /users/{id} | Update a user
+[**delete_user**](UsersApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
+[**get_user**](UsersApi.md#get_user) | **GET** /users/{id} | Retrieve a user
+[**list_user_roles**](UsersApi.md#list_user_roles) | **GET** /user-roles | List all user roles
+[**list_users**](UsersApi.md#list_users) | **GET** /users | List all users
+[**update_user**](UsersApi.md#update_user) | **PATCH** /users/{id} | Update a user
 
 
 # **create_user**
-> CreateUserResponse create_user(user=user)
+> UserResponse create_user(user)
 
 Create a user
 
@@ -28,27 +28,29 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.UsersApi()
-user = samsara.UserCreate() # UserCreate | The user to create. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.UsersApi(api_client)
+    user = samsara.CreateUserRequest() # CreateUserRequest | The user to create.
 
-try:
-    # Create a user
-    api_response = api_instance.create_user(user=user)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->create_user: %s\n" % e)
+    try:
+        # Create a user
+        api_response = api_instance.create_user(user)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->create_user: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**UserCreate**](UserCreate.md)| The user to create. | [optional] 
+ **user** | [**CreateUserRequest**](CreateUserRequest.md)| The user to create. | 
 
 ### Return type
 
-[**CreateUserResponse**](CreateUserResponse.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -67,8 +69,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_user_by_id**
-> delete_user_by_id(id)
+# **delete_user**
+> delete_user(id)
 
 Delete a user
 
@@ -83,15 +85,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.UsersApi()
-id = 'id_example' # str | Unique identifier for the user.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.UsersApi(api_client)
+    id = 'id_example' # str | Unique identifier for the user.
 
-try:
-    # Delete a user
-    api_instance.delete_user_by_id(id)
-except ApiException as e:
-    print("Exception when calling UsersApi->delete_user_by_id: %s\n" % e)
+    try:
+        # Delete a user
+        api_instance.delete_user(id)
+    except ApiException as e:
+        print("Exception when calling UsersApi->delete_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -121,8 +125,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_user_by_id**
-> GetUserByIdResponse get_user_by_id(id)
+# **get_user**
+> UserResponse get_user(id)
 
 Retrieve a user
 
@@ -137,16 +141,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.UsersApi()
-id = 'id_example' # str | Unique identifier for the user.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.UsersApi(api_client)
+    id = 'id_example' # str | Unique identifier for the user.
 
-try:
-    # Retrieve a user
-    api_response = api_instance.get_user_by_id(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->get_user_by_id: %s\n" % e)
+    try:
+        # Retrieve a user
+        api_response = api_instance.get_user(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->get_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -157,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserByIdResponse**](GetUserByIdResponse.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -176,8 +182,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_user_roles**
-> GetUserRolesResponse get_user_roles(limit=limit, after=after)
+# **list_user_roles**
+> ListUserTagRolesResponse list_user_roles(limit=limit, after=after)
 
 List all user roles
 
@@ -192,17 +198,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.UsersApi()
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.UsersApi(api_client)
+    limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
-try:
-    # List all user roles
-    api_response = api_instance.get_user_roles(limit=limit, after=after)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->get_user_roles: %s\n" % e)
+    try:
+        # List all user roles
+        api_response = api_instance.list_user_roles(limit=limit, after=after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->list_user_roles: %s\n" % e)
 ```
 
 ### Parameters
@@ -214,7 +222,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUserRolesResponse**](GetUserRolesResponse.md)
+[**ListUserTagRolesResponse**](ListUserTagRolesResponse.md)
 
 ### Authorization
 
@@ -233,8 +241,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_users**
-> GetUsersResponse get_users(limit=limit, after=after)
+# **list_users**
+> ListUsersResponse list_users(limit=limit, after=after)
 
 List all users
 
@@ -249,17 +257,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.UsersApi()
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.UsersApi(api_client)
+    limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
 after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
 
-try:
-    # List all users
-    api_response = api_instance.get_users(limit=limit, after=after)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->get_users: %s\n" % e)
+    try:
+        # List all users
+        api_response = api_instance.list_users(limit=limit, after=after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->list_users: %s\n" % e)
 ```
 
 ### Parameters
@@ -271,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUsersResponse**](GetUsersResponse.md)
+[**ListUsersResponse**](ListUsersResponse.md)
 
 ### Authorization
 
@@ -290,8 +300,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_user_by_id**
-> UpdateUserByIdResponse update_user_by_id(id, user=user)
+# **update_user**
+> UserResponse update_user(id, user)
 
 Update a user
 
@@ -306,17 +316,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.UsersApi()
-id = 'id_example' # str | Unique identifier for the user.
-user = samsara.UserUpdate() # UserUpdate | Updates to the user. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.UsersApi(api_client)
+    id = 'id_example' # str | Unique identifier for the user.
+user = samsara.UpdateUserRequest() # UpdateUserRequest | Updates to the user.
 
-try:
-    # Update a user
-    api_response = api_instance.update_user_by_id(id, user=user)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling UsersApi->update_user_by_id: %s\n" % e)
+    try:
+        # Update a user
+        api_response = api_instance.update_user(id, user)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling UsersApi->update_user: %s\n" % e)
 ```
 
 ### Parameters
@@ -324,11 +336,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique identifier for the user. | 
- **user** | [**UserUpdate**](UserUpdate.md)| Updates to the user. | [optional] 
+ **user** | [**UpdateUserRequest**](UpdateUserRequest.md)| Updates to the user. | 
 
 ### Return type
 
-[**UpdateUserByIdResponse**](UpdateUserByIdResponse.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 

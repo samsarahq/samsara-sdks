@@ -5,14 +5,14 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_tag**](TagsApi.md#create_tag) | **POST** /tags | Create a tag
-[**delete_tag_by_id**](TagsApi.md#delete_tag_by_id) | **DELETE** /tags/{id} | Delete a tag
-[**get_all_tags**](TagsApi.md#get_all_tags) | **GET** /tags | List all tags
-[**get_tag_by_id**](TagsApi.md#get_tag_by_id) | **GET** /tags/{id} | Retrieve a tag
-[**put_tag_by_id**](TagsApi.md#put_tag_by_id) | **PUT** /tags/{id} | Update a tag
+[**delete_tag**](TagsApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
+[**get_tag**](TagsApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
+[**list_tags**](TagsApi.md#list_tags) | **GET** /tags | List all tags
+[**replace_tag**](TagsApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
 
 
 # **create_tag**
-> CreateTagResponse create_tag(tag_create_body_=tag_create_body_)
+> TagResponse create_tag(tag_create_body_)
 
 Create a tag
 
@@ -27,27 +27,29 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.TagsApi()
-tag_create_body_ = samsara.TagUpdate() # TagUpdate |  (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TagsApi(api_client)
+    tag_create_body_ = samsara.CreateTagRequest() # CreateTagRequest | 
 
-try:
-    # Create a tag
-    api_response = api_instance.create_tag(tag_create_body_=tag_create_body_)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TagsApi->create_tag: %s\n" % e)
+    try:
+        # Create a tag
+        api_response = api_instance.create_tag(tag_create_body_)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TagsApi->create_tag: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tag_create_body_** | [**TagUpdate**](TagUpdate.md)|  | [optional] 
+ **tag_create_body_** | [**CreateTagRequest**](CreateTagRequest.md)|  | 
 
 ### Return type
 
-[**CreateTagResponse**](CreateTagResponse.md)
+[**TagResponse**](TagResponse.md)
 
 ### Authorization
 
@@ -66,8 +68,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_tag_by_id**
-> delete_tag_by_id(id)
+# **delete_tag**
+> delete_tag(id)
 
 Delete a tag
 
@@ -82,15 +84,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.TagsApi()
-id = 'id_example' # str | Unique identifier for the tag.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TagsApi(api_client)
+    id = 'id_example' # str | Unique identifier for the tag.
 
-try:
-    # Delete a tag
-    api_instance.delete_tag_by_id(id)
-except ApiException as e:
-    print("Exception when calling TagsApi->delete_tag_by_id: %s\n" % e)
+    try:
+        # Delete a tag
+        api_instance.delete_tag(id)
+    except ApiException as e:
+        print("Exception when calling TagsApi->delete_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -120,65 +124,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_all_tags**
-> GetAllTagsResponse get_all_tags(limit=limit, after=after)
-
-List all tags
-
-Return all of the tags for an organization.
-
-### Example
-
-```python
-from __future__ import print_function
-import time
-import samsara
-from samsara.rest import ApiException
-from pprint import pprint
-
-# Create an instance of the API class
-api_instance = samsara.TagsApi()
-limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
-after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
-
-try:
-    # List all tags
-    api_response = api_instance.get_all_tags(limit=limit, after=after)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TagsApi->get_all_tags: %s\n" % e)
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
- **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
-
-### Return type
-
-[**GetAllTagsResponse**](GetAllTagsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | List of tags. |  -  |
-**0** | Error response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_tag_by_id**
-> GetTagByIdResponse get_tag_by_id(id)
+# **get_tag**
+> TagResponse get_tag(id)
 
 Retrieve a tag
 
@@ -193,16 +140,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.TagsApi()
-id = 'id_example' # str | Unique identifier for the tag.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TagsApi(api_client)
+    id = 'id_example' # str | Unique identifier for the tag.
 
-try:
-    # Retrieve a tag
-    api_response = api_instance.get_tag_by_id(id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TagsApi->get_tag_by_id: %s\n" % e)
+    try:
+        # Retrieve a tag
+        api_response = api_instance.get_tag(id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TagsApi->get_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -213,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTagByIdResponse**](GetTagByIdResponse.md)
+[**TagResponse**](TagResponse.md)
 
 ### Authorization
 
@@ -232,8 +181,67 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **put_tag_by_id**
-> PutTagByIdResponse put_tag_by_id(id, tag_update_body_=tag_update_body_)
+# **list_tags**
+> ListTagsResponse list_tags(limit=limit, after=after)
+
+List all tags
+
+Return all of the tags for an organization.
+
+### Example
+
+```python
+from __future__ import print_function
+import time
+import samsara
+from samsara.rest import ApiException
+from pprint import pprint
+
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TagsApi(api_client)
+    limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
+after = 'after_example' # str | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. (optional)
+
+    try:
+        # List all tags
+        api_response = api_instance.list_tags(limit=limit, after=after)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TagsApi->list_tags: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **limit** | **int**| The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [optional] [default to 512]
+ **after** | **str**| If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | [optional] 
+
+### Return type
+
+[**ListTagsResponse**](ListTagsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of tags. |  -  |
+**0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **replace_tag**
+> TagResponse replace_tag(id, tag_update_body_)
 
 Update a tag
 
@@ -248,17 +256,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.TagsApi()
-id = 'id_example' # str | Unique identifier for the tag.
-tag_update_body_ = samsara.TagUpdate() # TagUpdate |  (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TagsApi(api_client)
+    id = 'id_example' # str | Unique identifier for the tag.
+tag_update_body_ = samsara.ReplaceTagRequest() # ReplaceTagRequest | 
 
-try:
-    # Update a tag
-    api_response = api_instance.put_tag_by_id(id, tag_update_body_=tag_update_body_)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TagsApi->put_tag_by_id: %s\n" % e)
+    try:
+        # Update a tag
+        api_response = api_instance.replace_tag(id, tag_update_body_)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TagsApi->replace_tag: %s\n" % e)
 ```
 
 ### Parameters
@@ -266,11 +276,11 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique identifier for the tag. | 
- **tag_update_body_** | [**TagUpdate**](TagUpdate.md)|  | [optional] 
+ **tag_update_body_** | [**ReplaceTagRequest**](ReplaceTagRequest.md)|  | 
 
 ### Return type
 
-[**PutTagByIdResponse**](PutTagByIdResponse.md)
+[**TagResponse**](TagResponse.md)
 
 ### Authorization
 

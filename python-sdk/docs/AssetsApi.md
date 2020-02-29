@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **v1get_all_asset_current_locations**
-> V1getAllAssetCurrentLocationsResponse v1get_all_asset_current_locations(starting_after=starting_after, ending_before=ending_before, limit=limit)
+> InlineResponse2001 v1get_all_asset_current_locations(starting_after=starting_after, ending_before=ending_before, limit=limit)
 
 List current location for all assets
 
@@ -27,18 +27,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.AssetsApi()
-starting_after = 'starting_after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.AssetsApi(api_client)
+    starting_after = 'starting_after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter. (optional)
 ending_before = 'ending_before_example' # str | Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter. (optional)
 limit = 3.4 # float | Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'. (optional)
 
-try:
-    # List current location for all assets
-    api_response = api_instance.v1get_all_asset_current_locations(starting_after=starting_after, ending_before=ending_before, limit=limit)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AssetsApi->v1get_all_asset_current_locations: %s\n" % e)
+    try:
+        # List current location for all assets
+        api_response = api_instance.v1get_all_asset_current_locations(starting_after=starting_after, ending_before=ending_before, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AssetsApi->v1get_all_asset_current_locations: %s\n" % e)
 ```
 
 ### Parameters
@@ -51,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1getAllAssetCurrentLocationsResponse**](V1getAllAssetCurrentLocationsResponse.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -71,7 +73,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_all_assets**
-> V1getAllAssetsResponse v1get_all_assets()
+> InlineResponse200 v1get_all_assets()
 
 List all assets
 
@@ -86,15 +88,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.AssetsApi()
-
-try:
-    # List all assets
-    api_response = api_instance.v1get_all_assets()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AssetsApi->v1get_all_assets: %s\n" % e)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.AssetsApi(api_client)
+    
+    try:
+        # List all assets
+        api_response = api_instance.v1get_all_assets()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AssetsApi->v1get_all_assets: %s\n" % e)
 ```
 
 ### Parameters
@@ -102,7 +106,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**V1getAllAssetsResponse**](V1getAllAssetsResponse.md)
+[**InlineResponse200**](InlineResponse200.md)
 
 ### Authorization
 
@@ -137,18 +141,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.AssetsApi()
-asset_id = 56 # int | ID of the asset. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.AssetsApi(api_client)
+    asset_id = 56 # int | ID of the asset. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
 end_ms = 56 # int | Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
 
-try:
-    # List historical locations for a given asset
-    api_response = api_instance.v1get_asset_location(asset_id, start_ms, end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AssetsApi->v1get_asset_location: %s\n" % e)
+    try:
+        # List historical locations for a given asset
+        api_response = api_instance.v1get_asset_location(asset_id, start_ms, end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AssetsApi->v1get_asset_location: %s\n" % e)
 ```
 
 ### Parameters
@@ -196,18 +202,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.AssetsApi()
-asset_id = 56 # int | ID of the asset. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.AssetsApi(api_client)
+    asset_id = 56 # int | ID of the asset. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
 end_ms = 56 # int | Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
 
-try:
-    # List stats for a given reefer
-    api_response = api_instance.v1get_asset_reefer(asset_id, start_ms, end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AssetsApi->v1get_asset_reefer: %s\n" % e)
+    try:
+        # List stats for a given reefer
+        api_response = api_instance.v1get_asset_reefer(asset_id, start_ms, end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AssetsApi->v1get_asset_reefer: %s\n" % e)
 ```
 
 ### Parameters
@@ -240,7 +248,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_assets_reefers**
-> V1getAssetsReefersResponse v1get_assets_reefers(start_ms, end_ms, starting_after=starting_after, ending_before=ending_before, limit=limit)
+> InlineResponse2002 v1get_assets_reefers(start_ms, end_ms, starting_after=starting_after, ending_before=ending_before, limit=limit)
 
 List stats for all reefers
 
@@ -255,20 +263,22 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.AssetsApi()
-start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.AssetsApi(api_client)
+    start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs.
 end_ms = 56 # int | Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs.
 starting_after = 'starting_after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'endingBefore' parameter. (optional)
 ending_before = 'ending_before_example' # str | Pagination parameter indicating the cursor position to return results before. Used in conjunction with the 'limit' parameter. Mutually exclusive with 'startingAfter' parameter. (optional)
 limit = 3.4 # float | Pagination parameter indicating the number of results to return in this request. Used in conjunction with either 'startingAfter' or 'endingBefore'. (optional)
 
-try:
-    # List stats for all reefers
-    api_response = api_instance.v1get_assets_reefers(start_ms, end_ms, starting_after=starting_after, ending_before=ending_before, limit=limit)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling AssetsApi->v1get_assets_reefers: %s\n" % e)
+    try:
+        # List stats for all reefers
+        api_response = api_instance.v1get_assets_reefers(start_ms, end_ms, starting_after=starting_after, ending_before=ending_before, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling AssetsApi->v1get_assets_reefers: %s\n" % e)
 ```
 
 ### Parameters
@@ -283,7 +293,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1getAssetsReefersResponse**](V1getAssetsReefersResponse.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **v1create_messages**
-> V1createMessagesResponse v1create_messages(create_messages)
+> InlineResponse2005 v1create_messages(create_messages)
 
 Send a message to a list of driver ids.
 
@@ -24,16 +24,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.MessagesApi()
-create_messages = samsara.InlineObject3() # InlineObject3 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.MessagesApi(api_client)
+    create_messages = samsara.InlineObject3() # InlineObject3 | 
 
-try:
-    # Send a message to a list of driver ids.
-    api_response = api_instance.v1create_messages(create_messages)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MessagesApi->v1create_messages: %s\n" % e)
+    try:
+        # Send a message to a list of driver ids.
+        api_response = api_instance.v1create_messages(create_messages)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MessagesApi->v1create_messages: %s\n" % e)
 ```
 
 ### Parameters
@@ -44,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1createMessagesResponse**](V1createMessagesResponse.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -64,7 +66,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_messages**
-> V1getMessagesResponse v1get_messages(end_ms=end_ms, duration_ms=duration_ms)
+> InlineResponse2004 v1get_messages(end_ms=end_ms, duration_ms=duration_ms)
 
 Get all messages.
 
@@ -79,17 +81,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.MessagesApi()
-end_ms = 56 # int | Time in unix milliseconds that represents the end of time range of messages to return. Used in combination with durationMs. Defaults to now. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.MessagesApi(api_client)
+    end_ms = 56 # int | Time in unix milliseconds that represents the end of time range of messages to return. Used in combination with durationMs. Defaults to now. (optional)
 duration_ms = 56 # int | Time in milliseconds that represents the duration before endMs to query. Defaults to 24 hours. (optional)
 
-try:
-    # Get all messages.
-    api_response = api_instance.v1get_messages(end_ms=end_ms, duration_ms=duration_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MessagesApi->v1get_messages: %s\n" % e)
+    try:
+        # Get all messages.
+        api_response = api_instance.v1get_messages(end_ms=end_ms, duration_ms=duration_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MessagesApi->v1get_messages: %s\n" % e)
 ```
 
 ### Parameters
@@ -101,7 +105,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1getMessagesResponse**](V1getMessagesResponse.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 

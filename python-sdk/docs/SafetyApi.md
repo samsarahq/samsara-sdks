@@ -25,18 +25,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SafetyApi()
-driver_id = 56 # int | ID of the driver. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SafetyApi(api_client)
+    driver_id = 56 # int | ID of the driver. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
 end_ms = 56 # int | Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
 
-try:
-    # Fetch driver safety score
-    api_response = api_instance.v1get_driver_safety_score(driver_id, start_ms, end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SafetyApi->v1get_driver_safety_score: %s\n" % e)
+    try:
+        # Fetch driver safety score
+        api_response = api_instance.v1get_driver_safety_score(driver_id, start_ms, end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SafetyApi->v1get_driver_safety_score: %s\n" % e)
 ```
 
 ### Parameters
@@ -84,17 +86,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SafetyApi()
-vehicle_id = 56 # int | ID of the vehicle. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SafetyApi(api_client)
+    vehicle_id = 56 # int | ID of the vehicle. Must contain only digits 0-9.
 timestamp = 56 # int | Timestamp in milliseconds representing the timestamp of a harsh event.
 
-try:
-    # Fetch harsh events
-    api_response = api_instance.v1get_vehicle_harsh_event(vehicle_id, timestamp)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SafetyApi->v1get_vehicle_harsh_event: %s\n" % e)
+    try:
+        # Fetch harsh events
+        api_response = api_instance.v1get_vehicle_harsh_event(vehicle_id, timestamp)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SafetyApi->v1get_vehicle_harsh_event: %s\n" % e)
 ```
 
 ### Parameters
@@ -141,18 +145,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.SafetyApi()
-vehicle_id = 56 # int | ID of the vehicle. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.SafetyApi(api_client)
+    vehicle_id = 56 # int | ID of the vehicle. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
 end_ms = 56 # int | Timestamp in milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Total duration (endMs - startMs) must be greater than or equal to 1 hour.
 
-try:
-    # Fetch vehicle safety scores
-    api_response = api_instance.v1get_vehicle_safety_score(vehicle_id, start_ms, end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling SafetyApi->v1get_vehicle_safety_score: %s\n" % e)
+    try:
+        # Fetch vehicle safety scores
+        api_response = api_instance.v1get_vehicle_safety_score(vehicle_id, start_ms, end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling SafetyApi->v1get_vehicle_safety_score: %s\n" % e)
 ```
 
 ### Parameters

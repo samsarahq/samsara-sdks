@@ -32,18 +32,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-camera_id = 56 # int | The camera_id should be valid for the given accessToken.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 duration_ms = 56 # int | DurationMs is a required param. This works with the EndMs parameter. Indicates the duration in which the visionRuns will be fetched
 end_ms = 56 # int | EndMs is an optional param. It will default to the current time. (optional)
 
-try:
-    # Fetch runs by camera
-    api_response = api_instance.get_vision_runs_by_camera(camera_id, duration_ms, end_ms=end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->get_vision_runs_by_camera: %s\n" % e)
+    try:
+        # Fetch runs by camera
+        api_response = api_instance.get_vision_runs_by_camera(camera_id, duration_ms, end_ms=end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->get_vision_runs_by_camera: %s\n" % e)
 ```
 
 ### Parameters
@@ -76,7 +78,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_all_data_inputs**
-> V1getAllDataInputsResponse v1get_all_data_inputs(start_ms=start_ms, end_ms=end_ms)
+> InlineResponse2007 v1get_all_data_inputs(start_ms=start_ms, end_ms=end_ms)
 
 Get industrial data
 
@@ -91,17 +93,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-start_ms = 56 # int | Timestamp in unix milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. defaults to nowMs. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    start_ms = 56 # int | Timestamp in unix milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. defaults to nowMs. (optional)
 end_ms = 56 # int | Timestamp in unix milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Defaults to nowMs. (optional)
 
-try:
-    # Get industrial data
-    api_response = api_instance.v1get_all_data_inputs(start_ms=start_ms, end_ms=end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_all_data_inputs: %s\n" % e)
+    try:
+        # Get industrial data
+        api_response = api_instance.v1get_all_data_inputs(start_ms=start_ms, end_ms=end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_all_data_inputs: %s\n" % e)
 ```
 
 ### Parameters
@@ -113,7 +117,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**V1getAllDataInputsResponse**](V1getAllDataInputsResponse.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -148,15 +152,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-
-try:
-    # Fetch industrial cameras
-    api_response = api_instance.v1get_cameras()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_cameras: %s\n" % e)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    
+    try:
+        # Fetch industrial cameras
+        api_response = api_instance.v1get_cameras()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_cameras: %s\n" % e)
 ```
 
 ### Parameters
@@ -199,18 +205,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-data_input_id = 56 # int | ID of the data input. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    data_input_id = 56 # int | ID of the data input. Must contain only digits 0-9.
 start_ms = 56 # int | Timestamp in unix milliseconds representing the start of the period to fetch, inclusive. Used in combination with endMs. defaults to nowMs. (optional)
 end_ms = 56 # int | Timestamp in unix milliseconds representing the end of the period to fetch, inclusive. Used in combination with startMs. Defaults to nowMs. (optional)
 
-try:
-    # Get industrial data from a specific device
-    api_response = api_instance.v1get_data_input(data_input_id, start_ms=start_ms, end_ms=end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_data_input: %s\n" % e)
+    try:
+        # Get industrial data from a specific device
+        api_response = api_instance.v1get_data_input(data_input_id, start_ms=start_ms, end_ms=end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_data_input: %s\n" % e)
 ```
 
 ### Parameters
@@ -243,7 +251,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_machines**
-> V1getMachinesResponse v1get_machines()
+> InlineResponse2008 v1get_machines()
 
 Get machines
 
@@ -258,15 +266,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-
-try:
-    # Get machines
-    api_response = api_instance.v1get_machines()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_machines: %s\n" % e)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    
+    try:
+        # Get machines
+        api_response = api_instance.v1get_machines()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_machines: %s\n" % e)
 ```
 
 ### Parameters
@@ -274,7 +284,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**V1getMachinesResponse**](V1getMachinesResponse.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -309,16 +319,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-history_param = samsara.InlineObject4() # InlineObject4 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    history_param = samsara.InlineObject4() # InlineObject4 | 
 
-try:
-    # Get machine history
-    api_response = api_instance.v1get_machines_history(history_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_machines_history: %s\n" % e)
+    try:
+        # Get machine history
+        api_response = api_instance.v1get_machines_history(history_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_machines_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -364,20 +376,22 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-camera_id = 56 # int | The camera_id should be valid for the given accessToken.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 program_id = 56 # int | The configured program's ID on the camera. (optional)
 started_at_ms = 56 # int | EndMs is an optional param. It will default to the current time. (optional)
 include = 'include_example' # str | Include is a filter parameter. Accepts 'pass', 'reject' or 'no_read'. (optional)
 limit = 56 # int | Limit is an integer value from 1 to 1,000. (optional)
 
-try:
-    # Fetch the latest run for a camera or program
-    api_response = api_instance.v1get_vision_latest_run_camera(camera_id, program_id=program_id, started_at_ms=started_at_ms, include=include, limit=limit)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_vision_latest_run_camera: %s\n" % e)
+    try:
+        # Fetch the latest run for a camera or program
+        api_response = api_instance.v1get_vision_latest_run_camera(camera_id, program_id=program_id, started_at_ms=started_at_ms, include=include, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_vision_latest_run_camera: %s\n" % e)
 ```
 
 ### Parameters
@@ -427,16 +441,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-camera_id = 56 # int | The camera_id should be valid for the given accessToken.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 
-try:
-    # Fetch industrial camera programs
-    api_response = api_instance.v1get_vision_programs_by_camera(camera_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_vision_programs_by_camera: %s\n" % e)
+    try:
+        # Fetch industrial camera programs
+        api_response = api_instance.v1get_vision_programs_by_camera(camera_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_vision_programs_by_camera: %s\n" % e)
 ```
 
 ### Parameters
@@ -482,17 +498,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-duration_ms = 56 # int | DurationMs is a required param. This works with the EndMs parameter. Indicates the duration in which the visionRuns will be fetched
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    duration_ms = 56 # int | DurationMs is a required param. This works with the EndMs parameter. Indicates the duration in which the visionRuns will be fetched
 end_ms = 56 # int | EndMs is an optional param. It will default to the current time. (optional)
 
-try:
-    # Fetch runs
-    api_response = api_instance.v1get_vision_runs(duration_ms, end_ms=end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_vision_runs: %s\n" % e)
+    try:
+        # Fetch runs
+        api_response = api_instance.v1get_vision_runs(duration_ms, end_ms=end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_vision_runs: %s\n" % e)
 ```
 
 ### Parameters
@@ -539,19 +557,21 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.IndustrialApi()
-camera_id = 56 # int | The camera_id should be valid for the given accessToken.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.IndustrialApi(api_client)
+    camera_id = 56 # int | The camera_id should be valid for the given accessToken.
 program_id = 56 # int | The configured program's ID on the camera.
 started_at_ms = 56 # int | Started_at_ms is a required param. Indicates the start time of the run to be fetched.
 include = 'include_example' # str | Include is a filter parameter. Accepts 'pass', 'reject' or 'no_read'. (optional)
 
-try:
-    # Fetch runs by camera and program
-    api_response = api_instance.v1get_vision_runs_by_camera_and_program(camera_id, program_id, started_at_ms, include=include)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling IndustrialApi->v1get_vision_runs_by_camera_and_program: %s\n" % e)
+    try:
+        # Fetch runs by camera and program
+        api_response = api_instance.v1get_vision_runs_by_camera_and_program(camera_id, program_id, started_at_ms, include=include)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling IndustrialApi->v1get_vision_runs_by_camera_and_program: %s\n" % e)
 ```
 
 ### Parameters

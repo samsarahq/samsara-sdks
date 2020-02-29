@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique Samsara ID of this tag. | [optional] 
 **name** | **str** | Name of this tag. | [optional] 
+**parent_tag_id** | **str** | If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted. | [optional] 
 **addresses** | [**list[TaggedObject]**](TaggedObject.md) | The addresses that belong to this tag. | [optional] 
 **assets** | [**list[TaggedObject]**](TaggedObject.md) | The trailers, unpowered, and powered assets that belong to this tag. | [optional] 
 **drivers** | [**list[TaggedObject]**](TaggedObject.md) | The drivers that belong to this tag. | [optional] 

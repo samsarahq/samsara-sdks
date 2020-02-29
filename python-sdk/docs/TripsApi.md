@@ -23,18 +23,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.TripsApi()
-vehicle_id = 56 # int | Vehicle ID to query.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.TripsApi(api_client)
+    vehicle_id = 56 # int | Vehicle ID to query.
 start_ms = 56 # int | Beginning of the time range, specified in milliseconds UNIX time. Limited to a 90 day window with respect to startMs and endMs
 end_ms = 56 # int | End of the time range, specified in milliseconds UNIX time.
 
-try:
-    # Get vehicle trips
-    api_response = api_instance.v1get_fleet_trips(vehicle_id, start_ms, end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling TripsApi->v1get_fleet_trips: %s\n" % e)
+    try:
+        # Get vehicle trips
+        api_response = api_instance.v1get_fleet_trips(vehicle_id, start_ms, end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling TripsApi->v1get_fleet_trips: %s\n" % e)
 ```
 
 ### Parameters

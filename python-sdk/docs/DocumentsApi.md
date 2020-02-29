@@ -26,17 +26,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.DocumentsApi()
-driver_id = 56 # int | ID of the driver for whom the document is created. Must contain only digits 0-9.
-create_document_params = samsara.V1DocumentCreate() # V1DocumentCreate | To create a document for a given document type, the document type's uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type’s list of field types in the correct order. In other words, a field's valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type’s valueType at index _i_.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.DocumentsApi(api_client)
+    driver_id = 56 # int | ID of the driver for whom the document is created. Must contain only digits 0-9.
+create_document_params = samsara.V1DocumentCreate() # V1DocumentCreate | To create a document for a given document type, provide the `documentTypeUuid` of the type of document you'd like to create. Then, pass in the `fields` of the document in the same order that they show up in the given document type.
 
-try:
-    # Create a document
-    api_response = api_instance.v1create_driver_document(driver_id, create_document_params)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DocumentsApi->v1create_driver_document: %s\n" % e)
+    try:
+        # Create a document
+        api_response = api_instance.v1create_driver_document(driver_id, create_document_params)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DocumentsApi->v1create_driver_document: %s\n" % e)
 ```
 
 ### Parameters
@@ -44,7 +46,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **driver_id** | **int**| ID of the driver for whom the document is created. Must contain only digits 0-9. | 
- **create_document_params** | [**V1DocumentCreate**](V1DocumentCreate.md)| To create a document for a given document type, the document type&#39;s uuid needs to be passed in to documentTypeUuid. The list of fields passed in should match the document type’s list of field types in the correct order. In other words, a field&#39;s valueType and value (i.e. only one of: stringValue, numberValue, or photoValue) at index _i_ should match with the document field type’s valueType at index _i_. | 
+ **create_document_params** | [**V1DocumentCreate**](V1DocumentCreate.md)| To create a document for a given document type, provide the &#x60;documentTypeUuid&#x60; of the type of document you&#39;d like to create. Then, pass in the &#x60;fields&#x60; of the document in the same order that they show up in the given document type. | 
 
 ### Return type
 
@@ -83,17 +85,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.DocumentsApi()
-driver_id = 56 # int | ID of the driver who submitted the document. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.DocumentsApi(api_client)
+    driver_id = 56 # int | ID of the driver who submitted the document. Must contain only digits 0-9.
 document_id = 'document_id_example' # str | ID of document.
 
-try:
-    # Fetches a document
-    api_response = api_instance.v1get_driver_document_by_id_and_driver_id(driver_id, document_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DocumentsApi->v1get_driver_document_by_id_and_driver_id: %s\n" % e)
+    try:
+        # Fetches a document
+        api_response = api_instance.v1get_driver_document_by_id_and_driver_id(driver_id, document_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DocumentsApi->v1get_driver_document_by_id_and_driver_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -140,15 +144,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.DocumentsApi()
-
-try:
-    # Fetch document types
-    api_response = api_instance.v1get_driver_document_types_by_org_id()
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DocumentsApi->v1get_driver_document_types_by_org_id: %s\n" % e)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.DocumentsApi(api_client)
+    
+    try:
+        # Fetch document types
+        api_response = api_instance.v1get_driver_document_types_by_org_id()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DocumentsApi->v1get_driver_document_types_by_org_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -176,7 +182,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1get_driver_documents_by_org_id**
-> list[V1Document] v1get_driver_documents_by_org_id(end_ms=end_ms, duration_ms=duration_ms, query_by=query_by)
+> V1Documents v1get_driver_documents_by_org_id(end_ms=end_ms, duration_ms=duration_ms, query_by=query_by)
 
 Fetch all documents
 
@@ -191,18 +197,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.DocumentsApi()
-end_ms = 56 # int | Time in unix milliseconds that represents the oldest documents to return. Used in combination with durationMs. Defaults to now. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.DocumentsApi(api_client)
+    end_ms = 56 # int | Time in unix milliseconds that represents the oldest documents to return. Used in combination with durationMs. Defaults to now. (optional)
 duration_ms = 56 # int | Time in milliseconds that represents the duration before endMs to query. Defaults to 24 hours. (optional)
 query_by = 'query_by_example' # str | Retrieve most recent documents based on either driverCreatedAtMs or serverUpdatedAtMs. If no value is provided, the default is driverCreatedAtMs. (optional)
 
-try:
-    # Fetch all documents
-    api_response = api_instance.v1get_driver_documents_by_org_id(end_ms=end_ms, duration_ms=duration_ms, query_by=query_by)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling DocumentsApi->v1get_driver_documents_by_org_id: %s\n" % e)
+    try:
+        # Fetch all documents
+        api_response = api_instance.v1get_driver_documents_by_org_id(end_ms=end_ms, duration_ms=duration_ms, query_by=query_by)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling DocumentsApi->v1get_driver_documents_by_org_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -215,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[V1Document]**](V1Document.md)
+[**V1Documents**](V1Documents.md)
 
 ### Authorization
 

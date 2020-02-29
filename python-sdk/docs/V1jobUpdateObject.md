@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 **changed_at_ms** | **int** | Timestamp that this event was updated, represented as Unix milliseconds since epoch. | [optional] 
 **job_id** | **int** | ID of the Samsara job. | [optional] 
 **job_state** | [**V1jobStatus**](V1jobStatus.md) |  | [optional] 
-**prev_job_state** | [**V1prevJobStatus**](V1prevJobStatus.md) |  | [optional] 
+**prev_job_state** | [**V1jobStatus**](V1jobStatus.md) |  | [optional] 
 **route** | [**V1DispatchRoute**](V1DispatchRoute.md) |  | [optional] 
 **route_id** | **int** | ID of the Samsara dispatch route. | [optional] 
 

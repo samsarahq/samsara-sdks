@@ -29,16 +29,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.RoutesApi()
-create_dispatch_route_params = samsara.V1DispatchRouteCreate() # V1DispatchRouteCreate | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.RoutesApi(api_client)
+    create_dispatch_route_params = samsara.V1DispatchRouteCreate() # V1DispatchRouteCreate | 
 
-try:
-    # Create a new route
-    api_response = api_instance.v1create_dispatch_route(create_dispatch_route_params)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RoutesApi->v1create_dispatch_route: %s\n" % e)
+    try:
+        # Create a new route
+        api_response = api_instance.v1create_dispatch_route(create_dispatch_route_params)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RoutesApi->v1create_dispatch_route: %s\n" % e)
 ```
 
 ### Parameters
@@ -84,15 +86,17 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.RoutesApi()
-route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.RoutesApi(api_client)
+    route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
 
-try:
-    # Delete a route
-    api_instance.v1delete_dispatch_route_by_id(route_id)
-except ApiException as e:
-    print("Exception when calling RoutesApi->v1delete_dispatch_route_by_id: %s\n" % e)
+    try:
+        # Delete a route
+        api_instance.v1delete_dispatch_route_by_id(route_id)
+    except ApiException as e:
+        print("Exception when calling RoutesApi->v1delete_dispatch_route_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -138,17 +142,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.RoutesApi()
-end_time = 56 # int | Time in unix milliseconds that represents the end time of the requested time interval. See above for a description of how routes are returned. Defaults to now. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.RoutesApi(api_client)
+    end_time = 56 # int | Time in unix milliseconds that represents the end time of the requested time interval. See above for a description of how routes are returned. Defaults to now. (optional)
 duration = 56 # int | Time in milliseconds that represents the duration before end_time to query. Defaults to 24 hours. (optional)
 
-try:
-    # Get all routes
-    api_response = api_instance.v1fetch_all_dispatch_routes(end_time=end_time, duration=duration)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RoutesApi->v1fetch_all_dispatch_routes: %s\n" % e)
+    try:
+        # Get all routes
+        api_response = api_instance.v1fetch_all_dispatch_routes(end_time=end_time, duration=duration)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RoutesApi->v1fetch_all_dispatch_routes: %s\n" % e)
 ```
 
 ### Parameters
@@ -195,17 +201,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.RoutesApi()
-sequence_id = 'sequence_id_example' # str | Sequence ID from the response payload of the last request. Defaults to fetching updates from last 24 hours. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.RoutesApi(api_client)
+    sequence_id = 'sequence_id_example' # str | Sequence ID from the response payload of the last request. Defaults to fetching updates from last 24 hours. (optional)
 include = 'include_example' # str | Optionally set include=route to include route object in response payload. (optional)
 
-try:
-    # Get route updates
-    api_response = api_instance.v1fetch_all_route_job_updates(sequence_id=sequence_id, include=include)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RoutesApi->v1fetch_all_route_job_updates: %s\n" % e)
+    try:
+        # Get route updates
+        api_response = api_instance.v1fetch_all_route_job_updates(sequence_id=sequence_id, include=include)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RoutesApi->v1fetch_all_route_job_updates: %s\n" % e)
 ```
 
 ### Parameters
@@ -252,16 +260,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.RoutesApi()
-route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.RoutesApi(api_client)
+    route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
 
-try:
-    # Get a route
-    api_response = api_instance.v1get_dispatch_route_by_id(route_id)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RoutesApi->v1get_dispatch_route_by_id: %s\n" % e)
+    try:
+        # Get a route
+        api_response = api_instance.v1get_dispatch_route_by_id(route_id)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RoutesApi->v1get_dispatch_route_by_id: %s\n" % e)
 ```
 
 ### Parameters
@@ -307,18 +317,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.RoutesApi()
-route_id = 56 # int | ID of the route with history. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.RoutesApi(api_client)
+    route_id = 56 # int | ID of the route with history. Must contain only digits 0-9.
 start_time = 56 # int | Timestamp representing the start of the period to fetch, inclusive. Used in combination with end_time. Defaults to 0. (optional)
 end_time = 56 # int | Timestamp representing the end of the period to fetch, inclusive. Used in combination with start_time. Defaults to nowMs. (optional)
 
-try:
-    # Get route history
-    api_response = api_instance.v1get_dispatch_route_history(route_id, start_time=start_time, end_time=end_time)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RoutesApi->v1get_dispatch_route_history: %s\n" % e)
+    try:
+        # Get route history
+        api_response = api_instance.v1get_dispatch_route_history(route_id, start_time=start_time, end_time=end_time)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RoutesApi->v1get_dispatch_route_history: %s\n" % e)
 ```
 
 ### Parameters
@@ -366,17 +378,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.RoutesApi()
-route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.RoutesApi(api_client)
+    route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
 update_dispatch_route_params = samsara.V1DispatchRouteUpdate() # V1DispatchRouteUpdate | 
 
-try:
-    # Update a route
-    api_response = api_instance.v1update_dispatch_route_by_id(route_id, update_dispatch_route_params)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling RoutesApi->v1update_dispatch_route_by_id: %s\n" % e)
+    try:
+        # Update a route
+        api_response = api_instance.v1update_dispatch_route_by_id(route_id, update_dispatch_route_params)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling RoutesApi->v1update_dispatch_route_by_id: %s\n" % e)
 ```
 
 ### Parameters

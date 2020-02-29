@@ -1,6 +1,6 @@
 # V1jobStatus
 
-The current state of the dispatch job.
+The state of the dispatch job.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

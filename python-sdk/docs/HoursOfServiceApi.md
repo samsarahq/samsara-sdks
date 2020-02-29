@@ -26,17 +26,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.HoursOfServiceApi()
-driver_id = 56 # int | ID of the driver with HOS logs.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.HoursOfServiceApi(api_client)
+    driver_id = 56 # int | ID of the driver with HOS logs.
 hos_logs_param = samsara.InlineObject() # InlineObject |  (optional)
 
-try:
-    # Get daily HOS logs for a specific driver
-    api_response = api_instance.v1get_fleet_drivers_hos_daily_logs(driver_id, hos_logs_param=hos_logs_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling HoursOfServiceApi->v1get_fleet_drivers_hos_daily_logs: %s\n" % e)
+    try:
+        # Get daily HOS logs for a specific driver
+        api_response = api_instance.v1get_fleet_drivers_hos_daily_logs(driver_id, hos_logs_param=hos_logs_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling HoursOfServiceApi->v1get_fleet_drivers_hos_daily_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -83,18 +85,20 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.HoursOfServiceApi()
-driver_id = 56 # int | Driver ID to query.
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.HoursOfServiceApi(api_client)
+    driver_id = 56 # int | Driver ID to query.
 start_ms = 56 # int | Beginning of the time range, specified in milliseconds UNIX time.
 end_ms = 56 # int | End of the time range, specified in milliseconds UNIX time.
 
-try:
-    # Get HOS signin and signout
-    api_response = api_instance.v1get_fleet_hos_authentication_logs(driver_id, start_ms, end_ms)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling HoursOfServiceApi->v1get_fleet_hos_authentication_logs: %s\n" % e)
+    try:
+        # Get HOS signin and signout
+        api_response = api_instance.v1get_fleet_hos_authentication_logs(driver_id, start_ms, end_ms)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling HoursOfServiceApi->v1get_fleet_hos_authentication_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -142,16 +146,18 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.HoursOfServiceApi()
-hos_logs_param = samsara.InlineObject1() # InlineObject1 | 
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.HoursOfServiceApi(api_client)
+    hos_logs_param = samsara.InlineObject1() # InlineObject1 | 
 
-try:
-    # Get HOS logs for a specific driver
-    api_response = api_instance.v1get_fleet_hos_logs(hos_logs_param)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling HoursOfServiceApi->v1get_fleet_hos_logs: %s\n" % e)
+    try:
+        # Get HOS logs for a specific driver
+        api_response = api_instance.v1get_fleet_hos_logs(hos_logs_param)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling HoursOfServiceApi->v1get_fleet_hos_logs: %s\n" % e)
 ```
 
 ### Parameters
@@ -197,17 +203,19 @@ import samsara
 from samsara.rest import ApiException
 from pprint import pprint
 
-# Create an instance of the API class
-api_instance = samsara.HoursOfServiceApi()
-after = 'after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. (optional)
+# Enter a context with an instance of the API client
+with samsara.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = samsara.HoursOfServiceApi(api_client)
+    after = 'after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. (optional)
 limit = 3.4 # float | Pagination parameter indicating the number of results to return in this request. Used in conjunction with 'after'. (optional)
 
-try:
-    # Get current HOS status for all drivers
-    api_response = api_instance.v1get_fleet_hos_logs_summary(after=after, limit=limit)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling HoursOfServiceApi->v1get_fleet_hos_logs_summary: %s\n" % e)
+    try:
+        # Get current HOS status for all drivers
+        api_response = api_instance.v1get_fleet_hos_logs_summary(after=after, limit=limit)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling HoursOfServiceApi->v1get_fleet_hos_logs_summary: %s\n" % e)
 ```
 
 ### Parameters
