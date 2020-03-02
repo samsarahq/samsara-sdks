@@ -62,7 +62,7 @@ configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
 with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = samsara.AddressesApi(api_client)
+    api_instance = samsara.DefaultApi(api_client)
     address = samsara.CreateAddressRequest() # CreateAddressRequest | The address to create.
 
     try:
@@ -70,7 +70,7 @@ with samsara.ApiClient(configuration) as api_client:
         api_response = api_instance.create_address(address)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AddressesApi->create_address: %s\n" % e)
+        print("Exception when calling DefaultApi->create_address: %s\n" % e)
     
 ```
 
@@ -80,87 +80,87 @@ All URIs are relative to *https://api.samsara.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AddressesApi* | [**create_address**](docs/AddressesApi.md#create_address) | **POST** /addresses | Create an address
-*AddressesApi* | [**delete_address**](docs/AddressesApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
-*AddressesApi* | [**get_address**](docs/AddressesApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
-*AddressesApi* | [**list_addresses**](docs/AddressesApi.md#list_addresses) | **GET** /addresses | List all addresses
-*AddressesApi* | [**update_address**](docs/AddressesApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
-*AssetsApi* | [**v1get_all_asset_current_locations**](docs/AssetsApi.md#v1get_all_asset_current_locations) | **GET** /v1/fleet/assets/locations | List current location for all assets
-*AssetsApi* | [**v1get_all_assets**](docs/AssetsApi.md#v1get_all_assets) | **GET** /v1/fleet/assets | List all assets
-*AssetsApi* | [**v1get_asset_location**](docs/AssetsApi.md#v1get_asset_location) | **GET** /v1/fleet/assets/{asset_id}/locations | List historical locations for a given asset
-*AssetsApi* | [**v1get_asset_reefer**](docs/AssetsApi.md#v1get_asset_reefer) | **GET** /v1/fleet/assets/{asset_id}/reefer | List stats for a given reefer
-*AssetsApi* | [**v1get_assets_reefers**](docs/AssetsApi.md#v1get_assets_reefers) | **GET** /v1/fleet/assets/reefers | List stats for all reefers
-*ContactsApi* | [**create_contact**](docs/ContactsApi.md#create_contact) | **POST** /contacts | Create a contact
-*ContactsApi* | [**delete_contact**](docs/ContactsApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
-*ContactsApi* | [**get_contact**](docs/ContactsApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
-*ContactsApi* | [**list_contacts**](docs/ContactsApi.md#list_contacts) | **GET** /contacts | List all contacts
-*ContactsApi* | [**update_contact**](docs/ContactsApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
-*DocumentsApi* | [**v1create_driver_document**](docs/DocumentsApi.md#v1create_driver_document) | **POST** /v1/fleet/drivers/{driver_id}/documents | Create a document
-*DocumentsApi* | [**v1get_driver_document_by_id_and_driver_id**](docs/DocumentsApi.md#v1get_driver_document_by_id_and_driver_id) | **GET** /v1/fleet/drivers/{driver_id}/documents/{document_id} | Fetches a document
-*DocumentsApi* | [**v1get_driver_document_types_by_org_id**](docs/DocumentsApi.md#v1get_driver_document_types_by_org_id) | **GET** /v1/fleet/drivers/document_types | Fetch document types
-*DocumentsApi* | [**v1get_driver_documents_by_org_id**](docs/DocumentsApi.md#v1get_driver_documents_by_org_id) | **GET** /v1/fleet/drivers/documents | Fetch all documents
-*DriversApi* | [**create_driver**](docs/DriversApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
-*DriversApi* | [**get_driver**](docs/DriversApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
-*DriversApi* | [**list_drivers**](docs/DriversApi.md#list_drivers) | **GET** /fleet/drivers | List all drivers
-*DriversApi* | [**update_driver**](docs/DriversApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
-*HoursOfServiceApi* | [**v1get_fleet_drivers_hos_daily_logs**](docs/HoursOfServiceApi.md#v1get_fleet_drivers_hos_daily_logs) | **POST** /v1/fleet/drivers/{driver_id}/hos_daily_logs | Get daily HOS logs for a specific driver
-*HoursOfServiceApi* | [**v1get_fleet_hos_authentication_logs**](docs/HoursOfServiceApi.md#v1get_fleet_hos_authentication_logs) | **GET** /v1/fleet/hos_authentication_logs | Get HOS signin and signout
-*HoursOfServiceApi* | [**v1get_fleet_hos_logs**](docs/HoursOfServiceApi.md#v1get_fleet_hos_logs) | **POST** /v1/fleet/hos_logs | Get HOS logs for a specific driver
-*HoursOfServiceApi* | [**v1get_fleet_hos_logs_summary**](docs/HoursOfServiceApi.md#v1get_fleet_hos_logs_summary) | **GET** /v1/fleet/hos_logs_summary | Get current HOS status for all drivers
-*IndustrialApi* | [**get_vision_runs_by_camera**](docs/IndustrialApi.md#get_vision_runs_by_camera) | **GET** /v1/industrial/vision/runs/{camera_id} | Fetch runs by camera
-*IndustrialApi* | [**v1get_all_data_inputs**](docs/IndustrialApi.md#v1get_all_data_inputs) | **GET** /v1/industrial/data | Get industrial data
-*IndustrialApi* | [**v1get_cameras**](docs/IndustrialApi.md#v1get_cameras) | **GET** /v1/industrial/vision/cameras | Fetch industrial cameras
-*IndustrialApi* | [**v1get_data_input**](docs/IndustrialApi.md#v1get_data_input) | **GET** /v1/industrial/data/{data_input_id} | Get industrial data from a specific device
-*IndustrialApi* | [**v1get_machines**](docs/IndustrialApi.md#v1get_machines) | **POST** /v1/machines/list | Get machines
-*IndustrialApi* | [**v1get_machines_history**](docs/IndustrialApi.md#v1get_machines_history) | **POST** /v1/machines/history | Get machine history
-*IndustrialApi* | [**v1get_vision_latest_run_camera**](docs/IndustrialApi.md#v1get_vision_latest_run_camera) | **GET** /v1/industrial/vision/run/camera/{camera_id} | Fetch the latest run for a camera or program
-*IndustrialApi* | [**v1get_vision_programs_by_camera**](docs/IndustrialApi.md#v1get_vision_programs_by_camera) | **GET** /v1/industrial/vision/cameras/{camera_id}/programs | Fetch industrial camera programs
-*IndustrialApi* | [**v1get_vision_runs**](docs/IndustrialApi.md#v1get_vision_runs) | **GET** /v1/industrial/vision/runs | Fetch runs
-*IndustrialApi* | [**v1get_vision_runs_by_camera_and_program**](docs/IndustrialApi.md#v1get_vision_runs_by_camera_and_program) | **GET** /v1/industrial/vision/runs/{camera_id}/{program_id}/{started_at_ms} | Fetch runs by camera and program
-*MaintenanceApi* | [**v1create_dvir**](docs/MaintenanceApi.md#v1create_dvir) | **POST** /v1/fleet/maintenance/dvirs | Create a DVIR
-*MaintenanceApi* | [**v1get_dvirs**](docs/MaintenanceApi.md#v1get_dvirs) | **GET** /v1/fleet/maintenance/dvirs | Get DVIRs
-*MaintenanceApi* | [**v1get_fleet_maintenance_list**](docs/MaintenanceApi.md#v1get_fleet_maintenance_list) | **GET** /v1/fleet/maintenance/list | Get vehicles with engine faults or check lights
-*MessagesApi* | [**v1create_messages**](docs/MessagesApi.md#v1create_messages) | **POST** /v1/fleet/messages | Send a message to a list of driver ids.
-*MessagesApi* | [**v1get_messages**](docs/MessagesApi.md#v1get_messages) | **GET** /v1/fleet/messages | Get all messages.
-*RoutesApi* | [**v1create_dispatch_route**](docs/RoutesApi.md#v1create_dispatch_route) | **POST** /v1/fleet/dispatch/routes | Create a new route
-*RoutesApi* | [**v1delete_dispatch_route_by_id**](docs/RoutesApi.md#v1delete_dispatch_route_by_id) | **DELETE** /v1/fleet/dispatch/routes/{route_id} | Delete a route
-*RoutesApi* | [**v1fetch_all_dispatch_routes**](docs/RoutesApi.md#v1fetch_all_dispatch_routes) | **GET** /v1/fleet/dispatch/routes | Get all routes
-*RoutesApi* | [**v1fetch_all_route_job_updates**](docs/RoutesApi.md#v1fetch_all_route_job_updates) | **GET** /v1/fleet/dispatch/routes/job_updates | Get route updates
-*RoutesApi* | [**v1get_dispatch_route_by_id**](docs/RoutesApi.md#v1get_dispatch_route_by_id) | **GET** /v1/fleet/dispatch/routes/{route_id} | Get a route
-*RoutesApi* | [**v1get_dispatch_route_history**](docs/RoutesApi.md#v1get_dispatch_route_history) | **GET** /v1/fleet/dispatch/routes/{route_id}/history | Get route history
-*RoutesApi* | [**v1update_dispatch_route_by_id**](docs/RoutesApi.md#v1update_dispatch_route_by_id) | **PUT** /v1/fleet/dispatch/routes/{route_id} | Update a route
-*SafetyApi* | [**v1get_driver_safety_score**](docs/SafetyApi.md#v1get_driver_safety_score) | **GET** /v1/fleet/drivers/{driverId}/safety/score | Fetch driver safety score
-*SafetyApi* | [**v1get_vehicle_harsh_event**](docs/SafetyApi.md#v1get_vehicle_harsh_event) | **GET** /v1/fleet/vehicles/{vehicleId}/safety/harsh_event | Fetch harsh events
-*SafetyApi* | [**v1get_vehicle_safety_score**](docs/SafetyApi.md#v1get_vehicle_safety_score) | **GET** /v1/fleet/vehicles/{vehicleId}/safety/score | Fetch vehicle safety scores
-*SensorsApi* | [**v1get_sensors**](docs/SensorsApi.md#v1get_sensors) | **POST** /v1/sensors/list | Get all sensors
-*SensorsApi* | [**v1get_sensors_cargo**](docs/SensorsApi.md#v1get_sensors_cargo) | **POST** /v1/sensors/cargo | Get cargo status
-*SensorsApi* | [**v1get_sensors_door**](docs/SensorsApi.md#v1get_sensors_door) | **POST** /v1/sensors/door | Get door status
-*SensorsApi* | [**v1get_sensors_history**](docs/SensorsApi.md#v1get_sensors_history) | **POST** /v1/sensors/history | Get sensor history
-*SensorsApi* | [**v1get_sensors_humidity**](docs/SensorsApi.md#v1get_sensors_humidity) | **POST** /v1/sensors/humidity | Get humidity
-*SensorsApi* | [**v1get_sensors_temperature**](docs/SensorsApi.md#v1get_sensors_temperature) | **POST** /v1/sensors/temperature | Get temperature
-*TagsApi* | [**create_tag**](docs/TagsApi.md#create_tag) | **POST** /tags | Create a tag
-*TagsApi* | [**delete_tag**](docs/TagsApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
-*TagsApi* | [**get_tag**](docs/TagsApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
-*TagsApi* | [**list_tags**](docs/TagsApi.md#list_tags) | **GET** /tags | List all tags
-*TagsApi* | [**replace_tag**](docs/TagsApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
-*TrailerAssignmentsApi* | [**v1get_all_trailer_assignments**](docs/TrailerAssignmentsApi.md#v1get_all_trailer_assignments) | **GET** /v1/fleet/trailers/assignments | List trailer assignments for all trailers
-*TrailerAssignmentsApi* | [**v1get_fleet_trailer_assignments**](docs/TrailerAssignmentsApi.md#v1get_fleet_trailer_assignments) | **GET** /v1/fleet/trailers/{trailerId}/assignments | List trailer assignments for a given trailer
-*TripsApi* | [**v1get_fleet_trips**](docs/TripsApi.md#v1get_fleet_trips) | **GET** /v1/fleet/trips | Get vehicle trips
-*UsersApi* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /users | Create a user
-*UsersApi* | [**delete_user**](docs/UsersApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
-*UsersApi* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /users/{id} | Retrieve a user
-*UsersApi* | [**list_user_roles**](docs/UsersApi.md#list_user_roles) | **GET** /user-roles | List all user roles
-*UsersApi* | [**list_users**](docs/UsersApi.md#list_users) | **GET** /users | List all users
-*UsersApi* | [**update_user**](docs/UsersApi.md#update_user) | **PATCH** /users/{id} | Update a user
-*VehiclesApi* | [**get_vehicle**](docs/VehiclesApi.md#get_vehicle) | **GET** /fleet/vehicles/{id} | Retrieve a vehicle
-*VehiclesApi* | [**get_vehicle_locations**](docs/VehiclesApi.md#get_vehicle_locations) | **GET** /fleet/vehicles/locations | Get most recent vehicle locations
-*VehiclesApi* | [**get_vehicle_locations_feed**](docs/VehiclesApi.md#get_vehicle_locations_feed) | **GET** /fleet/vehicles/locations/feed | Follow a feed of vehicle locations
-*VehiclesApi* | [**get_vehicle_locations_history**](docs/VehiclesApi.md#get_vehicle_locations_history) | **GET** /fleet/vehicles/locations/history | Get historical vehicle locations
-*VehiclesApi* | [**get_vehicle_stats**](docs/VehiclesApi.md#get_vehicle_stats) | **GET** /fleet/vehicles/stats | List most recent vehicle stats
-*VehiclesApi* | [**get_vehicle_stats_feed**](docs/VehiclesApi.md#get_vehicle_stats_feed) | **GET** /fleet/vehicles/stats/feed | Follow a feed of vehicle stats
-*VehiclesApi* | [**get_vehicle_stats_history**](docs/VehiclesApi.md#get_vehicle_stats_history) | **GET** /fleet/vehicles/stats/history | Get historical vehicle stats
-*VehiclesApi* | [**list_vehicles**](docs/VehiclesApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
-*VehiclesApi* | [**update_vehicle**](docs/VehiclesApi.md#update_vehicle) | **PATCH** /fleet/vehicles/{id} | Update a vehicle
+*DefaultApi* | [**create_address**](docs/DefaultApi.md#create_address) | **POST** /addresses | Create an address
+*DefaultApi* | [**create_contact**](docs/DefaultApi.md#create_contact) | **POST** /contacts | Create a contact
+*DefaultApi* | [**create_driver**](docs/DefaultApi.md#create_driver) | **POST** /fleet/drivers | Create a driver
+*DefaultApi* | [**create_tag**](docs/DefaultApi.md#create_tag) | **POST** /tags | Create a tag
+*DefaultApi* | [**create_user**](docs/DefaultApi.md#create_user) | **POST** /users | Create a user
+*DefaultApi* | [**delete_address**](docs/DefaultApi.md#delete_address) | **DELETE** /addresses/{id} | Delete an address
+*DefaultApi* | [**delete_contact**](docs/DefaultApi.md#delete_contact) | **DELETE** /contacts/{id} | Delete a contact
+*DefaultApi* | [**delete_tag**](docs/DefaultApi.md#delete_tag) | **DELETE** /tags/{id} | Delete a tag
+*DefaultApi* | [**delete_user**](docs/DefaultApi.md#delete_user) | **DELETE** /users/{id} | Delete a user
+*DefaultApi* | [**get_address**](docs/DefaultApi.md#get_address) | **GET** /addresses/{id} | Retrieve an address
+*DefaultApi* | [**get_contact**](docs/DefaultApi.md#get_contact) | **GET** /contacts/{id} | Retrieve a contact
+*DefaultApi* | [**get_driver**](docs/DefaultApi.md#get_driver) | **GET** /fleet/drivers/{id} | Retrieve a driver
+*DefaultApi* | [**get_tag**](docs/DefaultApi.md#get_tag) | **GET** /tags/{id} | Retrieve a tag
+*DefaultApi* | [**get_user**](docs/DefaultApi.md#get_user) | **GET** /users/{id} | Retrieve a user
+*DefaultApi* | [**get_vehicle**](docs/DefaultApi.md#get_vehicle) | **GET** /fleet/vehicles/{id} | Retrieve a vehicle
+*DefaultApi* | [**get_vehicle_locations**](docs/DefaultApi.md#get_vehicle_locations) | **GET** /fleet/vehicles/locations | Get most recent vehicle locations
+*DefaultApi* | [**get_vehicle_locations_feed**](docs/DefaultApi.md#get_vehicle_locations_feed) | **GET** /fleet/vehicles/locations/feed | Follow a feed of vehicle locations
+*DefaultApi* | [**get_vehicle_locations_history**](docs/DefaultApi.md#get_vehicle_locations_history) | **GET** /fleet/vehicles/locations/history | Get historical vehicle locations
+*DefaultApi* | [**get_vehicle_stats**](docs/DefaultApi.md#get_vehicle_stats) | **GET** /fleet/vehicles/stats | List most recent vehicle stats
+*DefaultApi* | [**get_vehicle_stats_feed**](docs/DefaultApi.md#get_vehicle_stats_feed) | **GET** /fleet/vehicles/stats/feed | Follow a feed of vehicle stats
+*DefaultApi* | [**get_vehicle_stats_history**](docs/DefaultApi.md#get_vehicle_stats_history) | **GET** /fleet/vehicles/stats/history | Get historical vehicle stats
+*DefaultApi* | [**get_vision_runs_by_camera**](docs/DefaultApi.md#get_vision_runs_by_camera) | **GET** /v1/industrial/vision/runs/{camera_id} | Fetch runs by camera
+*DefaultApi* | [**list_addresses**](docs/DefaultApi.md#list_addresses) | **GET** /addresses | List all addresses
+*DefaultApi* | [**list_contacts**](docs/DefaultApi.md#list_contacts) | **GET** /contacts | List all contacts
+*DefaultApi* | [**list_drivers**](docs/DefaultApi.md#list_drivers) | **GET** /fleet/drivers | List all drivers
+*DefaultApi* | [**list_tags**](docs/DefaultApi.md#list_tags) | **GET** /tags | List all tags
+*DefaultApi* | [**list_user_roles**](docs/DefaultApi.md#list_user_roles) | **GET** /user-roles | List all user roles
+*DefaultApi* | [**list_users**](docs/DefaultApi.md#list_users) | **GET** /users | List all users
+*DefaultApi* | [**list_vehicles**](docs/DefaultApi.md#list_vehicles) | **GET** /fleet/vehicles | List all vehicles
+*DefaultApi* | [**replace_tag**](docs/DefaultApi.md#replace_tag) | **PUT** /tags/{id} | Update a tag
+*DefaultApi* | [**update_address**](docs/DefaultApi.md#update_address) | **PATCH** /addresses/{id} | Update an address
+*DefaultApi* | [**update_contact**](docs/DefaultApi.md#update_contact) | **PATCH** /contacts/{id} | Update a contact
+*DefaultApi* | [**update_driver**](docs/DefaultApi.md#update_driver) | **PATCH** /fleet/drivers/{id} | Update a driver
+*DefaultApi* | [**update_user**](docs/DefaultApi.md#update_user) | **PATCH** /users/{id} | Update a user
+*DefaultApi* | [**update_vehicle**](docs/DefaultApi.md#update_vehicle) | **PATCH** /fleet/vehicles/{id} | Update a vehicle
+*DefaultApi* | [**v1create_dispatch_route**](docs/DefaultApi.md#v1create_dispatch_route) | **POST** /v1/fleet/dispatch/routes | Create a new route
+*DefaultApi* | [**v1create_driver_document**](docs/DefaultApi.md#v1create_driver_document) | **POST** /v1/fleet/drivers/{driver_id}/documents | Create a document
+*DefaultApi* | [**v1create_dvir**](docs/DefaultApi.md#v1create_dvir) | **POST** /v1/fleet/maintenance/dvirs | Create a DVIR
+*DefaultApi* | [**v1create_messages**](docs/DefaultApi.md#v1create_messages) | **POST** /v1/fleet/messages | Send a message to a list of driver ids.
+*DefaultApi* | [**v1delete_dispatch_route_by_id**](docs/DefaultApi.md#v1delete_dispatch_route_by_id) | **DELETE** /v1/fleet/dispatch/routes/{route_id} | Delete a route
+*DefaultApi* | [**v1fetch_all_dispatch_routes**](docs/DefaultApi.md#v1fetch_all_dispatch_routes) | **GET** /v1/fleet/dispatch/routes | Get all routes
+*DefaultApi* | [**v1fetch_all_route_job_updates**](docs/DefaultApi.md#v1fetch_all_route_job_updates) | **GET** /v1/fleet/dispatch/routes/job_updates | Get route updates
+*DefaultApi* | [**v1get_all_asset_current_locations**](docs/DefaultApi.md#v1get_all_asset_current_locations) | **GET** /v1/fleet/assets/locations | List current location for all assets
+*DefaultApi* | [**v1get_all_assets**](docs/DefaultApi.md#v1get_all_assets) | **GET** /v1/fleet/assets | List all assets
+*DefaultApi* | [**v1get_all_data_inputs**](docs/DefaultApi.md#v1get_all_data_inputs) | **GET** /v1/industrial/data | Get industrial data
+*DefaultApi* | [**v1get_all_trailer_assignments**](docs/DefaultApi.md#v1get_all_trailer_assignments) | **GET** /v1/fleet/trailers/assignments | List trailer assignments for all trailers
+*DefaultApi* | [**v1get_asset_location**](docs/DefaultApi.md#v1get_asset_location) | **GET** /v1/fleet/assets/{asset_id}/locations | List historical locations for a given asset
+*DefaultApi* | [**v1get_asset_reefer**](docs/DefaultApi.md#v1get_asset_reefer) | **GET** /v1/fleet/assets/{asset_id}/reefer | List stats for a given reefer
+*DefaultApi* | [**v1get_assets_reefers**](docs/DefaultApi.md#v1get_assets_reefers) | **GET** /v1/fleet/assets/reefers | List stats for all reefers
+*DefaultApi* | [**v1get_cameras**](docs/DefaultApi.md#v1get_cameras) | **GET** /v1/industrial/vision/cameras | Fetch industrial cameras
+*DefaultApi* | [**v1get_data_input**](docs/DefaultApi.md#v1get_data_input) | **GET** /v1/industrial/data/{data_input_id} | Get industrial data from a specific device
+*DefaultApi* | [**v1get_dispatch_route_by_id**](docs/DefaultApi.md#v1get_dispatch_route_by_id) | **GET** /v1/fleet/dispatch/routes/{route_id} | Get a route
+*DefaultApi* | [**v1get_dispatch_route_history**](docs/DefaultApi.md#v1get_dispatch_route_history) | **GET** /v1/fleet/dispatch/routes/{route_id}/history | Get route history
+*DefaultApi* | [**v1get_driver_document_by_id_and_driver_id**](docs/DefaultApi.md#v1get_driver_document_by_id_and_driver_id) | **GET** /v1/fleet/drivers/{driver_id}/documents/{document_id} | Fetches a document
+*DefaultApi* | [**v1get_driver_document_types_by_org_id**](docs/DefaultApi.md#v1get_driver_document_types_by_org_id) | **GET** /v1/fleet/drivers/document_types | Fetch document types
+*DefaultApi* | [**v1get_driver_documents_by_org_id**](docs/DefaultApi.md#v1get_driver_documents_by_org_id) | **GET** /v1/fleet/drivers/documents | Fetch all documents
+*DefaultApi* | [**v1get_driver_safety_score**](docs/DefaultApi.md#v1get_driver_safety_score) | **GET** /v1/fleet/drivers/{driverId}/safety/score | Fetch driver safety score
+*DefaultApi* | [**v1get_dvirs**](docs/DefaultApi.md#v1get_dvirs) | **GET** /v1/fleet/maintenance/dvirs | Get DVIRs
+*DefaultApi* | [**v1get_fleet_drivers_hos_daily_logs**](docs/DefaultApi.md#v1get_fleet_drivers_hos_daily_logs) | **POST** /v1/fleet/drivers/{driver_id}/hos_daily_logs | Get daily HOS logs for a specific driver
+*DefaultApi* | [**v1get_fleet_hos_authentication_logs**](docs/DefaultApi.md#v1get_fleet_hos_authentication_logs) | **GET** /v1/fleet/hos_authentication_logs | Get HOS signin and signout
+*DefaultApi* | [**v1get_fleet_hos_logs**](docs/DefaultApi.md#v1get_fleet_hos_logs) | **POST** /v1/fleet/hos_logs | Get HOS logs for a specific driver
+*DefaultApi* | [**v1get_fleet_hos_logs_summary**](docs/DefaultApi.md#v1get_fleet_hos_logs_summary) | **GET** /v1/fleet/hos_logs_summary | Get current HOS status for all drivers
+*DefaultApi* | [**v1get_fleet_maintenance_list**](docs/DefaultApi.md#v1get_fleet_maintenance_list) | **GET** /v1/fleet/maintenance/list | Get vehicles with engine faults or check lights
+*DefaultApi* | [**v1get_fleet_trailer_assignments**](docs/DefaultApi.md#v1get_fleet_trailer_assignments) | **GET** /v1/fleet/trailers/{trailerId}/assignments | List trailer assignments for a given trailer
+*DefaultApi* | [**v1get_fleet_trips**](docs/DefaultApi.md#v1get_fleet_trips) | **GET** /v1/fleet/trips | Get vehicle trips
+*DefaultApi* | [**v1get_machines**](docs/DefaultApi.md#v1get_machines) | **POST** /v1/machines/list | Get machines
+*DefaultApi* | [**v1get_machines_history**](docs/DefaultApi.md#v1get_machines_history) | **POST** /v1/machines/history | Get machine history
+*DefaultApi* | [**v1get_messages**](docs/DefaultApi.md#v1get_messages) | **GET** /v1/fleet/messages | Get all messages.
+*DefaultApi* | [**v1get_sensors**](docs/DefaultApi.md#v1get_sensors) | **POST** /v1/sensors/list | Get all sensors
+*DefaultApi* | [**v1get_sensors_cargo**](docs/DefaultApi.md#v1get_sensors_cargo) | **POST** /v1/sensors/cargo | Get cargo status
+*DefaultApi* | [**v1get_sensors_door**](docs/DefaultApi.md#v1get_sensors_door) | **POST** /v1/sensors/door | Get door status
+*DefaultApi* | [**v1get_sensors_history**](docs/DefaultApi.md#v1get_sensors_history) | **POST** /v1/sensors/history | Get sensor history
+*DefaultApi* | [**v1get_sensors_humidity**](docs/DefaultApi.md#v1get_sensors_humidity) | **POST** /v1/sensors/humidity | Get humidity
+*DefaultApi* | [**v1get_sensors_temperature**](docs/DefaultApi.md#v1get_sensors_temperature) | **POST** /v1/sensors/temperature | Get temperature
+*DefaultApi* | [**v1get_vehicle_harsh_event**](docs/DefaultApi.md#v1get_vehicle_harsh_event) | **GET** /v1/fleet/vehicles/{vehicleId}/safety/harsh_event | Fetch harsh events
+*DefaultApi* | [**v1get_vehicle_safety_score**](docs/DefaultApi.md#v1get_vehicle_safety_score) | **GET** /v1/fleet/vehicles/{vehicleId}/safety/score | Fetch vehicle safety scores
+*DefaultApi* | [**v1get_vision_latest_run_camera**](docs/DefaultApi.md#v1get_vision_latest_run_camera) | **GET** /v1/industrial/vision/run/camera/{camera_id} | Fetch the latest run for a camera or program
+*DefaultApi* | [**v1get_vision_programs_by_camera**](docs/DefaultApi.md#v1get_vision_programs_by_camera) | **GET** /v1/industrial/vision/cameras/{camera_id}/programs | Fetch industrial camera programs
+*DefaultApi* | [**v1get_vision_runs**](docs/DefaultApi.md#v1get_vision_runs) | **GET** /v1/industrial/vision/runs | Fetch runs
+*DefaultApi* | [**v1get_vision_runs_by_camera_and_program**](docs/DefaultApi.md#v1get_vision_runs_by_camera_and_program) | **GET** /v1/industrial/vision/runs/{camera_id}/{program_id}/{started_at_ms} | Fetch runs by camera and program
+*DefaultApi* | [**v1update_dispatch_route_by_id**](docs/DefaultApi.md#v1update_dispatch_route_by_id) | **PUT** /v1/fleet/dispatch/routes/{route_id} | Update a route
 
 
 ## Documentation For Models
