@@ -21,15 +21,23 @@ Add a user to the organization.
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.UsersApi(api_client)
     user = samsara.CreateUserRequest() # CreateUserRequest | The user to create.
@@ -54,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -78,15 +86,23 @@ Delete the given user.
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.UsersApi(api_client)
     id = 'id_example' # str | Unique identifier for the user.
@@ -110,7 +126,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -134,15 +150,23 @@ Get a specific user's information.
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.UsersApi(api_client)
     id = 'id_example' # str | Unique identifier for the user.
@@ -167,7 +191,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -191,15 +215,23 @@ Returns a list of all user roles in an organization.
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.UsersApi(api_client)
     limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
@@ -226,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -250,15 +282,23 @@ Returns a list of all users in an organization.
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.UsersApi(api_client)
     limit = 512 # int | The limit for how many objects will be in the response. Default and max for this value is 512 objects. (optional) (default to 512)
@@ -285,7 +325,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -309,15 +349,23 @@ Update a specific user's information.
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.UsersApi(api_client)
     id = 'id_example' # str | Unique identifier for the user.
@@ -344,7 +392,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

@@ -19,15 +19,23 @@ Create a document
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.DocumentsApi(api_client)
     driver_id = 56 # int | ID of the driver for whom the document is created. Must contain only digits 0-9.
@@ -54,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -78,15 +86,23 @@ Fetches a document
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.DocumentsApi(api_client)
     driver_id = 56 # int | ID of the driver who submitted the document. Must contain only digits 0-9.
@@ -113,7 +129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -137,15 +153,23 @@ Fetch document types
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.DocumentsApi(api_client)
     
@@ -166,7 +190,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -190,15 +214,23 @@ Fetch all documents
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.DocumentsApi(api_client)
     end_ms = 56 # int | Time in unix milliseconds that represents the oldest documents to return. Used in combination with durationMs. Defaults to now. (optional)
@@ -227,7 +259,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

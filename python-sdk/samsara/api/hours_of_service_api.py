@@ -134,7 +134,7 @@ class HoursOfServiceApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/drivers/{driver_id}/hos_daily_logs', 'POST',
@@ -258,7 +258,7 @@ class HoursOfServiceApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/hos_authentication_logs', 'GET',
@@ -370,7 +370,7 @@ class HoursOfServiceApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/hos_logs', 'POST',
@@ -478,7 +478,7 @@ class HoursOfServiceApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/hos_logs_summary', 'GET',

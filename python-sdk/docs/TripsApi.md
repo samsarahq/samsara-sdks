@@ -16,15 +16,23 @@ Get vehicle trips
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.TripsApi(api_client)
     vehicle_id = 56 # int | Vehicle ID to query.
@@ -53,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

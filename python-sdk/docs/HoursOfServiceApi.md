@@ -19,15 +19,23 @@ Get daily HOS logs for a specific driver
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.HoursOfServiceApi(api_client)
     driver_id = 56 # int | ID of the driver with HOS logs.
@@ -54,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -78,15 +86,23 @@ Get HOS signin and signout
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.HoursOfServiceApi(api_client)
     driver_id = 56 # int | Driver ID to query.
@@ -115,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -139,15 +155,23 @@ Get HOS logs for a specific driver
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.HoursOfServiceApi(api_client)
     hos_logs_param = samsara.InlineObject1() # InlineObject1 | 
@@ -172,7 +196,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -196,15 +220,23 @@ Get current HOS status for all drivers
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.HoursOfServiceApi(api_client)
     after = 'after_example' # str | Pagination parameter indicating the cursor position to continue returning results after. Used in conjunction with the 'limit' parameter. (optional)
@@ -231,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

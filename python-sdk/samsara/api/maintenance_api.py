@@ -130,7 +130,7 @@ class MaintenanceApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/maintenance/dvirs', 'POST',
@@ -248,7 +248,7 @@ class MaintenanceApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/maintenance/dvirs', 'GET',
@@ -348,7 +348,7 @@ class MaintenanceApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/maintenance/list', 'GET',

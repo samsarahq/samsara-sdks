@@ -22,15 +22,23 @@ Create a new route
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.RoutesApi(api_client)
     create_dispatch_route_params = samsara.V1DispatchRouteCreate() # V1DispatchRouteCreate | 
@@ -55,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -79,15 +87,23 @@ Delete a route
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.RoutesApi(api_client)
     route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
@@ -111,7 +127,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -135,15 +151,23 @@ Get all routes
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.RoutesApi(api_client)
     end_time = 56 # int | Time in unix milliseconds that represents the end time of the requested time interval. See above for a description of how routes are returned. Defaults to now. (optional)
@@ -170,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -194,15 +218,23 @@ Get route updates
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.RoutesApi(api_client)
     sequence_id = 'sequence_id_example' # str | Sequence ID from the response payload of the last request. Defaults to fetching updates from last 24 hours. (optional)
@@ -229,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -253,15 +285,23 @@ Get a route
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.RoutesApi(api_client)
     route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
@@ -286,7 +326,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -310,15 +350,23 @@ Get route history
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.RoutesApi(api_client)
     route_id = 56 # int | ID of the route with history. Must contain only digits 0-9.
@@ -347,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -371,15 +419,23 @@ Update a route
 
 ### Example
 
+* Api Key Authentication (bearerAuth):
 ```python
 from __future__ import print_function
 import time
 import samsara
 from samsara.rest import ApiException
 from pprint import pprint
+configuration = samsara.Configuration()
+# Configure API key authorization: bearerAuth
+configuration.api_key['Authorization'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Authorization'] = 'Bearer'
 
+# Defining host is optional and default to https://api.samsara.com
+configuration.host = "https://api.samsara.com"
 # Enter a context with an instance of the API client
-with samsara.ApiClient() as api_client:
+with samsara.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = samsara.RoutesApi(api_client)
     route_id = 56 # int | ID of the dispatch route. Must contain only digits 0-9.
@@ -406,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 

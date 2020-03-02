@@ -138,7 +138,7 @@ class DocumentsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/drivers/{driver_id}/documents', 'POST',
@@ -254,7 +254,7 @@ class DocumentsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/drivers/{driver_id}/documents/{document_id}', 'GET',
@@ -354,7 +354,7 @@ class DocumentsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/drivers/document_types', 'GET',
@@ -466,7 +466,7 @@ class DocumentsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/drivers/documents', 'GET',

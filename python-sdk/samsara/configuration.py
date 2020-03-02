@@ -318,6 +318,13 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         auth = {}
+        if 'Authorization' in self.api_key:
+            auth['bearerAuth'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Authorization',
+                'value': self.get_api_key_with_prefix('Authorization')
+            }
         return auth
 
     def to_debug_report(self):

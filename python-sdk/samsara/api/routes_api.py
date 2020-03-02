@@ -130,7 +130,7 @@ class RoutesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/dispatch/routes', 'POST',
@@ -238,7 +238,7 @@ class RoutesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/dispatch/routes/{route_id}', 'DELETE',
@@ -346,7 +346,7 @@ class RoutesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/dispatch/routes', 'GET',
@@ -454,7 +454,7 @@ class RoutesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/dispatch/routes/job_updates', 'GET',
@@ -562,7 +562,7 @@ class RoutesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/dispatch/routes/{route_id}', 'GET',
@@ -678,7 +678,7 @@ class RoutesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/dispatch/routes/{route_id}/history', 'GET',
@@ -798,7 +798,7 @@ class RoutesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/fleet/dispatch/routes/{route_id}', 'PUT',

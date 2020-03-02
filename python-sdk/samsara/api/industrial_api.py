@@ -138,7 +138,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/vision/runs/{camera_id}', 'GET',
@@ -246,7 +246,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/data', 'GET',
@@ -346,7 +346,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/vision/cameras', 'GET',
@@ -462,7 +462,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/data/{data_input_id}', 'GET',
@@ -562,7 +562,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/machines/list', 'POST',
@@ -674,7 +674,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/machines/history', 'POST',
@@ -798,7 +798,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/vision/run/camera/{camera_id}', 'GET',
@@ -906,7 +906,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/vision/cameras/{camera_id}/programs', 'GET',
@@ -1018,7 +1018,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/vision/runs', 'GET',
@@ -1146,7 +1146,7 @@ class IndustrialApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['bearerAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/v1/industrial/vision/runs/{camera_id}/{program_id}/{started_at_ms}', 'GET',
