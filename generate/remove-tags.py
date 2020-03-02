@@ -9,6 +9,9 @@ swagger_file_name = sys.argv[1]
 with open(swagger_file_name, 'r') as f:
     swagger = json.load(f)
 
+# Remove `tags` sectino
+del swagger['tags']
+
 # Remove `tags` in `paths` in path
 for path_name in swagger['paths']:
     path = swagger['paths'][path_name]
