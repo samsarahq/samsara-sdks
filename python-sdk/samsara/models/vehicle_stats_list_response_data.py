@@ -34,7 +34,7 @@ class VehicleStatsListResponseData(object):
     """
     openapi_types = {
         'engine_states': 'list[VehicleStatsEngineState]',
-        'fuel_percent': 'list[VehicleStatsFuelPercent]',
+        'fuel_percents': 'list[VehicleStatsFuelPercent]',
         'gps_distance_meters': 'list[VehicleStatsGpsDistanceMeters]',
         'gps_odometer_meters': 'list[VehicleStatsGpsOdometerMeters]',
         'id': 'str',
@@ -45,7 +45,7 @@ class VehicleStatsListResponseData(object):
 
     attribute_map = {
         'engine_states': 'engineStates',
-        'fuel_percent': 'fuelPercent',
+        'fuel_percents': 'fuelPercents',
         'gps_distance_meters': 'gpsDistanceMeters',
         'gps_odometer_meters': 'gpsOdometerMeters',
         'id': 'id',
@@ -54,14 +54,14 @@ class VehicleStatsListResponseData(object):
         'obd_odometer_meters': 'obdOdometerMeters'
     }
 
-    def __init__(self, engine_states=None, fuel_percent=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, engine_states=None, fuel_percents=None, gps_distance_meters=None, gps_odometer_meters=None, id=None, name=None, obd_engine_seconds=None, obd_odometer_meters=None, local_vars_configuration=None):  # noqa: E501
         """VehicleStatsListResponseData - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._engine_states = None
-        self._fuel_percent = None
+        self._fuel_percents = None
         self._gps_distance_meters = None
         self._gps_odometer_meters = None
         self._id = None
@@ -72,8 +72,8 @@ class VehicleStatsListResponseData(object):
 
         if engine_states is not None:
             self.engine_states = engine_states
-        if fuel_percent is not None:
-            self.fuel_percent = fuel_percent
+        if fuel_percents is not None:
+            self.fuel_percents = fuel_percents
         if gps_distance_meters is not None:
             self.gps_distance_meters = gps_distance_meters
         if gps_odometer_meters is not None:
@@ -109,27 +109,27 @@ class VehicleStatsListResponseData(object):
         self._engine_states = engine_states
 
     @property
-    def fuel_percent(self):
-        """Gets the fuel_percent of this VehicleStatsListResponseData.  # noqa: E501
+    def fuel_percents(self):
+        """Gets the fuel_percents of this VehicleStatsListResponseData.  # noqa: E501
 
         A list of fuel percentage readings for the given vehicle.  # noqa: E501
 
-        :return: The fuel_percent of this VehicleStatsListResponseData.  # noqa: E501
+        :return: The fuel_percents of this VehicleStatsListResponseData.  # noqa: E501
         :rtype: list[VehicleStatsFuelPercent]
         """
-        return self._fuel_percent
+        return self._fuel_percents
 
-    @fuel_percent.setter
-    def fuel_percent(self, fuel_percent):
-        """Sets the fuel_percent of this VehicleStatsListResponseData.
+    @fuel_percents.setter
+    def fuel_percents(self, fuel_percents):
+        """Sets the fuel_percents of this VehicleStatsListResponseData.
 
         A list of fuel percentage readings for the given vehicle.  # noqa: E501
 
-        :param fuel_percent: The fuel_percent of this VehicleStatsListResponseData.  # noqa: E501
+        :param fuel_percents: The fuel_percents of this VehicleStatsListResponseData.  # noqa: E501
         :type: list[VehicleStatsFuelPercent]
         """
 
-        self._fuel_percent = fuel_percent
+        self._fuel_percents = fuel_percents
 
     @property
     def gps_distance_meters(self):

@@ -33,7 +33,7 @@ class VehicleStatsObdOdometerMeters(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'time': 'str',
+        'time': 'datetime',
         'value': 'int'
     }
 
@@ -62,7 +62,7 @@ class VehicleStatsObdOdometerMeters(object):
         UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
 
         :return: The time of this VehicleStatsObdOdometerMeters.  # noqa: E501
-        :rtype: str
+        :rtype: datetime
         """
         return self._time
 
@@ -73,7 +73,7 @@ class VehicleStatsObdOdometerMeters(object):
         UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.  # noqa: E501
 
         :param time: The time of this VehicleStatsObdOdometerMeters.  # noqa: E501
-        :type: str
+        :type: datetime
         """
         if self.local_vars_configuration.client_side_validation and time is None:  # noqa: E501
             raise ValueError("Invalid value for `time`, must not be `None`")  # noqa: E501
