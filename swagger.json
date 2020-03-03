@@ -720,15 +720,20 @@
             "in": "query"
           },
           {
-            "enum": [
-              "engineStates",
-              "fuelPercents",
-              "obdOdometerMeters",
-              "gpsOdometerMeters",
-              "obdEngineSeconds",
-              "gpsDistanceMeters"
-            ],
-            "type": "string",
+            "type": "array",
+            "items": {
+              "enum": [
+                "engineStates",
+                "fuelPercents",
+                "obdOdometerMeters",
+                "gpsOdometerMeters",
+                "obdEngineSeconds",
+                "gpsDistanceMeters"
+              ],
+              "type": "string",
+              "example": "obdOdometerMeters"
+            },
+            "collectionFormat": "csv",
             "description": "The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.\n\n- `engineStates`: The state of the engine (`Off`, `On`, `Idle`).\n- `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).\n- `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`.\n- `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.*\n- `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics.\n- `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.",
             "name": "types",
             "in": "query",
@@ -784,15 +789,20 @@
             "in": "query"
           },
           {
-            "enum": [
-              "engineStates",
-              "fuelPercents",
-              "obdOdometerMeters",
-              "gpsOdometerMeters",
-              "obdEngineSeconds",
-              "gpsDistanceMeters"
-            ],
-            "type": "string",
+            "type": "array",
+            "items": {
+              "enum": [
+                "engineStates",
+                "fuelPercents",
+                "obdOdometerMeters",
+                "gpsOdometerMeters",
+                "obdEngineSeconds",
+                "gpsDistanceMeters"
+              ],
+              "type": "string",
+              "example": "obdOdometerMeters"
+            },
+            "collectionFormat": "csv",
             "description": "The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.\n\n- `engineStates`: The state of the engine (`Off`, `On`, `Idle`).\n- `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).\n- `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`.\n- `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.*\n- `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics.\n- `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.",
             "name": "types",
             "in": "query",
@@ -864,15 +874,20 @@
             "in": "query"
           },
           {
-            "enum": [
-              "engineStates",
-              "fuelPercents",
-              "obdOdometerMeters",
-              "gpsOdometerMeters",
-              "obdEngineSeconds",
-              "gpsDistanceMeters"
-            ],
-            "type": "string",
+            "type": "array",
+            "items": {
+              "enum": [
+                "engineStates",
+                "fuelPercents",
+                "obdOdometerMeters",
+                "gpsOdometerMeters",
+                "obdEngineSeconds",
+                "gpsDistanceMeters"
+              ],
+              "type": "string",
+              "example": "obdOdometerMeters"
+            },
+            "collectionFormat": "csv",
             "description": "The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.\n\n- `engineStates`: The state of the engine (`Off`, `On`, `Idle`).\n- `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).\n- `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`.\n- `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.*\n- `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics.\n- `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.",
             "name": "types",
             "in": "query",
@@ -3103,7 +3118,7 @@
                   "$ref": "#/definitions/VehicleStatsEngineState"
                 }
               },
-              "fuelPercent": {
+              "fuelPercents": {
                 "description": "A list of fuel percentage readings for the given vehicle.",
                 "type": "array",
                 "items": {
@@ -3378,6 +3393,7 @@
     "time": {
       "description": "UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.",
       "type": "string",
+      "format": "date-time",
       "example": "2020-01-27T07:06:25Z"
     },
     "userRoleTinyResponse": {
@@ -3421,15 +3437,20 @@
       "in": "query"
     },
     "vehicleStatTypes": {
-      "enum": [
-        "engineStates",
-        "fuelPercents",
-        "obdOdometerMeters",
-        "gpsOdometerMeters",
-        "obdEngineSeconds",
-        "gpsDistanceMeters"
-      ],
-      "type": "string",
+      "type": "array",
+      "items": {
+        "enum": [
+          "engineStates",
+          "fuelPercents",
+          "obdOdometerMeters",
+          "gpsOdometerMeters",
+          "obdEngineSeconds",
+          "gpsDistanceMeters"
+        ],
+        "type": "string",
+        "example": "obdOdometerMeters"
+      },
+      "collectionFormat": "csv",
       "description": "The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.\n\n- `engineStates`: The state of the engine (`Off`, `On`, `Idle`).\n- `fuelPercents`: The engine fuel level in percentage points (e.g. `99`, `50`, etc).\n- `obdOdometerMeters`: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using `gpsOdometerMeters`.\n- `gpsOdometerMeters`: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara's dashboard UI or through the `odometerMeters` field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. `gpsOdometerMeters` is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.*\n- `obdEngineSeconds`: The cumulative number of seconds the engine has run according to on-board diagnostics.\n- `gpsDistanceMeters`: The distance the vehicle has traveled since the gateway was installed based on GPS calculations.",
       "name": "types",
       "in": "query",
