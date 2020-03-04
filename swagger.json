@@ -2668,53 +2668,59 @@
         }
       }
     },
+    "UserRoleAssignment": {
+      "description": "A role that applies to a user. If the role has a `tag`, then the role applies for that tag. If there is no `tag`, then the role applies at the organizational level. A user may have many tag-specific roles, but may only have one organizational level role. If the organizational level role has higher privileges than a tag-specific role, then the organizational role privileges will take precedence.",
+      "type": "object",
+      "properties": {
+        "role": {
+          "$ref": "#/definitions/UserRole"
+        },
+        "tag": {
+          "description": "The tag that this role is applies to.",
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "ID of the tag.",
+              "type": "string",
+              "example": "3914"
+            },
+            "name": {
+              "description": "Name of the tag.",
+              "type": "string",
+              "example": "East Coast"
+            }
+          }
+        }
+      }
+    },
+    "UserRoleAssignmentRequest": {
+      "description": "A role that applies to a user. If the role has a `tagId`, then the role applies for that tag. If there is no `tagId`, then the role applies at the organizational level. A user may have many tag-specific roles, but may only have one organizational role. If the organizational level role has higher privileges than a tag-specific role, then the organizational role privileges will take precedence.",
+      "type": "object",
+      "properties": {
+        "roleId": {
+          "description": "The unique ID for the role.",
+          "type": "string",
+          "example": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
+        },
+        "tagId": {
+          "description": "ID of the tag this role applies to.",
+          "type": "string",
+          "example": "3914"
+        }
+      }
+    },
     "UserRoles": {
       "description": "The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.",
       "type": "array",
       "items": {
-        "description": "A role that applies to a user. If the role has a `tag`, then the role applies for that tag. If there is no `tag`, then the role applies at the organizational level. A user may have many tag-specific roles, but may only have one organizational level role. If the organizational level role has higher privileges than a tag-specific role, then the organizational role privileges will take precedence.",
-        "type": "object",
-        "properties": {
-          "role": {
-            "$ref": "#/definitions/UserRole"
-          },
-          "tag": {
-            "description": "The tag that this role is applies to.",
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "ID of the tag.",
-                "type": "string",
-                "example": "3914"
-              },
-              "name": {
-                "description": "Name of the tag.",
-                "type": "string",
-                "example": "East Coast"
-              }
-            }
-          }
-        }
+        "$ref": "#/definitions/UserRoleAssignment"
       }
     },
     "UserRolesRequest": {
       "description": "The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.",
       "type": "array",
       "items": {
-        "description": "A role that applies to a user. If the role has a `tagId`, then the role applies for that tag. If there is no `tagId`, then the role applies at the organizational level. A user may have many tag-specific roles, but may only have one organizational role. If the organizational level role has higher privileges than a tag-specific role, then the organizational role privileges will take precedence.",
-        "type": "object",
-        "properties": {
-          "roleId": {
-            "description": "The unique ID for the role.",
-            "type": "string",
-            "example": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
-          },
-          "tagId": {
-            "description": "ID of the tag this role applies to.",
-            "type": "string",
-            "example": "3914"
-          }
-        }
+        "$ref": "#/definitions/UserRoleAssignmentRequest"
       }
     },
     "Vehicle": {
