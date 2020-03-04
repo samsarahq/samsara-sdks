@@ -36,7 +36,7 @@ class CreateUserRequest(object):
         'auth_type': 'UserAuthType',
         'email': 'str',
         'name': 'str',
-        'roles': 'list[object]'
+        'roles': 'list[UserRoleAssignmentRequest]'
     }
 
     attribute_map = {
@@ -143,7 +143,7 @@ class CreateUserRequest(object):
         The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.  # noqa: E501
 
         :return: The roles of this CreateUserRequest.  # noqa: E501
-        :rtype: list[object]
+        :rtype: list[UserRoleAssignmentRequest]
         """
         return self._roles
 
@@ -154,7 +154,7 @@ class CreateUserRequest(object):
         The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.  # noqa: E501
 
         :param roles: The roles of this CreateUserRequest.  # noqa: E501
-        :type: list[object]
+        :type: list[UserRoleAssignmentRequest]
         """
         if self.local_vars_configuration.client_side_validation and roles is None:  # noqa: E501
             raise ValueError("Invalid value for `roles`, must not be `None`")  # noqa: E501

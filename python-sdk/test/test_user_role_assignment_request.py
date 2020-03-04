@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import samsara
-from samsara.models.update_user_request import UpdateUserRequest  # noqa: E501
+from samsara.models.user_role_assignment_request import UserRoleAssignmentRequest  # noqa: E501
 from samsara.rest import ApiException
 
-class TestUpdateUserRequest(unittest.TestCase):
-    """UpdateUserRequest unit test stubs"""
+class TestUserRoleAssignmentRequest(unittest.TestCase):
+    """UserRoleAssignmentRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,27 +29,22 @@ class TestUpdateUserRequest(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test UpdateUserRequest
+        """Test UserRoleAssignmentRequest
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = samsara.models.update_user_request.UpdateUserRequest()  # noqa: E501
+        # model = samsara.models.user_role_assignment_request.UserRoleAssignmentRequest()  # noqa: E501
         if include_optional :
-            return UpdateUserRequest(
-                auth_type = 'default', 
-                name = 'Bob Smith', 
-                roles = [
-                    samsara.models.user_role_assignment_request.UserRoleAssignmentRequest(
-                        role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
-                        tag_id = '3914', )
-                    ]
+            return UserRoleAssignmentRequest(
+                role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
+                tag_id = '3914'
             )
         else :
-            return UpdateUserRequest(
+            return UserRoleAssignmentRequest(
         )
 
-    def testUpdateUserRequest(self):
-        """Test UpdateUserRequest"""
+    def testUserRoleAssignmentRequest(self):
+        """Test UserRoleAssignmentRequest"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

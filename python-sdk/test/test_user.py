@@ -41,7 +41,13 @@ class TestUser(unittest.TestCase):
                 id = '123', 
                 name = 'Bob Smith', 
                 roles = [
-                    None
+                    samsara.models.user_role_assignment.UserRoleAssignment(
+                        role = samsara.models.user_role.UserRole(
+                            id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
+                            name = 'Full Admin', ), 
+                        tag = samsara.models.user_role_assignment_tag.UserRoleAssignment_tag(
+                            id = '3914', 
+                            name = 'East Coast', ), )
                     ]
             )
         else :
@@ -51,7 +57,13 @@ class TestUser(unittest.TestCase):
                 id = '123',
                 name = 'Bob Smith',
                 roles = [
-                    None
+                    samsara.models.user_role_assignment.UserRoleAssignment(
+                        role = samsara.models.user_role.UserRole(
+                            id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
+                            name = 'Full Admin', ), 
+                        tag = samsara.models.user_role_assignment_tag.UserRoleAssignment_tag(
+                            id = '3914', 
+                            name = 'East Coast', ), )
                     ],
         )
 

@@ -43,7 +43,9 @@ class TestListUsersResponse(unittest.TestCase):
                         id = '123', 
                         name = 'Bob Smith', 
                         roles = [
-                            None
+                            samsara.models.user_role_assignment.UserRoleAssignment(
+                                role = samsara.models.user_role.UserRole(), 
+                                tag = samsara.models.user_role_assignment_tag.UserRoleAssignment_tag(), )
                             ], )
                     ], 
                 pagination = samsara.models.pagination_response.paginationResponse(

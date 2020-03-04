@@ -77,6 +77,9 @@ from samsara.models.user import User
 from samsara.models.user_auth_type import UserAuthType
 from samsara.models.user_response import UserResponse
 from samsara.models.user_role import UserRole
+from samsara.models.user_role_assignment import UserRoleAssignment
+from samsara.models.user_role_assignment_request import UserRoleAssignmentRequest
+from samsara.models.user_role_assignment_tag import UserRoleAssignmentTag
 from samsara.models.vehicle import Vehicle
 from samsara.models.vehicle_aux_input_type import VehicleAuxInputType
 from samsara.models.vehicle_aux_input_type1 import VehicleAuxInputType1
