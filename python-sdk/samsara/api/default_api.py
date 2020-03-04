@@ -372,17 +372,17 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_tag(self, tag_create_body_, **kwargs):  # noqa: E501
+    def create_tag(self, tag, **kwargs):  # noqa: E501
         """Create a tag  # noqa: E501
 
         Create a new tag for the organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_tag(tag_create_body_, async_req=True)
+        >>> thread = api.create_tag(tag, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateTagRequest tag_create_body_: (required)
+        :param CreateTagRequest tag: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -395,19 +395,19 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_tag_with_http_info(tag_create_body_, **kwargs)  # noqa: E501
+        return self.create_tag_with_http_info(tag, **kwargs)  # noqa: E501
 
-    def create_tag_with_http_info(self, tag_create_body_, **kwargs):  # noqa: E501
+    def create_tag_with_http_info(self, tag, **kwargs):  # noqa: E501
         """Create a tag  # noqa: E501
 
         Create a new tag for the organization.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.create_tag_with_http_info(tag_create_body_, async_req=True)
+        >>> thread = api.create_tag_with_http_info(tag, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param CreateTagRequest tag_create_body_: (required)
+        :param CreateTagRequest tag: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -424,7 +424,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['tag_create_body_']  # noqa: E501
+        all_params = ['tag']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -438,10 +438,10 @@ class DefaultApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'tag_create_body_' is set
-        if self.api_client.client_side_validation and ('tag_create_body_' not in local_var_params or  # noqa: E501
-                                                        local_var_params['tag_create_body_'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `tag_create_body_` when calling `create_tag`")  # noqa: E501
+        # verify the required parameter 'tag' is set
+        if self.api_client.client_side_validation and ('tag' not in local_var_params or  # noqa: E501
+                                                        local_var_params['tag'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `tag` when calling `create_tag`")  # noqa: E501
 
         collection_formats = {}
 
@@ -455,8 +455,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'tag_create_body_' in local_var_params:
-            body_params = local_var_params['tag_create_body_']
+        if 'tag' in local_var_params:
+            body_params = local_var_params['tag']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -2908,7 +2908,7 @@ class DefaultApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: ListUserTagRolesResponse
+        :return: ListUserRolesResponse
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2936,7 +2936,7 @@ class DefaultApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(ListUserTagRolesResponse, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(ListUserRolesResponse, status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -2993,7 +2993,7 @@ class DefaultApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='ListUserTagRolesResponse',  # noqa: E501
+            response_type='ListUserRolesResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
@@ -3230,18 +3230,18 @@ class DefaultApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def replace_tag(self, id, tag_update_body_, **kwargs):  # noqa: E501
+    def replace_tag(self, id, tag, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
         Update a tag with a new name and new members. This API call would replace all old members of a tag with new members specified in the request body.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.replace_tag(id, tag_update_body_, async_req=True)
+        >>> thread = api.replace_tag(id, tag, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: Unique identifier for the tag. (required)
-        :param ReplaceTagRequest tag_update_body_: (required)
+        :param ReplaceTagRequest tag: (required)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -3254,20 +3254,20 @@ class DefaultApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.replace_tag_with_http_info(id, tag_update_body_, **kwargs)  # noqa: E501
+        return self.replace_tag_with_http_info(id, tag, **kwargs)  # noqa: E501
 
-    def replace_tag_with_http_info(self, id, tag_update_body_, **kwargs):  # noqa: E501
+    def replace_tag_with_http_info(self, id, tag, **kwargs):  # noqa: E501
         """Update a tag  # noqa: E501
 
         Update a tag with a new name and new members. This API call would replace all old members of a tag with new members specified in the request body.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.replace_tag_with_http_info(id, tag_update_body_, async_req=True)
+        >>> thread = api.replace_tag_with_http_info(id, tag, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
         :param str id: Unique identifier for the tag. (required)
-        :param ReplaceTagRequest tag_update_body_: (required)
+        :param ReplaceTagRequest tag: (required)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -3284,7 +3284,7 @@ class DefaultApi(object):
 
         local_var_params = locals()
 
-        all_params = ['id', 'tag_update_body_']  # noqa: E501
+        all_params = ['id', 'tag']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3302,10 +3302,10 @@ class DefaultApi(object):
         if self.api_client.client_side_validation and ('id' not in local_var_params or  # noqa: E501
                                                         local_var_params['id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `replace_tag`")  # noqa: E501
-        # verify the required parameter 'tag_update_body_' is set
-        if self.api_client.client_side_validation and ('tag_update_body_' not in local_var_params or  # noqa: E501
-                                                        local_var_params['tag_update_body_'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `tag_update_body_` when calling `replace_tag`")  # noqa: E501
+        # verify the required parameter 'tag' is set
+        if self.api_client.client_side_validation and ('tag' not in local_var_params or  # noqa: E501
+                                                        local_var_params['tag'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `tag` when calling `replace_tag`")  # noqa: E501
 
         collection_formats = {}
 
@@ -3321,8 +3321,8 @@ class DefaultApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'tag_update_body_' in local_var_params:
-            body_params = local_var_params['tag_update_body_']
+        if 'tag' in local_var_params:
+            body_params = local_var_params['tag']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501

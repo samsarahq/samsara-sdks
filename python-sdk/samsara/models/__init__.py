@@ -41,7 +41,7 @@ from samsara.models.list_addresses_response import ListAddressesResponse
 from samsara.models.list_contacts_response import ListContactsResponse
 from samsara.models.list_drivers_response import ListDriversResponse
 from samsara.models.list_tags_response import ListTagsResponse
-from samsara.models.list_user_tag_roles_response import ListUserTagRolesResponse
+from samsara.models.list_user_roles_response import ListUserRolesResponse
 from samsara.models.list_users_response import ListUsersResponse
 from samsara.models.list_vehicles_response import ListVehiclesResponse
 from samsara.models.pagination_response import PaginationResponse
@@ -62,9 +62,7 @@ from samsara.models.update_vehicle_request import UpdateVehicleRequest
 from samsara.models.user import User
 from samsara.models.user_auth_type import UserAuthType
 from samsara.models.user_response import UserResponse
-from samsara.models.user_role_tiny_response import UserRoleTinyResponse
-from samsara.models.user_tag_role import UserTagRole
-from samsara.models.user_tag_role_request import UserTagRoleRequest
+from samsara.models.user_role import UserRole
 from samsara.models.vehicle import Vehicle
 from samsara.models.vehicle_aux_input_type import VehicleAuxInputType
 from samsara.models.vehicle_aux_input_type1 import VehicleAuxInputType1

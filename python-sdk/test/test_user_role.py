@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import samsara
-from samsara.models.user_tag_role_request import UserTagRoleRequest  # noqa: E501
+from samsara.models.user_role import UserRole  # noqa: E501
 from samsara.rest import ApiException
 
-class TestUserTagRoleRequest(unittest.TestCase):
-    """UserTagRoleRequest unit test stubs"""
+class TestUserRole(unittest.TestCase):
+    """UserRole unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,23 +29,22 @@ class TestUserTagRoleRequest(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test UserTagRoleRequest
+        """Test UserRole
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = samsara.models.user_tag_role_request.UserTagRoleRequest()  # noqa: E501
+        # model = samsara.models.user_role.UserRole()  # noqa: E501
         if include_optional :
-            return UserTagRoleRequest(
-                role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
-                tag_id = '3914'
+            return UserRole(
+                id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
+                name = 'Full Admin'
             )
         else :
-            return UserTagRoleRequest(
-                role_id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c',
+            return UserRole(
         )
 
-    def testUserTagRoleRequest(self):
-        """Test UserTagRoleRequest"""
+    def testUserRole(self):
+        """Test UserRole"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

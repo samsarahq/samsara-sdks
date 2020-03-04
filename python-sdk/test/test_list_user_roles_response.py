@@ -16,11 +16,11 @@ import unittest
 import datetime
 
 import samsara
-from samsara.models.list_user_tag_roles_response import ListUserTagRolesResponse  # noqa: E501
+from samsara.models.list_user_roles_response import ListUserRolesResponse  # noqa: E501
 from samsara.rest import ApiException
 
-class TestListUserTagRolesResponse(unittest.TestCase):
-    """ListUserTagRolesResponse unit test stubs"""
+class TestListUserRolesResponse(unittest.TestCase):
+    """ListUserRolesResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,15 +29,15 @@ class TestListUserTagRolesResponse(unittest.TestCase):
         pass
 
     def make_instance(self, include_optional):
-        """Test ListUserTagRolesResponse
+        """Test ListUserRolesResponse
             include_option is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # model = samsara.models.list_user_tag_roles_response.ListUserTagRolesResponse()  # noqa: E501
+        # model = samsara.models.list_user_roles_response.ListUserRolesResponse()  # noqa: E501
         if include_optional :
-            return ListUserTagRolesResponse(
+            return ListUserRolesResponse(
                 data = [
-                    samsara.models.user_role_tiny_response.userRoleTinyResponse(
+                    samsara.models.user_role.UserRole(
                         id = '8a9371af-82d1-4158-bf91-4ecc8d3a114c', 
                         name = 'Full Admin', )
                     ], 
@@ -46,11 +46,11 @@ class TestListUserTagRolesResponse(unittest.TestCase):
                     has_next_page = True, )
             )
         else :
-            return ListUserTagRolesResponse(
+            return ListUserRolesResponse(
         )
 
-    def testListUserTagRolesResponse(self):
-        """Test ListUserTagRolesResponse"""
+    def testListUserRolesResponse(self):
+        """Test ListUserRolesResponse"""
         inst_req_only = self.make_instance(include_optional=False)
         inst_req_and_optional = self.make_instance(include_optional=True)
 

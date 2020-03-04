@@ -1,6 +1,6 @@
-# UserRoleTinyResponse
+# UserRole
 
-A minified user role object.
+A user role object.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

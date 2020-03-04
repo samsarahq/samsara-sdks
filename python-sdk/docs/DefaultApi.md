@@ -212,7 +212,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_tag**
-> TagResponse create_tag(tag_create_body_)
+> TagResponse create_tag(tag)
 
 Create a tag
 
@@ -231,11 +231,11 @@ from pprint import pprint
 with samsara.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = samsara.DefaultApi(api_client)
-    tag_create_body_ = samsara.CreateTagRequest() # CreateTagRequest | 
+    tag = samsara.CreateTagRequest() # CreateTagRequest | 
 
     try:
         # Create a tag
-        api_response = api_instance.create_tag(tag_create_body_)
+        api_response = api_instance.create_tag(tag)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->create_tag: %s\n" % e)
@@ -245,7 +245,7 @@ with samsara.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **tag_create_body_** | [**CreateTagRequest**](CreateTagRequest.md)|  | 
+ **tag** | [**CreateTagRequest**](CreateTagRequest.md)|  | 
 
 ### Return type
 
@@ -1518,7 +1518,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_user_roles**
-> ListUserTagRolesResponse list_user_roles(limit=limit, after=after)
+> ListUserRolesResponse list_user_roles(limit=limit, after=after)
 
 List all user roles
 
@@ -1557,7 +1557,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListUserTagRolesResponse**](ListUserTagRolesResponse.md)
+[**ListUserRolesResponse**](ListUserRolesResponse.md)
 
 ### Authorization
 
@@ -1697,7 +1697,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **replace_tag**
-> TagResponse replace_tag(id, tag_update_body_)
+> TagResponse replace_tag(id, tag)
 
 Update a tag
 
@@ -1717,11 +1717,11 @@ with samsara.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = samsara.DefaultApi(api_client)
     id = 'id_example' # str | Unique identifier for the tag.
-tag_update_body_ = samsara.ReplaceTagRequest() # ReplaceTagRequest | 
+tag = samsara.ReplaceTagRequest() # ReplaceTagRequest | 
 
     try:
         # Update a tag
-        api_response = api_instance.replace_tag(id, tag_update_body_)
+        api_response = api_instance.replace_tag(id, tag)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling DefaultApi->replace_tag: %s\n" % e)
@@ -1732,7 +1732,7 @@ tag_update_body_ = samsara.ReplaceTagRequest() # ReplaceTagRequest |
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique identifier for the tag. | 
- **tag_update_body_** | [**ReplaceTagRequest**](ReplaceTagRequest.md)|  | 
+ **tag** | [**ReplaceTagRequest**](ReplaceTagRequest.md)|  | 
 
 ### Return type
 

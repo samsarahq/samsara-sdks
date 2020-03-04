@@ -39,7 +39,7 @@ class TestUpdateUserRequest(unittest.TestCase):
                 auth_type = 'default', 
                 name = 'Bob Smith', 
                 roles = [
-                    [{roleId=8a9371af-82d1-4158-bf91-4ecc8d3a114c}, {roleId=717fe0f3-f87f-4a57-b3ce-33a5a9f394cd, tagId=3914}]
+                    None
                     ]
             )
         else :
