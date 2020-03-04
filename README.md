@@ -70,21 +70,21 @@ import samsara
 client = samsara.ApiClient(header_name='Authorization', header_value='Bearer {token}'.format(token=token))
 
 # Create an instance of the Addresses Api
-addresses_api = samsara.AddressesApi(api_client=client)
+api = samsara.DefaultApi(api_client=client)
 
 # Instantiate an AddressCreate object to send to the Samsara API
-new_address = samsara.AddressCreate(
+new_address = samsara.CreateAddressRequest(
     name="SF6",
     formatted_address="350 Rhode Island St, San Francisco, CA",
-    geofence=samsara.AddressGeofenceRequest(
-        circle=samsara.AddressGeofenceRequestCircle(
+    geofence=samsara.AddressGeofence(
+        circle=samsara.AddressGeofenceCircle(
             radius_meters=25
         )
     )
 )
 
-# Call `create_address` with the AddressCreate object
-response = addresses_api.create_address(address=new_address)
+# Call `create_address` with the CreateAddressRequest object
+response = api.create_address(address=new_address)
 
 # Access the id of the newly created address
 new_address_id = response.data.id
@@ -97,5 +97,5 @@ You can see more examples in the `examples` folder.
 To run the examples, you must provide an API access token:
 
 ```sh
-python examples/get_vehicle_locations.py <access token>
+python examples/vehicle_locations/get_vehicle_locations.py YOUR_ACCESS_TOKEN
 ```
