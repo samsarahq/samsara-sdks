@@ -50,7 +50,7 @@ while has_next_page:
     has_next_page = res.pagination.has_next_page
 
 # Retrieve the newly created address
-res = api.get_driver(new_address_id)
+res = api.get_address(new_address_id)
 print("NEWLY CREATED ADDRESS:")
 print(res.data)
 
@@ -63,10 +63,11 @@ address_updates = samsara.UpdateAddressRequest(
 )
 # Call the API to update the address,
 # using the `mysystem` external ID to indicate which address to update
-res = api.update_driver("externalsystem:ABC123", address_updates)
+res = api.update_address("externalsystem:ABC123", address_updates)
 print("ADDRESS UPDATED. NEW LIST OF EXTERNAL IDS:")
 print(res.data.external_ids)
 
 # Delete the newly created address by its new external ID
 res = api.delete_address("routeplanning:123ABC")
-print(res)
+if res is None:
+    print("Successfully deleted new address.")
