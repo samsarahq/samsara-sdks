@@ -88,7 +88,7 @@ class Driver(object):
         'vehicle_group_tag': 'vehicleGroupTag'
     }
 
-    def __init__(self, carrier_settings=None, created_at_time=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, id=None, is_deactivated=None, license_number=None, license_state=None, locale=None, name=None, notes=None, phone=None, static_assigned_vehicle=None, tachograph_card_number=None, tags=None, timezone=None, updated_at_time=None, username=None, vehicle_group_tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, carrier_settings=None, created_at_time=None, eld_adverse_weather_exemption_enabled=False, eld_big_day_exemption_enabled=False, eld_day_start_hour=0, eld_exempt=False, eld_exempt_reason=None, eld_pc_enabled=False, eld_ym_enabled=False, external_ids=None, id=None, is_deactivated=None, license_number=None, license_state=None, locale=None, name=None, notes=None, phone=None, static_assigned_vehicle=None, tachograph_card_number=None, tags=None, timezone='America/Los_Angeles', updated_at_time=None, username=None, vehicle_group_tag=None, local_vars_configuration=None):  # noqa: E501
         """Driver - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()

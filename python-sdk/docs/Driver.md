@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **static_assigned_vehicle** | [**DriverStaticAssignedVehicle**](DriverStaticAssignedVehicle.md) |  | [optional] 
 **tachograph_card_number** | **str** | Driver&#39;s assigned tachograph card number (Europe specific) | [optional] 
 **tags** | [**list[TagTinyResponse]**](TagTinyResponse.md) | The tags this driver belongs to. | [optional] 
-**timezone** | **str** | Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. &#x60;America/Los_Angeles&#x60;, &#x60;America/New_York&#x60;, &#x60;Europe/London&#x60;, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html). | [optional] 
+**timezone** | **str** | Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. &#x60;America/Los_Angeles&#x60;, &#x60;America/New_York&#x60;, &#x60;Europe/London&#x60;, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html). | [optional] [default to 'America/Los_Angeles']
 **updated_at_time** | **datetime** | The date and time this driver was last updated in RFC 3339 format. | [optional] 
 **username** | **str** | Driver&#39;s login username into the driver app. The username may not contain spaces or the &#39;@&#39; symbol. The username must be unique. | [optional] 
 **vehicle_group_tag** | [**DriverVehicleGroupTag**](DriverVehicleGroupTag.md) |  | [optional] 
