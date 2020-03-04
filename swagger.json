@@ -1014,7 +1014,7 @@
         "operationId": "createTag",
         "parameters": [
           {
-            "name": "Tag create body.",
+            "name": "tag",
             "in": "body",
             "required": true,
             "schema": {
@@ -1070,7 +1070,7 @@
         "operationId": "replaceTag",
         "parameters": [
           {
-            "name": "Tag update body.",
+            "name": "tag",
             "in": "body",
             "required": true,
             "schema": {
@@ -1146,7 +1146,7 @@
           "200": {
             "description": "List all user roles.",
             "schema": {
-              "$ref": "#/definitions/ListUserTagRolesResponse"
+              "$ref": "#/definitions/ListUserRolesResponse"
             }
           },
           "default": {
@@ -1795,7 +1795,7 @@
           "$ref": "#/definitions/UserName"
         },
         "roles": {
-          "$ref": "#/definitions/UserTagRolesRequest"
+          "$ref": "#/definitions/UserRolesRequest"
         }
       }
     },
@@ -2164,14 +2164,15 @@
         }
       }
     },
-    "ListUserTagRolesResponse": {
+    "ListUserRolesResponse": {
       "description": "A list of user roles.",
       "type": "object",
       "properties": {
         "data": {
+          "description": "A list of user roles",
           "type": "array",
           "items": {
-            "$ref": "#/definitions/userRoleTinyResponse"
+            "$ref": "#/definitions/UserRole"
           }
         },
         "pagination": {
@@ -2184,6 +2185,7 @@
       "type": "object",
       "properties": {
         "data": {
+          "description": "A list of users.",
           "type": "array",
           "items": {
             "$ref": "#/definitions/User"
@@ -2544,7 +2546,7 @@
           "$ref": "#/definitions/UserName"
         },
         "roles": {
-          "$ref": "#/definitions/UserTagRolesRequest"
+          "$ref": "#/definitions/UserRolesRequest"
         }
       }
     },
@@ -2591,7 +2593,7 @@
       }
     },
     "User": {
-      "description": "A user object",
+      "description": "A user object.",
       "type": "object",
       "required": [
         "id",
@@ -2614,7 +2616,7 @@
           "$ref": "#/definitions/UserName"
         },
         "roles": {
-          "$ref": "#/definitions/UserTagRoles"
+          "$ref": "#/definitions/UserRoles"
         }
       }
     },
@@ -2650,63 +2652,69 @@
         }
       }
     },
-    "UserTagRole": {
-      "description": "A user role",
+    "UserRole": {
+      "description": "A user role object.",
       "type": "object",
       "properties": {
-        "role": {
-          "$ref": "#/definitions/userRoleTinyResponse"
-        },
-        "tag": {
-          "allOf": [
-            {
-              "description": "The id of the tag used to grant a role. If no tag is specified, this role applies at the organization level."
-            },
-            {
-              "$ref": "#/definitions/tagTinyResponse"
-            }
-          ]
-        }
-      }
-    },
-    "UserTagRoleRequest": {
-      "type": "object",
-      "required": [
-        "roleId"
-      ],
-      "properties": {
-        "roleId": {
-          "description": "The id of the role the user has been granted.",
+        "id": {
+          "description": "The unique ID for the role.",
           "type": "string",
           "example": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
         },
-        "tagId": {
-          "description": "The id of the tag used to grant a role. If no tag is specified, this role applies at the organization level.",
+        "name": {
+          "description": "The name of the role.",
           "type": "string",
-          "example": "3914"
+          "example": "Full Admin"
         }
-      },
-      "example": [
-        {
-          "roleId": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
-        },
-        {
-          "roleId": "717fe0f3-f87f-4a57-b3ce-33a5a9f394cd",
-          "tagId": "3914"
-        }
-      ]
-    },
-    "UserTagRoles": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/UserTagRole"
       }
     },
-    "UserTagRolesRequest": {
-      "description": "The roles for this user. Users must have at least a single role to be a part of an organization.",
+    "UserRoles": {
+      "description": "The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.",
       "type": "array",
       "items": {
-        "$ref": "#/definitions/UserTagRoleRequest"
+        "description": "A role that applies to a user. If the role has a `tag`, then the role applies for that tag. If there is no `tag`, then the role applies at the organizational level. A user may have many tag-specific roles, but may only have one organizational level role. If the organizational level role has higher privileges than a tag-specific role, then the organizational role privileges will take precedence.",
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/definitions/UserRole"
+          },
+          "tag": {
+            "description": "The tag that this role is applies to.",
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "ID of the tag.",
+                "type": "string",
+                "example": "3914"
+              },
+              "name": {
+                "description": "Name of the tag.",
+                "type": "string",
+                "example": "East Coast"
+              }
+            }
+          }
+        }
+      }
+    },
+    "UserRolesRequest": {
+      "description": "The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.",
+      "type": "array",
+      "items": {
+        "description": "A role that applies to a user. If the role has a `tagId`, then the role applies for that tag. If there is no `tagId`, then the role applies at the organizational level. A user may have many tag-specific roles, but may only have one organizational role. If the organizational level role has higher privileges than a tag-specific role, then the organizational role privileges will take precedence.",
+        "type": "object",
+        "properties": {
+          "roleId": {
+            "description": "The unique ID for the role.",
+            "type": "string",
+            "example": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
+          },
+          "tagId": {
+            "description": "ID of the tag this role applies to.",
+            "type": "string",
+            "example": "3914"
+          }
+        }
       }
     },
     "Vehicle": {
@@ -3397,22 +3405,6 @@
       "type": "string",
       "format": "date-time",
       "example": "2020-01-27T07:06:25Z"
-    },
-    "userRoleTinyResponse": {
-      "description": "A minified user role object.",
-      "type": "object",
-      "properties": {
-        "id": {
-          "description": "The unique ID for the role.",
-          "type": "string",
-          "example": "8a9371af-82d1-4158-bf91-4ecc8d3a114c"
-        },
-        "name": {
-          "description": "The name of the role.",
-          "type": "string",
-          "example": "Full Admin"
-        }
-      }
     },
     "vehicleTinyResponse": {
       "description": "A minified vehicle object.",
