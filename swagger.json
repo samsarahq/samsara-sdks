@@ -3456,5 +3456,18 @@
       "in": "query",
       "required": true
     }
-  }
+  },
+  "securityDefinitions": {
+    "bearerAuth": {
+      "description": "The Bearer Authentication scheme.",
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
 }
