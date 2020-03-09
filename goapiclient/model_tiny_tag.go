@@ -20,6 +20,8 @@ type TinyTag struct {
 	Id *string `json:"id,omitempty"`
 	// Name of this tag.
 	Name *string `json:"name,omitempty"`
+	// If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted.
+	ParentTagId *string `json:"parentTagId,omitempty"`
 }
 
 // GetId returns the Id field value if set, zero value otherwise.
@@ -86,6 +88,39 @@ func (o *TinyTag) HasName() bool {
 // SetName gets a reference to the given string and assigns it to the Name field.
 func (o *TinyTag) SetName(v string) {
 	o.Name = &v
+}
+
+// GetParentTagId returns the ParentTagId field value if set, zero value otherwise.
+func (o *TinyTag) GetParentTagId() string {
+	if o == nil || o.ParentTagId == nil {
+		var ret string
+		return ret
+	}
+	return *o.ParentTagId
+}
+
+// GetParentTagIdOk returns a tuple with the ParentTagId field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *TinyTag) GetParentTagIdOk() (string, bool) {
+	if o == nil || o.ParentTagId == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.ParentTagId, true
+}
+
+// HasParentTagId returns a boolean if a field has been set.
+func (o *TinyTag) HasParentTagId() bool {
+	if o != nil && o.ParentTagId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetParentTagId gets a reference to the given string and assigns it to the ParentTagId field.
+func (o *TinyTag) SetParentTagId(v string) {
+	o.ParentTagId = &v
 }
 
 type NullableTinyTag struct {

@@ -18,8 +18,7 @@ import (
 type TachographActivityListWrapper struct {
 	// List of all driver tachograph activities in a specified time range.
 	Activity *[]TachographActivity `json:"activity,omitempty"`
-	// ID of the driver
-	Id *string `json:"id,omitempty"`
+	Driver   *DriverTinyResponse   `json:"driver,omitempty"`
 }
 
 // GetActivity returns the Activity field value if set, zero value otherwise.
@@ -55,37 +54,37 @@ func (o *TachographActivityListWrapper) SetActivity(v []TachographActivity) {
 	o.Activity = &v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *TachographActivityListWrapper) GetId() string {
-	if o == nil || o.Id == nil {
-		var ret string
+// GetDriver returns the Driver field value if set, zero value otherwise.
+func (o *TachographActivityListWrapper) GetDriver() DriverTinyResponse {
+	if o == nil || o.Driver == nil {
+		var ret DriverTinyResponse
 		return ret
 	}
-	return *o.Id
+	return *o.Driver
 }
 
-// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// GetDriverOk returns a tuple with the Driver field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *TachographActivityListWrapper) GetIdOk() (string, bool) {
-	if o == nil || o.Id == nil {
-		var ret string
+func (o *TachographActivityListWrapper) GetDriverOk() (DriverTinyResponse, bool) {
+	if o == nil || o.Driver == nil {
+		var ret DriverTinyResponse
 		return ret, false
 	}
-	return *o.Id, true
+	return *o.Driver, true
 }
 
-// HasId returns a boolean if a field has been set.
-func (o *TachographActivityListWrapper) HasId() bool {
-	if o != nil && o.Id != nil {
+// HasDriver returns a boolean if a field has been set.
+func (o *TachographActivityListWrapper) HasDriver() bool {
+	if o != nil && o.Driver != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *TachographActivityListWrapper) SetId(v string) {
-	o.Id = &v
+// SetDriver gets a reference to the given DriverTinyResponse and assigns it to the Driver field.
+func (o *TachographActivityListWrapper) SetDriver(v DriverTinyResponse) {
+	o.Driver = &v
 }
 
 type NullableTachographActivityListWrapper struct {

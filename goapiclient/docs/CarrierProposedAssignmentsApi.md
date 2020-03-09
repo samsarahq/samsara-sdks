@@ -5,14 +5,14 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateCarrierProposedAssignment**](CarrierProposedAssignmentsApi.md#CreateCarrierProposedAssignment) | **Post** /fleet/carrier-proposed-assignments | Create an assignment
-[**DeleteCarrierProposedAssignmentById**](CarrierProposedAssignmentsApi.md#DeleteCarrierProposedAssignmentById) | **Delete** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
-[**GetCarrierProposedAssignment**](CarrierProposedAssignmentsApi.md#GetCarrierProposedAssignment) | **Get** /fleet/carrier-proposed-assignments | Retrieve assignments
+[**DeleteCarrierProposedAssignment**](CarrierProposedAssignmentsApi.md#DeleteCarrierProposedAssignment) | **Delete** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
+[**ListCarrierProposedAssignments**](CarrierProposedAssignmentsApi.md#ListCarrierProposedAssignments) | **Get** /fleet/carrier-proposed-assignments | Retrieve assignments
 
 
 
 ## CreateCarrierProposedAssignment
 
-> map[string]interface{} CreateCarrierProposedAssignment(ctx).CarrierProposedAssignment(carrierProposedAssignment).Execute()
+> CarrierProposedAssignmentResponse CreateCarrierProposedAssignment(ctx).CarrierProposedAssignment(carrierProposedAssignment).Execute()
 
 Create an assignment
 
@@ -29,11 +29,11 @@ Other parameters are passed through a pointer to a apiCreateCarrierProposedAssig
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **carrierProposedAssignment** | [**CarrierProposedAssignmentCreate**](CarrierProposedAssignmentCreate.md) | The assignment to create. | 
+ **carrierProposedAssignment** | [**CreateCarrierProposedAssignmentRequest**](CreateCarrierProposedAssignmentRequest.md) | The assignment to create. | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+[**CarrierProposedAssignmentResponse**](CarrierProposedAssignmentResponse.md)
 
 ### Authorization
 
@@ -49,9 +49,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## DeleteCarrierProposedAssignmentById
+## DeleteCarrierProposedAssignment
 
-> DeleteCarrierProposedAssignmentById(ctx, id).Execute()
+> DeleteCarrierProposedAssignment(ctx, id).Execute()
 
 Delete an assignment
 
@@ -67,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteCarrierProposedAssignmentByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteCarrierProposedAssignmentRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -85,16 +85,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to README]](../README.md)
 
 
-## GetCarrierProposedAssignment
+## ListCarrierProposedAssignments
 
-> InlineResponse2001 GetCarrierProposedAssignment(ctx).Limit(limit).After(after).DriverIds(driverIds).ActiveTime(activeTime).Execute()
+> ListCarrierProposedAssignmentResponse ListCarrierProposedAssignments(ctx).Limit(limit).After(after).DriverIds(driverIds).ActiveTime(activeTime).Execute()
 
 Retrieve assignments
 
@@ -106,19 +106,19 @@ Retrieve assignments
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetCarrierProposedAssignmentRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListCarrierProposedAssignmentsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **limit** | **int64** | The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [default to 512]
  **after** | **string** | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | 
- **driverIds** | **string** | If specified, limits the results to those for these drivers. e.g. driverIds&#x3D;1,2,3 | 
+ **driverIds** | [**[]string**](string.md) | If specified, limits the results to those for these drivers. e.g. &#x60;driverIds&#x3D;1,2,3&#x60; | 
  **activeTime** | **time.Time** | If specified, shows assignments that will be active after this time. In RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
 
 ### Return type
 
-[**InlineResponse2001**](inline_response_200_1.md)
+[**ListCarrierProposedAssignmentResponse**](ListCarrierProposedAssignmentResponse.md)
 
 ### Authorization
 

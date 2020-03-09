@@ -16,13 +16,15 @@ import (
 
 // InlineResponse2002 struct for InlineResponse2002
 type InlineResponse2002 struct {
-	Data *Document `json:"data,omitempty"`
+	// A list of driving segments with no associated driver(s).
+	Data       *[]UnassignedDrivingSegmentResponse `json:"data,omitempty"`
+	Pagination *PaginationResponse                 `json:"pagination,omitempty"`
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse2002) GetData() Document {
+func (o *InlineResponse2002) GetData() []UnassignedDrivingSegmentResponse {
 	if o == nil || o.Data == nil {
-		var ret Document
+		var ret []UnassignedDrivingSegmentResponse
 		return ret
 	}
 	return *o.Data
@@ -30,9 +32,9 @@ func (o *InlineResponse2002) GetData() Document {
 
 // GetDataOk returns a tuple with the Data field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2002) GetDataOk() (Document, bool) {
+func (o *InlineResponse2002) GetDataOk() ([]UnassignedDrivingSegmentResponse, bool) {
 	if o == nil || o.Data == nil {
-		var ret Document
+		var ret []UnassignedDrivingSegmentResponse
 		return ret, false
 	}
 	return *o.Data, true
@@ -47,9 +49,42 @@ func (o *InlineResponse2002) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given Document and assigns it to the Data field.
-func (o *InlineResponse2002) SetData(v Document) {
+// SetData gets a reference to the given []UnassignedDrivingSegmentResponse and assigns it to the Data field.
+func (o *InlineResponse2002) SetData(v []UnassignedDrivingSegmentResponse) {
 	o.Data = &v
+}
+
+// GetPagination returns the Pagination field value if set, zero value otherwise.
+func (o *InlineResponse2002) GetPagination() PaginationResponse {
+	if o == nil || o.Pagination == nil {
+		var ret PaginationResponse
+		return ret
+	}
+	return *o.Pagination
+}
+
+// GetPaginationOk returns a tuple with the Pagination field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2002) GetPaginationOk() (PaginationResponse, bool) {
+	if o == nil || o.Pagination == nil {
+		var ret PaginationResponse
+		return ret, false
+	}
+	return *o.Pagination, true
+}
+
+// HasPagination returns a boolean if a field has been set.
+func (o *InlineResponse2002) HasPagination() bool {
+	if o != nil && o.Pagination != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPagination gets a reference to the given PaginationResponse and assigns it to the Pagination field.
+func (o *InlineResponse2002) SetPagination(v PaginationResponse) {
+	o.Pagination = &v
 }
 
 type NullableInlineResponse2002 struct {

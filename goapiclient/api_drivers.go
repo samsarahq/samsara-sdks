@@ -29,10 +29,10 @@ type DriversApiService service
 type apiCreateDriverRequest struct {
 	ctx        _context.Context
 	apiService *DriversApiService
-	driver     *DriverCreate
+	driver     *CreateDriverRequest
 }
 
-func (r apiCreateDriverRequest) Driver(driver DriverCreate) apiCreateDriverRequest {
+func (r apiCreateDriverRequest) Driver(driver CreateDriverRequest) apiCreateDriverRequest {
 	r.driver = &driver
 	return r
 }
@@ -52,16 +52,16 @@ func (a *DriversApiService) CreateDriver(ctx _context.Context) apiCreateDriverRe
 
 /*
 Execute executes the request
- @return InlineResponse2003
+ @return DriverResponse
 */
-func (r apiCreateDriverRequest) Execute() (InlineResponse2003, *_nethttp.Response, error) {
+func (r apiCreateDriverRequest) Execute() (DriverResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2003
+		localVarReturnValue  DriverResponse
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "DriversApiService.CreateDriver")
@@ -74,6 +74,10 @@ func (r apiCreateDriverRequest) Execute() (InlineResponse2003, *_nethttp.Respons
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+
+	if r.driver == nil {
+		return localVarReturnValue, nil, reportError("driver is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -116,7 +120,7 @@ func (r apiCreateDriverRequest) Execute() (InlineResponse2003, *_nethttp.Respons
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2003
+			var v DriverResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -147,21 +151,21 @@ func (r apiCreateDriverRequest) Execute() (InlineResponse2003, *_nethttp.Respons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetDriverByIdRequest struct {
+type apiGetDriverRequest struct {
 	ctx        _context.Context
 	apiService *DriversApiService
 	id         string
 }
 
 /*
-GetDriverById Retrieve a driver
+GetDriver Retrieve a driver
 Get information about a driver.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID of the driver. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
-@return apiGetDriverByIdRequest
+@return apiGetDriverRequest
 */
-func (a *DriversApiService) GetDriverById(ctx _context.Context, id string) apiGetDriverByIdRequest {
-	return apiGetDriverByIdRequest{
+func (a *DriversApiService) GetDriver(ctx _context.Context, id string) apiGetDriverRequest {
+	return apiGetDriverRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -170,19 +174,19 @@ func (a *DriversApiService) GetDriverById(ctx _context.Context, id string) apiGe
 
 /*
 Execute executes the request
- @return InlineResponse2003
+ @return DriverResponse
 */
-func (r apiGetDriverByIdRequest) Execute() (InlineResponse2003, *_nethttp.Response, error) {
+func (r apiGetDriverRequest) Execute() (DriverResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2003
+		localVarReturnValue  DriverResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "DriversApiService.GetDriverById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "DriversApiService.GetDriver")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -233,7 +237,7 @@ func (r apiGetDriverByIdRequest) Execute() (InlineResponse2003, *_nethttp.Respon
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2003
+			var v DriverResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -419,43 +423,55 @@ func (r apiGetDriverTachographActivityRequest) Execute() (DriverTachographActivi
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetDriversRequest struct {
-	ctx           _context.Context
-	apiService    *DriversApiService
-	isDeactivated *bool
-	limit         *int64
-	after         *string
-	tagIds        *[]string
+type apiListDriversRequest struct {
+	ctx                    _context.Context
+	apiService             *DriversApiService
+	driverActivationStatus *string
+	limit                  *int64
+	after                  *string
+	tagIds                 *[]string
+	updatedAfterTime       *time.Time
+	createdAfterTime       *time.Time
 }
 
-func (r apiGetDriversRequest) IsDeactivated(isDeactivated bool) apiGetDriversRequest {
-	r.isDeactivated = &isDeactivated
+func (r apiListDriversRequest) DriverActivationStatus(driverActivationStatus string) apiListDriversRequest {
+	r.driverActivationStatus = &driverActivationStatus
 	return r
 }
 
-func (r apiGetDriversRequest) Limit(limit int64) apiGetDriversRequest {
+func (r apiListDriversRequest) Limit(limit int64) apiListDriversRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r apiGetDriversRequest) After(after string) apiGetDriversRequest {
+func (r apiListDriversRequest) After(after string) apiListDriversRequest {
 	r.after = &after
 	return r
 }
 
-func (r apiGetDriversRequest) TagIds(tagIds []string) apiGetDriversRequest {
+func (r apiListDriversRequest) TagIds(tagIds []string) apiListDriversRequest {
 	r.tagIds = &tagIds
 	return r
 }
 
+func (r apiListDriversRequest) UpdatedAfterTime(updatedAfterTime time.Time) apiListDriversRequest {
+	r.updatedAfterTime = &updatedAfterTime
+	return r
+}
+
+func (r apiListDriversRequest) CreatedAfterTime(createdAfterTime time.Time) apiListDriversRequest {
+	r.createdAfterTime = &createdAfterTime
+	return r
+}
+
 /*
-GetDrivers List all drivers
+ListDrivers List all drivers
 Get all drivers in organization.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetDriversRequest
+@return apiListDriversRequest
 */
-func (a *DriversApiService) GetDrivers(ctx _context.Context) apiGetDriversRequest {
-	return apiGetDriversRequest{
+func (a *DriversApiService) ListDrivers(ctx _context.Context) apiListDriversRequest {
+	return apiListDriversRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -463,19 +479,19 @@ func (a *DriversApiService) GetDrivers(ctx _context.Context) apiGetDriversReques
 
 /*
 Execute executes the request
- @return map[string]interface{}
+ @return ListDriversResponse
 */
-func (r apiGetDriversRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
+func (r apiListDriversRequest) Execute() (ListDriversResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  ListDriversResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "DriversApiService.GetDrivers")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "DriversApiService.ListDrivers")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -486,8 +502,8 @@ func (r apiGetDriversRequest) Execute() (map[string]interface{}, *_nethttp.Respo
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
 
-	if r.isDeactivated != nil {
-		localVarQueryParams.Add("isDeactivated", parameterToString(*r.isDeactivated, ""))
+	if r.driverActivationStatus != nil {
+		localVarQueryParams.Add("driverActivationStatus", parameterToString(*r.driverActivationStatus, ""))
 	}
 	if r.limit != nil {
 		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
@@ -497,6 +513,12 @@ func (r apiGetDriversRequest) Execute() (map[string]interface{}, *_nethttp.Respo
 	}
 	if r.tagIds != nil {
 		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.updatedAfterTime != nil {
+		localVarQueryParams.Add("updatedAfterTime", parameterToString(*r.updatedAfterTime, ""))
+	}
+	if r.createdAfterTime != nil {
+		localVarQueryParams.Add("createdAfterTime", parameterToString(*r.createdAfterTime, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -537,7 +559,7 @@ func (r apiGetDriversRequest) Execute() (map[string]interface{}, *_nethttp.Respo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v ListDriversResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -568,27 +590,27 @@ func (r apiGetDriversRequest) Execute() (map[string]interface{}, *_nethttp.Respo
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiUpdateDriverByIdRequest struct {
+type apiUpdateDriverRequest struct {
 	ctx        _context.Context
 	apiService *DriversApiService
 	id         string
-	driver     *DriverUpdate
+	driver     *UpdateDriverRequest
 }
 
-func (r apiUpdateDriverByIdRequest) Driver(driver DriverUpdate) apiUpdateDriverByIdRequest {
+func (r apiUpdateDriverRequest) Driver(driver UpdateDriverRequest) apiUpdateDriverRequest {
 	r.driver = &driver
 	return r
 }
 
 /*
-UpdateDriverById Update a driver
-Update a specific driver's information. This can also be used to activate or de-activate a given driver
+UpdateDriver Update a driver
+Update a specific driver's information. This can also be used to activate or de-activate a given driver by setting the driverActivationStatus field.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID of the driver. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `payrollId:ABFS18600`
-@return apiUpdateDriverByIdRequest
+@return apiUpdateDriverRequest
 */
-func (a *DriversApiService) UpdateDriverById(ctx _context.Context, id string) apiUpdateDriverByIdRequest {
-	return apiUpdateDriverByIdRequest{
+func (a *DriversApiService) UpdateDriver(ctx _context.Context, id string) apiUpdateDriverRequest {
+	return apiUpdateDriverRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -597,19 +619,19 @@ func (a *DriversApiService) UpdateDriverById(ctx _context.Context, id string) ap
 
 /*
 Execute executes the request
- @return InlineResponse2003
+ @return DriverResponse
 */
-func (r apiUpdateDriverByIdRequest) Execute() (InlineResponse2003, *_nethttp.Response, error) {
+func (r apiUpdateDriverRequest) Execute() (DriverResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2003
+		localVarReturnValue  DriverResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "DriversApiService.UpdateDriverById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "DriversApiService.UpdateDriver")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -620,6 +642,10 @@ func (r apiUpdateDriverByIdRequest) Execute() (InlineResponse2003, *_nethttp.Res
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+
+	if r.driver == nil {
+		return localVarReturnValue, nil, reportError("driver is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -662,7 +688,7 @@ func (r apiUpdateDriverByIdRequest) Execute() (InlineResponse2003, *_nethttp.Res
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2003
+			var v DriverResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

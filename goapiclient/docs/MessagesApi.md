@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## CreateMessagesKondo
 
-> InlineResponse20010 CreateMessagesKondo(ctx).CreateMessages(createMessages).Execute()
+> InlineResponse2005 CreateMessagesKondo(ctx).CreateMessages(createMessages).Execute()
 
 Create a message
 
@@ -33,7 +33,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](inline_response_200_10.md)
+[**InlineResponse2005**](inline_response_200_5.md)
 
 ### Authorization
 
@@ -51,7 +51,7 @@ No authorization required
 
 ## V1createMessages
 
-> InlineResponse20020 V1createMessages(ctx).CreateMessages(createMessages).Execute()
+> InlineResponse20011 V1createMessages(ctx).CreateMessages(createMessages).Execute()
 
 Send a message to a list of driver ids.
 
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](inline_response_200_20.md)
+[**InlineResponse20011**](inline_response_200_11.md)
 
 ### Authorization
 
@@ -90,7 +90,7 @@ No authorization required
 
 ## V1getMessages
 
-> InlineResponse20019 V1getMessages(ctx).EndMs(endMs).DurationMs(durationMs).Execute()
+> InlineResponse20010 V1getMessages(ctx).EndMs(endMs).DurationMs(durationMs).Execute()
 
 Get all messages.
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20019**](inline_response_200_19.md)
+[**InlineResponse20010**](inline_response_200_10.md)
 
 ### Authorization
 

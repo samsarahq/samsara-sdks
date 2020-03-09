@@ -5,6 +5,7 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateDocument**](DocumentsApi.md#CreateDocument) | **Post** /fleet/documents | Create a document
+[**DeleteDocument**](DocumentsApi.md#DeleteDocument) | **Delete** /fleet/documents/{id} | Delete a document
 [**GetDocumentTypes**](DocumentsApi.md#GetDocumentTypes) | **Get** /fleet/document-types | List all document types
 [**GetDocuments**](DocumentsApi.md#GetDocuments) | **Get** /fleet/documents | List all documents
 [**V1createDriverDocument**](DocumentsApi.md#V1createDriverDocument) | **Post** /v1/fleet/drivers/{driver_id}/documents | Create a document
@@ -16,7 +17,7 @@ Method | HTTP request | Description
 
 ## CreateDocument
 
-> InlineResponse2002 CreateDocument(ctx).Document(document).Execute()
+> InlineResponse200 CreateDocument(ctx).Document(document).Execute()
 
 Create a document
 
@@ -37,7 +38,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](inline_response_200_2.md)
+[**InlineResponse200**](inline_response_200.md)
 
 ### Authorization
 
@@ -46,6 +47,49 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## DeleteDocument
+
+> DeleteDocument(ctx, id).Execute()
+
+Delete a document
+
+
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | ID of the document. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteDocumentRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

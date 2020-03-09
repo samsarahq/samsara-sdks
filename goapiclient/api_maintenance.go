@@ -29,10 +29,10 @@ type MaintenanceApiService service
 type apiCreateDvirRequest struct {
 	ctx        _context.Context
 	apiService *MaintenanceApiService
-	dvir       *DvirCreate
+	dvir       *CreateDvirRequest
 }
 
-func (r apiCreateDvirRequest) Dvir(dvir DvirCreate) apiCreateDvirRequest {
+func (r apiCreateDvirRequest) Dvir(dvir CreateDvirRequest) apiCreateDvirRequest {
 	r.dvir = &dvir
 	return r
 }
@@ -52,16 +52,16 @@ func (a *MaintenanceApiService) CreateDvir(ctx _context.Context) apiCreateDvirRe
 
 /*
 Execute executes the request
- @return InlineResponse2004
+ @return DvirResponse
 */
-func (r apiCreateDvirRequest) Execute() (InlineResponse2004, *_nethttp.Response, error) {
+func (r apiCreateDvirRequest) Execute() (DvirResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2004
+		localVarReturnValue  DvirResponse
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceApiService.CreateDvir")
@@ -116,7 +116,7 @@ func (r apiCreateDvirRequest) Execute() (InlineResponse2004, *_nethttp.Response,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2004
+			var v DvirResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -170,16 +170,16 @@ func (a *MaintenanceApiService) GetDvirById(ctx _context.Context, id string) api
 
 /*
 Execute executes the request
- @return InlineResponse2004
+ @return DvirResponse
 */
-func (r apiGetDvirByIdRequest) Execute() (InlineResponse2004, *_nethttp.Response, error) {
+func (r apiGetDvirByIdRequest) Execute() (DvirResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2004
+		localVarReturnValue  DvirResponse
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceApiService.GetDvirById")
@@ -233,7 +233,7 @@ func (r apiGetDvirByIdRequest) Execute() (InlineResponse2004, *_nethttp.Response
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2004
+			var v DvirResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -301,7 +301,7 @@ func (r apiGetDvirDefectsRequest) IsResolved(isResolved bool) apiGetDvirDefectsR
 
 /*
 GetDvirDefects Get all defects
-Returns a list of all DVIR defects in an organization, filtered by creation time.
+Returns a list of DVIR defects in an organization, filtered by creation time. The maximum time period you can query for is 30 days.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return apiGetDvirDefectsRequest
 */
@@ -426,7 +426,7 @@ func (r apiGetDvirDefectsRequest) Execute() (map[string]interface{}, *_nethttp.R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetDvirsHistoryRequest struct {
+type apiGetDvirHistoryRequest struct {
 	ctx        _context.Context
 	apiService *MaintenanceApiService
 	startTime  *time.Time
@@ -438,49 +438,49 @@ type apiGetDvirsHistoryRequest struct {
 	trailerIds *[]string
 }
 
-func (r apiGetDvirsHistoryRequest) StartTime(startTime time.Time) apiGetDvirsHistoryRequest {
+func (r apiGetDvirHistoryRequest) StartTime(startTime time.Time) apiGetDvirHistoryRequest {
 	r.startTime = &startTime
 	return r
 }
 
-func (r apiGetDvirsHistoryRequest) EndTime(endTime time.Time) apiGetDvirsHistoryRequest {
+func (r apiGetDvirHistoryRequest) EndTime(endTime time.Time) apiGetDvirHistoryRequest {
 	r.endTime = &endTime
 	return r
 }
 
-func (r apiGetDvirsHistoryRequest) Limit(limit int64) apiGetDvirsHistoryRequest {
+func (r apiGetDvirHistoryRequest) Limit(limit int64) apiGetDvirHistoryRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r apiGetDvirsHistoryRequest) After(after string) apiGetDvirsHistoryRequest {
+func (r apiGetDvirHistoryRequest) After(after string) apiGetDvirHistoryRequest {
 	r.after = &after
 	return r
 }
 
-func (r apiGetDvirsHistoryRequest) TagIds(tagIds []string) apiGetDvirsHistoryRequest {
+func (r apiGetDvirHistoryRequest) TagIds(tagIds []string) apiGetDvirHistoryRequest {
 	r.tagIds = &tagIds
 	return r
 }
 
-func (r apiGetDvirsHistoryRequest) VehicleIds(vehicleIds []string) apiGetDvirsHistoryRequest {
+func (r apiGetDvirHistoryRequest) VehicleIds(vehicleIds []string) apiGetDvirHistoryRequest {
 	r.vehicleIds = &vehicleIds
 	return r
 }
 
-func (r apiGetDvirsHistoryRequest) TrailerIds(trailerIds []string) apiGetDvirsHistoryRequest {
+func (r apiGetDvirHistoryRequest) TrailerIds(trailerIds []string) apiGetDvirHistoryRequest {
 	r.trailerIds = &trailerIds
 	return r
 }
 
 /*
-GetDvirsHistory Get all DVIRs
+GetDvirHistory Get all DVIRs
 Returns a list of all DVIRs in an organization
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetDvirsHistoryRequest
+@return apiGetDvirHistoryRequest
 */
-func (a *MaintenanceApiService) GetDvirsHistory(ctx _context.Context) apiGetDvirsHistoryRequest {
-	return apiGetDvirsHistoryRequest{
+func (a *MaintenanceApiService) GetDvirHistory(ctx _context.Context) apiGetDvirHistoryRequest {
+	return apiGetDvirHistoryRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -488,19 +488,19 @@ func (a *MaintenanceApiService) GetDvirsHistory(ctx _context.Context) apiGetDvir
 
 /*
 Execute executes the request
- @return map[string]interface{}
+ @return DvirsListResponse
 */
-func (r apiGetDvirsHistoryRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
+func (r apiGetDvirHistoryRequest) Execute() (DvirsListResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  DvirsListResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceApiService.GetDvirsHistory")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceApiService.GetDvirHistory")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -575,7 +575,7 @@ func (r apiGetDvirsHistoryRequest) Execute() (map[string]interface{}, *_nethttp.
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v DvirsListResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -735,10 +735,10 @@ type apiUpdateDvirByIdRequest struct {
 	ctx        _context.Context
 	apiService *MaintenanceApiService
 	id         string
-	dvir       *DvirPatch
+	dvir       *UpdateDvirRequest
 }
 
-func (r apiUpdateDvirByIdRequest) Dvir(dvir DvirPatch) apiUpdateDvirByIdRequest {
+func (r apiUpdateDvirByIdRequest) Dvir(dvir UpdateDvirRequest) apiUpdateDvirByIdRequest {
 	r.dvir = &dvir
 	return r
 }
@@ -760,16 +760,16 @@ func (a *MaintenanceApiService) UpdateDvirById(ctx _context.Context, id string) 
 
 /*
 Execute executes the request
- @return InlineResponse2004
+ @return DvirResponse
 */
-func (r apiUpdateDvirByIdRequest) Execute() (InlineResponse2004, *_nethttp.Response, error) {
+func (r apiUpdateDvirByIdRequest) Execute() (DvirResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2004
+		localVarReturnValue  DvirResponse
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceApiService.UpdateDvirById")
@@ -825,7 +825,7 @@ func (r apiUpdateDvirByIdRequest) Execute() (InlineResponse2004, *_nethttp.Respo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2004
+			var v DvirResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1160,16 +1160,16 @@ func (a *MaintenanceApiService) V1getFleetMaintenanceList(ctx _context.Context) 
 
 /*
 Execute executes the request
- @return InlineResponse20018
+ @return InlineResponse2009
 */
-func (r apiV1getFleetMaintenanceListRequest) Execute() (InlineResponse20018, *_nethttp.Response, error) {
+func (r apiV1getFleetMaintenanceListRequest) Execute() (InlineResponse2009, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20018
+		localVarReturnValue  InlineResponse2009
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MaintenanceApiService.V1getFleetMaintenanceList")
@@ -1222,7 +1222,7 @@ func (r apiV1getFleetMaintenanceListRequest) Execute() (InlineResponse20018, *_n
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20018
+			var v InlineResponse2009
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -14,77 +14,41 @@ import (
 	"encoding/json"
 )
 
-// VehicleStatsListResponse struct for VehicleStatsListResponse
+// VehicleStatsListResponse List of vehicle stat events and pagination info.
 type VehicleStatsListResponse struct {
-	// An array of vehicle stat objects. Each object in the array represents a vehicle and will contain an array of stat object updates (a timestamp and value of the requested stat type).
-	Data       *[]VehicleStatsList `json:"data,omitempty"`
-	Pagination *PaginationResponse `json:"pagination,omitempty"`
+	// A list of vehicles and an array of stat events for each vehicle.
+	Data       []VehicleStatsListResponseData `json:"data"`
+	Pagination PaginationResponse             `json:"pagination"`
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *VehicleStatsListResponse) GetData() []VehicleStatsList {
-	if o == nil || o.Data == nil {
-		var ret []VehicleStatsList
+// GetData returns the Data field value
+func (o *VehicleStatsListResponse) GetData() []VehicleStatsListResponseData {
+	if o == nil {
+		var ret []VehicleStatsListResponseData
 		return ret
 	}
-	return *o.Data
+
+	return o.Data
 }
 
-// GetDataOk returns a tuple with the Data field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *VehicleStatsListResponse) GetDataOk() ([]VehicleStatsList, bool) {
-	if o == nil || o.Data == nil {
-		var ret []VehicleStatsList
-		return ret, false
-	}
-	return *o.Data, true
+// SetData sets field value
+func (o *VehicleStatsListResponse) SetData(v []VehicleStatsListResponseData) {
+	o.Data = v
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *VehicleStatsListResponse) HasData() bool {
-	if o != nil && o.Data != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetData gets a reference to the given []VehicleStatsList and assigns it to the Data field.
-func (o *VehicleStatsListResponse) SetData(v []VehicleStatsList) {
-	o.Data = &v
-}
-
-// GetPagination returns the Pagination field value if set, zero value otherwise.
+// GetPagination returns the Pagination field value
 func (o *VehicleStatsListResponse) GetPagination() PaginationResponse {
-	if o == nil || o.Pagination == nil {
+	if o == nil {
 		var ret PaginationResponse
 		return ret
 	}
-	return *o.Pagination
+
+	return o.Pagination
 }
 
-// GetPaginationOk returns a tuple with the Pagination field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *VehicleStatsListResponse) GetPaginationOk() (PaginationResponse, bool) {
-	if o == nil || o.Pagination == nil {
-		var ret PaginationResponse
-		return ret, false
-	}
-	return *o.Pagination, true
-}
-
-// HasPagination returns a boolean if a field has been set.
-func (o *VehicleStatsListResponse) HasPagination() bool {
-	if o != nil && o.Pagination != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPagination gets a reference to the given PaginationResponse and assigns it to the Pagination field.
+// SetPagination sets field value
 func (o *VehicleStatsListResponse) SetPagination(v PaginationResponse) {
-	o.Pagination = &v
+	o.Pagination = v
 }
 
 type NullableVehicleStatsListResponse struct {

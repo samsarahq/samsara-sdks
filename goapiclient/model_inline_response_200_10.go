@@ -14,15 +14,15 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse20010 A list of created messages.
+// InlineResponse20010 A list of messages.
 type InlineResponse20010 struct {
-	Data *[]Message `json:"data,omitempty"`
+	Data *[]V1MessageResponse `json:"data,omitempty"`
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse20010) GetData() []Message {
+func (o *InlineResponse20010) GetData() []V1MessageResponse {
 	if o == nil || o.Data == nil {
-		var ret []Message
+		var ret []V1MessageResponse
 		return ret
 	}
 	return *o.Data
@@ -30,9 +30,9 @@ func (o *InlineResponse20010) GetData() []Message {
 
 // GetDataOk returns a tuple with the Data field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse20010) GetDataOk() ([]Message, bool) {
+func (o *InlineResponse20010) GetDataOk() ([]V1MessageResponse, bool) {
 	if o == nil || o.Data == nil {
-		var ret []Message
+		var ret []V1MessageResponse
 		return ret, false
 	}
 	return *o.Data, true
@@ -47,8 +47,8 @@ func (o *InlineResponse20010) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given []Message and assigns it to the Data field.
-func (o *InlineResponse20010) SetData(v []Message) {
+// SetData gets a reference to the given []V1MessageResponse and assigns it to the Data field.
+func (o *InlineResponse20010) SetData(v []V1MessageResponse) {
 	o.Data = &v
 }
 

@@ -5,17 +5,17 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateUser**](UsersApi.md#CreateUser) | **Post** /users | Create a user
-[**DeleteUserById**](UsersApi.md#DeleteUserById) | **Delete** /users/{id} | Delete a user
-[**GetUserById**](UsersApi.md#GetUserById) | **Get** /users/{id} | Retrieve a user
-[**GetUserRoles**](UsersApi.md#GetUserRoles) | **Get** /user-roles | List all user roles
-[**GetUsers**](UsersApi.md#GetUsers) | **Get** /users | List all users
-[**UpdateUserById**](UsersApi.md#UpdateUserById) | **Patch** /users/{id} | Update a user
+[**DeleteUser**](UsersApi.md#DeleteUser) | **Delete** /users/{id} | Delete a user
+[**GetUser**](UsersApi.md#GetUser) | **Get** /users/{id} | Retrieve a user
+[**ListUserRoles**](UsersApi.md#ListUserRoles) | **Get** /user-roles | List all user roles
+[**ListUsers**](UsersApi.md#ListUsers) | **Get** /users | List all users
+[**UpdateUser**](UsersApi.md#UpdateUser) | **Patch** /users/{id} | Update a user
 
 
 
 ## CreateUser
 
-> InlineResponse20013 CreateUser(ctx).User(user).Execute()
+> UserResponse CreateUser(ctx).User(user).Execute()
 
 Create a user
 
@@ -32,11 +32,11 @@ Other parameters are passed through a pointer to a apiCreateUserRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**UserCreate**](UserCreate.md) | The user to create. | 
+ **user** | [**CreateUserRequest**](CreateUserRequest.md) | The user to create. | 
 
 ### Return type
 
-[**InlineResponse20013**](inline_response_200_13.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -52,9 +52,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## DeleteUserById
+## DeleteUser
 
-> DeleteUserById(ctx, id).Execute()
+> DeleteUser(ctx, id).Execute()
 
 Delete a user
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteUserByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteUserRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -95,9 +95,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetUserById
+## GetUser
 
-> InlineResponse20014 GetUserById(ctx, id).Execute()
+> UserResponse GetUser(ctx, id).Execute()
 
 Retrieve a user
 
@@ -113,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetUserByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetUserRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](inline_response_200_14.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -138,9 +138,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetUserRoles
+## ListUserRoles
 
-> map[string]interface{} GetUserRoles(ctx).Limit(limit).After(after).Execute()
+> ListUserRolesResponse ListUserRoles(ctx).Limit(limit).After(after).Execute()
 
 List all user roles
 
@@ -152,7 +152,7 @@ List all user roles
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetUserRolesRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListUserRolesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+[**ListUserRolesResponse**](ListUserRolesResponse.md)
 
 ### Authorization
 
@@ -178,9 +178,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetUsers
+## ListUsers
 
-> map[string]interface{} GetUsers(ctx).Limit(limit).After(after).Execute()
+> ListUsersResponse ListUsers(ctx).Limit(limit).After(after).Execute()
 
 List all users
 
@@ -192,7 +192,7 @@ List all users
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetUsersRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListUsersRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -202,7 +202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+[**ListUsersResponse**](ListUsersResponse.md)
 
 ### Authorization
 
@@ -218,9 +218,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UpdateUserById
+## UpdateUser
 
-> InlineResponse20014 UpdateUserById(ctx, id).User(user).Execute()
+> UserResponse UpdateUser(ctx, id).User(user).Execute()
 
 Update a user
 
@@ -236,17 +236,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateUserByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateUserRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **user** | [**UserUpdate**](UserUpdate.md) | Updates to the user. | 
+ **user** | [**UpdateUserRequest**](UpdateUserRequest.md) | Updates to the user. | 
 
 ### Return type
 
-[**InlineResponse20014**](inline_response_200_14.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 

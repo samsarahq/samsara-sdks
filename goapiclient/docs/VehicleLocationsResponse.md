@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**[]VehicleLocationsResponseData**](VehicleLocationsResponse_data.md) | Most recent vehicle locations. | 
+**Data** | Pointer to [**[]VehicleLocationsResponseData**](VehicleLocationsResponse_data.md) | List of the most recent locations for the specified vehicles. | 
 **Pagination** | Pointer to [**PaginationResponse**](paginationResponse.md) |  | 
 
 ## Methods

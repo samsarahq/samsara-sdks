@@ -16,14 +16,13 @@ import (
 
 // InlineResponse2001 struct for InlineResponse2001
 type InlineResponse2001 struct {
-	Data       *[]CarrierProposedAssignment `json:"data,omitempty"`
-	Pagination *PaginationResponse          `json:"pagination,omitempty"`
+	Data *EquipmentResponse `json:"data,omitempty"`
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse2001) GetData() []CarrierProposedAssignment {
+func (o *InlineResponse2001) GetData() EquipmentResponse {
 	if o == nil || o.Data == nil {
-		var ret []CarrierProposedAssignment
+		var ret EquipmentResponse
 		return ret
 	}
 	return *o.Data
@@ -31,9 +30,9 @@ func (o *InlineResponse2001) GetData() []CarrierProposedAssignment {
 
 // GetDataOk returns a tuple with the Data field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2001) GetDataOk() ([]CarrierProposedAssignment, bool) {
+func (o *InlineResponse2001) GetDataOk() (EquipmentResponse, bool) {
 	if o == nil || o.Data == nil {
-		var ret []CarrierProposedAssignment
+		var ret EquipmentResponse
 		return ret, false
 	}
 	return *o.Data, true
@@ -48,42 +47,9 @@ func (o *InlineResponse2001) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given []CarrierProposedAssignment and assigns it to the Data field.
-func (o *InlineResponse2001) SetData(v []CarrierProposedAssignment) {
+// SetData gets a reference to the given EquipmentResponse and assigns it to the Data field.
+func (o *InlineResponse2001) SetData(v EquipmentResponse) {
 	o.Data = &v
-}
-
-// GetPagination returns the Pagination field value if set, zero value otherwise.
-func (o *InlineResponse2001) GetPagination() PaginationResponse {
-	if o == nil || o.Pagination == nil {
-		var ret PaginationResponse
-		return ret
-	}
-	return *o.Pagination
-}
-
-// GetPaginationOk returns a tuple with the Pagination field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *InlineResponse2001) GetPaginationOk() (PaginationResponse, bool) {
-	if o == nil || o.Pagination == nil {
-		var ret PaginationResponse
-		return ret, false
-	}
-	return *o.Pagination, true
-}
-
-// HasPagination returns a boolean if a field has been set.
-func (o *InlineResponse2001) HasPagination() bool {
-	if o != nil && o.Pagination != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPagination gets a reference to the given PaginationResponse and assigns it to the Pagination field.
-func (o *InlineResponse2001) SetPagination(v PaginationResponse) {
-	o.Pagination = &v
 }
 
 type NullableInlineResponse2001 struct {

@@ -49,16 +49,16 @@ func (a *EquipmentApiService) GetEquipmentById(ctx _context.Context, id string) 
 
 /*
 Execute executes the request
- @return InlineResponse2005
+ @return InlineResponse2001
 */
-func (r apiGetEquipmentByIdRequest) Execute() (InlineResponse2005, *_nethttp.Response, error) {
+func (r apiGetEquipmentByIdRequest) Execute() (InlineResponse2001, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2005
+		localVarReturnValue  InlineResponse2001
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "EquipmentApiService.GetEquipmentById")
@@ -112,7 +112,7 @@ func (r apiGetEquipmentByIdRequest) Execute() (InlineResponse2005, *_nethttp.Res
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2005
+			var v InlineResponse2001
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -16,16 +16,18 @@ import (
 
 // Defect struct for Defect
 type Defect struct {
-	// The comment describing the type of DVIR defect.
-	Comment       *string                 `json:"comment,omitempty"`
-	CreatedAtTime *map[string]interface{} `json:"createdAtTime,omitempty"`
+	// Comment on the defect.
+	Comment *string `json:"comment,omitempty"`
+	// Time when the defect was created. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	CreatedAtTime *string `json:"createdAtTime,omitempty"`
 	// The type of DVIR defect.
 	DefectType *string `json:"defectType,omitempty"`
 	// ID of the defect.
 	Id string `json:"id"`
 	// Signifies if this defect is resolved.
-	IsResolved     bool                    `json:"isResolved"`
-	ResolvedAtTime *map[string]interface{} `json:"resolvedAtTime,omitempty"`
+	IsResolved bool `json:"isResolved"`
+	// Time when this defect was resolved. Will not be returned if the defect is unresolved. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	ResolvedAtTime *string                 `json:"resolvedAtTime,omitempty"`
 	ResolvedBy     *DefectResolvedBy       `json:"resolvedBy,omitempty"`
 	Trailer        *map[string]interface{} `json:"trailer,omitempty"`
 	Vehicle        *map[string]interface{} `json:"vehicle,omitempty"`
@@ -65,9 +67,9 @@ func (o *Defect) SetComment(v string) {
 }
 
 // GetCreatedAtTime returns the CreatedAtTime field value if set, zero value otherwise.
-func (o *Defect) GetCreatedAtTime() map[string]interface{} {
+func (o *Defect) GetCreatedAtTime() string {
 	if o == nil || o.CreatedAtTime == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret
 	}
 	return *o.CreatedAtTime
@@ -75,9 +77,9 @@ func (o *Defect) GetCreatedAtTime() map[string]interface{} {
 
 // GetCreatedAtTimeOk returns a tuple with the CreatedAtTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Defect) GetCreatedAtTimeOk() (map[string]interface{}, bool) {
+func (o *Defect) GetCreatedAtTimeOk() (string, bool) {
 	if o == nil || o.CreatedAtTime == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret, false
 	}
 	return *o.CreatedAtTime, true
@@ -92,8 +94,8 @@ func (o *Defect) HasCreatedAtTime() bool {
 	return false
 }
 
-// SetCreatedAtTime gets a reference to the given map[string]interface{} and assigns it to the CreatedAtTime field.
-func (o *Defect) SetCreatedAtTime(v map[string]interface{}) {
+// SetCreatedAtTime gets a reference to the given string and assigns it to the CreatedAtTime field.
+func (o *Defect) SetCreatedAtTime(v string) {
 	o.CreatedAtTime = &v
 }
 
@@ -161,9 +163,9 @@ func (o *Defect) SetIsResolved(v bool) {
 }
 
 // GetResolvedAtTime returns the ResolvedAtTime field value if set, zero value otherwise.
-func (o *Defect) GetResolvedAtTime() map[string]interface{} {
+func (o *Defect) GetResolvedAtTime() string {
 	if o == nil || o.ResolvedAtTime == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret
 	}
 	return *o.ResolvedAtTime
@@ -171,9 +173,9 @@ func (o *Defect) GetResolvedAtTime() map[string]interface{} {
 
 // GetResolvedAtTimeOk returns a tuple with the ResolvedAtTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Defect) GetResolvedAtTimeOk() (map[string]interface{}, bool) {
+func (o *Defect) GetResolvedAtTimeOk() (string, bool) {
 	if o == nil || o.ResolvedAtTime == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret, false
 	}
 	return *o.ResolvedAtTime, true
@@ -188,8 +190,8 @@ func (o *Defect) HasResolvedAtTime() bool {
 	return false
 }
 
-// SetResolvedAtTime gets a reference to the given map[string]interface{} and assigns it to the ResolvedAtTime field.
-func (o *Defect) SetResolvedAtTime(v map[string]interface{}) {
+// SetResolvedAtTime gets a reference to the given string and assigns it to the ResolvedAtTime field.
+func (o *Defect) SetResolvedAtTime(v string) {
 	o.ResolvedAtTime = &v
 }
 

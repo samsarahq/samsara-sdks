@@ -4,60 +4,34 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**[]ListDataInputsResponse**](ListDataInputsResponse.md) | An array of data input objects. Each object contains the data input&#39;s name, ID, and other metadata. | [optional] 
-**Pagination** | Pointer to [**PaginationResponse**](paginationResponse.md) |  | [optional] 
+**Vehicles** | Pointer to [**[]V1VehicleMaintenance**](V1VehicleMaintenance.md) |  | [optional] 
 
 ## Methods
 
-### GetData
+### GetVehicles
 
-`func (o *InlineResponse2009) GetData() []ListDataInputsResponse`
+`func (o *InlineResponse2009) GetVehicles() []V1VehicleMaintenance`
 
-GetData returns the Data field if non-nil, zero value otherwise.
+GetVehicles returns the Vehicles field if non-nil, zero value otherwise.
 
-### GetDataOk
+### GetVehiclesOk
 
-`func (o *InlineResponse2009) GetDataOk() ([]ListDataInputsResponse, bool)`
+`func (o *InlineResponse2009) GetVehiclesOk() ([]V1VehicleMaintenance, bool)`
 
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+GetVehiclesOk returns a tuple with the Vehicles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasData
+### HasVehicles
 
-`func (o *InlineResponse2009) HasData() bool`
+`func (o *InlineResponse2009) HasVehicles() bool`
 
-HasData returns a boolean if a field has been set.
+HasVehicles returns a boolean if a field has been set.
 
-### SetData
+### SetVehicles
 
-`func (o *InlineResponse2009) SetData(v []ListDataInputsResponse)`
+`func (o *InlineResponse2009) SetVehicles(v []V1VehicleMaintenance)`
 
-SetData gets a reference to the given []ListDataInputsResponse and assigns it to the Data field.
-
-### GetPagination
-
-`func (o *InlineResponse2009) GetPagination() PaginationResponse`
-
-GetPagination returns the Pagination field if non-nil, zero value otherwise.
-
-### GetPaginationOk
-
-`func (o *InlineResponse2009) GetPaginationOk() (PaginationResponse, bool)`
-
-GetPaginationOk returns a tuple with the Pagination field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### HasPagination
-
-`func (o *InlineResponse2009) HasPagination() bool`
-
-HasPagination returns a boolean if a field has been set.
-
-### SetPagination
-
-`func (o *InlineResponse2009) SetPagination(v PaginationResponse)`
-
-SetPagination gets a reference to the given PaginationResponse and assigns it to the Pagination field.
+SetVehicles gets a reference to the given []V1VehicleMaintenance and assigns it to the Vehicles field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

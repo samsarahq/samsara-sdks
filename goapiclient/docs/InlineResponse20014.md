@@ -4,34 +4,34 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**User**](User.md) |  | [optional] 
+**Machines** | Pointer to [**[]V1Machine**](V1Machine.md) |  | [optional] 
 
 ## Methods
 
-### GetData
+### GetMachines
 
-`func (o *InlineResponse20014) GetData() User`
+`func (o *InlineResponse20014) GetMachines() []V1Machine`
 
-GetData returns the Data field if non-nil, zero value otherwise.
+GetMachines returns the Machines field if non-nil, zero value otherwise.
 
-### GetDataOk
+### GetMachinesOk
 
-`func (o *InlineResponse20014) GetDataOk() (User, bool)`
+`func (o *InlineResponse20014) GetMachinesOk() ([]V1Machine, bool)`
 
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+GetMachinesOk returns a tuple with the Machines field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasData
+### HasMachines
 
-`func (o *InlineResponse20014) HasData() bool`
+`func (o *InlineResponse20014) HasMachines() bool`
 
-HasData returns a boolean if a field has been set.
+HasMachines returns a boolean if a field has been set.
 
-### SetData
+### SetMachines
 
-`func (o *InlineResponse20014) SetData(v User)`
+`func (o *InlineResponse20014) SetMachines(v []V1Machine)`
 
-SetData gets a reference to the given User and assigns it to the Data field.
+SetMachines gets a reference to the given []V1Machine and assigns it to the Machines field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

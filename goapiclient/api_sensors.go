@@ -51,16 +51,16 @@ func (a *SensorsApiService) V1getSensors(ctx _context.Context) apiV1getSensorsRe
 
 /*
 Execute executes the request
- @return InlineResponse20024
+ @return InlineResponse20015
 */
-func (r apiV1getSensorsRequest) Execute() (InlineResponse20024, *_nethttp.Response, error) {
+func (r apiV1getSensorsRequest) Execute() (InlineResponse20015, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20024
+		localVarReturnValue  InlineResponse20015
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "SensorsApiService.V1getSensors")
@@ -113,7 +113,7 @@ func (r apiV1getSensorsRequest) Execute() (InlineResponse20024, *_nethttp.Respon
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20024
+			var v InlineResponse20015
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

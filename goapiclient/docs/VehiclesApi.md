@@ -4,21 +4,21 @@ All URIs are relative to *https://api.samsara.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetVehicleById**](VehiclesApi.md#GetVehicleById) | **Get** /fleet/vehicles/{id} | Retrieve a vehicle
+[**GetVehicle**](VehiclesApi.md#GetVehicle) | **Get** /fleet/vehicles/{id} | Retrieve a vehicle
 [**GetVehicleLocations**](VehiclesApi.md#GetVehicleLocations) | **Get** /fleet/vehicles/locations | Get most recent vehicle locations
 [**GetVehicleLocationsFeed**](VehiclesApi.md#GetVehicleLocationsFeed) | **Get** /fleet/vehicles/locations/feed | Follow a feed of vehicle locations
 [**GetVehicleLocationsHistory**](VehiclesApi.md#GetVehicleLocationsHistory) | **Get** /fleet/vehicles/locations/history | Get historical vehicle locations
-[**GetVehicleStatsFeed**](VehiclesApi.md#GetVehicleStatsFeed) | **Get** /fleet/vehicles/stats/feed | Follow a real-time feed of vehicle stats
+[**GetVehicleStats**](VehiclesApi.md#GetVehicleStats) | **Get** /fleet/vehicles/stats | List most recent vehicle stats
+[**GetVehicleStatsFeed**](VehiclesApi.md#GetVehicleStatsFeed) | **Get** /fleet/vehicles/stats/feed | Follow a feed of vehicle stats
 [**GetVehicleStatsHistory**](VehiclesApi.md#GetVehicleStatsHistory) | **Get** /fleet/vehicles/stats/history | Get historical vehicle stats
-[**GetVehicleStatsSnapshot**](VehiclesApi.md#GetVehicleStatsSnapshot) | **Get** /fleet/vehicles/stats | List most recent vehicle stats
-[**ListVehiclesKondo**](VehiclesApi.md#ListVehiclesKondo) | **Get** /fleet/vehicles | List all vehicles
-[**UpdateVehicleById**](VehiclesApi.md#UpdateVehicleById) | **Patch** /fleet/vehicles/{id} | Update a vehicle
+[**ListVehicles**](VehiclesApi.md#ListVehicles) | **Get** /fleet/vehicles | List all vehicles
+[**UpdateVehicle**](VehiclesApi.md#UpdateVehicle) | **Patch** /fleet/vehicles/{id} | Update a vehicle
 
 
 
-## GetVehicleById
+## GetVehicle
 
-> InlineResponse2008 GetVehicleById(ctx, id).Execute()
+> VehicleResponse GetVehicle(ctx, id).Execute()
 
 Retrieve a vehicle
 
@@ -34,7 +34,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetVehicleByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetVehicleRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2008**](inline_response_200_8.md)
+[**VehicleResponse**](VehicleResponse.md)
 
 ### Authorization
 
@@ -184,11 +184,53 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## GetVehicleStats
+
+> VehicleStatsResponse GetVehicleStats(ctx).Types(types).After(after).TagIds(tagIds).VehicleIds(vehicleIds).Execute()
+
+List most recent vehicle stats
+
+
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetVehicleStatsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **types** | [**[]string**](string.md) | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. | 
+ **after** | **string** | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | 
+ **tagIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | 
+ **vehicleIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of vehicle IDs. Example: &#x60;vehicleIds&#x3D;1234,5678&#x60; | 
+
+### Return type
+
+[**VehicleStatsResponse**](VehicleStatsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetVehicleStatsFeed
 
 > VehicleStatsListResponse GetVehicleStatsFeed(ctx).Types(types).After(after).TagIds(tagIds).VehicleIds(vehicleIds).Execute()
 
-Follow a real-time feed of vehicle stats
+Follow a feed of vehicle stats
 
 
 
@@ -203,7 +245,7 @@ Other parameters are passed through a pointer to a apiGetVehicleStatsFeedRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **types** | **string** | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. | 
+ **types** | [**[]string**](string.md) | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. | 
  **after** | **string** | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | 
  **tagIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | 
  **vehicleIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of vehicle IDs. Example: &#x60;vehicleIds&#x3D;1234,5678&#x60; | 
@@ -247,7 +289,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **startTime** | **time.Time** | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
  **endTime** | **time.Time** | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **types** | **string** | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. | 
+ **types** | [**[]string**](string.md) | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. | 
  **after** | **string** | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | 
  **tagIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | 
  **vehicleIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of vehicle IDs. Example: &#x60;vehicleIds&#x3D;1234,5678&#x60; | 
@@ -270,51 +312,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetVehicleStatsSnapshot
+## ListVehicles
 
-> map[string]interface{} GetVehicleStatsSnapshot(ctx).Types(types).After(after).TagIds(tagIds).VehicleIds(vehicleIds).Execute()
-
-List most recent vehicle stats
-
-
-
-### Path Parameters
-
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetVehicleStatsSnapshotRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **types** | **string** | The stat type you want this endpoint to return information on. Currently only one stat type is accepted per request.  - &#x60;engineStates&#x60;: The state of the engine (&#x60;Off&#x60;, &#x60;On&#x60;, &#x60;Idle&#x60;). - &#x60;fuelPercents&#x60;: The engine fuel level in percentage points (e.g. &#x60;99&#x60;, &#x60;50&#x60;, etc). - &#x60;obdOdometerMeters&#x60;: The odometer reading according to on-board diagnostics. If Samsara does not have diagnostic coverage for a particular vehicle, the value for this stat type will be omitted. In these cases, we recommend using &#x60;gpsOdometerMeters&#x60;. - &#x60;gpsOdometerMeters&#x60;: The odometer reading according to GPS calculations. This calculation is based off GPS distance traveled and a manual odometer offset for a given vehicle, specified by the user in Samsara&#39;s dashboard UI or through the &#x60;odometerMeters&#x60; field in the [PATCH /fleet/vehicles/{id}](#operation/updateVehicleById) endpoint. &#x60;gpsOdometerMeters&#x60; is equal to the manual offset plus the GPS distance traveled since the offset was set. The value for this stat type will be omitted if a manual offset is not provided for a given vehicle. *A manual offset can only be provided when we do not have diagnostic coverage for a particular vehicle.* - &#x60;obdEngineSeconds&#x60;: The cumulative number of seconds the engine has run according to on-board diagnostics. - &#x60;gpsDistanceMeters&#x60;: The distance the vehicle has traveled since the gateway was installed based on GPS calculations. | 
- **after** | **string** | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | 
- **tagIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | 
- **vehicleIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of vehicle IDs. Example: &#x60;vehicleIds&#x3D;1234,5678&#x60; | 
-
-### Return type
-
-[**map[string]interface{}**](map[string]interface{}.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## ListVehiclesKondo
-
-> VehicleListResponse ListVehiclesKondo(ctx).Limit(limit).After(after).TagIds(tagIds).Execute()
+> ListVehiclesResponse ListVehicles(ctx).Limit(limit).After(after).TagIds(tagIds).Execute()
 
 List all vehicles
 
@@ -326,7 +326,7 @@ List all vehicles
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListVehiclesKondoRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListVehiclesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**VehicleListResponse**](VehicleListResponse.md)
+[**ListVehiclesResponse**](ListVehiclesResponse.md)
 
 ### Authorization
 
@@ -353,9 +353,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UpdateVehicleById
+## UpdateVehicle
 
-> InlineResponse2008 UpdateVehicleById(ctx, id).VehiclePatchBody(vehiclePatchBody).Execute()
+> VehicleResponse UpdateVehicle(ctx, id).Vehicle(vehicle).Execute()
 
 Update a vehicle
 
@@ -371,17 +371,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateVehicleByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateVehicleRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **vehiclePatchBody** | [**VehiclePatch**](VehiclePatch.md) | Fields that can be patched on a vehicle. | 
+ **vehicle** | [**UpdateVehicleRequest**](UpdateVehicleRequest.md) | Fields that can be patched on a vehicle. | 
 
 ### Return type
 
-[**InlineResponse2008**](inline_response_200_8.md)
+[**VehicleResponse**](VehicleResponse.md)
 
 ### Authorization
 

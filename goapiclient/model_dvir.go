@@ -12,12 +12,14 @@ package goapiclient
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
 // Dvir Information about a DVIR.
 type Dvir struct {
-	AuthorSignature *map[string]interface{} `json:"authorSignature,omitempty"`
-	EndTime         *map[string]interface{} `json:"endTime,omitempty"`
+	AuthorSignature *DvirAuthorSignature `json:"authorSignature,omitempty"`
+	// Time when driver signed and completed this DVIR. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	EndTime *time.Time `json:"endTime,omitempty"`
 	// Unique Samsara ID for the DVIR.
 	Id string `json:"id"`
 	// The license plate of this vehicle.
@@ -28,27 +30,28 @@ type Dvir struct {
 	MechanicNotes *string `json:"mechanicNotes,omitempty"`
 	// The odometer reading in meters.
 	OdometerMeters *int32 `json:"odometerMeters,omitempty"`
-	// The condition of vechile on which DVIR was done.
-	SafetyStatus    *string                 `json:"safetyStatus,omitempty"`
-	SecondSignature *map[string]interface{} `json:"secondSignature,omitempty"`
-	StartTime       *map[string]interface{} `json:"startTime,omitempty"`
-	ThirdSignature  *map[string]interface{} `json:"thirdSignature,omitempty"`
-	Trailer         *map[string]interface{} `json:"trailer,omitempty"`
+	// The condition of vehicle on which DVIR was done.
+	SafetyStatus    *string              `json:"safetyStatus,omitempty"`
+	SecondSignature *DvirSecondSignature `json:"secondSignature,omitempty"`
+	// Time when driver began filling out this DVIR. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	StartTime      *time.Time          `json:"startTime,omitempty"`
+	ThirdSignature *DvirThirdSignature `json:"thirdSignature,omitempty"`
+	Trailer        *DvirTrailer        `json:"trailer,omitempty"`
 	// Defects registered for the trailer which was part of the DVIR.
-	TrailerDefects *[]DvirAllOf0TrailerDefectsItems `json:"trailerDefects,omitempty"`
+	TrailerDefects *[]DvirTrailerDefectsItems `json:"trailerDefects,omitempty"`
 	// The name of the trailer the DVIR was submitted for.  Only included for tractor+trailer DVIRs.
 	TrailerName *string `json:"trailerName,omitempty"`
 	// Inspection type of the DVIR.
-	Type    *string                 `json:"type,omitempty"`
-	Vehicle *map[string]interface{} `json:"vehicle,omitempty"`
+	Type    *string      `json:"type,omitempty"`
+	Vehicle *DvirVehicle `json:"vehicle,omitempty"`
 	// Defects registered for the vehicle which was part of the DVIR.
-	VehicleDefects *[]DvirAllOf0TrailerDefectsItems `json:"vehicleDefects,omitempty"`
+	VehicleDefects *[]DvirTrailerDefectsItems `json:"vehicleDefects,omitempty"`
 }
 
 // GetAuthorSignature returns the AuthorSignature field value if set, zero value otherwise.
-func (o *Dvir) GetAuthorSignature() map[string]interface{} {
+func (o *Dvir) GetAuthorSignature() DvirAuthorSignature {
 	if o == nil || o.AuthorSignature == nil {
-		var ret map[string]interface{}
+		var ret DvirAuthorSignature
 		return ret
 	}
 	return *o.AuthorSignature
@@ -56,9 +59,9 @@ func (o *Dvir) GetAuthorSignature() map[string]interface{} {
 
 // GetAuthorSignatureOk returns a tuple with the AuthorSignature field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetAuthorSignatureOk() (map[string]interface{}, bool) {
+func (o *Dvir) GetAuthorSignatureOk() (DvirAuthorSignature, bool) {
 	if o == nil || o.AuthorSignature == nil {
-		var ret map[string]interface{}
+		var ret DvirAuthorSignature
 		return ret, false
 	}
 	return *o.AuthorSignature, true
@@ -73,15 +76,15 @@ func (o *Dvir) HasAuthorSignature() bool {
 	return false
 }
 
-// SetAuthorSignature gets a reference to the given map[string]interface{} and assigns it to the AuthorSignature field.
-func (o *Dvir) SetAuthorSignature(v map[string]interface{}) {
+// SetAuthorSignature gets a reference to the given DvirAuthorSignature and assigns it to the AuthorSignature field.
+func (o *Dvir) SetAuthorSignature(v DvirAuthorSignature) {
 	o.AuthorSignature = &v
 }
 
 // GetEndTime returns the EndTime field value if set, zero value otherwise.
-func (o *Dvir) GetEndTime() map[string]interface{} {
+func (o *Dvir) GetEndTime() time.Time {
 	if o == nil || o.EndTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret
 	}
 	return *o.EndTime
@@ -89,9 +92,9 @@ func (o *Dvir) GetEndTime() map[string]interface{} {
 
 // GetEndTimeOk returns a tuple with the EndTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetEndTimeOk() (map[string]interface{}, bool) {
+func (o *Dvir) GetEndTimeOk() (time.Time, bool) {
 	if o == nil || o.EndTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret, false
 	}
 	return *o.EndTime, true
@@ -106,8 +109,8 @@ func (o *Dvir) HasEndTime() bool {
 	return false
 }
 
-// SetEndTime gets a reference to the given map[string]interface{} and assigns it to the EndTime field.
-func (o *Dvir) SetEndTime(v map[string]interface{}) {
+// SetEndTime gets a reference to the given time.Time and assigns it to the EndTime field.
+func (o *Dvir) SetEndTime(v time.Time) {
 	o.EndTime = &v
 }
 
@@ -292,9 +295,9 @@ func (o *Dvir) SetSafetyStatus(v string) {
 }
 
 // GetSecondSignature returns the SecondSignature field value if set, zero value otherwise.
-func (o *Dvir) GetSecondSignature() map[string]interface{} {
+func (o *Dvir) GetSecondSignature() DvirSecondSignature {
 	if o == nil || o.SecondSignature == nil {
-		var ret map[string]interface{}
+		var ret DvirSecondSignature
 		return ret
 	}
 	return *o.SecondSignature
@@ -302,9 +305,9 @@ func (o *Dvir) GetSecondSignature() map[string]interface{} {
 
 // GetSecondSignatureOk returns a tuple with the SecondSignature field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetSecondSignatureOk() (map[string]interface{}, bool) {
+func (o *Dvir) GetSecondSignatureOk() (DvirSecondSignature, bool) {
 	if o == nil || o.SecondSignature == nil {
-		var ret map[string]interface{}
+		var ret DvirSecondSignature
 		return ret, false
 	}
 	return *o.SecondSignature, true
@@ -319,15 +322,15 @@ func (o *Dvir) HasSecondSignature() bool {
 	return false
 }
 
-// SetSecondSignature gets a reference to the given map[string]interface{} and assigns it to the SecondSignature field.
-func (o *Dvir) SetSecondSignature(v map[string]interface{}) {
+// SetSecondSignature gets a reference to the given DvirSecondSignature and assigns it to the SecondSignature field.
+func (o *Dvir) SetSecondSignature(v DvirSecondSignature) {
 	o.SecondSignature = &v
 }
 
 // GetStartTime returns the StartTime field value if set, zero value otherwise.
-func (o *Dvir) GetStartTime() map[string]interface{} {
+func (o *Dvir) GetStartTime() time.Time {
 	if o == nil || o.StartTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret
 	}
 	return *o.StartTime
@@ -335,9 +338,9 @@ func (o *Dvir) GetStartTime() map[string]interface{} {
 
 // GetStartTimeOk returns a tuple with the StartTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetStartTimeOk() (map[string]interface{}, bool) {
+func (o *Dvir) GetStartTimeOk() (time.Time, bool) {
 	if o == nil || o.StartTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret, false
 	}
 	return *o.StartTime, true
@@ -352,15 +355,15 @@ func (o *Dvir) HasStartTime() bool {
 	return false
 }
 
-// SetStartTime gets a reference to the given map[string]interface{} and assigns it to the StartTime field.
-func (o *Dvir) SetStartTime(v map[string]interface{}) {
+// SetStartTime gets a reference to the given time.Time and assigns it to the StartTime field.
+func (o *Dvir) SetStartTime(v time.Time) {
 	o.StartTime = &v
 }
 
 // GetThirdSignature returns the ThirdSignature field value if set, zero value otherwise.
-func (o *Dvir) GetThirdSignature() map[string]interface{} {
+func (o *Dvir) GetThirdSignature() DvirThirdSignature {
 	if o == nil || o.ThirdSignature == nil {
-		var ret map[string]interface{}
+		var ret DvirThirdSignature
 		return ret
 	}
 	return *o.ThirdSignature
@@ -368,9 +371,9 @@ func (o *Dvir) GetThirdSignature() map[string]interface{} {
 
 // GetThirdSignatureOk returns a tuple with the ThirdSignature field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetThirdSignatureOk() (map[string]interface{}, bool) {
+func (o *Dvir) GetThirdSignatureOk() (DvirThirdSignature, bool) {
 	if o == nil || o.ThirdSignature == nil {
-		var ret map[string]interface{}
+		var ret DvirThirdSignature
 		return ret, false
 	}
 	return *o.ThirdSignature, true
@@ -385,15 +388,15 @@ func (o *Dvir) HasThirdSignature() bool {
 	return false
 }
 
-// SetThirdSignature gets a reference to the given map[string]interface{} and assigns it to the ThirdSignature field.
-func (o *Dvir) SetThirdSignature(v map[string]interface{}) {
+// SetThirdSignature gets a reference to the given DvirThirdSignature and assigns it to the ThirdSignature field.
+func (o *Dvir) SetThirdSignature(v DvirThirdSignature) {
 	o.ThirdSignature = &v
 }
 
 // GetTrailer returns the Trailer field value if set, zero value otherwise.
-func (o *Dvir) GetTrailer() map[string]interface{} {
+func (o *Dvir) GetTrailer() DvirTrailer {
 	if o == nil || o.Trailer == nil {
-		var ret map[string]interface{}
+		var ret DvirTrailer
 		return ret
 	}
 	return *o.Trailer
@@ -401,9 +404,9 @@ func (o *Dvir) GetTrailer() map[string]interface{} {
 
 // GetTrailerOk returns a tuple with the Trailer field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetTrailerOk() (map[string]interface{}, bool) {
+func (o *Dvir) GetTrailerOk() (DvirTrailer, bool) {
 	if o == nil || o.Trailer == nil {
-		var ret map[string]interface{}
+		var ret DvirTrailer
 		return ret, false
 	}
 	return *o.Trailer, true
@@ -418,15 +421,15 @@ func (o *Dvir) HasTrailer() bool {
 	return false
 }
 
-// SetTrailer gets a reference to the given map[string]interface{} and assigns it to the Trailer field.
-func (o *Dvir) SetTrailer(v map[string]interface{}) {
+// SetTrailer gets a reference to the given DvirTrailer and assigns it to the Trailer field.
+func (o *Dvir) SetTrailer(v DvirTrailer) {
 	o.Trailer = &v
 }
 
 // GetTrailerDefects returns the TrailerDefects field value if set, zero value otherwise.
-func (o *Dvir) GetTrailerDefects() []DvirAllOf0TrailerDefectsItems {
+func (o *Dvir) GetTrailerDefects() []DvirTrailerDefectsItems {
 	if o == nil || o.TrailerDefects == nil {
-		var ret []DvirAllOf0TrailerDefectsItems
+		var ret []DvirTrailerDefectsItems
 		return ret
 	}
 	return *o.TrailerDefects
@@ -434,9 +437,9 @@ func (o *Dvir) GetTrailerDefects() []DvirAllOf0TrailerDefectsItems {
 
 // GetTrailerDefectsOk returns a tuple with the TrailerDefects field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetTrailerDefectsOk() ([]DvirAllOf0TrailerDefectsItems, bool) {
+func (o *Dvir) GetTrailerDefectsOk() ([]DvirTrailerDefectsItems, bool) {
 	if o == nil || o.TrailerDefects == nil {
-		var ret []DvirAllOf0TrailerDefectsItems
+		var ret []DvirTrailerDefectsItems
 		return ret, false
 	}
 	return *o.TrailerDefects, true
@@ -451,8 +454,8 @@ func (o *Dvir) HasTrailerDefects() bool {
 	return false
 }
 
-// SetTrailerDefects gets a reference to the given []DvirAllOf0TrailerDefectsItems and assigns it to the TrailerDefects field.
-func (o *Dvir) SetTrailerDefects(v []DvirAllOf0TrailerDefectsItems) {
+// SetTrailerDefects gets a reference to the given []DvirTrailerDefectsItems and assigns it to the TrailerDefects field.
+func (o *Dvir) SetTrailerDefects(v []DvirTrailerDefectsItems) {
 	o.TrailerDefects = &v
 }
 
@@ -523,9 +526,9 @@ func (o *Dvir) SetType(v string) {
 }
 
 // GetVehicle returns the Vehicle field value if set, zero value otherwise.
-func (o *Dvir) GetVehicle() map[string]interface{} {
+func (o *Dvir) GetVehicle() DvirVehicle {
 	if o == nil || o.Vehicle == nil {
-		var ret map[string]interface{}
+		var ret DvirVehicle
 		return ret
 	}
 	return *o.Vehicle
@@ -533,9 +536,9 @@ func (o *Dvir) GetVehicle() map[string]interface{} {
 
 // GetVehicleOk returns a tuple with the Vehicle field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetVehicleOk() (map[string]interface{}, bool) {
+func (o *Dvir) GetVehicleOk() (DvirVehicle, bool) {
 	if o == nil || o.Vehicle == nil {
-		var ret map[string]interface{}
+		var ret DvirVehicle
 		return ret, false
 	}
 	return *o.Vehicle, true
@@ -550,15 +553,15 @@ func (o *Dvir) HasVehicle() bool {
 	return false
 }
 
-// SetVehicle gets a reference to the given map[string]interface{} and assigns it to the Vehicle field.
-func (o *Dvir) SetVehicle(v map[string]interface{}) {
+// SetVehicle gets a reference to the given DvirVehicle and assigns it to the Vehicle field.
+func (o *Dvir) SetVehicle(v DvirVehicle) {
 	o.Vehicle = &v
 }
 
 // GetVehicleDefects returns the VehicleDefects field value if set, zero value otherwise.
-func (o *Dvir) GetVehicleDefects() []DvirAllOf0TrailerDefectsItems {
+func (o *Dvir) GetVehicleDefects() []DvirTrailerDefectsItems {
 	if o == nil || o.VehicleDefects == nil {
-		var ret []DvirAllOf0TrailerDefectsItems
+		var ret []DvirTrailerDefectsItems
 		return ret
 	}
 	return *o.VehicleDefects
@@ -566,9 +569,9 @@ func (o *Dvir) GetVehicleDefects() []DvirAllOf0TrailerDefectsItems {
 
 // GetVehicleDefectsOk returns a tuple with the VehicleDefects field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Dvir) GetVehicleDefectsOk() ([]DvirAllOf0TrailerDefectsItems, bool) {
+func (o *Dvir) GetVehicleDefectsOk() ([]DvirTrailerDefectsItems, bool) {
 	if o == nil || o.VehicleDefects == nil {
-		var ret []DvirAllOf0TrailerDefectsItems
+		var ret []DvirTrailerDefectsItems
 		return ret, false
 	}
 	return *o.VehicleDefects, true
@@ -583,8 +586,8 @@ func (o *Dvir) HasVehicleDefects() bool {
 	return false
 }
 
-// SetVehicleDefects gets a reference to the given []DvirAllOf0TrailerDefectsItems and assigns it to the VehicleDefects field.
-func (o *Dvir) SetVehicleDefects(v []DvirAllOf0TrailerDefectsItems) {
+// SetVehicleDefects gets a reference to the given []DvirTrailerDefectsItems and assigns it to the VehicleDefects field.
+func (o *Dvir) SetVehicleDefects(v []DvirTrailerDefectsItems) {
 	o.VehicleDefects = &v
 }
 

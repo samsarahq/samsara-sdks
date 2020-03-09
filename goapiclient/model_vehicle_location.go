@@ -12,36 +12,55 @@ package goapiclient
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
 // VehicleLocation Vehicle location event.
 type VehicleLocation struct {
 	// Heading of the vehicle in degrees.
-	Heading float64 `json:"heading"`
+	Heading *float64 `json:"heading,omitempty"`
 	// GPS latitude represented in degrees
 	Latitude float64 `json:"latitude"`
 	// GPS longitude represented in degrees
 	Longitude  float64                    `json:"longitude"`
 	ReverseGeo *VehicleLocationReverseGeo `json:"reverseGeo,omitempty"`
 	// GPS speed of the vehicle in miles per hour.
-	Speed float64 `json:"speed"`
-	// UTC timestamp in RFC 3339 milliseconds format.
-	Time string `json:"time"`
+	Speed *float64 `json:"speed,omitempty"`
+	// UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	Time time.Time `json:"time"`
 }
 
-// GetHeading returns the Heading field value
+// GetHeading returns the Heading field value if set, zero value otherwise.
 func (o *VehicleLocation) GetHeading() float64 {
-	if o == nil {
+	if o == nil || o.Heading == nil {
 		var ret float64
 		return ret
 	}
-
-	return o.Heading
+	return *o.Heading
 }
 
-// SetHeading sets field value
+// GetHeadingOk returns a tuple with the Heading field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *VehicleLocation) GetHeadingOk() (float64, bool) {
+	if o == nil || o.Heading == nil {
+		var ret float64
+		return ret, false
+	}
+	return *o.Heading, true
+}
+
+// HasHeading returns a boolean if a field has been set.
+func (o *VehicleLocation) HasHeading() bool {
+	if o != nil && o.Heading != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetHeading gets a reference to the given float64 and assigns it to the Heading field.
 func (o *VehicleLocation) SetHeading(v float64) {
-	o.Heading = v
+	o.Heading = &v
 }
 
 // GetLatitude returns the Latitude field value
@@ -107,25 +126,43 @@ func (o *VehicleLocation) SetReverseGeo(v VehicleLocationReverseGeo) {
 	o.ReverseGeo = &v
 }
 
-// GetSpeed returns the Speed field value
+// GetSpeed returns the Speed field value if set, zero value otherwise.
 func (o *VehicleLocation) GetSpeed() float64 {
-	if o == nil {
+	if o == nil || o.Speed == nil {
 		var ret float64
 		return ret
 	}
-
-	return o.Speed
+	return *o.Speed
 }
 
-// SetSpeed sets field value
+// GetSpeedOk returns a tuple with the Speed field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *VehicleLocation) GetSpeedOk() (float64, bool) {
+	if o == nil || o.Speed == nil {
+		var ret float64
+		return ret, false
+	}
+	return *o.Speed, true
+}
+
+// HasSpeed returns a boolean if a field has been set.
+func (o *VehicleLocation) HasSpeed() bool {
+	if o != nil && o.Speed != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSpeed gets a reference to the given float64 and assigns it to the Speed field.
 func (o *VehicleLocation) SetSpeed(v float64) {
-	o.Speed = v
+	o.Speed = &v
 }
 
 // GetTime returns the Time field value
-func (o *VehicleLocation) GetTime() string {
+func (o *VehicleLocation) GetTime() time.Time {
 	if o == nil {
-		var ret string
+		var ret time.Time
 		return ret
 	}
 
@@ -133,7 +170,7 @@ func (o *VehicleLocation) GetTime() string {
 }
 
 // SetTime sets field value
-func (o *VehicleLocation) SetTime(v string) {
+func (o *VehicleLocation) SetTime(v time.Time) {
 	o.Time = v
 }
 

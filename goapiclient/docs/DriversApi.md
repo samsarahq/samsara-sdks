@@ -5,16 +5,16 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateDriver**](DriversApi.md#CreateDriver) | **Post** /fleet/drivers | Create a driver
-[**GetDriverById**](DriversApi.md#GetDriverById) | **Get** /fleet/drivers/{id} | Retrieve a driver
+[**GetDriver**](DriversApi.md#GetDriver) | **Get** /fleet/drivers/{id} | Retrieve a driver
 [**GetDriverTachographActivity**](DriversApi.md#GetDriverTachographActivity) | **Get** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
-[**GetDrivers**](DriversApi.md#GetDrivers) | **Get** /fleet/drivers | List all drivers
-[**UpdateDriverById**](DriversApi.md#UpdateDriverById) | **Patch** /fleet/drivers/{id} | Update a driver
+[**ListDrivers**](DriversApi.md#ListDrivers) | **Get** /fleet/drivers | List all drivers
+[**UpdateDriver**](DriversApi.md#UpdateDriver) | **Patch** /fleet/drivers/{id} | Update a driver
 
 
 
 ## CreateDriver
 
-> InlineResponse2003 CreateDriver(ctx).Driver(driver).Execute()
+> DriverResponse CreateDriver(ctx).Driver(driver).Execute()
 
 Create a driver
 
@@ -31,11 +31,11 @@ Other parameters are passed through a pointer to a apiCreateDriverRequest struct
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **driver** | [**DriverCreate**](DriverCreate.md) | The driver to create. | 
+ **driver** | [**CreateDriverRequest**](CreateDriverRequest.md) | The driver to create. | 
 
 ### Return type
 
-[**InlineResponse2003**](inline_response_200_3.md)
+[**DriverResponse**](DriverResponse.md)
 
 ### Authorization
 
@@ -51,9 +51,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetDriverById
+## GetDriver
 
-> InlineResponse2003 GetDriverById(ctx, id).Execute()
+> DriverResponse GetDriver(ctx, id).Execute()
 
 Retrieve a driver
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetDriverByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetDriverRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](inline_response_200_3.md)
+[**DriverResponse**](DriverResponse.md)
 
 ### Authorization
 
@@ -136,9 +136,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetDrivers
+## ListDrivers
 
-> map[string]interface{} GetDrivers(ctx).IsDeactivated(isDeactivated).Limit(limit).After(after).TagIds(tagIds).Execute()
+> ListDriversResponse ListDrivers(ctx).DriverActivationStatus(driverActivationStatus).Limit(limit).After(after).TagIds(tagIds).UpdatedAfterTime(updatedAfterTime).CreatedAfterTime(createdAfterTime).Execute()
 
 List all drivers
 
@@ -150,19 +150,21 @@ List all drivers
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetDriversRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListDriversRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **isDeactivated** | **bool** | If value is true, only drivers that are deactivated will appear in the response. This parameter will default to false if not provided (fetching only active drivers). | 
+ **driverActivationStatus** | **string** | If value is &#x60;deactivated&#x60;, only drivers that are deactivated will appear in the response. This parameter will default to &#x60;active&#x60; if not provided (fetching only active drivers). | 
  **limit** | **int64** | The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [default to 512]
  **after** | **string** | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | 
  **tagIds** | [**[]string**](string.md) | A filter on the data based on this comma-separated list of tag IDs. Example: &#x60;tagIds&#x3D;1234,5678&#x60; | 
+ **updatedAfterTime** | **time.Time** | A filter on data to have an updated at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **createdAfterTime** | **time.Time** | A filter on data to have a created at time after or equal to this specified time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+[**ListDriversResponse**](ListDriversResponse.md)
 
 ### Authorization
 
@@ -178,9 +180,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UpdateDriverById
+## UpdateDriver
 
-> InlineResponse2003 UpdateDriverById(ctx, id).Driver(driver).Execute()
+> DriverResponse UpdateDriver(ctx, id).Driver(driver).Execute()
 
 Update a driver
 
@@ -196,17 +198,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateDriverByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateDriverRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **driver** | [**DriverUpdate**](DriverUpdate.md) | Updates to the driver properties. | 
+ **driver** | [**UpdateDriverRequest**](UpdateDriverRequest.md) | Updates to the driver properties. | 
 
 ### Return type
 
-[**InlineResponse2003**](inline_response_200_3.md)
+[**DriverResponse**](DriverResponse.md)
 
 ### Authorization
 

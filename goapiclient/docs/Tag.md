@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Unique Samsara ID of this tag. | [optional] 
 **Name** | Pointer to **string** | Name of this tag. | [optional] 
+**ParentTagId** | Pointer to **string** | If this tag is part a hierarchical tag tree, this is the ID of the parent tag, otherwise this will be omitted. | [optional] 
 **Addresses** | Pointer to [**[]TaggedObject**](TaggedObject.md) | The addresses that belong to this tag. | [optional] 
 **Assets** | Pointer to [**[]TaggedObject**](TaggedObject.md) | The trailers, unpowered, and powered assets that belong to this tag. | [optional] 
 **Drivers** | Pointer to [**[]TaggedObject**](TaggedObject.md) | The drivers that belong to this tag. | [optional] 
@@ -65,6 +66,31 @@ HasName returns a boolean if a field has been set.
 `func (o *Tag) SetName(v string)`
 
 SetName gets a reference to the given string and assigns it to the Name field.
+
+### GetParentTagId
+
+`func (o *Tag) GetParentTagId() string`
+
+GetParentTagId returns the ParentTagId field if non-nil, zero value otherwise.
+
+### GetParentTagIdOk
+
+`func (o *Tag) GetParentTagIdOk() (string, bool)`
+
+GetParentTagIdOk returns a tuple with the ParentTagId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasParentTagId
+
+`func (o *Tag) HasParentTagId() bool`
+
+HasParentTagId returns a boolean if a field has been set.
+
+### SetParentTagId
+
+`func (o *Tag) SetParentTagId(v string)`
+
+SetParentTagId gets a reference to the given string and assigns it to the ParentTagId field.
 
 ### GetAddresses
 

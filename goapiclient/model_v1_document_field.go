@@ -25,8 +25,6 @@ type V1DocumentField struct {
 	MultipleChoiceValue *[]V1DocumentFieldCreateMultipleChoiceValue `json:"multipleChoiceValue,omitempty"`
 	// The value of a `ValueType_Number` field.
 	NumberValue *float64 `json:"numberValue,omitempty"`
-	// The value of a `ValueType_Photo` field.
-	PhotoValue *[]V1DocumentFieldCreatePhotoValue `json:"photoValue,omitempty"`
 	// The value of a `ValueType_String` field.
 	StringValue *string `json:"stringValue,omitempty"`
 	// The type of this field. Valid values: `ValueType_Number`, `ValueType_String`, `ValueType_Photo`, `ValueType_MultipleChoice`, `ValueType_Signature`, `ValueType_DateTime`. When creating documents via API, only `ValueType_Number`, `ValueType_String`, `ValueType_MultipleChoice`, and `ValueType_DateTime` are accepted.
@@ -178,39 +176,6 @@ func (o *V1DocumentField) HasNumberValue() bool {
 // SetNumberValue gets a reference to the given float64 and assigns it to the NumberValue field.
 func (o *V1DocumentField) SetNumberValue(v float64) {
 	o.NumberValue = &v
-}
-
-// GetPhotoValue returns the PhotoValue field value if set, zero value otherwise.
-func (o *V1DocumentField) GetPhotoValue() []V1DocumentFieldCreatePhotoValue {
-	if o == nil || o.PhotoValue == nil {
-		var ret []V1DocumentFieldCreatePhotoValue
-		return ret
-	}
-	return *o.PhotoValue
-}
-
-// GetPhotoValueOk returns a tuple with the PhotoValue field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *V1DocumentField) GetPhotoValueOk() ([]V1DocumentFieldCreatePhotoValue, bool) {
-	if o == nil || o.PhotoValue == nil {
-		var ret []V1DocumentFieldCreatePhotoValue
-		return ret, false
-	}
-	return *o.PhotoValue, true
-}
-
-// HasPhotoValue returns a boolean if a field has been set.
-func (o *V1DocumentField) HasPhotoValue() bool {
-	if o != nil && o.PhotoValue != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPhotoValue gets a reference to the given []V1DocumentFieldCreatePhotoValue and assigns it to the PhotoValue field.
-func (o *V1DocumentField) SetPhotoValue(v []V1DocumentFieldCreatePhotoValue) {
-	o.PhotoValue = &v
 }
 
 // GetStringValue returns the StringValue field value if set, zero value otherwise.

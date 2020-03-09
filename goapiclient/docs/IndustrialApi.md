@@ -148,7 +148,7 @@ No authorization required
 
 ## GetDataInputs
 
-> InlineResponse2009 GetDataInputs(ctx).Limit(limit).After(after).TagIds(tagIds).Execute()
+> InlineResponse2004 GetDataInputs(ctx).Limit(limit).After(after).TagIds(tagIds).Execute()
 
 List all data inputs
 
@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2009**](inline_response_200_9.md)
+[**InlineResponse2004**](inline_response_200_4.md)
 
 ### Authorization
 
@@ -234,7 +234,7 @@ No authorization required
 
 ## V1getAllDataInputs
 
-> InlineResponse20022 V1getAllDataInputs(ctx).StartMs(startMs).EndMs(endMs).Execute()
+> InlineResponse20013 V1getAllDataInputs(ctx).StartMs(startMs).EndMs(endMs).Execute()
 
 Get industrial data
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](inline_response_200_22.md)
+[**InlineResponse20013**](inline_response_200_13.md)
 
 ### Authorization
 
@@ -354,7 +354,7 @@ No authorization required
 
 ## V1getMachines
 
-> InlineResponse20023 V1getMachines(ctx).Execute()
+> InlineResponse20014 V1getMachines(ctx).Execute()
 
 Get machines
 
@@ -371,7 +371,7 @@ Other parameters are passed through a pointer to a apiV1getMachinesRequest struc
 
 ### Return type
 
-[**InlineResponse20023**](inline_response_200_23.md)
+[**InlineResponse20014**](inline_response_200_14.md)
 
 ### Authorization
 

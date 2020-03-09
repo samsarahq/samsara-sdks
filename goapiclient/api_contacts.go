@@ -28,10 +28,10 @@ type ContactsApiService service
 type apiCreateContactRequest struct {
 	ctx        _context.Context
 	apiService *ContactsApiService
-	contact    *ContactInput
+	contact    *CreateContactRequest
 }
 
-func (r apiCreateContactRequest) Contact(contact ContactInput) apiCreateContactRequest {
+func (r apiCreateContactRequest) Contact(contact CreateContactRequest) apiCreateContactRequest {
 	r.contact = &contact
 	return r
 }
@@ -51,16 +51,16 @@ func (a *ContactsApiService) CreateContact(ctx _context.Context) apiCreateContac
 
 /*
 Execute executes the request
- @return InlineResponse200
+ @return ContactResponse
 */
-func (r apiCreateContactRequest) Execute() (InlineResponse200, *_nethttp.Response, error) {
+func (r apiCreateContactRequest) Execute() (ContactResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse200
+		localVarReturnValue  ContactResponse
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.CreateContact")
@@ -119,7 +119,7 @@ func (r apiCreateContactRequest) Execute() (InlineResponse200, *_nethttp.Respons
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse200
+			var v ContactResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -150,21 +150,21 @@ func (r apiCreateContactRequest) Execute() (InlineResponse200, *_nethttp.Respons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiDeleteContactByIdRequest struct {
+type apiDeleteContactRequest struct {
 	ctx        _context.Context
 	apiService *ContactsApiService
 	id         string
 }
 
 /*
-DeleteContactById Delete a contact
+DeleteContact Delete a contact
 Delete the given contact.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id Unique identifier for the contact.
-@return apiDeleteContactByIdRequest
+@return apiDeleteContactRequest
 */
-func (a *ContactsApiService) DeleteContactById(ctx _context.Context, id string) apiDeleteContactByIdRequest {
-	return apiDeleteContactByIdRequest{
+func (a *ContactsApiService) DeleteContact(ctx _context.Context, id string) apiDeleteContactRequest {
+	return apiDeleteContactRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -175,7 +175,7 @@ func (a *ContactsApiService) DeleteContactById(ctx _context.Context, id string) 
 Execute executes the request
 
 */
-func (r apiDeleteContactByIdRequest) Execute() (*_nethttp.Response, error) {
+func (r apiDeleteContactRequest) Execute() (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -184,7 +184,7 @@ func (r apiDeleteContactByIdRequest) Execute() (*_nethttp.Response, error) {
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.DeleteContactById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.DeleteContact")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -247,21 +247,21 @@ func (r apiDeleteContactByIdRequest) Execute() (*_nethttp.Response, error) {
 	return localVarHTTPResponse, nil
 }
 
-type apiGetContactByIdRequest struct {
+type apiGetContactRequest struct {
 	ctx        _context.Context
 	apiService *ContactsApiService
 	id         string
 }
 
 /*
-GetContactById Retrieve a contact
+GetContact Retrieve a contact
 Get a specific contact's information.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id Unique identifier for the contact.
-@return apiGetContactByIdRequest
+@return apiGetContactRequest
 */
-func (a *ContactsApiService) GetContactById(ctx _context.Context, id string) apiGetContactByIdRequest {
-	return apiGetContactByIdRequest{
+func (a *ContactsApiService) GetContact(ctx _context.Context, id string) apiGetContactRequest {
+	return apiGetContactRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -270,19 +270,19 @@ func (a *ContactsApiService) GetContactById(ctx _context.Context, id string) api
 
 /*
 Execute executes the request
- @return InlineResponse200
+ @return ContactResponse
 */
-func (r apiGetContactByIdRequest) Execute() (InlineResponse200, *_nethttp.Response, error) {
+func (r apiGetContactRequest) Execute() (ContactResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse200
+		localVarReturnValue  ContactResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.GetContactById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.GetContact")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -333,7 +333,7 @@ func (r apiGetContactByIdRequest) Execute() (InlineResponse200, *_nethttp.Respon
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse200
+			var v ContactResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -364,31 +364,31 @@ func (r apiGetContactByIdRequest) Execute() (InlineResponse200, *_nethttp.Respon
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetContactsRequest struct {
+type apiListContactsRequest struct {
 	ctx        _context.Context
 	apiService *ContactsApiService
 	limit      *int64
 	after      *string
 }
 
-func (r apiGetContactsRequest) Limit(limit int64) apiGetContactsRequest {
+func (r apiListContactsRequest) Limit(limit int64) apiListContactsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r apiGetContactsRequest) After(after string) apiGetContactsRequest {
+func (r apiListContactsRequest) After(after string) apiListContactsRequest {
 	r.after = &after
 	return r
 }
 
 /*
-GetContacts List all contacts
+ListContacts List all contacts
 Returns a list of all contacts in an organization.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetContactsRequest
+@return apiListContactsRequest
 */
-func (a *ContactsApiService) GetContacts(ctx _context.Context) apiGetContactsRequest {
-	return apiGetContactsRequest{
+func (a *ContactsApiService) ListContacts(ctx _context.Context) apiListContactsRequest {
+	return apiListContactsRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -396,19 +396,19 @@ func (a *ContactsApiService) GetContacts(ctx _context.Context) apiGetContactsReq
 
 /*
 Execute executes the request
- @return map[string]interface{}
+ @return ListContactsResponse
 */
-func (r apiGetContactsRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
+func (r apiListContactsRequest) Execute() (ListContactsResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  ListContactsResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.GetContacts")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.ListContacts")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -464,7 +464,7 @@ func (r apiGetContactsRequest) Execute() (map[string]interface{}, *_nethttp.Resp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v ListContactsResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -495,27 +495,27 @@ func (r apiGetContactsRequest) Execute() (map[string]interface{}, *_nethttp.Resp
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiUpdateContactByIdRequest struct {
+type apiUpdateContactRequest struct {
 	ctx        _context.Context
 	apiService *ContactsApiService
 	id         string
-	contact    *ContactInput
+	contact    *UpdateContactRequest
 }
 
-func (r apiUpdateContactByIdRequest) Contact(contact ContactInput) apiUpdateContactByIdRequest {
+func (r apiUpdateContactRequest) Contact(contact UpdateContactRequest) apiUpdateContactRequest {
 	r.contact = &contact
 	return r
 }
 
 /*
-UpdateContactById Update a contact
+UpdateContact Update a contact
 Update a specific contact's information.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id Unique identifier for the contact.
-@return apiUpdateContactByIdRequest
+@return apiUpdateContactRequest
 */
-func (a *ContactsApiService) UpdateContactById(ctx _context.Context, id string) apiUpdateContactByIdRequest {
-	return apiUpdateContactByIdRequest{
+func (a *ContactsApiService) UpdateContact(ctx _context.Context, id string) apiUpdateContactRequest {
+	return apiUpdateContactRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -524,19 +524,19 @@ func (a *ContactsApiService) UpdateContactById(ctx _context.Context, id string) 
 
 /*
 Execute executes the request
- @return InlineResponse200
+ @return ContactResponse
 */
-func (r apiUpdateContactByIdRequest) Execute() (InlineResponse200, *_nethttp.Response, error) {
+func (r apiUpdateContactRequest) Execute() (ContactResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse200
+		localVarReturnValue  ContactResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.UpdateContactById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "ContactsApiService.UpdateContact")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -547,6 +547,10 @@ func (r apiUpdateContactByIdRequest) Execute() (InlineResponse200, *_nethttp.Res
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+
+	if r.contact == nil {
+		return localVarReturnValue, nil, reportError("contact is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -589,7 +593,7 @@ func (r apiUpdateContactByIdRequest) Execute() (InlineResponse200, *_nethttp.Res
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse200
+			var v ContactResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

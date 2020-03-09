@@ -70,16 +70,16 @@ func (a *UnassignedDrivingSegmentsApiService) GetUnassignedDrivingSegments(ctx _
 
 /*
 Execute executes the request
- @return InlineResponse2006
+ @return InlineResponse2002
 */
-func (r apiGetUnassignedDrivingSegmentsRequest) Execute() (InlineResponse2006, *_nethttp.Response, error) {
+func (r apiGetUnassignedDrivingSegmentsRequest) Execute() (InlineResponse2002, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2006
+		localVarReturnValue  InlineResponse2002
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UnassignedDrivingSegmentsApiService.GetUnassignedDrivingSegments")
@@ -144,7 +144,7 @@ func (r apiGetUnassignedDrivingSegmentsRequest) Execute() (InlineResponse2006, *
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2006
+			var v InlineResponse2002
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -204,16 +204,16 @@ func (a *UnassignedDrivingSegmentsApiService) PatchUnassignedDrivingSegments(ctx
 
 /*
 Execute executes the request
- @return InlineResponse2007
+ @return InlineResponse2003
 */
-func (r apiPatchUnassignedDrivingSegmentsRequest) Execute() (InlineResponse2007, *_nethttp.Response, error) {
+func (r apiPatchUnassignedDrivingSegmentsRequest) Execute() (InlineResponse2003, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2007
+		localVarReturnValue  InlineResponse2003
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UnassignedDrivingSegmentsApiService.PatchUnassignedDrivingSegments")
@@ -273,7 +273,7 @@ func (r apiPatchUnassignedDrivingSegmentsRequest) Execute() (InlineResponse2007,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2007
+			var v InlineResponse2003
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

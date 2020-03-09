@@ -4,20 +4,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Time** | Pointer to **string** | UTC timestamp in RFC 3339 milliseconds format. | [optional] 
+**Time** | Pointer to [**time.Time**](time.Time.md) | UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | [optional] 
 **Value** | Pointer to **float64** | Numeric value of the data point. | [optional] 
 
 ## Methods
 
 ### GetTime
 
-`func (o *NumberDataPoint) GetTime() string`
+`func (o *NumberDataPoint) GetTime() time.Time`
 
 GetTime returns the Time field if non-nil, zero value otherwise.
 
 ### GetTimeOk
 
-`func (o *NumberDataPoint) GetTimeOk() (string, bool)`
+`func (o *NumberDataPoint) GetTimeOk() (time.Time, bool)`
 
 GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -30,9 +30,9 @@ HasTime returns a boolean if a field has been set.
 
 ### SetTime
 
-`func (o *NumberDataPoint) SetTime(v string)`
+`func (o *NumberDataPoint) SetTime(v time.Time)`
 
-SetTime gets a reference to the given string and assigns it to the Time field.
+SetTime gets a reference to the given time.Time and assigns it to the Time field.
 
 ### GetValue
 

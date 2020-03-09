@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## GetEquipmentById
 
-> InlineResponse2005 GetEquipmentById(ctx, id).Execute()
+> InlineResponse2001 GetEquipmentById(ctx, id).Execute()
 
 Retrieve a unit of equipment
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2005**](inline_response_200_5.md)
+[**InlineResponse2001**](inline_response_200_1.md)
 
 ### Authorization
 

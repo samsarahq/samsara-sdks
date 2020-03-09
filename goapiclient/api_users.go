@@ -28,10 +28,10 @@ type UsersApiService service
 type apiCreateUserRequest struct {
 	ctx        _context.Context
 	apiService *UsersApiService
-	user       *UserCreate
+	user       *CreateUserRequest
 }
 
-func (r apiCreateUserRequest) User(user UserCreate) apiCreateUserRequest {
+func (r apiCreateUserRequest) User(user CreateUserRequest) apiCreateUserRequest {
 	r.user = &user
 	return r
 }
@@ -51,16 +51,16 @@ func (a *UsersApiService) CreateUser(ctx _context.Context) apiCreateUserRequest 
 
 /*
 Execute executes the request
- @return InlineResponse20013
+ @return UserResponse
 */
-func (r apiCreateUserRequest) Execute() (InlineResponse20013, *_nethttp.Response, error) {
+func (r apiCreateUserRequest) Execute() (UserResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20013
+		localVarReturnValue  UserResponse
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.CreateUser")
@@ -73,6 +73,10 @@ func (r apiCreateUserRequest) Execute() (InlineResponse20013, *_nethttp.Response
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+
+	if r.user == nil {
+		return localVarReturnValue, nil, reportError("user is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -115,7 +119,7 @@ func (r apiCreateUserRequest) Execute() (InlineResponse20013, *_nethttp.Response
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20013
+			var v UserResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -146,21 +150,21 @@ func (r apiCreateUserRequest) Execute() (InlineResponse20013, *_nethttp.Response
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiDeleteUserByIdRequest struct {
+type apiDeleteUserRequest struct {
 	ctx        _context.Context
 	apiService *UsersApiService
 	id         string
 }
 
 /*
-DeleteUserById Delete a user
+DeleteUser Delete a user
 Delete the given user.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id Unique identifier for the user.
-@return apiDeleteUserByIdRequest
+@return apiDeleteUserRequest
 */
-func (a *UsersApiService) DeleteUserById(ctx _context.Context, id string) apiDeleteUserByIdRequest {
-	return apiDeleteUserByIdRequest{
+func (a *UsersApiService) DeleteUser(ctx _context.Context, id string) apiDeleteUserRequest {
+	return apiDeleteUserRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -171,7 +175,7 @@ func (a *UsersApiService) DeleteUserById(ctx _context.Context, id string) apiDel
 Execute executes the request
 
 */
-func (r apiDeleteUserByIdRequest) Execute() (*_nethttp.Response, error) {
+func (r apiDeleteUserRequest) Execute() (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -180,7 +184,7 @@ func (r apiDeleteUserByIdRequest) Execute() (*_nethttp.Response, error) {
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.DeleteUserById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.DeleteUser")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -243,21 +247,21 @@ func (r apiDeleteUserByIdRequest) Execute() (*_nethttp.Response, error) {
 	return localVarHTTPResponse, nil
 }
 
-type apiGetUserByIdRequest struct {
+type apiGetUserRequest struct {
 	ctx        _context.Context
 	apiService *UsersApiService
 	id         string
 }
 
 /*
-GetUserById Retrieve a user
+GetUser Retrieve a user
 Get a specific user's information.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id Unique identifier for the user.
-@return apiGetUserByIdRequest
+@return apiGetUserRequest
 */
-func (a *UsersApiService) GetUserById(ctx _context.Context, id string) apiGetUserByIdRequest {
-	return apiGetUserByIdRequest{
+func (a *UsersApiService) GetUser(ctx _context.Context, id string) apiGetUserRequest {
+	return apiGetUserRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -266,19 +270,19 @@ func (a *UsersApiService) GetUserById(ctx _context.Context, id string) apiGetUse
 
 /*
 Execute executes the request
- @return InlineResponse20014
+ @return UserResponse
 */
-func (r apiGetUserByIdRequest) Execute() (InlineResponse20014, *_nethttp.Response, error) {
+func (r apiGetUserRequest) Execute() (UserResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20014
+		localVarReturnValue  UserResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUser")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -329,7 +333,7 @@ func (r apiGetUserByIdRequest) Execute() (InlineResponse20014, *_nethttp.Respons
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20014
+			var v UserResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -360,31 +364,31 @@ func (r apiGetUserByIdRequest) Execute() (InlineResponse20014, *_nethttp.Respons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetUserRolesRequest struct {
+type apiListUserRolesRequest struct {
 	ctx        _context.Context
 	apiService *UsersApiService
 	limit      *int64
 	after      *string
 }
 
-func (r apiGetUserRolesRequest) Limit(limit int64) apiGetUserRolesRequest {
+func (r apiListUserRolesRequest) Limit(limit int64) apiListUserRolesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r apiGetUserRolesRequest) After(after string) apiGetUserRolesRequest {
+func (r apiListUserRolesRequest) After(after string) apiListUserRolesRequest {
 	r.after = &after
 	return r
 }
 
 /*
-GetUserRoles List all user roles
+ListUserRoles List all user roles
 Returns a list of all user roles in an organization.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetUserRolesRequest
+@return apiListUserRolesRequest
 */
-func (a *UsersApiService) GetUserRoles(ctx _context.Context) apiGetUserRolesRequest {
-	return apiGetUserRolesRequest{
+func (a *UsersApiService) ListUserRoles(ctx _context.Context) apiListUserRolesRequest {
+	return apiListUserRolesRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -392,19 +396,19 @@ func (a *UsersApiService) GetUserRoles(ctx _context.Context) apiGetUserRolesRequ
 
 /*
 Execute executes the request
- @return map[string]interface{}
+ @return ListUserRolesResponse
 */
-func (r apiGetUserRolesRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
+func (r apiListUserRolesRequest) Execute() (ListUserRolesResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  ListUserRolesResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUserRoles")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.ListUserRoles")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -460,7 +464,7 @@ func (r apiGetUserRolesRequest) Execute() (map[string]interface{}, *_nethttp.Res
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v ListUserRolesResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -491,31 +495,31 @@ func (r apiGetUserRolesRequest) Execute() (map[string]interface{}, *_nethttp.Res
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetUsersRequest struct {
+type apiListUsersRequest struct {
 	ctx        _context.Context
 	apiService *UsersApiService
 	limit      *int64
 	after      *string
 }
 
-func (r apiGetUsersRequest) Limit(limit int64) apiGetUsersRequest {
+func (r apiListUsersRequest) Limit(limit int64) apiListUsersRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r apiGetUsersRequest) After(after string) apiGetUsersRequest {
+func (r apiListUsersRequest) After(after string) apiListUsersRequest {
 	r.after = &after
 	return r
 }
 
 /*
-GetUsers List all users
+ListUsers List all users
 Returns a list of all users in an organization.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetUsersRequest
+@return apiListUsersRequest
 */
-func (a *UsersApiService) GetUsers(ctx _context.Context) apiGetUsersRequest {
-	return apiGetUsersRequest{
+func (a *UsersApiService) ListUsers(ctx _context.Context) apiListUsersRequest {
+	return apiListUsersRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -523,19 +527,19 @@ func (a *UsersApiService) GetUsers(ctx _context.Context) apiGetUsersRequest {
 
 /*
 Execute executes the request
- @return map[string]interface{}
+ @return ListUsersResponse
 */
-func (r apiGetUsersRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
+func (r apiListUsersRequest) Execute() (ListUsersResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  ListUsersResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.GetUsers")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.ListUsers")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -591,7 +595,7 @@ func (r apiGetUsersRequest) Execute() (map[string]interface{}, *_nethttp.Respons
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v ListUsersResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -622,27 +626,27 @@ func (r apiGetUsersRequest) Execute() (map[string]interface{}, *_nethttp.Respons
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiUpdateUserByIdRequest struct {
+type apiUpdateUserRequest struct {
 	ctx        _context.Context
 	apiService *UsersApiService
 	id         string
-	user       *UserUpdate
+	user       *UpdateUserRequest
 }
 
-func (r apiUpdateUserByIdRequest) User(user UserUpdate) apiUpdateUserByIdRequest {
+func (r apiUpdateUserRequest) User(user UpdateUserRequest) apiUpdateUserRequest {
 	r.user = &user
 	return r
 }
 
 /*
-UpdateUserById Update a user
+UpdateUser Update a user
 Update a specific user's information.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id Unique identifier for the user.
-@return apiUpdateUserByIdRequest
+@return apiUpdateUserRequest
 */
-func (a *UsersApiService) UpdateUserById(ctx _context.Context, id string) apiUpdateUserByIdRequest {
-	return apiUpdateUserByIdRequest{
+func (a *UsersApiService) UpdateUser(ctx _context.Context, id string) apiUpdateUserRequest {
+	return apiUpdateUserRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -651,19 +655,19 @@ func (a *UsersApiService) UpdateUserById(ctx _context.Context, id string) apiUpd
 
 /*
 Execute executes the request
- @return InlineResponse20014
+ @return UserResponse
 */
-func (r apiUpdateUserByIdRequest) Execute() (InlineResponse20014, *_nethttp.Response, error) {
+func (r apiUpdateUserRequest) Execute() (UserResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20014
+		localVarReturnValue  UserResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UpdateUserById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "UsersApiService.UpdateUser")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -674,6 +678,10 @@ func (r apiUpdateUserByIdRequest) Execute() (InlineResponse20014, *_nethttp.Resp
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+
+	if r.user == nil {
+		return localVarReturnValue, nil, reportError("user is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -716,7 +724,7 @@ func (r apiUpdateUserByIdRequest) Execute() (InlineResponse20014, *_nethttp.Resp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20014
+			var v UserResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

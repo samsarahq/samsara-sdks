@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Comment** | Pointer to **string** | The comment describing the type of DVIR defect. | [optional] 
-**CreatedAtTime** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
+**Comment** | Pointer to **string** | Comment on the defect. | [optional] 
+**CreatedAtTime** | Pointer to **string** | Time when the defect was created. UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | [optional] 
 **DefectType** | Pointer to **string** | The type of DVIR defect. | [optional] 
 **Id** | Pointer to **string** | ID of the defect. | 
 **IsResolved** | Pointer to **bool** | Signifies if this defect is resolved. | 
-**ResolvedAtTime** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
+**ResolvedAtTime** | Pointer to **string** | Time when this defect was resolved. Will not be returned if the defect is unresolved. UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | [optional] 
 **ResolvedBy** | Pointer to [**DefectResolvedBy**](Defect_resolvedBy.md) |  | [optional] 
 **Trailer** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
 **Vehicle** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
@@ -43,13 +43,13 @@ SetComment gets a reference to the given string and assigns it to the Comment fi
 
 ### GetCreatedAtTime
 
-`func (o *Defect) GetCreatedAtTime() map[string]interface{}`
+`func (o *Defect) GetCreatedAtTime() string`
 
 GetCreatedAtTime returns the CreatedAtTime field if non-nil, zero value otherwise.
 
 ### GetCreatedAtTimeOk
 
-`func (o *Defect) GetCreatedAtTimeOk() (map[string]interface{}, bool)`
+`func (o *Defect) GetCreatedAtTimeOk() (string, bool)`
 
 GetCreatedAtTimeOk returns a tuple with the CreatedAtTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -62,9 +62,9 @@ HasCreatedAtTime returns a boolean if a field has been set.
 
 ### SetCreatedAtTime
 
-`func (o *Defect) SetCreatedAtTime(v map[string]interface{})`
+`func (o *Defect) SetCreatedAtTime(v string)`
 
-SetCreatedAtTime gets a reference to the given map[string]interface{} and assigns it to the CreatedAtTime field.
+SetCreatedAtTime gets a reference to the given string and assigns it to the CreatedAtTime field.
 
 ### GetDefectType
 
@@ -143,13 +143,13 @@ SetIsResolved gets a reference to the given bool and assigns it to the IsResolve
 
 ### GetResolvedAtTime
 
-`func (o *Defect) GetResolvedAtTime() map[string]interface{}`
+`func (o *Defect) GetResolvedAtTime() string`
 
 GetResolvedAtTime returns the ResolvedAtTime field if non-nil, zero value otherwise.
 
 ### GetResolvedAtTimeOk
 
-`func (o *Defect) GetResolvedAtTimeOk() (map[string]interface{}, bool)`
+`func (o *Defect) GetResolvedAtTimeOk() (string, bool)`
 
 GetResolvedAtTimeOk returns a tuple with the ResolvedAtTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -162,9 +162,9 @@ HasResolvedAtTime returns a boolean if a field has been set.
 
 ### SetResolvedAtTime
 
-`func (o *Defect) SetResolvedAtTime(v map[string]interface{})`
+`func (o *Defect) SetResolvedAtTime(v string)`
 
-SetResolvedAtTime gets a reference to the given map[string]interface{} and assigns it to the ResolvedAtTime field.
+SetResolvedAtTime gets a reference to the given string and assigns it to the ResolvedAtTime field.
 
 ### GetResolvedBy
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**[]VehicleLocationsListResponseData**](VehicleLocationsListResponse_data.md) | List of vehicle locations. | 
+**Data** | Pointer to [**[]VehicleLocationsListResponseData**](VehicleLocationsListResponse_data.md) | A list of vehicles and an array of location events for each vehicle. | 
 **Pagination** | Pointer to [**PaginationResponse**](paginationResponse.md) |  | 
 
 ## Methods

@@ -16,13 +16,13 @@ import (
 
 // InlineResponse200 struct for InlineResponse200
 type InlineResponse200 struct {
-	Data *Contact `json:"data,omitempty"`
+	Data *Document `json:"data,omitempty"`
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse200) GetData() Contact {
+func (o *InlineResponse200) GetData() Document {
 	if o == nil || o.Data == nil {
-		var ret Contact
+		var ret Document
 		return ret
 	}
 	return *o.Data
@@ -30,9 +30,9 @@ func (o *InlineResponse200) GetData() Contact {
 
 // GetDataOk returns a tuple with the Data field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse200) GetDataOk() (Contact, bool) {
+func (o *InlineResponse200) GetDataOk() (Document, bool) {
 	if o == nil || o.Data == nil {
-		var ret Contact
+		var ret Document
 		return ret, false
 	}
 	return *o.Data, true
@@ -47,8 +47,8 @@ func (o *InlineResponse200) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given Contact and assigns it to the Data field.
-func (o *InlineResponse200) SetData(v Contact) {
+// SetData gets a reference to the given Document and assigns it to the Data field.
+func (o *InlineResponse200) SetData(v Document) {
 	o.Data = &v
 }
 

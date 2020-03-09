@@ -17,180 +17,90 @@ import (
 // Contact Information about a notification contact for alerts.
 type Contact struct {
 	// Email address of the contact.
-	Email *string `json:"email,omitempty"`
+	Email string `json:"email"`
 	// First name of the contact.
-	FirstName *string `json:"firstName,omitempty"`
+	FirstName string `json:"firstName"`
 	// ID of the contact.
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 	// Last name of the contact.
-	LastName *string `json:"lastName,omitempty"`
+	LastName string `json:"lastName"`
 	// Phone number of the contact.
-	Phone *string `json:"phone,omitempty"`
+	Phone string `json:"phone"`
 }
 
-// GetEmail returns the Email field value if set, zero value otherwise.
+// GetEmail returns the Email field value
 func (o *Contact) GetEmail() string {
-	if o == nil || o.Email == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Email
+
+	return o.Email
 }
 
-// GetEmailOk returns a tuple with the Email field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Contact) GetEmailOk() (string, bool) {
-	if o == nil || o.Email == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.Email, true
-}
-
-// HasEmail returns a boolean if a field has been set.
-func (o *Contact) HasEmail() bool {
-	if o != nil && o.Email != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetEmail gets a reference to the given string and assigns it to the Email field.
+// SetEmail sets field value
 func (o *Contact) SetEmail(v string) {
-	o.Email = &v
+	o.Email = v
 }
 
-// GetFirstName returns the FirstName field value if set, zero value otherwise.
+// GetFirstName returns the FirstName field value
 func (o *Contact) GetFirstName() string {
-	if o == nil || o.FirstName == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.FirstName
+
+	return o.FirstName
 }
 
-// GetFirstNameOk returns a tuple with the FirstName field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Contact) GetFirstNameOk() (string, bool) {
-	if o == nil || o.FirstName == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.FirstName, true
-}
-
-// HasFirstName returns a boolean if a field has been set.
-func (o *Contact) HasFirstName() bool {
-	if o != nil && o.FirstName != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetFirstName gets a reference to the given string and assigns it to the FirstName field.
+// SetFirstName sets field value
 func (o *Contact) SetFirstName(v string) {
-	o.FirstName = &v
+	o.FirstName = v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
+// GetId returns the Id field value
 func (o *Contact) GetId() string {
-	if o == nil || o.Id == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Id
+
+	return o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Contact) GetIdOk() (string, bool) {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *Contact) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
+// SetId sets field value
 func (o *Contact) SetId(v string) {
-	o.Id = &v
+	o.Id = v
 }
 
-// GetLastName returns the LastName field value if set, zero value otherwise.
+// GetLastName returns the LastName field value
 func (o *Contact) GetLastName() string {
-	if o == nil || o.LastName == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.LastName
+
+	return o.LastName
 }
 
-// GetLastNameOk returns a tuple with the LastName field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Contact) GetLastNameOk() (string, bool) {
-	if o == nil || o.LastName == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.LastName, true
-}
-
-// HasLastName returns a boolean if a field has been set.
-func (o *Contact) HasLastName() bool {
-	if o != nil && o.LastName != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetLastName gets a reference to the given string and assigns it to the LastName field.
+// SetLastName sets field value
 func (o *Contact) SetLastName(v string) {
-	o.LastName = &v
+	o.LastName = v
 }
 
-// GetPhone returns the Phone field value if set, zero value otherwise.
+// GetPhone returns the Phone field value
 func (o *Contact) GetPhone() string {
-	if o == nil || o.Phone == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Phone
+
+	return o.Phone
 }
 
-// GetPhoneOk returns a tuple with the Phone field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Contact) GetPhoneOk() (string, bool) {
-	if o == nil || o.Phone == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.Phone, true
-}
-
-// HasPhone returns a boolean if a field has been set.
-func (o *Contact) HasPhone() bool {
-	if o != nil && o.Phone != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPhone gets a reference to the given string and assigns it to the Phone field.
+// SetPhone sets field value
 func (o *Contact) SetPhone(v string) {
-	o.Phone = &v
+	o.Phone = v
 }
 
 type NullableContact struct {

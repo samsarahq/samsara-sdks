@@ -19,12 +19,16 @@ type EquipmentStatsSnapshotResponse struct {
 	// ID of the equipment.
 	Id string `json:"id"`
 	// Name of the equipment.
-	Name           *string                  `json:"name,omitempty"`
-	EngineRpm      *EquipmentEngineRpm      `json:"engineRpm,omitempty"`
-	EngineSeconds  *EquipmentEngineSeconds  `json:"engineSeconds,omitempty"`
-	EngineState    *EquipmentEngineState    `json:"engineState,omitempty"`
-	FuelPercent    *EquipmentFuelPercent    `json:"fuelPercent,omitempty"`
-	OdometerMeters *EquipmentOdometerMeters `json:"odometerMeters,omitempty"`
+	Name                 *string                        `json:"name,omitempty"`
+	EngineRpm            *EquipmentEngineRpm            `json:"engineRpm,omitempty"`
+	EngineSeconds        *EquipmentEngineSeconds        `json:"engineSeconds,omitempty"`
+	EngineState          *EquipmentEngineState          `json:"engineState,omitempty"`
+	FuelPercent          *EquipmentFuelPercent          `json:"fuelPercent,omitempty"`
+	GatewayEngineSeconds *EquipmentGatewayEngineSeconds `json:"gatewayEngineSeconds,omitempty"`
+	GatewayEngineState   *EquipmentGatewayEngineState   `json:"gatewayEngineState,omitempty"`
+	GpsOdometerMeters    *EquipmentGpsOdometerMeters    `json:"gpsOdometerMeters,omitempty"`
+	ObdEngineSeconds     *EquipmentObdEngineSeconds     `json:"obdEngineSeconds,omitempty"`
+	ObdEngineState       *EquipmentObdEngineState       `json:"obdEngineState,omitempty"`
 }
 
 // GetId returns the Id field value
@@ -207,37 +211,169 @@ func (o *EquipmentStatsSnapshotResponse) SetFuelPercent(v EquipmentFuelPercent) 
 	o.FuelPercent = &v
 }
 
-// GetOdometerMeters returns the OdometerMeters field value if set, zero value otherwise.
-func (o *EquipmentStatsSnapshotResponse) GetOdometerMeters() EquipmentOdometerMeters {
-	if o == nil || o.OdometerMeters == nil {
-		var ret EquipmentOdometerMeters
+// GetGatewayEngineSeconds returns the GatewayEngineSeconds field value if set, zero value otherwise.
+func (o *EquipmentStatsSnapshotResponse) GetGatewayEngineSeconds() EquipmentGatewayEngineSeconds {
+	if o == nil || o.GatewayEngineSeconds == nil {
+		var ret EquipmentGatewayEngineSeconds
 		return ret
 	}
-	return *o.OdometerMeters
+	return *o.GatewayEngineSeconds
 }
 
-// GetOdometerMetersOk returns a tuple with the OdometerMeters field value if set, zero value otherwise
+// GetGatewayEngineSecondsOk returns a tuple with the GatewayEngineSeconds field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *EquipmentStatsSnapshotResponse) GetOdometerMetersOk() (EquipmentOdometerMeters, bool) {
-	if o == nil || o.OdometerMeters == nil {
-		var ret EquipmentOdometerMeters
+func (o *EquipmentStatsSnapshotResponse) GetGatewayEngineSecondsOk() (EquipmentGatewayEngineSeconds, bool) {
+	if o == nil || o.GatewayEngineSeconds == nil {
+		var ret EquipmentGatewayEngineSeconds
 		return ret, false
 	}
-	return *o.OdometerMeters, true
+	return *o.GatewayEngineSeconds, true
 }
 
-// HasOdometerMeters returns a boolean if a field has been set.
-func (o *EquipmentStatsSnapshotResponse) HasOdometerMeters() bool {
-	if o != nil && o.OdometerMeters != nil {
+// HasGatewayEngineSeconds returns a boolean if a field has been set.
+func (o *EquipmentStatsSnapshotResponse) HasGatewayEngineSeconds() bool {
+	if o != nil && o.GatewayEngineSeconds != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetOdometerMeters gets a reference to the given EquipmentOdometerMeters and assigns it to the OdometerMeters field.
-func (o *EquipmentStatsSnapshotResponse) SetOdometerMeters(v EquipmentOdometerMeters) {
-	o.OdometerMeters = &v
+// SetGatewayEngineSeconds gets a reference to the given EquipmentGatewayEngineSeconds and assigns it to the GatewayEngineSeconds field.
+func (o *EquipmentStatsSnapshotResponse) SetGatewayEngineSeconds(v EquipmentGatewayEngineSeconds) {
+	o.GatewayEngineSeconds = &v
+}
+
+// GetGatewayEngineState returns the GatewayEngineState field value if set, zero value otherwise.
+func (o *EquipmentStatsSnapshotResponse) GetGatewayEngineState() EquipmentGatewayEngineState {
+	if o == nil || o.GatewayEngineState == nil {
+		var ret EquipmentGatewayEngineState
+		return ret
+	}
+	return *o.GatewayEngineState
+}
+
+// GetGatewayEngineStateOk returns a tuple with the GatewayEngineState field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentStatsSnapshotResponse) GetGatewayEngineStateOk() (EquipmentGatewayEngineState, bool) {
+	if o == nil || o.GatewayEngineState == nil {
+		var ret EquipmentGatewayEngineState
+		return ret, false
+	}
+	return *o.GatewayEngineState, true
+}
+
+// HasGatewayEngineState returns a boolean if a field has been set.
+func (o *EquipmentStatsSnapshotResponse) HasGatewayEngineState() bool {
+	if o != nil && o.GatewayEngineState != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGatewayEngineState gets a reference to the given EquipmentGatewayEngineState and assigns it to the GatewayEngineState field.
+func (o *EquipmentStatsSnapshotResponse) SetGatewayEngineState(v EquipmentGatewayEngineState) {
+	o.GatewayEngineState = &v
+}
+
+// GetGpsOdometerMeters returns the GpsOdometerMeters field value if set, zero value otherwise.
+func (o *EquipmentStatsSnapshotResponse) GetGpsOdometerMeters() EquipmentGpsOdometerMeters {
+	if o == nil || o.GpsOdometerMeters == nil {
+		var ret EquipmentGpsOdometerMeters
+		return ret
+	}
+	return *o.GpsOdometerMeters
+}
+
+// GetGpsOdometerMetersOk returns a tuple with the GpsOdometerMeters field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentStatsSnapshotResponse) GetGpsOdometerMetersOk() (EquipmentGpsOdometerMeters, bool) {
+	if o == nil || o.GpsOdometerMeters == nil {
+		var ret EquipmentGpsOdometerMeters
+		return ret, false
+	}
+	return *o.GpsOdometerMeters, true
+}
+
+// HasGpsOdometerMeters returns a boolean if a field has been set.
+func (o *EquipmentStatsSnapshotResponse) HasGpsOdometerMeters() bool {
+	if o != nil && o.GpsOdometerMeters != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetGpsOdometerMeters gets a reference to the given EquipmentGpsOdometerMeters and assigns it to the GpsOdometerMeters field.
+func (o *EquipmentStatsSnapshotResponse) SetGpsOdometerMeters(v EquipmentGpsOdometerMeters) {
+	o.GpsOdometerMeters = &v
+}
+
+// GetObdEngineSeconds returns the ObdEngineSeconds field value if set, zero value otherwise.
+func (o *EquipmentStatsSnapshotResponse) GetObdEngineSeconds() EquipmentObdEngineSeconds {
+	if o == nil || o.ObdEngineSeconds == nil {
+		var ret EquipmentObdEngineSeconds
+		return ret
+	}
+	return *o.ObdEngineSeconds
+}
+
+// GetObdEngineSecondsOk returns a tuple with the ObdEngineSeconds field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentStatsSnapshotResponse) GetObdEngineSecondsOk() (EquipmentObdEngineSeconds, bool) {
+	if o == nil || o.ObdEngineSeconds == nil {
+		var ret EquipmentObdEngineSeconds
+		return ret, false
+	}
+	return *o.ObdEngineSeconds, true
+}
+
+// HasObdEngineSeconds returns a boolean if a field has been set.
+func (o *EquipmentStatsSnapshotResponse) HasObdEngineSeconds() bool {
+	if o != nil && o.ObdEngineSeconds != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetObdEngineSeconds gets a reference to the given EquipmentObdEngineSeconds and assigns it to the ObdEngineSeconds field.
+func (o *EquipmentStatsSnapshotResponse) SetObdEngineSeconds(v EquipmentObdEngineSeconds) {
+	o.ObdEngineSeconds = &v
+}
+
+// GetObdEngineState returns the ObdEngineState field value if set, zero value otherwise.
+func (o *EquipmentStatsSnapshotResponse) GetObdEngineState() EquipmentObdEngineState {
+	if o == nil || o.ObdEngineState == nil {
+		var ret EquipmentObdEngineState
+		return ret
+	}
+	return *o.ObdEngineState
+}
+
+// GetObdEngineStateOk returns a tuple with the ObdEngineState field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *EquipmentStatsSnapshotResponse) GetObdEngineStateOk() (EquipmentObdEngineState, bool) {
+	if o == nil || o.ObdEngineState == nil {
+		var ret EquipmentObdEngineState
+		return ret, false
+	}
+	return *o.ObdEngineState, true
+}
+
+// HasObdEngineState returns a boolean if a field has been set.
+func (o *EquipmentStatsSnapshotResponse) HasObdEngineState() bool {
+	if o != nil && o.ObdEngineState != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetObdEngineState gets a reference to the given EquipmentObdEngineState and assigns it to the ObdEngineState field.
+func (o *EquipmentStatsSnapshotResponse) SetObdEngineState(v EquipmentObdEngineState) {
+	o.ObdEngineState = &v
 }
 
 type NullableEquipmentStatsSnapshotResponse struct {

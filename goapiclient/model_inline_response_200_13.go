@@ -16,40 +16,40 @@ import (
 
 // InlineResponse20013 struct for InlineResponse20013
 type InlineResponse20013 struct {
-	Data *User `json:"data,omitempty"`
+	DataInputs *[]V1DataInputHistoryResponse `json:"dataInputs,omitempty"`
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse20013) GetData() User {
-	if o == nil || o.Data == nil {
-		var ret User
+// GetDataInputs returns the DataInputs field value if set, zero value otherwise.
+func (o *InlineResponse20013) GetDataInputs() []V1DataInputHistoryResponse {
+	if o == nil || o.DataInputs == nil {
+		var ret []V1DataInputHistoryResponse
 		return ret
 	}
-	return *o.Data
+	return *o.DataInputs
 }
 
-// GetDataOk returns a tuple with the Data field value if set, zero value otherwise
+// GetDataInputsOk returns a tuple with the DataInputs field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse20013) GetDataOk() (User, bool) {
-	if o == nil || o.Data == nil {
-		var ret User
+func (o *InlineResponse20013) GetDataInputsOk() ([]V1DataInputHistoryResponse, bool) {
+	if o == nil || o.DataInputs == nil {
+		var ret []V1DataInputHistoryResponse
 		return ret, false
 	}
-	return *o.Data, true
+	return *o.DataInputs, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *InlineResponse20013) HasData() bool {
-	if o != nil && o.Data != nil {
+// HasDataInputs returns a boolean if a field has been set.
+func (o *InlineResponse20013) HasDataInputs() bool {
+	if o != nil && o.DataInputs != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given User and assigns it to the Data field.
-func (o *InlineResponse20013) SetData(v User) {
-	o.Data = &v
+// SetDataInputs gets a reference to the given []V1DataInputHistoryResponse and assigns it to the DataInputs field.
+func (o *InlineResponse20013) SetDataInputs(v []V1DataInputHistoryResponse) {
+	o.DataInputs = &v
 }
 
 type NullableInlineResponse20013 struct {

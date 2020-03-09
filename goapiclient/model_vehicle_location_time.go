@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// VehicleLocationTime UTC timestamp in RFC 3339 milliseconds format.
+// VehicleLocationTime UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
 type VehicleLocationTime struct {
 }
 

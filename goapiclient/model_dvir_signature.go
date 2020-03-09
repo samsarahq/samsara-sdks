@@ -12,13 +12,16 @@ package goapiclient
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
 // DvirSignature DVIR Signure.
 type DvirSignature struct {
 	SignatoryUser *map[string]interface{} `json:"signatoryUser,omitempty"`
-	SignedAtTime  *map[string]interface{} `json:"signedAtTime,omitempty"`
-	Type          *DvirAuthorType         `json:"type,omitempty"`
+	// The time when the DVIR was signed. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	SignedAtTime *time.Time `json:"signedAtTime,omitempty"`
+	// Whether the DVIR was submitted by a `driver` or `mechanic`.
+	Type *string `json:"type,omitempty"`
 }
 
 // GetSignatoryUser returns the SignatoryUser field value if set, zero value otherwise.
@@ -55,9 +58,9 @@ func (o *DvirSignature) SetSignatoryUser(v map[string]interface{}) {
 }
 
 // GetSignedAtTime returns the SignedAtTime field value if set, zero value otherwise.
-func (o *DvirSignature) GetSignedAtTime() map[string]interface{} {
+func (o *DvirSignature) GetSignedAtTime() time.Time {
 	if o == nil || o.SignedAtTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret
 	}
 	return *o.SignedAtTime
@@ -65,9 +68,9 @@ func (o *DvirSignature) GetSignedAtTime() map[string]interface{} {
 
 // GetSignedAtTimeOk returns a tuple with the SignedAtTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *DvirSignature) GetSignedAtTimeOk() (map[string]interface{}, bool) {
+func (o *DvirSignature) GetSignedAtTimeOk() (time.Time, bool) {
 	if o == nil || o.SignedAtTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret, false
 	}
 	return *o.SignedAtTime, true
@@ -82,15 +85,15 @@ func (o *DvirSignature) HasSignedAtTime() bool {
 	return false
 }
 
-// SetSignedAtTime gets a reference to the given map[string]interface{} and assigns it to the SignedAtTime field.
-func (o *DvirSignature) SetSignedAtTime(v map[string]interface{}) {
+// SetSignedAtTime gets a reference to the given time.Time and assigns it to the SignedAtTime field.
+func (o *DvirSignature) SetSignedAtTime(v time.Time) {
 	o.SignedAtTime = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *DvirSignature) GetType() DvirAuthorType {
+func (o *DvirSignature) GetType() string {
 	if o == nil || o.Type == nil {
-		var ret DvirAuthorType
+		var ret string
 		return ret
 	}
 	return *o.Type
@@ -98,9 +101,9 @@ func (o *DvirSignature) GetType() DvirAuthorType {
 
 // GetTypeOk returns a tuple with the Type field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *DvirSignature) GetTypeOk() (DvirAuthorType, bool) {
+func (o *DvirSignature) GetTypeOk() (string, bool) {
 	if o == nil || o.Type == nil {
-		var ret DvirAuthorType
+		var ret string
 		return ret, false
 	}
 	return *o.Type, true
@@ -115,8 +118,8 @@ func (o *DvirSignature) HasType() bool {
 	return false
 }
 
-// SetType gets a reference to the given DvirAuthorType and assigns it to the Type field.
-func (o *DvirSignature) SetType(v DvirAuthorType) {
+// SetType gets a reference to the given string and assigns it to the Type field.
+func (o *DvirSignature) SetType(v string) {
 	o.Type = &v
 }
 

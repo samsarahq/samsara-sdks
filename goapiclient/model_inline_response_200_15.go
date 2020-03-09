@@ -16,40 +16,40 @@ import (
 
 // InlineResponse20015 struct for InlineResponse20015
 type InlineResponse20015 struct {
-	Assets *[]V1Asset `json:"assets,omitempty"`
+	Sensors *[]V1Sensor `json:"sensors,omitempty"`
 }
 
-// GetAssets returns the Assets field value if set, zero value otherwise.
-func (o *InlineResponse20015) GetAssets() []V1Asset {
-	if o == nil || o.Assets == nil {
-		var ret []V1Asset
+// GetSensors returns the Sensors field value if set, zero value otherwise.
+func (o *InlineResponse20015) GetSensors() []V1Sensor {
+	if o == nil || o.Sensors == nil {
+		var ret []V1Sensor
 		return ret
 	}
-	return *o.Assets
+	return *o.Sensors
 }
 
-// GetAssetsOk returns a tuple with the Assets field value if set, zero value otherwise
+// GetSensorsOk returns a tuple with the Sensors field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse20015) GetAssetsOk() ([]V1Asset, bool) {
-	if o == nil || o.Assets == nil {
-		var ret []V1Asset
+func (o *InlineResponse20015) GetSensorsOk() ([]V1Sensor, bool) {
+	if o == nil || o.Sensors == nil {
+		var ret []V1Sensor
 		return ret, false
 	}
-	return *o.Assets, true
+	return *o.Sensors, true
 }
 
-// HasAssets returns a boolean if a field has been set.
-func (o *InlineResponse20015) HasAssets() bool {
-	if o != nil && o.Assets != nil {
+// HasSensors returns a boolean if a field has been set.
+func (o *InlineResponse20015) HasSensors() bool {
+	if o != nil && o.Sensors != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetAssets gets a reference to the given []V1Asset and assigns it to the Assets field.
-func (o *InlineResponse20015) SetAssets(v []V1Asset) {
-	o.Assets = &v
+// SetSensors gets a reference to the given []V1Sensor and assigns it to the Sensors field.
+func (o *InlineResponse20015) SetSensors(v []V1Sensor) {
+	o.Sensors = &v
 }
 
 type NullableInlineResponse20015 struct {

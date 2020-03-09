@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthorId** | Pointer to **string** | The user who is resolving the defect. | [optional] 
+**AuthorId** | Pointer to **string** | The user who is resolving the defect. | 
 **IsResolved** | Pointer to **bool** | Resolves the defect. Must be &#x60;true&#x60;. | 
-**ResolvedAtTime** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
+**ResolvedAtTime** | Pointer to **string** | Time when defect was resolved. Defaults to now if not provided. UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | [optional] 
 
 ## Methods
 
@@ -62,13 +62,13 @@ SetIsResolved gets a reference to the given bool and assigns it to the IsResolve
 
 ### GetResolvedAtTime
 
-`func (o *DefectPatch) GetResolvedAtTime() map[string]interface{}`
+`func (o *DefectPatch) GetResolvedAtTime() string`
 
 GetResolvedAtTime returns the ResolvedAtTime field if non-nil, zero value otherwise.
 
 ### GetResolvedAtTimeOk
 
-`func (o *DefectPatch) GetResolvedAtTimeOk() (map[string]interface{}, bool)`
+`func (o *DefectPatch) GetResolvedAtTimeOk() (string, bool)`
 
 GetResolvedAtTimeOk returns a tuple with the ResolvedAtTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -81,9 +81,9 @@ HasResolvedAtTime returns a boolean if a field has been set.
 
 ### SetResolvedAtTime
 
-`func (o *DefectPatch) SetResolvedAtTime(v map[string]interface{})`
+`func (o *DefectPatch) SetResolvedAtTime(v string)`
 
-SetResolvedAtTime gets a reference to the given map[string]interface{} and assigns it to the ResolvedAtTime field.
+SetResolvedAtTime gets a reference to the given string and assigns it to the ResolvedAtTime field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

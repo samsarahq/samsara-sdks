@@ -10,7 +10,11 @@ Name | Type | Description | Notes
 **EngineSeconds** | Pointer to [**[]EquipmentEngineSeconds**](EquipmentEngineSeconds.md) |  | [optional] 
 **EngineStates** | Pointer to [**[]EquipmentEngineState**](EquipmentEngineState.md) |  | [optional] 
 **FuelPercents** | Pointer to [**[]EquipmentFuelPercent**](EquipmentFuelPercent.md) |  | [optional] 
-**OdometerMeters** | Pointer to [**[]EquipmentOdometerMeters**](EquipmentOdometerMeters.md) |  | [optional] 
+**GatewayEngineSeconds** | Pointer to [**[]EquipmentGatewayEngineSeconds**](EquipmentGatewayEngineSeconds.md) |  | [optional] 
+**GatewayEngineStates** | Pointer to [**[]EquipmentGatewayEngineState**](EquipmentGatewayEngineState.md) |  | [optional] 
+**GpsOdometerMeters** | Pointer to [**[]EquipmentGpsOdometerMeters**](EquipmentGpsOdometerMeters.md) |  | [optional] 
+**ObdEngineSeconds** | Pointer to [**[]EquipmentObdEngineSeconds**](EquipmentObdEngineSeconds.md) |  | [optional] 
+**ObdEngineStates** | Pointer to [**[]EquipmentObdEngineState**](EquipmentObdEngineState.md) |  | [optional] 
 
 ## Methods
 
@@ -164,30 +168,130 @@ HasFuelPercents returns a boolean if a field has been set.
 
 SetFuelPercents gets a reference to the given []EquipmentFuelPercent and assigns it to the FuelPercents field.
 
-### GetOdometerMeters
+### GetGatewayEngineSeconds
 
-`func (o *EquipmentStatsResponse) GetOdometerMeters() []EquipmentOdometerMeters`
+`func (o *EquipmentStatsResponse) GetGatewayEngineSeconds() []EquipmentGatewayEngineSeconds`
 
-GetOdometerMeters returns the OdometerMeters field if non-nil, zero value otherwise.
+GetGatewayEngineSeconds returns the GatewayEngineSeconds field if non-nil, zero value otherwise.
 
-### GetOdometerMetersOk
+### GetGatewayEngineSecondsOk
 
-`func (o *EquipmentStatsResponse) GetOdometerMetersOk() ([]EquipmentOdometerMeters, bool)`
+`func (o *EquipmentStatsResponse) GetGatewayEngineSecondsOk() ([]EquipmentGatewayEngineSeconds, bool)`
 
-GetOdometerMetersOk returns a tuple with the OdometerMeters field if it's non-nil, zero value otherwise
+GetGatewayEngineSecondsOk returns a tuple with the GatewayEngineSeconds field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasOdometerMeters
+### HasGatewayEngineSeconds
 
-`func (o *EquipmentStatsResponse) HasOdometerMeters() bool`
+`func (o *EquipmentStatsResponse) HasGatewayEngineSeconds() bool`
 
-HasOdometerMeters returns a boolean if a field has been set.
+HasGatewayEngineSeconds returns a boolean if a field has been set.
 
-### SetOdometerMeters
+### SetGatewayEngineSeconds
 
-`func (o *EquipmentStatsResponse) SetOdometerMeters(v []EquipmentOdometerMeters)`
+`func (o *EquipmentStatsResponse) SetGatewayEngineSeconds(v []EquipmentGatewayEngineSeconds)`
 
-SetOdometerMeters gets a reference to the given []EquipmentOdometerMeters and assigns it to the OdometerMeters field.
+SetGatewayEngineSeconds gets a reference to the given []EquipmentGatewayEngineSeconds and assigns it to the GatewayEngineSeconds field.
+
+### GetGatewayEngineStates
+
+`func (o *EquipmentStatsResponse) GetGatewayEngineStates() []EquipmentGatewayEngineState`
+
+GetGatewayEngineStates returns the GatewayEngineStates field if non-nil, zero value otherwise.
+
+### GetGatewayEngineStatesOk
+
+`func (o *EquipmentStatsResponse) GetGatewayEngineStatesOk() ([]EquipmentGatewayEngineState, bool)`
+
+GetGatewayEngineStatesOk returns a tuple with the GatewayEngineStates field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasGatewayEngineStates
+
+`func (o *EquipmentStatsResponse) HasGatewayEngineStates() bool`
+
+HasGatewayEngineStates returns a boolean if a field has been set.
+
+### SetGatewayEngineStates
+
+`func (o *EquipmentStatsResponse) SetGatewayEngineStates(v []EquipmentGatewayEngineState)`
+
+SetGatewayEngineStates gets a reference to the given []EquipmentGatewayEngineState and assigns it to the GatewayEngineStates field.
+
+### GetGpsOdometerMeters
+
+`func (o *EquipmentStatsResponse) GetGpsOdometerMeters() []EquipmentGpsOdometerMeters`
+
+GetGpsOdometerMeters returns the GpsOdometerMeters field if non-nil, zero value otherwise.
+
+### GetGpsOdometerMetersOk
+
+`func (o *EquipmentStatsResponse) GetGpsOdometerMetersOk() ([]EquipmentGpsOdometerMeters, bool)`
+
+GetGpsOdometerMetersOk returns a tuple with the GpsOdometerMeters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasGpsOdometerMeters
+
+`func (o *EquipmentStatsResponse) HasGpsOdometerMeters() bool`
+
+HasGpsOdometerMeters returns a boolean if a field has been set.
+
+### SetGpsOdometerMeters
+
+`func (o *EquipmentStatsResponse) SetGpsOdometerMeters(v []EquipmentGpsOdometerMeters)`
+
+SetGpsOdometerMeters gets a reference to the given []EquipmentGpsOdometerMeters and assigns it to the GpsOdometerMeters field.
+
+### GetObdEngineSeconds
+
+`func (o *EquipmentStatsResponse) GetObdEngineSeconds() []EquipmentObdEngineSeconds`
+
+GetObdEngineSeconds returns the ObdEngineSeconds field if non-nil, zero value otherwise.
+
+### GetObdEngineSecondsOk
+
+`func (o *EquipmentStatsResponse) GetObdEngineSecondsOk() ([]EquipmentObdEngineSeconds, bool)`
+
+GetObdEngineSecondsOk returns a tuple with the ObdEngineSeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasObdEngineSeconds
+
+`func (o *EquipmentStatsResponse) HasObdEngineSeconds() bool`
+
+HasObdEngineSeconds returns a boolean if a field has been set.
+
+### SetObdEngineSeconds
+
+`func (o *EquipmentStatsResponse) SetObdEngineSeconds(v []EquipmentObdEngineSeconds)`
+
+SetObdEngineSeconds gets a reference to the given []EquipmentObdEngineSeconds and assigns it to the ObdEngineSeconds field.
+
+### GetObdEngineStates
+
+`func (o *EquipmentStatsResponse) GetObdEngineStates() []EquipmentObdEngineState`
+
+GetObdEngineStates returns the ObdEngineStates field if non-nil, zero value otherwise.
+
+### GetObdEngineStatesOk
+
+`func (o *EquipmentStatsResponse) GetObdEngineStatesOk() ([]EquipmentObdEngineState, bool)`
+
+GetObdEngineStatesOk returns a tuple with the ObdEngineStates field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasObdEngineStates
+
+`func (o *EquipmentStatsResponse) HasObdEngineStates() bool`
+
+HasObdEngineStates returns a boolean if a field has been set.
+
+### SetObdEngineStates
+
+`func (o *EquipmentStatsResponse) SetObdEngineStates(v []EquipmentObdEngineState)`
+
+SetObdEngineStates gets a reference to the given []EquipmentObdEngineState and assigns it to the ObdEngineStates field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

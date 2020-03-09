@@ -12,20 +12,21 @@ package goapiclient
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
 // NumberDataPoint A single numeric data point of a data input.
 type NumberDataPoint struct {
-	// UTC timestamp in RFC 3339 milliseconds format.
-	Time *string `json:"time,omitempty"`
+	// UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	Time *time.Time `json:"time,omitempty"`
 	// Numeric value of the data point.
 	Value *float64 `json:"value,omitempty"`
 }
 
 // GetTime returns the Time field value if set, zero value otherwise.
-func (o *NumberDataPoint) GetTime() string {
+func (o *NumberDataPoint) GetTime() time.Time {
 	if o == nil || o.Time == nil {
-		var ret string
+		var ret time.Time
 		return ret
 	}
 	return *o.Time
@@ -33,9 +34,9 @@ func (o *NumberDataPoint) GetTime() string {
 
 // GetTimeOk returns a tuple with the Time field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *NumberDataPoint) GetTimeOk() (string, bool) {
+func (o *NumberDataPoint) GetTimeOk() (time.Time, bool) {
 	if o == nil || o.Time == nil {
-		var ret string
+		var ret time.Time
 		return ret, false
 	}
 	return *o.Time, true
@@ -50,8 +51,8 @@ func (o *NumberDataPoint) HasTime() bool {
 	return false
 }
 
-// SetTime gets a reference to the given string and assigns it to the Time field.
-func (o *NumberDataPoint) SetTime(v string) {
+// SetTime gets a reference to the given time.Time and assigns it to the Time field.
+func (o *NumberDataPoint) SetTime(v time.Time) {
 	o.Time = &v
 }
 

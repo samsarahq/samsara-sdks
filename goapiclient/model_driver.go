@@ -12,17 +12,15 @@ package goapiclient
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
 // Driver A driver object
 type Driver struct {
-	// Samsara ID for the driver.
-	Id                    *string                 `json:"id,omitempty"`
-	StaticAssignedVehicle *map[string]interface{} `json:"staticAssignedVehicle,omitempty"`
-	// The tags this driver belongs to.
-	Tags            *[]TagTinyResponse         `json:"tags,omitempty"`
-	VehicleGroupTag *map[string]interface{}    `json:"vehicleGroupTag,omitempty"`
-	CarrierSettings *DriverBaseCarrierSettings `json:"carrierSettings,omitempty"`
+	CarrierSettings *DriverCarrierSettings `json:"carrierSettings,omitempty"`
+	// The date and time this driver was created in RFC 3339 format.
+	CreatedAtTime          *time.Time              `json:"createdAtTime,omitempty"`
+	DriverActivationStatus *DriverActivationStatus `json:"driverActivationStatus,omitempty"`
 	// Flag indicating this driver may use Adverse Weather exemptions in ELD logs.
 	EldAdverseWeatherExemptionEnabled *bool `json:"eldAdverseWeatherExemptionEnabled,omitempty"`
 	// Flag indicating this driver may use Big Day exemption in ELD logs.
@@ -37,166 +35,41 @@ type Driver struct {
 	EldPcEnabled *bool `json:"eldPcEnabled,omitempty"`
 	// Flag indicating this driver may select the Yard Move duty status in ELD logs.
 	EldYmEnabled *bool `json:"eldYmEnabled,omitempty"`
-	// User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.
+	// The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
 	ExternalIds *map[string]string `json:"externalIds,omitempty"`
-	// A boolean that indicates whether or not this driver is deactivated.
+	// Samsara ID for the driver.
+	Id *string `json:"id,omitempty"`
+	// [DEPRECATED] A boolean indicating whether or not the driver is deactivated. Use `driverActivationStatus` instead.
 	IsDeactivated *bool `json:"isDeactivated,omitempty"`
 	// Driver's state issued license number. The combination of this number and `licenseState` must be unique.
 	LicenseNumber *string `json:"licenseNumber,omitempty"`
 	// Abbreviation of state that issued driver's license.
-	LicenseState *string `json:"licenseState,omitempty"`
-	// Locale override (uncommon).
-	Locale *string `json:"locale,omitempty"`
+	LicenseState *string       `json:"licenseState,omitempty"`
+	Locale       *DriverLocale `json:"locale,omitempty"`
 	// Driver's name.
 	Name *string `json:"name,omitempty"`
 	// Notes about the driver.
 	Notes *string `json:"notes,omitempty"`
-	// Driver's phone number.
-	Phone *string `json:"phone,omitempty"`
+	// Phone number of the driver.
+	Phone                 *string                      `json:"phone,omitempty"`
+	StaticAssignedVehicle *DriverStaticAssignedVehicle `json:"staticAssignedVehicle,omitempty"`
 	// Driver's assigned tachograph card number (Europe specific)
 	TachographCardNumber *string `json:"tachographCardNumber,omitempty"`
-	// Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs.
+	// The tags this driver belongs to.
+	Tags *[]TagTinyResponse `json:"tags,omitempty"`
+	// Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. `America/Los_Angeles`, `America/New_York`, `Europe/London`, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html).
 	Timezone *string `json:"timezone,omitempty"`
+	// The date and time this driver was last updated in RFC 3339 format.
+	UpdatedAtTime *time.Time `json:"updatedAtTime,omitempty"`
 	// Driver's login username into the driver app. The username may not contain spaces or the '@' symbol. The username must be unique.
-	Username *string `json:"username,omitempty"`
-}
-
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *Driver) GetId() string {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Driver) GetIdOk() (string, bool) {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *Driver) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *Driver) SetId(v string) {
-	o.Id = &v
-}
-
-// GetStaticAssignedVehicle returns the StaticAssignedVehicle field value if set, zero value otherwise.
-func (o *Driver) GetStaticAssignedVehicle() map[string]interface{} {
-	if o == nil || o.StaticAssignedVehicle == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-	return *o.StaticAssignedVehicle
-}
-
-// GetStaticAssignedVehicleOk returns a tuple with the StaticAssignedVehicle field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Driver) GetStaticAssignedVehicleOk() (map[string]interface{}, bool) {
-	if o == nil || o.StaticAssignedVehicle == nil {
-		var ret map[string]interface{}
-		return ret, false
-	}
-	return *o.StaticAssignedVehicle, true
-}
-
-// HasStaticAssignedVehicle returns a boolean if a field has been set.
-func (o *Driver) HasStaticAssignedVehicle() bool {
-	if o != nil && o.StaticAssignedVehicle != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetStaticAssignedVehicle gets a reference to the given map[string]interface{} and assigns it to the StaticAssignedVehicle field.
-func (o *Driver) SetStaticAssignedVehicle(v map[string]interface{}) {
-	o.StaticAssignedVehicle = &v
-}
-
-// GetTags returns the Tags field value if set, zero value otherwise.
-func (o *Driver) GetTags() []TagTinyResponse {
-	if o == nil || o.Tags == nil {
-		var ret []TagTinyResponse
-		return ret
-	}
-	return *o.Tags
-}
-
-// GetTagsOk returns a tuple with the Tags field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Driver) GetTagsOk() ([]TagTinyResponse, bool) {
-	if o == nil || o.Tags == nil {
-		var ret []TagTinyResponse
-		return ret, false
-	}
-	return *o.Tags, true
-}
-
-// HasTags returns a boolean if a field has been set.
-func (o *Driver) HasTags() bool {
-	if o != nil && o.Tags != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTags gets a reference to the given []TagTinyResponse and assigns it to the Tags field.
-func (o *Driver) SetTags(v []TagTinyResponse) {
-	o.Tags = &v
-}
-
-// GetVehicleGroupTag returns the VehicleGroupTag field value if set, zero value otherwise.
-func (o *Driver) GetVehicleGroupTag() map[string]interface{} {
-	if o == nil || o.VehicleGroupTag == nil {
-		var ret map[string]interface{}
-		return ret
-	}
-	return *o.VehicleGroupTag
-}
-
-// GetVehicleGroupTagOk returns a tuple with the VehicleGroupTag field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *Driver) GetVehicleGroupTagOk() (map[string]interface{}, bool) {
-	if o == nil || o.VehicleGroupTag == nil {
-		var ret map[string]interface{}
-		return ret, false
-	}
-	return *o.VehicleGroupTag, true
-}
-
-// HasVehicleGroupTag returns a boolean if a field has been set.
-func (o *Driver) HasVehicleGroupTag() bool {
-	if o != nil && o.VehicleGroupTag != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetVehicleGroupTag gets a reference to the given map[string]interface{} and assigns it to the VehicleGroupTag field.
-func (o *Driver) SetVehicleGroupTag(v map[string]interface{}) {
-	o.VehicleGroupTag = &v
+	Username        *string                `json:"username,omitempty"`
+	VehicleGroupTag *DriverVehicleGroupTag `json:"vehicleGroupTag,omitempty"`
 }
 
 // GetCarrierSettings returns the CarrierSettings field value if set, zero value otherwise.
-func (o *Driver) GetCarrierSettings() DriverBaseCarrierSettings {
+func (o *Driver) GetCarrierSettings() DriverCarrierSettings {
 	if o == nil || o.CarrierSettings == nil {
-		var ret DriverBaseCarrierSettings
+		var ret DriverCarrierSettings
 		return ret
 	}
 	return *o.CarrierSettings
@@ -204,9 +77,9 @@ func (o *Driver) GetCarrierSettings() DriverBaseCarrierSettings {
 
 // GetCarrierSettingsOk returns a tuple with the CarrierSettings field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Driver) GetCarrierSettingsOk() (DriverBaseCarrierSettings, bool) {
+func (o *Driver) GetCarrierSettingsOk() (DriverCarrierSettings, bool) {
 	if o == nil || o.CarrierSettings == nil {
-		var ret DriverBaseCarrierSettings
+		var ret DriverCarrierSettings
 		return ret, false
 	}
 	return *o.CarrierSettings, true
@@ -221,9 +94,75 @@ func (o *Driver) HasCarrierSettings() bool {
 	return false
 }
 
-// SetCarrierSettings gets a reference to the given DriverBaseCarrierSettings and assigns it to the CarrierSettings field.
-func (o *Driver) SetCarrierSettings(v DriverBaseCarrierSettings) {
+// SetCarrierSettings gets a reference to the given DriverCarrierSettings and assigns it to the CarrierSettings field.
+func (o *Driver) SetCarrierSettings(v DriverCarrierSettings) {
 	o.CarrierSettings = &v
+}
+
+// GetCreatedAtTime returns the CreatedAtTime field value if set, zero value otherwise.
+func (o *Driver) GetCreatedAtTime() time.Time {
+	if o == nil || o.CreatedAtTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.CreatedAtTime
+}
+
+// GetCreatedAtTimeOk returns a tuple with the CreatedAtTime field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Driver) GetCreatedAtTimeOk() (time.Time, bool) {
+	if o == nil || o.CreatedAtTime == nil {
+		var ret time.Time
+		return ret, false
+	}
+	return *o.CreatedAtTime, true
+}
+
+// HasCreatedAtTime returns a boolean if a field has been set.
+func (o *Driver) HasCreatedAtTime() bool {
+	if o != nil && o.CreatedAtTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCreatedAtTime gets a reference to the given time.Time and assigns it to the CreatedAtTime field.
+func (o *Driver) SetCreatedAtTime(v time.Time) {
+	o.CreatedAtTime = &v
+}
+
+// GetDriverActivationStatus returns the DriverActivationStatus field value if set, zero value otherwise.
+func (o *Driver) GetDriverActivationStatus() DriverActivationStatus {
+	if o == nil || o.DriverActivationStatus == nil {
+		var ret DriverActivationStatus
+		return ret
+	}
+	return *o.DriverActivationStatus
+}
+
+// GetDriverActivationStatusOk returns a tuple with the DriverActivationStatus field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Driver) GetDriverActivationStatusOk() (DriverActivationStatus, bool) {
+	if o == nil || o.DriverActivationStatus == nil {
+		var ret DriverActivationStatus
+		return ret, false
+	}
+	return *o.DriverActivationStatus, true
+}
+
+// HasDriverActivationStatus returns a boolean if a field has been set.
+func (o *Driver) HasDriverActivationStatus() bool {
+	if o != nil && o.DriverActivationStatus != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDriverActivationStatus gets a reference to the given DriverActivationStatus and assigns it to the DriverActivationStatus field.
+func (o *Driver) SetDriverActivationStatus(v DriverActivationStatus) {
+	o.DriverActivationStatus = &v
 }
 
 // GetEldAdverseWeatherExemptionEnabled returns the EldAdverseWeatherExemptionEnabled field value if set, zero value otherwise.
@@ -490,6 +429,39 @@ func (o *Driver) SetExternalIds(v map[string]string) {
 	o.ExternalIds = &v
 }
 
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *Driver) GetId() string {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret
+	}
+	return *o.Id
+}
+
+// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Driver) GetIdOk() (string, bool) {
+	if o == nil || o.Id == nil {
+		var ret string
+		return ret, false
+	}
+	return *o.Id, true
+}
+
+// HasId returns a boolean if a field has been set.
+func (o *Driver) HasId() bool {
+	if o != nil && o.Id != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *Driver) SetId(v string) {
+	o.Id = &v
+}
+
 // GetIsDeactivated returns the IsDeactivated field value if set, zero value otherwise.
 func (o *Driver) GetIsDeactivated() bool {
 	if o == nil || o.IsDeactivated == nil {
@@ -590,9 +562,9 @@ func (o *Driver) SetLicenseState(v string) {
 }
 
 // GetLocale returns the Locale field value if set, zero value otherwise.
-func (o *Driver) GetLocale() string {
+func (o *Driver) GetLocale() DriverLocale {
 	if o == nil || o.Locale == nil {
-		var ret string
+		var ret DriverLocale
 		return ret
 	}
 	return *o.Locale
@@ -600,9 +572,9 @@ func (o *Driver) GetLocale() string {
 
 // GetLocaleOk returns a tuple with the Locale field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *Driver) GetLocaleOk() (string, bool) {
+func (o *Driver) GetLocaleOk() (DriverLocale, bool) {
 	if o == nil || o.Locale == nil {
-		var ret string
+		var ret DriverLocale
 		return ret, false
 	}
 	return *o.Locale, true
@@ -617,8 +589,8 @@ func (o *Driver) HasLocale() bool {
 	return false
 }
 
-// SetLocale gets a reference to the given string and assigns it to the Locale field.
-func (o *Driver) SetLocale(v string) {
+// SetLocale gets a reference to the given DriverLocale and assigns it to the Locale field.
+func (o *Driver) SetLocale(v DriverLocale) {
 	o.Locale = &v
 }
 
@@ -721,6 +693,39 @@ func (o *Driver) SetPhone(v string) {
 	o.Phone = &v
 }
 
+// GetStaticAssignedVehicle returns the StaticAssignedVehicle field value if set, zero value otherwise.
+func (o *Driver) GetStaticAssignedVehicle() DriverStaticAssignedVehicle {
+	if o == nil || o.StaticAssignedVehicle == nil {
+		var ret DriverStaticAssignedVehicle
+		return ret
+	}
+	return *o.StaticAssignedVehicle
+}
+
+// GetStaticAssignedVehicleOk returns a tuple with the StaticAssignedVehicle field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Driver) GetStaticAssignedVehicleOk() (DriverStaticAssignedVehicle, bool) {
+	if o == nil || o.StaticAssignedVehicle == nil {
+		var ret DriverStaticAssignedVehicle
+		return ret, false
+	}
+	return *o.StaticAssignedVehicle, true
+}
+
+// HasStaticAssignedVehicle returns a boolean if a field has been set.
+func (o *Driver) HasStaticAssignedVehicle() bool {
+	if o != nil && o.StaticAssignedVehicle != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetStaticAssignedVehicle gets a reference to the given DriverStaticAssignedVehicle and assigns it to the StaticAssignedVehicle field.
+func (o *Driver) SetStaticAssignedVehicle(v DriverStaticAssignedVehicle) {
+	o.StaticAssignedVehicle = &v
+}
+
 // GetTachographCardNumber returns the TachographCardNumber field value if set, zero value otherwise.
 func (o *Driver) GetTachographCardNumber() string {
 	if o == nil || o.TachographCardNumber == nil {
@@ -752,6 +757,39 @@ func (o *Driver) HasTachographCardNumber() bool {
 // SetTachographCardNumber gets a reference to the given string and assigns it to the TachographCardNumber field.
 func (o *Driver) SetTachographCardNumber(v string) {
 	o.TachographCardNumber = &v
+}
+
+// GetTags returns the Tags field value if set, zero value otherwise.
+func (o *Driver) GetTags() []TagTinyResponse {
+	if o == nil || o.Tags == nil {
+		var ret []TagTinyResponse
+		return ret
+	}
+	return *o.Tags
+}
+
+// GetTagsOk returns a tuple with the Tags field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Driver) GetTagsOk() ([]TagTinyResponse, bool) {
+	if o == nil || o.Tags == nil {
+		var ret []TagTinyResponse
+		return ret, false
+	}
+	return *o.Tags, true
+}
+
+// HasTags returns a boolean if a field has been set.
+func (o *Driver) HasTags() bool {
+	if o != nil && o.Tags != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTags gets a reference to the given []TagTinyResponse and assigns it to the Tags field.
+func (o *Driver) SetTags(v []TagTinyResponse) {
+	o.Tags = &v
 }
 
 // GetTimezone returns the Timezone field value if set, zero value otherwise.
@@ -787,6 +825,39 @@ func (o *Driver) SetTimezone(v string) {
 	o.Timezone = &v
 }
 
+// GetUpdatedAtTime returns the UpdatedAtTime field value if set, zero value otherwise.
+func (o *Driver) GetUpdatedAtTime() time.Time {
+	if o == nil || o.UpdatedAtTime == nil {
+		var ret time.Time
+		return ret
+	}
+	return *o.UpdatedAtTime
+}
+
+// GetUpdatedAtTimeOk returns a tuple with the UpdatedAtTime field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Driver) GetUpdatedAtTimeOk() (time.Time, bool) {
+	if o == nil || o.UpdatedAtTime == nil {
+		var ret time.Time
+		return ret, false
+	}
+	return *o.UpdatedAtTime, true
+}
+
+// HasUpdatedAtTime returns a boolean if a field has been set.
+func (o *Driver) HasUpdatedAtTime() bool {
+	if o != nil && o.UpdatedAtTime != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetUpdatedAtTime gets a reference to the given time.Time and assigns it to the UpdatedAtTime field.
+func (o *Driver) SetUpdatedAtTime(v time.Time) {
+	o.UpdatedAtTime = &v
+}
+
 // GetUsername returns the Username field value if set, zero value otherwise.
 func (o *Driver) GetUsername() string {
 	if o == nil || o.Username == nil {
@@ -818,6 +889,39 @@ func (o *Driver) HasUsername() bool {
 // SetUsername gets a reference to the given string and assigns it to the Username field.
 func (o *Driver) SetUsername(v string) {
 	o.Username = &v
+}
+
+// GetVehicleGroupTag returns the VehicleGroupTag field value if set, zero value otherwise.
+func (o *Driver) GetVehicleGroupTag() DriverVehicleGroupTag {
+	if o == nil || o.VehicleGroupTag == nil {
+		var ret DriverVehicleGroupTag
+		return ret
+	}
+	return *o.VehicleGroupTag
+}
+
+// GetVehicleGroupTagOk returns a tuple with the VehicleGroupTag field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *Driver) GetVehicleGroupTagOk() (DriverVehicleGroupTag, bool) {
+	if o == nil || o.VehicleGroupTag == nil {
+		var ret DriverVehicleGroupTag
+		return ret, false
+	}
+	return *o.VehicleGroupTag, true
+}
+
+// HasVehicleGroupTag returns a boolean if a field has been set.
+func (o *Driver) HasVehicleGroupTag() bool {
+	if o != nil && o.VehicleGroupTag != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetVehicleGroupTag gets a reference to the given DriverVehicleGroupTag and assigns it to the VehicleGroupTag field.
+func (o *Driver) SetVehicleGroupTag(v DriverVehicleGroupTag) {
+	o.VehicleGroupTag = &v
 }
 
 type NullableDriver struct {

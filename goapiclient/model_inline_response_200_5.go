@@ -14,15 +14,15 @@ import (
 	"encoding/json"
 )
 
-// InlineResponse2005 struct for InlineResponse2005
+// InlineResponse2005 A list of created messages.
 type InlineResponse2005 struct {
-	Data *EquipmentResponse `json:"data,omitempty"`
+	Data *[]Message `json:"data,omitempty"`
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse2005) GetData() EquipmentResponse {
+func (o *InlineResponse2005) GetData() []Message {
 	if o == nil || o.Data == nil {
-		var ret EquipmentResponse
+		var ret []Message
 		return ret
 	}
 	return *o.Data
@@ -30,9 +30,9 @@ func (o *InlineResponse2005) GetData() EquipmentResponse {
 
 // GetDataOk returns a tuple with the Data field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2005) GetDataOk() (EquipmentResponse, bool) {
+func (o *InlineResponse2005) GetDataOk() ([]Message, bool) {
 	if o == nil || o.Data == nil {
-		var ret EquipmentResponse
+		var ret []Message
 		return ret, false
 	}
 	return *o.Data, true
@@ -47,8 +47,8 @@ func (o *InlineResponse2005) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given EquipmentResponse and assigns it to the Data field.
-func (o *InlineResponse2005) SetData(v EquipmentResponse) {
+// SetData gets a reference to the given []Message and assigns it to the Data field.
+func (o *InlineResponse2005) SetData(v []Message) {
 	o.Data = &v
 }
 

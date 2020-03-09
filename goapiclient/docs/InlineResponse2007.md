@@ -4,34 +4,60 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**UnassignedDrivingSegmentResponse**](UnassignedDrivingSegmentResponse.md) |  | [optional] 
+**Assets** | Pointer to [**[]V1AssetCurrentLocationsResponse**](V1AssetCurrentLocationsResponse.md) |  | [optional] 
+**Pagination** | Pointer to [**V1Pagination**](V1Pagination.md) |  | [optional] 
 
 ## Methods
 
-### GetData
+### GetAssets
 
-`func (o *InlineResponse2007) GetData() UnassignedDrivingSegmentResponse`
+`func (o *InlineResponse2007) GetAssets() []V1AssetCurrentLocationsResponse`
 
-GetData returns the Data field if non-nil, zero value otherwise.
+GetAssets returns the Assets field if non-nil, zero value otherwise.
 
-### GetDataOk
+### GetAssetsOk
 
-`func (o *InlineResponse2007) GetDataOk() (UnassignedDrivingSegmentResponse, bool)`
+`func (o *InlineResponse2007) GetAssetsOk() ([]V1AssetCurrentLocationsResponse, bool)`
 
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+GetAssetsOk returns a tuple with the Assets field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasData
+### HasAssets
 
-`func (o *InlineResponse2007) HasData() bool`
+`func (o *InlineResponse2007) HasAssets() bool`
 
-HasData returns a boolean if a field has been set.
+HasAssets returns a boolean if a field has been set.
 
-### SetData
+### SetAssets
 
-`func (o *InlineResponse2007) SetData(v UnassignedDrivingSegmentResponse)`
+`func (o *InlineResponse2007) SetAssets(v []V1AssetCurrentLocationsResponse)`
 
-SetData gets a reference to the given UnassignedDrivingSegmentResponse and assigns it to the Data field.
+SetAssets gets a reference to the given []V1AssetCurrentLocationsResponse and assigns it to the Assets field.
+
+### GetPagination
+
+`func (o *InlineResponse2007) GetPagination() V1Pagination`
+
+GetPagination returns the Pagination field if non-nil, zero value otherwise.
+
+### GetPaginationOk
+
+`func (o *InlineResponse2007) GetPaginationOk() (V1Pagination, bool)`
+
+GetPaginationOk returns a tuple with the Pagination field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasPagination
+
+`func (o *InlineResponse2007) HasPagination() bool`
+
+HasPagination returns a boolean if a field has been set.
+
+### SetPagination
+
+`func (o *InlineResponse2007) SetPagination(v V1Pagination)`
+
+SetPagination gets a reference to the given V1Pagination and assigns it to the Pagination field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

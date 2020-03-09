@@ -14,23 +14,23 @@ import (
 	"encoding/json"
 )
 
-// User A user object
+// User A user object.
 type User struct {
-	// The authentication type the user uses to authenticate. To use SAML this organization must have a configured SAML integration.
-	AuthType string `json:"authType"`
+	AuthType UserAuthType `json:"authType"`
 	// The email address of this user.
 	Email string `json:"email"`
-	// Unique ID for the user.
+	// ID of the user.
 	Id string `json:"id"`
 	// The first and last name of the user.
-	Name  string             `json:"name"`
-	Roles []UserRoleResponse `json:"roles"`
+	Name string `json:"name"`
+	// The list of roles that applies to this user. A user may have \"organizational\" roles, which apply to the user at the organizational level, and \"tag-specific\" roles, which apply to the user for a given tag.
+	Roles []UserRoleAssignment `json:"roles"`
 }
 
 // GetAuthType returns the AuthType field value
-func (o *User) GetAuthType() string {
+func (o *User) GetAuthType() UserAuthType {
 	if o == nil {
-		var ret string
+		var ret UserAuthType
 		return ret
 	}
 
@@ -38,7 +38,7 @@ func (o *User) GetAuthType() string {
 }
 
 // SetAuthType sets field value
-func (o *User) SetAuthType(v string) {
+func (o *User) SetAuthType(v UserAuthType) {
 	o.AuthType = v
 }
 
@@ -88,9 +88,9 @@ func (o *User) SetName(v string) {
 }
 
 // GetRoles returns the Roles field value
-func (o *User) GetRoles() []UserRoleResponse {
+func (o *User) GetRoles() []UserRoleAssignment {
 	if o == nil {
-		var ret []UserRoleResponse
+		var ret []UserRoleAssignment
 		return ret
 	}
 
@@ -98,7 +98,7 @@ func (o *User) GetRoles() []UserRoleResponse {
 }
 
 // SetRoles sets field value
-func (o *User) SetRoles(v []UserRoleResponse) {
+func (o *User) SetRoles(v []UserRoleAssignment) {
 	o.Roles = v
 }
 

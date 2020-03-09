@@ -20,7 +20,7 @@ type UpdateAddressRequest struct {
 	AddressTypes *[]string `json:"addressTypes,omitempty"`
 	// An array of Contact IDs associated with this Address.
 	ContactIds *[]string `json:"contactIds,omitempty"`
-	// User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.
+	// The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
 	ExternalIds *map[string]string `json:"externalIds,omitempty"`
 	// The full street address for this address/geofence, as it might be recognized by Google Maps.
 	FormattedAddress *string          `json:"formattedAddress,omitempty"`

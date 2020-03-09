@@ -16,40 +16,74 @@ import (
 
 // InlineResponse20012 struct for InlineResponse20012
 type InlineResponse20012 struct {
-	Data *Tag `json:"data,omitempty"`
+	Pagination *V1Pagination                   `json:"pagination,omitempty"`
+	Trailers   *[]V1TrailerAssignmentsResponse `json:"trailers,omitempty"`
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse20012) GetData() Tag {
-	if o == nil || o.Data == nil {
-		var ret Tag
+// GetPagination returns the Pagination field value if set, zero value otherwise.
+func (o *InlineResponse20012) GetPagination() V1Pagination {
+	if o == nil || o.Pagination == nil {
+		var ret V1Pagination
 		return ret
 	}
-	return *o.Data
+	return *o.Pagination
 }
 
-// GetDataOk returns a tuple with the Data field value if set, zero value otherwise
+// GetPaginationOk returns a tuple with the Pagination field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse20012) GetDataOk() (Tag, bool) {
-	if o == nil || o.Data == nil {
-		var ret Tag
+func (o *InlineResponse20012) GetPaginationOk() (V1Pagination, bool) {
+	if o == nil || o.Pagination == nil {
+		var ret V1Pagination
 		return ret, false
 	}
-	return *o.Data, true
+	return *o.Pagination, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *InlineResponse20012) HasData() bool {
-	if o != nil && o.Data != nil {
+// HasPagination returns a boolean if a field has been set.
+func (o *InlineResponse20012) HasPagination() bool {
+	if o != nil && o.Pagination != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given Tag and assigns it to the Data field.
-func (o *InlineResponse20012) SetData(v Tag) {
-	o.Data = &v
+// SetPagination gets a reference to the given V1Pagination and assigns it to the Pagination field.
+func (o *InlineResponse20012) SetPagination(v V1Pagination) {
+	o.Pagination = &v
+}
+
+// GetTrailers returns the Trailers field value if set, zero value otherwise.
+func (o *InlineResponse20012) GetTrailers() []V1TrailerAssignmentsResponse {
+	if o == nil || o.Trailers == nil {
+		var ret []V1TrailerAssignmentsResponse
+		return ret
+	}
+	return *o.Trailers
+}
+
+// GetTrailersOk returns a tuple with the Trailers field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *InlineResponse20012) GetTrailersOk() ([]V1TrailerAssignmentsResponse, bool) {
+	if o == nil || o.Trailers == nil {
+		var ret []V1TrailerAssignmentsResponse
+		return ret, false
+	}
+	return *o.Trailers, true
+}
+
+// HasTrailers returns a boolean if a field has been set.
+func (o *InlineResponse20012) HasTrailers() bool {
+	if o != nil && o.Trailers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTrailers gets a reference to the given []V1TrailerAssignmentsResponse and assigns it to the Trailers field.
+func (o *InlineResponse20012) SetTrailers(v []V1TrailerAssignmentsResponse) {
+	o.Trailers = &v
 }
 
 type NullableInlineResponse20012 struct {

@@ -82,16 +82,16 @@ func (a *TrailerAssignmentsApiService) V1getAllTrailerAssignments(ctx _context.C
 
 /*
 Execute executes the request
- @return InlineResponse20021
+ @return InlineResponse20012
 */
-func (r apiV1getAllTrailerAssignmentsRequest) Execute() (InlineResponse20021, *_nethttp.Response, error) {
+func (r apiV1getAllTrailerAssignmentsRequest) Execute() (InlineResponse20012, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20021
+		localVarReturnValue  InlineResponse20012
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "TrailerAssignmentsApiService.V1getAllTrailerAssignments")
@@ -159,7 +159,7 @@ func (r apiV1getAllTrailerAssignmentsRequest) Execute() (InlineResponse20021, *_
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20021
+			var v InlineResponse20012
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

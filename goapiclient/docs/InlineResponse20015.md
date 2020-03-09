@@ -4,34 +4,34 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Assets** | Pointer to [**[]V1Asset**](V1Asset.md) |  | [optional] 
+**Sensors** | Pointer to [**[]V1Sensor**](V1Sensor.md) |  | [optional] 
 
 ## Methods
 
-### GetAssets
+### GetSensors
 
-`func (o *InlineResponse20015) GetAssets() []V1Asset`
+`func (o *InlineResponse20015) GetSensors() []V1Sensor`
 
-GetAssets returns the Assets field if non-nil, zero value otherwise.
+GetSensors returns the Sensors field if non-nil, zero value otherwise.
 
-### GetAssetsOk
+### GetSensorsOk
 
-`func (o *InlineResponse20015) GetAssetsOk() ([]V1Asset, bool)`
+`func (o *InlineResponse20015) GetSensorsOk() ([]V1Sensor, bool)`
 
-GetAssetsOk returns a tuple with the Assets field if it's non-nil, zero value otherwise
+GetSensorsOk returns a tuple with the Sensors field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasAssets
+### HasSensors
 
-`func (o *InlineResponse20015) HasAssets() bool`
+`func (o *InlineResponse20015) HasSensors() bool`
 
-HasAssets returns a boolean if a field has been set.
+HasSensors returns a boolean if a field has been set.
 
-### SetAssets
+### SetSensors
 
-`func (o *InlineResponse20015) SetAssets(v []V1Asset)`
+`func (o *InlineResponse20015) SetSensors(v []V1Sensor)`
 
-SetAssets gets a reference to the given []V1Asset and assigns it to the Assets field.
+SetSensors gets a reference to the given []V1Sensor and assigns it to the Sensors field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

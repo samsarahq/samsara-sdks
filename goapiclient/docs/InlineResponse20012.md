@@ -4,34 +4,60 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**Tag**](Tag.md) |  | [optional] 
+**Pagination** | Pointer to [**V1Pagination**](V1Pagination.md) |  | [optional] 
+**Trailers** | Pointer to [**[]V1TrailerAssignmentsResponse**](V1TrailerAssignmentsResponse.md) |  | [optional] 
 
 ## Methods
 
-### GetData
+### GetPagination
 
-`func (o *InlineResponse20012) GetData() Tag`
+`func (o *InlineResponse20012) GetPagination() V1Pagination`
 
-GetData returns the Data field if non-nil, zero value otherwise.
+GetPagination returns the Pagination field if non-nil, zero value otherwise.
 
-### GetDataOk
+### GetPaginationOk
 
-`func (o *InlineResponse20012) GetDataOk() (Tag, bool)`
+`func (o *InlineResponse20012) GetPaginationOk() (V1Pagination, bool)`
 
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+GetPaginationOk returns a tuple with the Pagination field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasData
+### HasPagination
 
-`func (o *InlineResponse20012) HasData() bool`
+`func (o *InlineResponse20012) HasPagination() bool`
 
-HasData returns a boolean if a field has been set.
+HasPagination returns a boolean if a field has been set.
 
-### SetData
+### SetPagination
 
-`func (o *InlineResponse20012) SetData(v Tag)`
+`func (o *InlineResponse20012) SetPagination(v V1Pagination)`
 
-SetData gets a reference to the given Tag and assigns it to the Data field.
+SetPagination gets a reference to the given V1Pagination and assigns it to the Pagination field.
+
+### GetTrailers
+
+`func (o *InlineResponse20012) GetTrailers() []V1TrailerAssignmentsResponse`
+
+GetTrailers returns the Trailers field if non-nil, zero value otherwise.
+
+### GetTrailersOk
+
+`func (o *InlineResponse20012) GetTrailersOk() ([]V1TrailerAssignmentsResponse, bool)`
+
+GetTrailersOk returns a tuple with the Trailers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasTrailers
+
+`func (o *InlineResponse20012) HasTrailers() bool`
+
+HasTrailers returns a boolean if a field has been set.
+
+### SetTrailers
+
+`func (o *InlineResponse20012) SetTrailers(v []V1TrailerAssignmentsResponse)`
+
+SetTrailers gets a reference to the given []V1TrailerAssignmentsResponse and assigns it to the Trailers field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

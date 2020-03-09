@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## V1getAllAssetCurrentLocations
 
-> InlineResponse20016 V1getAllAssetCurrentLocations(ctx).StartingAfter(startingAfter).EndingBefore(endingBefore).Limit(limit).Execute()
+> InlineResponse2007 V1getAllAssetCurrentLocations(ctx).StartingAfter(startingAfter).EndingBefore(endingBefore).Limit(limit).Execute()
 
 List current location for all assets
 
@@ -37,7 +37,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](inline_response_200_16.md)
+[**InlineResponse2007**](inline_response_200_7.md)
 
 ### Authorization
 
@@ -55,7 +55,7 @@ No authorization required
 
 ## V1getAllAssets
 
-> InlineResponse20015 V1getAllAssets(ctx).Execute()
+> InlineResponse2006 V1getAllAssets(ctx).Execute()
 
 List all assets
 
@@ -72,7 +72,7 @@ Other parameters are passed through a pointer to a apiV1getAllAssetsRequest stru
 
 ### Return type
 
-[**InlineResponse20015**](inline_response_200_15.md)
+[**InlineResponse2006**](inline_response_200_6.md)
 
 ### Authorization
 
@@ -180,7 +180,7 @@ No authorization required
 
 ## V1getAssetsReefers
 
-> InlineResponse20017 V1getAssetsReefers(ctx).StartMs(startMs).EndMs(endMs).StartingAfter(startingAfter).EndingBefore(endingBefore).Limit(limit).Execute()
+> InlineResponse2008 V1getAssetsReefers(ctx).StartMs(startMs).EndMs(endMs).StartingAfter(startingAfter).EndingBefore(endingBefore).Limit(limit).Execute()
 
 List stats for all reefers
 
@@ -205,7 +205,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](inline_response_200_17.md)
+[**InlineResponse2008**](inline_response_200_8.md)
 
 ### Authorization
 

@@ -179,14 +179,15 @@ Class | Method | HTTP request | Description
 *AssetsApi* | [**V1getAssetReefer**](docs/AssetsApi.md#v1getassetreefer) | **Get** /v1/fleet/assets/{asset_id}/reefer | List stats for a given reefer
 *AssetsApi* | [**V1getAssetsReefers**](docs/AssetsApi.md#v1getassetsreefers) | **Get** /v1/fleet/assets/reefers | List stats for all reefers
 *CarrierProposedAssignmentsApi* | [**CreateCarrierProposedAssignment**](docs/CarrierProposedAssignmentsApi.md#createcarrierproposedassignment) | **Post** /fleet/carrier-proposed-assignments | Create an assignment
-*CarrierProposedAssignmentsApi* | [**DeleteCarrierProposedAssignmentById**](docs/CarrierProposedAssignmentsApi.md#deletecarrierproposedassignmentbyid) | **Delete** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
-*CarrierProposedAssignmentsApi* | [**GetCarrierProposedAssignment**](docs/CarrierProposedAssignmentsApi.md#getcarrierproposedassignment) | **Get** /fleet/carrier-proposed-assignments | Retrieve assignments
+*CarrierProposedAssignmentsApi* | [**DeleteCarrierProposedAssignment**](docs/CarrierProposedAssignmentsApi.md#deletecarrierproposedassignment) | **Delete** /fleet/carrier-proposed-assignments/{id} | Delete an assignment
+*CarrierProposedAssignmentsApi* | [**ListCarrierProposedAssignments**](docs/CarrierProposedAssignmentsApi.md#listcarrierproposedassignments) | **Get** /fleet/carrier-proposed-assignments | Retrieve assignments
 *ContactsApi* | [**CreateContact**](docs/ContactsApi.md#createcontact) | **Post** /contacts | Create a contact
-*ContactsApi* | [**DeleteContactById**](docs/ContactsApi.md#deletecontactbyid) | **Delete** /contacts/{id} | Delete a contact
-*ContactsApi* | [**GetContactById**](docs/ContactsApi.md#getcontactbyid) | **Get** /contacts/{id} | Retrieve a contact
-*ContactsApi* | [**GetContacts**](docs/ContactsApi.md#getcontacts) | **Get** /contacts | List all contacts
-*ContactsApi* | [**UpdateContactById**](docs/ContactsApi.md#updatecontactbyid) | **Patch** /contacts/{id} | Update a contact
+*ContactsApi* | [**DeleteContact**](docs/ContactsApi.md#deletecontact) | **Delete** /contacts/{id} | Delete a contact
+*ContactsApi* | [**GetContact**](docs/ContactsApi.md#getcontact) | **Get** /contacts/{id} | Retrieve a contact
+*ContactsApi* | [**ListContacts**](docs/ContactsApi.md#listcontacts) | **Get** /contacts | List all contacts
+*ContactsApi* | [**UpdateContact**](docs/ContactsApi.md#updatecontact) | **Patch** /contacts/{id} | Update a contact
 *DocumentsApi* | [**CreateDocument**](docs/DocumentsApi.md#createdocument) | **Post** /fleet/documents | Create a document
+*DocumentsApi* | [**DeleteDocument**](docs/DocumentsApi.md#deletedocument) | **Delete** /fleet/documents/{id} | Delete a document
 *DocumentsApi* | [**GetDocumentTypes**](docs/DocumentsApi.md#getdocumenttypes) | **Get** /fleet/document-types | List all document types
 *DocumentsApi* | [**GetDocuments**](docs/DocumentsApi.md#getdocuments) | **Get** /fleet/documents | List all documents
 *DocumentsApi* | [**V1createDriverDocument**](docs/DocumentsApi.md#v1createdriverdocument) | **Post** /v1/fleet/drivers/{driver_id}/documents | Create a document
@@ -194,10 +195,10 @@ Class | Method | HTTP request | Description
 *DocumentsApi* | [**V1getDriverDocumentTypesByOrgId**](docs/DocumentsApi.md#v1getdriverdocumenttypesbyorgid) | **Get** /v1/fleet/drivers/document_types | Fetch document types
 *DocumentsApi* | [**V1getDriverDocumentsByOrgId**](docs/DocumentsApi.md#v1getdriverdocumentsbyorgid) | **Get** /v1/fleet/drivers/documents | Fetch all documents
 *DriversApi* | [**CreateDriver**](docs/DriversApi.md#createdriver) | **Post** /fleet/drivers | Create a driver
-*DriversApi* | [**GetDriverById**](docs/DriversApi.md#getdriverbyid) | **Get** /fleet/drivers/{id} | Retrieve a driver
+*DriversApi* | [**GetDriver**](docs/DriversApi.md#getdriver) | **Get** /fleet/drivers/{id} | Retrieve a driver
 *DriversApi* | [**GetDriverTachographActivity**](docs/DriversApi.md#getdrivertachographactivity) | **Get** /fleet/drivers/tachograph-activity/history | Get driver tachograph activity
-*DriversApi* | [**GetDrivers**](docs/DriversApi.md#getdrivers) | **Get** /fleet/drivers | List all drivers
-*DriversApi* | [**UpdateDriverById**](docs/DriversApi.md#updatedriverbyid) | **Patch** /fleet/drivers/{id} | Update a driver
+*DriversApi* | [**ListDrivers**](docs/DriversApi.md#listdrivers) | **Get** /fleet/drivers | List all drivers
+*DriversApi* | [**UpdateDriver**](docs/DriversApi.md#updatedriver) | **Patch** /fleet/drivers/{id} | Update a driver
 *EquipmentApi* | [**GetEquipmentById**](docs/EquipmentApi.md#getequipmentbyid) | **Get** /fleet/equipment/{id} | Retrieve a unit of equipment
 *EquipmentApi* | [**GetEquipmentList**](docs/EquipmentApi.md#getequipmentlist) | **Get** /fleet/equipment | List all equipment
 *EquipmentApi* | [**GetEquipmentLocationSnapshot**](docs/EquipmentApi.md#getequipmentlocationsnapshot) | **Get** /fleet/equipment/locations | List most recent equipment locations
@@ -227,7 +228,7 @@ Class | Method | HTTP request | Description
 *MaintenanceApi* | [**CreateDvir**](docs/MaintenanceApi.md#createdvir) | **Post** /fleet/dvirs | Create a mechanic DVIR
 *MaintenanceApi* | [**GetDvirById**](docs/MaintenanceApi.md#getdvirbyid) | **Get** /fleet/dvirs/{id} | Retrieve a DVIR
 *MaintenanceApi* | [**GetDvirDefects**](docs/MaintenanceApi.md#getdvirdefects) | **Get** /fleet/defects | Get all defects
-*MaintenanceApi* | [**GetDvirsHistory**](docs/MaintenanceApi.md#getdvirshistory) | **Get** /fleet/dvirs/history | Get all DVIRs
+*MaintenanceApi* | [**GetDvirHistory**](docs/MaintenanceApi.md#getdvirhistory) | **Get** /fleet/dvirs/history | Get all DVIRs
 *MaintenanceApi* | [**ResolveDvirDefect**](docs/MaintenanceApi.md#resolvedvirdefect) | **Patch** /fleet/defects/{id} | Resolve a defect
 *MaintenanceApi* | [**UpdateDvirById**](docs/MaintenanceApi.md#updatedvirbyid) | **Patch** /fleet/dvirs/{id} | Resolve a DVIR
 *MaintenanceApi* | [**V1createDvir**](docs/MaintenanceApi.md#v1createdvir) | **Post** /v1/fleet/maintenance/dvirs | Create a DVIR
@@ -260,30 +261,30 @@ Class | Method | HTTP request | Description
 *SensorsApi* | [**V1getSensorsHumidity**](docs/SensorsApi.md#v1getsensorshumidity) | **Post** /v1/sensors/humidity | Get humidity
 *SensorsApi* | [**V1getSensorsTemperature**](docs/SensorsApi.md#v1getsensorstemperature) | **Post** /v1/sensors/temperature | Get temperature
 *TagsApi* | [**CreateTag**](docs/TagsApi.md#createtag) | **Post** /tags | Create a tag
-*TagsApi* | [**DeleteTagById**](docs/TagsApi.md#deletetagbyid) | **Delete** /tags/{id} | Delete a tag
-*TagsApi* | [**GetAllTags**](docs/TagsApi.md#getalltags) | **Get** /tags | List all tags
-*TagsApi* | [**GetTagById**](docs/TagsApi.md#gettagbyid) | **Get** /tags/{id} | Retrieve a tag
-*TagsApi* | [**PutTagById**](docs/TagsApi.md#puttagbyid) | **Put** /tags/{id} | Update a tag
+*TagsApi* | [**DeleteTag**](docs/TagsApi.md#deletetag) | **Delete** /tags/{id} | Delete a tag
+*TagsApi* | [**GetTag**](docs/TagsApi.md#gettag) | **Get** /tags/{id} | Retrieve a tag
+*TagsApi* | [**ListTags**](docs/TagsApi.md#listtags) | **Get** /tags | List all tags
+*TagsApi* | [**ReplaceTag**](docs/TagsApi.md#replacetag) | **Put** /tags/{id} | Update a tag
 *TrailerAssignmentsApi* | [**V1getAllTrailerAssignments**](docs/TrailerAssignmentsApi.md#v1getalltrailerassignments) | **Get** /v1/fleet/trailers/assignments | List trailer assignments for all trailers
 *TrailerAssignmentsApi* | [**V1getFleetTrailerAssignments**](docs/TrailerAssignmentsApi.md#v1getfleettrailerassignments) | **Get** /v1/fleet/trailers/{trailerId}/assignments | List trailer assignments for a given trailer
 *TripsApi* | [**V1getFleetTrips**](docs/TripsApi.md#v1getfleettrips) | **Get** /v1/fleet/trips | Get vehicle trips
 *UnassignedDrivingSegmentsApi* | [**GetUnassignedDrivingSegments**](docs/UnassignedDrivingSegmentsApi.md#getunassigneddrivingsegments) | **Get** /fleet/unassigned-driving-segments | List all unassigned driving segments
 *UnassignedDrivingSegmentsApi* | [**PatchUnassignedDrivingSegments**](docs/UnassignedDrivingSegmentsApi.md#patchunassigneddrivingsegments) | **Patch** /fleet/unassigned-driving-segments/{id} | Assign an unassigned driving segment
 *UsersApi* | [**CreateUser**](docs/UsersApi.md#createuser) | **Post** /users | Create a user
-*UsersApi* | [**DeleteUserById**](docs/UsersApi.md#deleteuserbyid) | **Delete** /users/{id} | Delete a user
-*UsersApi* | [**GetUserById**](docs/UsersApi.md#getuserbyid) | **Get** /users/{id} | Retrieve a user
-*UsersApi* | [**GetUserRoles**](docs/UsersApi.md#getuserroles) | **Get** /user-roles | List all user roles
-*UsersApi* | [**GetUsers**](docs/UsersApi.md#getusers) | **Get** /users | List all users
-*UsersApi* | [**UpdateUserById**](docs/UsersApi.md#updateuserbyid) | **Patch** /users/{id} | Update a user
-*VehiclesApi* | [**GetVehicleById**](docs/VehiclesApi.md#getvehiclebyid) | **Get** /fleet/vehicles/{id} | Retrieve a vehicle
+*UsersApi* | [**DeleteUser**](docs/UsersApi.md#deleteuser) | **Delete** /users/{id} | Delete a user
+*UsersApi* | [**GetUser**](docs/UsersApi.md#getuser) | **Get** /users/{id} | Retrieve a user
+*UsersApi* | [**ListUserRoles**](docs/UsersApi.md#listuserroles) | **Get** /user-roles | List all user roles
+*UsersApi* | [**ListUsers**](docs/UsersApi.md#listusers) | **Get** /users | List all users
+*UsersApi* | [**UpdateUser**](docs/UsersApi.md#updateuser) | **Patch** /users/{id} | Update a user
+*VehiclesApi* | [**GetVehicle**](docs/VehiclesApi.md#getvehicle) | **Get** /fleet/vehicles/{id} | Retrieve a vehicle
 *VehiclesApi* | [**GetVehicleLocations**](docs/VehiclesApi.md#getvehiclelocations) | **Get** /fleet/vehicles/locations | Get most recent vehicle locations
 *VehiclesApi* | [**GetVehicleLocationsFeed**](docs/VehiclesApi.md#getvehiclelocationsfeed) | **Get** /fleet/vehicles/locations/feed | Follow a feed of vehicle locations
 *VehiclesApi* | [**GetVehicleLocationsHistory**](docs/VehiclesApi.md#getvehiclelocationshistory) | **Get** /fleet/vehicles/locations/history | Get historical vehicle locations
-*VehiclesApi* | [**GetVehicleStatsFeed**](docs/VehiclesApi.md#getvehiclestatsfeed) | **Get** /fleet/vehicles/stats/feed | Follow a real-time feed of vehicle stats
+*VehiclesApi* | [**GetVehicleStats**](docs/VehiclesApi.md#getvehiclestats) | **Get** /fleet/vehicles/stats | List most recent vehicle stats
+*VehiclesApi* | [**GetVehicleStatsFeed**](docs/VehiclesApi.md#getvehiclestatsfeed) | **Get** /fleet/vehicles/stats/feed | Follow a feed of vehicle stats
 *VehiclesApi* | [**GetVehicleStatsHistory**](docs/VehiclesApi.md#getvehiclestatshistory) | **Get** /fleet/vehicles/stats/history | Get historical vehicle stats
-*VehiclesApi* | [**GetVehicleStatsSnapshot**](docs/VehiclesApi.md#getvehiclestatssnapshot) | **Get** /fleet/vehicles/stats | List most recent vehicle stats
-*VehiclesApi* | [**ListVehiclesKondo**](docs/VehiclesApi.md#listvehicleskondo) | **Get** /fleet/vehicles | List all vehicles
-*VehiclesApi* | [**UpdateVehicleById**](docs/VehiclesApi.md#updatevehiclebyid) | **Patch** /fleet/vehicles/{id} | Update a vehicle
+*VehiclesApi* | [**ListVehicles**](docs/VehiclesApi.md#listvehicles) | **Get** /fleet/vehicles | List all vehicles
+*VehiclesApi* | [**UpdateVehicle**](docs/VehiclesApi.md#updatevehicle) | **Patch** /fleet/vehicles/{id} | Update a vehicle
 *WebhooksApi* | [**CreateWebhook**](docs/WebhooksApi.md#createwebhook) | **Post** /webhooks | Create a webhook
 *WebhooksApi* | [**CreateWebhookPing**](docs/WebhooksApi.md#createwebhookping) | **Post** /webhooks/{id} | Fire off a test event to a webhook.
 
@@ -298,13 +299,20 @@ Class | Method | HTTP request | Description
  - [AddressGeofencePolygonVertices](docs/AddressGeofencePolygonVertices.md)
  - [AddressResponse](docs/AddressResponse.md)
  - [CarrierProposedAssignment](docs/CarrierProposedAssignment.md)
- - [CarrierProposedAssignmentCreate](docs/CarrierProposedAssignmentCreate.md)
+ - [CarrierProposedAssignmentResponse](docs/CarrierProposedAssignmentResponse.md)
+ - [CarrierProposedAssignmentVehicle](docs/CarrierProposedAssignmentVehicle.md)
  - [Contact](docs/Contact.md)
- - [ContactInput](docs/ContactInput.md)
+ - [ContactResponse](docs/ContactResponse.md)
  - [ContactTinyResponse](docs/ContactTinyResponse.md)
  - [CreateAddressRequest](docs/CreateAddressRequest.md)
+ - [CreateCarrierProposedAssignmentRequest](docs/CreateCarrierProposedAssignmentRequest.md)
+ - [CreateContactRequest](docs/CreateContactRequest.md)
+ - [CreateDriverRequest](docs/CreateDriverRequest.md)
+ - [CreateDvirRequest](docs/CreateDvirRequest.md)
  - [CreateRouteRequest](docs/CreateRouteRequest.md)
  - [CreateRouteStopRequest](docs/CreateRouteStopRequest.md)
+ - [CreateTagRequest](docs/CreateTagRequest.md)
+ - [CreateUserRequest](docs/CreateUserRequest.md)
  - [DataInputListResponse](docs/DataInputListResponse.md)
  - [DataInputResponse](docs/DataInputResponse.md)
  - [DataInputResponseAllOf](docs/DataInputResponseAllOf.md)
@@ -327,26 +335,32 @@ Class | Method | HTTP request | Description
  - [DocumentType](docs/DocumentType.md)
  - [DocumentTypeTinyResponse](docs/DocumentTypeTinyResponse.md)
  - [Driver](docs/Driver.md)
- - [DriverAllOf](docs/DriverAllOf.md)
- - [DriverBase](docs/DriverBase.md)
- - [DriverBaseCarrierSettings](docs/DriverBaseCarrierSettings.md)
- - [DriverCreate](docs/DriverCreate.md)
+ - [DriverActivationStatus](docs/DriverActivationStatus.md)
+ - [DriverCarrierSettings](docs/DriverCarrierSettings.md)
+ - [DriverExternalIds](docs/DriverExternalIds.md)
+ - [DriverLocale](docs/DriverLocale.md)
+ - [DriverResponse](docs/DriverResponse.md)
+ - [DriverStaticAssignedVehicle](docs/DriverStaticAssignedVehicle.md)
  - [DriverTachographActivityResponse](docs/DriverTachographActivityResponse.md)
  - [DriverTinyResponse](docs/DriverTinyResponse.md)
- - [DriverUpdate](docs/DriverUpdate.md)
- - [DriverUpdateAllOf](docs/DriverUpdateAllOf.md)
+ - [DriverVehicleGroupTag](docs/DriverVehicleGroupTag.md)
  - [Dvir](docs/Dvir.md)
- - [DvirAllOf](docs/DvirAllOf.md)
- - [DvirAllOf0TrailerDefectsItems](docs/DvirAllOf0TrailerDefectsItems.md)
- - [DvirAuthorType](docs/DvirAuthorType.md)
- - [DvirCreate](docs/DvirCreate.md)
- - [DvirCreateAllOf](docs/DvirCreateAllOf.md)
- - [DvirPatch](docs/DvirPatch.md)
+ - [DvirAuthorSignature](docs/DvirAuthorSignature.md)
+ - [DvirResponse](docs/DvirResponse.md)
+ - [DvirSecondSignature](docs/DvirSecondSignature.md)
  - [DvirSignature](docs/DvirSignature.md)
+ - [DvirThirdSignature](docs/DvirThirdSignature.md)
+ - [DvirTrailer](docs/DvirTrailer.md)
+ - [DvirTrailerDefectsItems](docs/DvirTrailerDefectsItems.md)
+ - [DvirVehicle](docs/DvirVehicle.md)
+ - [DvirsListResponse](docs/DvirsListResponse.md)
  - [EquipmentEngineRpm](docs/EquipmentEngineRpm.md)
  - [EquipmentEngineSeconds](docs/EquipmentEngineSeconds.md)
  - [EquipmentEngineState](docs/EquipmentEngineState.md)
  - [EquipmentFuelPercent](docs/EquipmentFuelPercent.md)
+ - [EquipmentGatewayEngineSeconds](docs/EquipmentGatewayEngineSeconds.md)
+ - [EquipmentGatewayEngineState](docs/EquipmentGatewayEngineState.md)
+ - [EquipmentGpsOdometerMeters](docs/EquipmentGpsOdometerMeters.md)
  - [EquipmentListResponse](docs/EquipmentListResponse.md)
  - [EquipmentLocation](docs/EquipmentLocation.md)
  - [EquipmentLocationAllOf](docs/EquipmentLocationAllOf.md)
@@ -355,7 +369,8 @@ Class | Method | HTTP request | Description
  - [EquipmentLocationSnapshotResponseAllOf](docs/EquipmentLocationSnapshotResponseAllOf.md)
  - [EquipmentLocationsResponse](docs/EquipmentLocationsResponse.md)
  - [EquipmentLocationsResponseAllOf](docs/EquipmentLocationsResponseAllOf.md)
- - [EquipmentOdometerMeters](docs/EquipmentOdometerMeters.md)
+ - [EquipmentObdEngineSeconds](docs/EquipmentObdEngineSeconds.md)
+ - [EquipmentObdEngineState](docs/EquipmentObdEngineState.md)
  - [EquipmentResponse](docs/EquipmentResponse.md)
  - [EquipmentStatsResponse](docs/EquipmentStatsResponse.md)
  - [EquipmentStatsResponseAllOf](docs/EquipmentStatsResponseAllOf.md)
@@ -382,16 +397,7 @@ Class | Method | HTTP request | Description
  - [InlineResponse20013](docs/InlineResponse20013.md)
  - [InlineResponse20014](docs/InlineResponse20014.md)
  - [InlineResponse20015](docs/InlineResponse20015.md)
- - [InlineResponse20016](docs/InlineResponse20016.md)
- - [InlineResponse20017](docs/InlineResponse20017.md)
- - [InlineResponse20018](docs/InlineResponse20018.md)
- - [InlineResponse20019](docs/InlineResponse20019.md)
  - [InlineResponse2002](docs/InlineResponse2002.md)
- - [InlineResponse20020](docs/InlineResponse20020.md)
- - [InlineResponse20021](docs/InlineResponse20021.md)
- - [InlineResponse20022](docs/InlineResponse20022.md)
- - [InlineResponse20023](docs/InlineResponse20023.md)
- - [InlineResponse20024](docs/InlineResponse20024.md)
  - [InlineResponse2003](docs/InlineResponse2003.md)
  - [InlineResponse2004](docs/InlineResponse2004.md)
  - [InlineResponse2005](docs/InlineResponse2005.md)
@@ -400,8 +406,15 @@ Class | Method | HTTP request | Description
  - [InlineResponse2008](docs/InlineResponse2008.md)
  - [InlineResponse2009](docs/InlineResponse2009.md)
  - [ListAddressesResponse](docs/ListAddressesResponse.md)
+ - [ListCarrierProposedAssignmentResponse](docs/ListCarrierProposedAssignmentResponse.md)
+ - [ListContactsResponse](docs/ListContactsResponse.md)
  - [ListDataInputsResponse](docs/ListDataInputsResponse.md)
  - [ListDataInputsResponseAllOf](docs/ListDataInputsResponseAllOf.md)
+ - [ListDriversResponse](docs/ListDriversResponse.md)
+ - [ListTagsResponse](docs/ListTagsResponse.md)
+ - [ListUserRolesResponse](docs/ListUserRolesResponse.md)
+ - [ListUsersResponse](docs/ListUsersResponse.md)
+ - [ListVehiclesResponse](docs/ListVehiclesResponse.md)
  - [Location](docs/Location.md)
  - [Message](docs/Message.md)
  - [NumberDataPoint](docs/NumberDataPoint.md)
@@ -416,7 +429,8 @@ Class | Method | HTTP request | Description
  - [OrganizationInfoResponseCarrierSettings](docs/OrganizationInfoResponseCarrierSettings.md)
  - [PaginationResponse](docs/PaginationResponse.md)
  - [ParentTag](docs/ParentTag.md)
- - [RemoteObdTestRecords](docs/RemoteObdTestRecords.md)
+ - [RemoteObdTestRecordType](docs/RemoteObdTestRecordType.md)
+ - [ReplaceTagRequest](docs/ReplaceTagRequest.md)
  - [Route](docs/Route.md)
  - [RouteLocation](docs/RouteLocation.md)
  - [RouteStop](docs/RouteStop.md)
@@ -427,22 +441,26 @@ Class | Method | HTTP request | Description
  - [TachographActivityListWrapper](docs/TachographActivityListWrapper.md)
  - [Tag](docs/Tag.md)
  - [TagAllOf](docs/TagAllOf.md)
+ - [TagResponse](docs/TagResponse.md)
  - [TagTinyResponse](docs/TagTinyResponse.md)
- - [TagUpdate](docs/TagUpdate.md)
  - [TaggedObject](docs/TaggedObject.md)
  - [TinyTag](docs/TinyTag.md)
  - [TrailerNameOnlyResponse](docs/TrailerNameOnlyResponse.md)
  - [TrailerTinyResponse](docs/TrailerTinyResponse.md)
  - [UnassignedDrivingSegmentResponse](docs/UnassignedDrivingSegmentResponse.md)
  - [UpdateAddressRequest](docs/UpdateAddressRequest.md)
+ - [UpdateContactRequest](docs/UpdateContactRequest.md)
+ - [UpdateDriverRequest](docs/UpdateDriverRequest.md)
+ - [UpdateDvirRequest](docs/UpdateDvirRequest.md)
+ - [UpdateUserRequest](docs/UpdateUserRequest.md)
+ - [UpdateVehicleRequest](docs/UpdateVehicleRequest.md)
  - [User](docs/User.md)
- - [UserCreate](docs/UserCreate.md)
+ - [UserAuthType](docs/UserAuthType.md)
+ - [UserResponse](docs/UserResponse.md)
  - [UserRole](docs/UserRole.md)
- - [UserRoleInput](docs/UserRoleInput.md)
- - [UserRoleResponse](docs/UserRoleResponse.md)
- - [UserRoleTinyResponse](docs/UserRoleTinyResponse.md)
+ - [UserRoleAssignment](docs/UserRoleAssignment.md)
+ - [UserRoleAssignmentRequest](docs/UserRoleAssignmentRequest.md)
  - [UserTinyResponse](docs/UserTinyResponse.md)
- - [UserUpdate](docs/UserUpdate.md)
  - [V1Asset](docs/V1Asset.md)
  - [V1AssetCable](docs/V1AssetCable.md)
  - [V1AssetCurrentLocation](docs/V1AssetCurrentLocation.md)
@@ -499,7 +517,6 @@ Class | Method | HTTP request | Description
  - [V1DocumentFieldCreate](docs/V1DocumentFieldCreate.md)
  - [V1DocumentFieldCreateDateTimeValue](docs/V1DocumentFieldCreateDateTimeValue.md)
  - [V1DocumentFieldCreateMultipleChoiceValue](docs/V1DocumentFieldCreateMultipleChoiceValue.md)
- - [V1DocumentFieldCreatePhotoValue](docs/V1DocumentFieldCreatePhotoValue.md)
  - [V1DocumentFieldType](docs/V1DocumentFieldType.md)
  - [V1DocumentFieldTypeMultipleChoiceValueTypeMetadata](docs/V1DocumentFieldTypeMultipleChoiceValueTypeMetadata.md)
  - [V1DocumentFieldTypeMultipleChoiceValueTypeMetadataMultipleChoiceOptionLabels](docs/V1DocumentFieldTypeMultipleChoiceValueTypeMetadataMultipleChoiceOptionLabels.md)
@@ -576,17 +593,12 @@ Class | Method | HTTP request | Description
  - [V1allRouteJobUpdates](docs/V1allRouteJobUpdates.md)
  - [V1jobStatus](docs/V1jobStatus.md)
  - [V1jobUpdateObject](docs/V1jobUpdateObject.md)
- - [VehicleCtpSmogTestData](docs/VehicleCtpSmogTestData.md)
- - [VehicleCtpSmogTestDataWrapper](docs/VehicleCtpSmogTestDataWrapper.md)
- - [VehicleEngineState](docs/VehicleEngineState.md)
- - [VehicleEngineStatesWrapper](docs/VehicleEngineStatesWrapper.md)
- - [VehicleFuelPercent](docs/VehicleFuelPercent.md)
- - [VehicleFuelPercentsWrapper](docs/VehicleFuelPercentsWrapper.md)
- - [VehicleGpsDistanceMeters](docs/VehicleGpsDistanceMeters.md)
- - [VehicleGpsDistanceMetersWrapper](docs/VehicleGpsDistanceMetersWrapper.md)
- - [VehicleGpsOdometerMeters](docs/VehicleGpsOdometerMeters.md)
- - [VehicleGpsOdometerMetersWrapper](docs/VehicleGpsOdometerMetersWrapper.md)
- - [VehicleListResponse](docs/VehicleListResponse.md)
+ - [Vehicle](docs/Vehicle.md)
+ - [VehicleAuxInputType](docs/VehicleAuxInputType.md)
+ - [VehicleAuxInputType1](docs/VehicleAuxInputType1.md)
+ - [VehicleAuxInputType2](docs/VehicleAuxInputType2.md)
+ - [VehicleExternalIds](docs/VehicleExternalIds.md)
+ - [VehicleHarshAccelerationSettingType](docs/VehicleHarshAccelerationSettingType.md)
  - [VehicleLocation](docs/VehicleLocation.md)
  - [VehicleLocationReverseGeo](docs/VehicleLocationReverseGeo.md)
  - [VehicleLocationTime](docs/VehicleLocationTime.md)
@@ -594,16 +606,20 @@ Class | Method | HTTP request | Description
  - [VehicleLocationsListResponseData](docs/VehicleLocationsListResponseData.md)
  - [VehicleLocationsResponse](docs/VehicleLocationsResponse.md)
  - [VehicleLocationsResponseData](docs/VehicleLocationsResponseData.md)
- - [VehicleObdEngineSeconds](docs/VehicleObdEngineSeconds.md)
- - [VehicleObdEngineSecondsWrapper](docs/VehicleObdEngineSecondsWrapper.md)
- - [VehicleObdOdometerMeters](docs/VehicleObdOdometerMeters.md)
- - [VehicleObdOdometerMetersWrapper](docs/VehicleObdOdometerMetersWrapper.md)
- - [VehiclePatch](docs/VehiclePatch.md)
  - [VehicleResponse](docs/VehicleResponse.md)
- - [VehicleStatsList](docs/VehicleStatsList.md)
+ - [VehicleStaticAssignedDriver](docs/VehicleStaticAssignedDriver.md)
+ - [VehicleStatsCtpSmogTestData](docs/VehicleStatsCtpSmogTestData.md)
+ - [VehicleStatsEngineState](docs/VehicleStatsEngineState.md)
+ - [VehicleStatsFuelPercent](docs/VehicleStatsFuelPercent.md)
+ - [VehicleStatsGpsDistanceMeters](docs/VehicleStatsGpsDistanceMeters.md)
+ - [VehicleStatsGpsOdometerMeters](docs/VehicleStatsGpsOdometerMeters.md)
  - [VehicleStatsListResponse](docs/VehicleStatsListResponse.md)
- - [VehicleStatsSnapshotResponse](docs/VehicleStatsSnapshotResponse.md)
- - [VehicleStatsSnapshotResponseAllOf](docs/VehicleStatsSnapshotResponseAllOf.md)
+ - [VehicleStatsListResponseData](docs/VehicleStatsListResponseData.md)
+ - [VehicleStatsObdEngineSeconds](docs/VehicleStatsObdEngineSeconds.md)
+ - [VehicleStatsObdOdometerMeters](docs/VehicleStatsObdOdometerMeters.md)
+ - [VehicleStatsResponse](docs/VehicleStatsResponse.md)
+ - [VehicleStatsResponseData](docs/VehicleStatsResponseData.md)
+ - [VehicleStatsTime](docs/VehicleStatsTime.md)
  - [VehicleTinyResponse](docs/VehicleTinyResponse.md)
  - [Webhook](docs/Webhook.md)
  - [WebhookAllOf](docs/WebhookAllOf.md)

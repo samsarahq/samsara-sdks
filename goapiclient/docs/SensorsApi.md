@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## V1getSensors
 
-> InlineResponse20024 V1getSensors(ctx).Execute()
+> InlineResponse20015 V1getSensors(ctx).Execute()
 
 Get all sensors
 
@@ -32,7 +32,7 @@ Other parameters are passed through a pointer to a apiV1getSensorsRequest struct
 
 ### Return type
 
-[**InlineResponse20024**](inline_response_200_24.md)
+[**InlineResponse20015**](inline_response_200_15.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## GetUnassignedDrivingSegments
 
-> InlineResponse2006 GetUnassignedDrivingSegments(ctx).After(after).Id(id).StartTime(startTime).EndTime(endTime).Execute()
+> InlineResponse2002 GetUnassignedDrivingSegments(ctx).After(after).Id(id).StartTime(startTime).EndTime(endTime).Execute()
 
 List all unassigned driving segments
 
@@ -35,7 +35,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](inline_response_200_6.md)
+[**InlineResponse2002**](inline_response_200_2.md)
 
 ### Authorization
 
@@ -53,7 +53,7 @@ No authorization required
 
 ## PatchUnassignedDrivingSegments
 
-> InlineResponse2007 PatchUnassignedDrivingSegments(ctx, id).UpdateUnassignedDrivingSegment(updateUnassignedDrivingSegment).Execute()
+> InlineResponse2003 PatchUnassignedDrivingSegments(ctx, id).UpdateUnassignedDrivingSegment(updateUnassignedDrivingSegment).Execute()
 
 Assign an unassigned driving segment
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](inline_response_200_7.md)
+[**InlineResponse2003**](inline_response_200_3.md)
 
 ### Authorization
 

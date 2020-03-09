@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AddressTypes** | Pointer to **[]string** | Reporting location type associated with the address (used for ELD reporting purposes). | [optional] 
 **Contacts** | Pointer to [**[]ContactTinyResponse**](contactTinyResponse.md) | An array Contact mini-objects that are associated the Address. | [optional] 
-**ExternalIds** | Pointer to **map[string]string** | User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (&#x60;\&quot;\&quot;&#x60;). An external ID can be used as a path parameter to retrieve or update that resource. | [optional] 
+**ExternalIds** | Pointer to **map[string]string** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
 **FormattedAddress** | Pointer to **string** | The full street address for this address/geofence, as it might be recognized by Google Maps. | 
 **Geofence** | Pointer to [**AddressGeofence**](AddressGeofence.md) |  | 
 **Id** | Pointer to **string** | ID of the Address. | 

@@ -5,16 +5,16 @@ All URIs are relative to *https://api.samsara.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateContact**](ContactsApi.md#CreateContact) | **Post** /contacts | Create a contact
-[**DeleteContactById**](ContactsApi.md#DeleteContactById) | **Delete** /contacts/{id} | Delete a contact
-[**GetContactById**](ContactsApi.md#GetContactById) | **Get** /contacts/{id} | Retrieve a contact
-[**GetContacts**](ContactsApi.md#GetContacts) | **Get** /contacts | List all contacts
-[**UpdateContactById**](ContactsApi.md#UpdateContactById) | **Patch** /contacts/{id} | Update a contact
+[**DeleteContact**](ContactsApi.md#DeleteContact) | **Delete** /contacts/{id} | Delete a contact
+[**GetContact**](ContactsApi.md#GetContact) | **Get** /contacts/{id} | Retrieve a contact
+[**ListContacts**](ContactsApi.md#ListContacts) | **Get** /contacts | List all contacts
+[**UpdateContact**](ContactsApi.md#UpdateContact) | **Patch** /contacts/{id} | Update a contact
 
 
 
 ## CreateContact
 
-> InlineResponse200 CreateContact(ctx).Contact(contact).Execute()
+> ContactResponse CreateContact(ctx).Contact(contact).Execute()
 
 Create a contact
 
@@ -31,11 +31,11 @@ Other parameters are passed through a pointer to a apiCreateContactRequest struc
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **contact** | [**ContactInput**](ContactInput.md) | Add a contact. | 
+ **contact** | [**CreateContactRequest**](CreateContactRequest.md) | The contact create parameters. | 
 
 ### Return type
 
-[**InlineResponse200**](inline_response_200.md)
+[**ContactResponse**](ContactResponse.md)
 
 ### Authorization
 
@@ -51,9 +51,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## DeleteContactById
+## DeleteContact
 
-> DeleteContactById(ctx, id).Execute()
+> DeleteContact(ctx, id).Execute()
 
 Delete a contact
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiDeleteContactByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiDeleteContactRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -94,9 +94,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetContactById
+## GetContact
 
-> InlineResponse200 GetContactById(ctx, id).Execute()
+> ContactResponse GetContact(ctx, id).Execute()
 
 Retrieve a contact
 
@@ -112,7 +112,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetContactByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetContactRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -121,7 +121,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse200**](inline_response_200.md)
+[**ContactResponse**](ContactResponse.md)
 
 ### Authorization
 
@@ -137,9 +137,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetContacts
+## ListContacts
 
-> map[string]interface{} GetContacts(ctx).Limit(limit).After(after).Execute()
+> ListContactsResponse ListContacts(ctx).Limit(limit).After(after).Execute()
 
 List all contacts
 
@@ -151,7 +151,7 @@ List all contacts
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetContactsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListContactsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+[**ListContactsResponse**](ListContactsResponse.md)
 
 ### Authorization
 
@@ -177,9 +177,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## UpdateContactById
+## UpdateContact
 
-> InlineResponse200 UpdateContactById(ctx, id).Contact(contact).Execute()
+> ContactResponse UpdateContact(ctx, id).Contact(contact).Execute()
 
 Update a contact
 
@@ -195,17 +195,17 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateContactByIdRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiUpdateContactRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **contact** | [**ContactInput**](ContactInput.md) | Updates to the contact. | 
+ **contact** | [**UpdateContactRequest**](UpdateContactRequest.md) | Updates to the contact. | 
 
 ### Return type
 
-[**InlineResponse200**](inline_response_200.md)
+[**ContactResponse**](ContactResponse.md)
 
 ### Authorization
 

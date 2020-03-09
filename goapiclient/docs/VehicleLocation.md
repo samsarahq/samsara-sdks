@@ -4,12 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Heading** | Pointer to **float64** | Heading of the vehicle in degrees. | 
+**Heading** | Pointer to **float64** | Heading of the vehicle in degrees. | [optional] 
 **Latitude** | Pointer to **float64** | GPS latitude represented in degrees | 
 **Longitude** | Pointer to **float64** | GPS longitude represented in degrees | 
 **ReverseGeo** | Pointer to [**VehicleLocationReverseGeo**](VehicleLocationReverseGeo.md) |  | [optional] 
-**Speed** | Pointer to **float64** | GPS speed of the vehicle in miles per hour. | 
-**Time** | Pointer to **string** | UTC timestamp in RFC 3339 milliseconds format. | 
+**Speed** | Pointer to **float64** | GPS speed of the vehicle in miles per hour. | [optional] 
+**Time** | Pointer to [**time.Time**](time.Time.md) | UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | 
 
 ## Methods
 
@@ -140,13 +140,13 @@ SetSpeed gets a reference to the given float64 and assigns it to the Speed field
 
 ### GetTime
 
-`func (o *VehicleLocation) GetTime() string`
+`func (o *VehicleLocation) GetTime() time.Time`
 
 GetTime returns the Time field if non-nil, zero value otherwise.
 
 ### GetTimeOk
 
-`func (o *VehicleLocation) GetTimeOk() (string, bool)`
+`func (o *VehicleLocation) GetTimeOk() (time.Time, bool)`
 
 GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -159,9 +159,9 @@ HasTime returns a boolean if a field has been set.
 
 ### SetTime
 
-`func (o *VehicleLocation) SetTime(v string)`
+`func (o *VehicleLocation) SetTime(v time.Time)`
 
-SetTime gets a reference to the given string and assigns it to the Time field.
+SetTime gets a reference to the given time.Time and assigns it to the Time field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | Pointer to **string** | Email address of the contact. | [optional] 
-**FirstName** | Pointer to **string** | First name of the contact. | [optional] 
-**Id** | Pointer to **string** | ID of the contact. | [optional] 
-**LastName** | Pointer to **string** | Last name of the contact. | [optional] 
-**Phone** | Pointer to **string** | Phone number of the contact. | [optional] 
+**Email** | Pointer to **string** | Email address of the contact. | 
+**FirstName** | Pointer to **string** | First name of the contact. | 
+**Id** | Pointer to **string** | ID of the contact. | 
+**LastName** | Pointer to **string** | Last name of the contact. | 
+**Phone** | Pointer to **string** | Phone number of the contact. | 
 
 ## Methods
 

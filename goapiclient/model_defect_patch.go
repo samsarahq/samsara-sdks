@@ -17,43 +17,26 @@ import (
 // DefectPatch Information about resolving a defect.
 type DefectPatch struct {
 	// The user who is resolving the defect.
-	AuthorId *string `json:"authorId,omitempty"`
+	AuthorId string `json:"authorId"`
 	// Resolves the defect. Must be `true`.
-	IsResolved     bool                    `json:"isResolved"`
-	ResolvedAtTime *map[string]interface{} `json:"resolvedAtTime,omitempty"`
+	IsResolved bool `json:"isResolved"`
+	// Time when defect was resolved. Defaults to now if not provided. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	ResolvedAtTime *string `json:"resolvedAtTime,omitempty"`
 }
 
-// GetAuthorId returns the AuthorId field value if set, zero value otherwise.
+// GetAuthorId returns the AuthorId field value
 func (o *DefectPatch) GetAuthorId() string {
-	if o == nil || o.AuthorId == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.AuthorId
+
+	return o.AuthorId
 }
 
-// GetAuthorIdOk returns a tuple with the AuthorId field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *DefectPatch) GetAuthorIdOk() (string, bool) {
-	if o == nil || o.AuthorId == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.AuthorId, true
-}
-
-// HasAuthorId returns a boolean if a field has been set.
-func (o *DefectPatch) HasAuthorId() bool {
-	if o != nil && o.AuthorId != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAuthorId gets a reference to the given string and assigns it to the AuthorId field.
+// SetAuthorId sets field value
 func (o *DefectPatch) SetAuthorId(v string) {
-	o.AuthorId = &v
+	o.AuthorId = v
 }
 
 // GetIsResolved returns the IsResolved field value
@@ -72,9 +55,9 @@ func (o *DefectPatch) SetIsResolved(v bool) {
 }
 
 // GetResolvedAtTime returns the ResolvedAtTime field value if set, zero value otherwise.
-func (o *DefectPatch) GetResolvedAtTime() map[string]interface{} {
+func (o *DefectPatch) GetResolvedAtTime() string {
 	if o == nil || o.ResolvedAtTime == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret
 	}
 	return *o.ResolvedAtTime
@@ -82,9 +65,9 @@ func (o *DefectPatch) GetResolvedAtTime() map[string]interface{} {
 
 // GetResolvedAtTimeOk returns a tuple with the ResolvedAtTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *DefectPatch) GetResolvedAtTimeOk() (map[string]interface{}, bool) {
+func (o *DefectPatch) GetResolvedAtTimeOk() (string, bool) {
 	if o == nil || o.ResolvedAtTime == nil {
-		var ret map[string]interface{}
+		var ret string
 		return ret, false
 	}
 	return *o.ResolvedAtTime, true
@@ -99,8 +82,8 @@ func (o *DefectPatch) HasResolvedAtTime() bool {
 	return false
 }
 
-// SetResolvedAtTime gets a reference to the given map[string]interface{} and assigns it to the ResolvedAtTime field.
-func (o *DefectPatch) SetResolvedAtTime(v map[string]interface{}) {
+// SetResolvedAtTime gets a reference to the given string and assigns it to the ResolvedAtTime field.
+func (o *DefectPatch) SetResolvedAtTime(v string) {
 	o.ResolvedAtTime = &v
 }
 

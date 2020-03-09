@@ -16,75 +16,40 @@ import (
 
 // InlineResponse2009 struct for InlineResponse2009
 type InlineResponse2009 struct {
-	// An array of data input objects. Each object contains the data input's name, ID, and other metadata.
-	Data       *[]ListDataInputsResponse `json:"data,omitempty"`
-	Pagination *PaginationResponse       `json:"pagination,omitempty"`
+	Vehicles *[]V1VehicleMaintenance `json:"vehicles,omitempty"`
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse2009) GetData() []ListDataInputsResponse {
-	if o == nil || o.Data == nil {
-		var ret []ListDataInputsResponse
+// GetVehicles returns the Vehicles field value if set, zero value otherwise.
+func (o *InlineResponse2009) GetVehicles() []V1VehicleMaintenance {
+	if o == nil || o.Vehicles == nil {
+		var ret []V1VehicleMaintenance
 		return ret
 	}
-	return *o.Data
+	return *o.Vehicles
 }
 
-// GetDataOk returns a tuple with the Data field value if set, zero value otherwise
+// GetVehiclesOk returns a tuple with the Vehicles field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2009) GetDataOk() ([]ListDataInputsResponse, bool) {
-	if o == nil || o.Data == nil {
-		var ret []ListDataInputsResponse
+func (o *InlineResponse2009) GetVehiclesOk() ([]V1VehicleMaintenance, bool) {
+	if o == nil || o.Vehicles == nil {
+		var ret []V1VehicleMaintenance
 		return ret, false
 	}
-	return *o.Data, true
+	return *o.Vehicles, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *InlineResponse2009) HasData() bool {
-	if o != nil && o.Data != nil {
+// HasVehicles returns a boolean if a field has been set.
+func (o *InlineResponse2009) HasVehicles() bool {
+	if o != nil && o.Vehicles != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given []ListDataInputsResponse and assigns it to the Data field.
-func (o *InlineResponse2009) SetData(v []ListDataInputsResponse) {
-	o.Data = &v
-}
-
-// GetPagination returns the Pagination field value if set, zero value otherwise.
-func (o *InlineResponse2009) GetPagination() PaginationResponse {
-	if o == nil || o.Pagination == nil {
-		var ret PaginationResponse
-		return ret
-	}
-	return *o.Pagination
-}
-
-// GetPaginationOk returns a tuple with the Pagination field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *InlineResponse2009) GetPaginationOk() (PaginationResponse, bool) {
-	if o == nil || o.Pagination == nil {
-		var ret PaginationResponse
-		return ret, false
-	}
-	return *o.Pagination, true
-}
-
-// HasPagination returns a boolean if a field has been set.
-func (o *InlineResponse2009) HasPagination() bool {
-	if o != nil && o.Pagination != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetPagination gets a reference to the given PaginationResponse and assigns it to the Pagination field.
-func (o *InlineResponse2009) SetPagination(v PaginationResponse) {
-	o.Pagination = &v
+// SetVehicles gets a reference to the given []V1VehicleMaintenance and assigns it to the Vehicles field.
+func (o *InlineResponse2009) SetVehicles(v []V1VehicleMaintenance) {
+	o.Vehicles = &v
 }
 
 type NullableInlineResponse2009 struct {

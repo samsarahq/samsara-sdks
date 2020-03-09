@@ -14,7 +14,7 @@ import (
 	"encoding/json"
 )
 
-// AddressExternalIds User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (`\"\"`). An external ID can be used as a path parameter to retrieve or update that resource.
+// AddressExternalIds The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object.
 type AddressExternalIds struct {
 }
 

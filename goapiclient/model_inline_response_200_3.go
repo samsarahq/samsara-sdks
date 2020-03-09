@@ -16,13 +16,13 @@ import (
 
 // InlineResponse2003 struct for InlineResponse2003
 type InlineResponse2003 struct {
-	Data *Driver `json:"data,omitempty"`
+	Data *UnassignedDrivingSegmentResponse `json:"data,omitempty"`
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse2003) GetData() Driver {
+func (o *InlineResponse2003) GetData() UnassignedDrivingSegmentResponse {
 	if o == nil || o.Data == nil {
-		var ret Driver
+		var ret UnassignedDrivingSegmentResponse
 		return ret
 	}
 	return *o.Data
@@ -30,9 +30,9 @@ func (o *InlineResponse2003) GetData() Driver {
 
 // GetDataOk returns a tuple with the Data field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2003) GetDataOk() (Driver, bool) {
+func (o *InlineResponse2003) GetDataOk() (UnassignedDrivingSegmentResponse, bool) {
 	if o == nil || o.Data == nil {
-		var ret Driver
+		var ret UnassignedDrivingSegmentResponse
 		return ret, false
 	}
 	return *o.Data, true
@@ -47,8 +47,8 @@ func (o *InlineResponse2003) HasData() bool {
 	return false
 }
 
-// SetData gets a reference to the given Driver and assigns it to the Data field.
-func (o *InlineResponse2003) SetData(v Driver) {
+// SetData gets a reference to the given UnassignedDrivingSegmentResponse and assigns it to the Data field.
+func (o *InlineResponse2003) SetData(v UnassignedDrivingSegmentResponse) {
 	o.Data = &v
 }
 

@@ -512,16 +512,16 @@ func (a *IndustrialApiService) GetDataInputs(ctx _context.Context) apiGetDataInp
 
 /*
 Execute executes the request
- @return InlineResponse2009
+ @return InlineResponse2004
 */
-func (r apiGetDataInputsRequest) Execute() (InlineResponse2009, *_nethttp.Response, error) {
+func (r apiGetDataInputsRequest) Execute() (InlineResponse2004, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2009
+		localVarReturnValue  InlineResponse2004
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "IndustrialApiService.GetDataInputs")
@@ -583,7 +583,7 @@ func (r apiGetDataInputsRequest) Execute() (InlineResponse2009, *_nethttp.Respon
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2009
+			var v InlineResponse2004
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -797,16 +797,16 @@ func (a *IndustrialApiService) V1getAllDataInputs(ctx _context.Context) apiV1get
 
 /*
 Execute executes the request
- @return InlineResponse20022
+ @return InlineResponse20013
 */
-func (r apiV1getAllDataInputsRequest) Execute() (InlineResponse20022, *_nethttp.Response, error) {
+func (r apiV1getAllDataInputsRequest) Execute() (InlineResponse20013, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20022
+		localVarReturnValue  InlineResponse20013
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "IndustrialApiService.V1getAllDataInputs")
@@ -865,7 +865,7 @@ func (r apiV1getAllDataInputsRequest) Execute() (InlineResponse20022, *_nethttp.
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20022
+			var v InlineResponse20013
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1185,16 +1185,16 @@ func (a *IndustrialApiService) V1getMachines(ctx _context.Context) apiV1getMachi
 
 /*
 Execute executes the request
- @return InlineResponse20023
+ @return InlineResponse20014
 */
-func (r apiV1getMachinesRequest) Execute() (InlineResponse20023, *_nethttp.Response, error) {
+func (r apiV1getMachinesRequest) Execute() (InlineResponse20014, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20023
+		localVarReturnValue  InlineResponse20014
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "IndustrialApiService.V1getMachines")
@@ -1247,7 +1247,7 @@ func (r apiV1getMachinesRequest) Execute() (InlineResponse20023, *_nethttp.Respo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20023
+			var v InlineResponse20014
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

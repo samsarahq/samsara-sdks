@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## V1getAllTrailerAssignments
 
-> InlineResponse20021 V1getAllTrailerAssignments(ctx).StartMs(startMs).EndMs(endMs).Limit(limit).StartingAfter(startingAfter).EndingBefore(endingBefore).Execute()
+> InlineResponse20012 V1getAllTrailerAssignments(ctx).StartMs(startMs).EndMs(endMs).Limit(limit).StartingAfter(startingAfter).EndingBefore(endingBefore).Execute()
 
 List trailer assignments for all trailers
 
@@ -36,7 +36,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](inline_response_200_21.md)
+[**InlineResponse20012**](inline_response_200_12.md)
 
 ### Authorization
 

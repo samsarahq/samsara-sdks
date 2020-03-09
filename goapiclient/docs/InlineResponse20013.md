@@ -4,34 +4,34 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | Pointer to [**User**](User.md) |  | [optional] 
+**DataInputs** | Pointer to [**[]V1DataInputHistoryResponse**](V1DataInputHistoryResponse.md) |  | [optional] 
 
 ## Methods
 
-### GetData
+### GetDataInputs
 
-`func (o *InlineResponse20013) GetData() User`
+`func (o *InlineResponse20013) GetDataInputs() []V1DataInputHistoryResponse`
 
-GetData returns the Data field if non-nil, zero value otherwise.
+GetDataInputs returns the DataInputs field if non-nil, zero value otherwise.
 
-### GetDataOk
+### GetDataInputsOk
 
-`func (o *InlineResponse20013) GetDataOk() (User, bool)`
+`func (o *InlineResponse20013) GetDataInputsOk() ([]V1DataInputHistoryResponse, bool)`
 
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
+GetDataInputsOk returns a tuple with the DataInputs field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasData
+### HasDataInputs
 
-`func (o *InlineResponse20013) HasData() bool`
+`func (o *InlineResponse20013) HasDataInputs() bool`
 
-HasData returns a boolean if a field has been set.
+HasDataInputs returns a boolean if a field has been set.
 
-### SetData
+### SetDataInputs
 
-`func (o *InlineResponse20013) SetData(v User)`
+`func (o *InlineResponse20013) SetDataInputs(v []V1DataInputHistoryResponse)`
 
-SetData gets a reference to the given User and assigns it to the Data field.
+SetDataInputs gets a reference to the given []V1DataInputHistoryResponse and assigns it to the DataInputs field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

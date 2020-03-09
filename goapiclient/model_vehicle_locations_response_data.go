@@ -16,10 +16,10 @@ import (
 
 // VehicleLocationsResponseData A vehicle and its most recent location.
 type VehicleLocationsResponseData struct {
-	// ID of the vehicle.
+	// The unique Samsara ID of the Vehicle. This is automatically generated when the Vehicle object is created. It cannot be changed.
 	Id       string          `json:"id"`
 	Location VehicleLocation `json:"location"`
-	// Name of the vehicle.
+	// The human-readable name of the Vehicle. This is set by a fleet administrator and will appear in both Samsara’s cloud dashboard as well as the Samsara Driver mobile app. **By default**, this name is the serial number of the Samsara Vehicle Gateway. It can be set or updated through the Samsara Dashboard or through the API at any time.
 	Name string `json:"name"`
 }
 

@@ -16,40 +16,40 @@ import (
 
 // InlineResponse20014 struct for InlineResponse20014
 type InlineResponse20014 struct {
-	Data *User `json:"data,omitempty"`
+	Machines *[]V1Machine `json:"machines,omitempty"`
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse20014) GetData() User {
-	if o == nil || o.Data == nil {
-		var ret User
+// GetMachines returns the Machines field value if set, zero value otherwise.
+func (o *InlineResponse20014) GetMachines() []V1Machine {
+	if o == nil || o.Machines == nil {
+		var ret []V1Machine
 		return ret
 	}
-	return *o.Data
+	return *o.Machines
 }
 
-// GetDataOk returns a tuple with the Data field value if set, zero value otherwise
+// GetMachinesOk returns a tuple with the Machines field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse20014) GetDataOk() (User, bool) {
-	if o == nil || o.Data == nil {
-		var ret User
+func (o *InlineResponse20014) GetMachinesOk() ([]V1Machine, bool) {
+	if o == nil || o.Machines == nil {
+		var ret []V1Machine
 		return ret, false
 	}
-	return *o.Data, true
+	return *o.Machines, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *InlineResponse20014) HasData() bool {
-	if o != nil && o.Data != nil {
+// HasMachines returns a boolean if a field has been set.
+func (o *InlineResponse20014) HasMachines() bool {
+	if o != nil && o.Machines != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given User and assigns it to the Data field.
-func (o *InlineResponse20014) SetData(v User) {
-	o.Data = &v
+// SetMachines gets a reference to the given []V1Machine and assigns it to the Machines field.
+func (o *InlineResponse20014) SetMachines(v []V1Machine) {
+	o.Machines = &v
 }
 
 type NullableInlineResponse20014 struct {

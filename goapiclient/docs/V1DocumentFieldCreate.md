@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **DateTimeValue** | Pointer to [**V1DocumentFieldCreateDateTimeValue**](V1DocumentFieldCreate_dateTimeValue.md) |  | [optional] 
 **MultipleChoiceValue** | Pointer to [**[]V1DocumentFieldCreateMultipleChoiceValue**](V1DocumentFieldCreate_multipleChoiceValue.md) | The value of a &#x60;ValueType_MultipleChoice&#x60; field. | [optional] 
 **NumberValue** | Pointer to **float64** | The value of a &#x60;ValueType_Number&#x60; field. | [optional] 
-**PhotoValue** | Pointer to [**[]V1DocumentFieldCreatePhotoValue**](V1DocumentFieldCreate_photoValue.md) | The value of a &#x60;ValueType_Photo&#x60; field. | [optional] 
 **StringValue** | Pointer to **string** | The value of a &#x60;ValueType_String&#x60; field. | [optional] 
 **ValueType** | Pointer to **string** | The type of this field. Valid values: &#x60;ValueType_Number&#x60;, &#x60;ValueType_String&#x60;, &#x60;ValueType_Photo&#x60;, &#x60;ValueType_MultipleChoice&#x60;, &#x60;ValueType_Signature&#x60;, &#x60;ValueType_DateTime&#x60;. When creating documents via API, only &#x60;ValueType_Number&#x60;, &#x60;ValueType_String&#x60;, &#x60;ValueType_MultipleChoice&#x60;, and &#x60;ValueType_DateTime&#x60; are accepted. | 
 
@@ -87,31 +86,6 @@ HasNumberValue returns a boolean if a field has been set.
 `func (o *V1DocumentFieldCreate) SetNumberValue(v float64)`
 
 SetNumberValue gets a reference to the given float64 and assigns it to the NumberValue field.
-
-### GetPhotoValue
-
-`func (o *V1DocumentFieldCreate) GetPhotoValue() []V1DocumentFieldCreatePhotoValue`
-
-GetPhotoValue returns the PhotoValue field if non-nil, zero value otherwise.
-
-### GetPhotoValueOk
-
-`func (o *V1DocumentFieldCreate) GetPhotoValueOk() ([]V1DocumentFieldCreatePhotoValue, bool)`
-
-GetPhotoValueOk returns a tuple with the PhotoValue field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### HasPhotoValue
-
-`func (o *V1DocumentFieldCreate) HasPhotoValue() bool`
-
-HasPhotoValue returns a boolean if a field has been set.
-
-### SetPhotoValue
-
-`func (o *V1DocumentFieldCreate) SetPhotoValue(v []V1DocumentFieldCreatePhotoValue)`
-
-SetPhotoValue gets a reference to the given []V1DocumentFieldCreatePhotoValue and assigns it to the PhotoValue field.
 
 ### GetStringValue
 

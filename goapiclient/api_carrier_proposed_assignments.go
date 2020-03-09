@@ -29,10 +29,10 @@ type CarrierProposedAssignmentsApiService service
 type apiCreateCarrierProposedAssignmentRequest struct {
 	ctx                       _context.Context
 	apiService                *CarrierProposedAssignmentsApiService
-	carrierProposedAssignment *CarrierProposedAssignmentCreate
+	carrierProposedAssignment *CreateCarrierProposedAssignmentRequest
 }
 
-func (r apiCreateCarrierProposedAssignmentRequest) CarrierProposedAssignment(carrierProposedAssignment CarrierProposedAssignmentCreate) apiCreateCarrierProposedAssignmentRequest {
+func (r apiCreateCarrierProposedAssignmentRequest) CarrierProposedAssignment(carrierProposedAssignment CreateCarrierProposedAssignmentRequest) apiCreateCarrierProposedAssignmentRequest {
 	r.carrierProposedAssignment = &carrierProposedAssignment
 	return r
 }
@@ -52,16 +52,16 @@ func (a *CarrierProposedAssignmentsApiService) CreateCarrierProposedAssignment(c
 
 /*
 Execute executes the request
- @return map[string]interface{}
+ @return CarrierProposedAssignmentResponse
 */
-func (r apiCreateCarrierProposedAssignmentRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
+func (r apiCreateCarrierProposedAssignmentRequest) Execute() (CarrierProposedAssignmentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  CarrierProposedAssignmentResponse
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "CarrierProposedAssignmentsApiService.CreateCarrierProposedAssignment")
@@ -116,7 +116,7 @@ func (r apiCreateCarrierProposedAssignmentRequest) Execute() (map[string]interfa
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
+			var v CarrierProposedAssignmentResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -147,21 +147,21 @@ func (r apiCreateCarrierProposedAssignmentRequest) Execute() (map[string]interfa
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiDeleteCarrierProposedAssignmentByIdRequest struct {
+type apiDeleteCarrierProposedAssignmentRequest struct {
 	ctx        _context.Context
 	apiService *CarrierProposedAssignmentsApiService
 	id         string
 }
 
 /*
-DeleteCarrierProposedAssignmentById Delete an assignment
+DeleteCarrierProposedAssignment Delete an assignment
 Permanently delete an assignment. You can only delete assignments that are not yet active. To override a currently active assignment, create a new empty one, instead.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID of the assignment.
-@return apiDeleteCarrierProposedAssignmentByIdRequest
+@return apiDeleteCarrierProposedAssignmentRequest
 */
-func (a *CarrierProposedAssignmentsApiService) DeleteCarrierProposedAssignmentById(ctx _context.Context, id string) apiDeleteCarrierProposedAssignmentByIdRequest {
-	return apiDeleteCarrierProposedAssignmentByIdRequest{
+func (a *CarrierProposedAssignmentsApiService) DeleteCarrierProposedAssignment(ctx _context.Context, id string) apiDeleteCarrierProposedAssignmentRequest {
+	return apiDeleteCarrierProposedAssignmentRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -172,7 +172,7 @@ func (a *CarrierProposedAssignmentsApiService) DeleteCarrierProposedAssignmentBy
 Execute executes the request
 
 */
-func (r apiDeleteCarrierProposedAssignmentByIdRequest) Execute() (*_nethttp.Response, error) {
+func (r apiDeleteCarrierProposedAssignmentRequest) Execute() (*_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
@@ -181,7 +181,7 @@ func (r apiDeleteCarrierProposedAssignmentByIdRequest) Execute() (*_nethttp.Resp
 		localVarFileBytes    []byte
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "CarrierProposedAssignmentsApiService.DeleteCarrierProposedAssignmentById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "CarrierProposedAssignmentsApiService.DeleteCarrierProposedAssignment")
 	if err != nil {
 		return nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -203,7 +203,7 @@ func (r apiDeleteCarrierProposedAssignmentByIdRequest) Execute() (*_nethttp.Resp
 	}
 
 	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{}
+	localVarHTTPHeaderAccepts := []string{"application/json"}
 
 	// set Accept header
 	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
@@ -231,49 +231,56 @@ func (r apiDeleteCarrierProposedAssignmentByIdRequest) Execute() (*_nethttp.Resp
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		var v StandardErrorResponse
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarHTTPResponse, newErr
+		}
+		newErr.model = v
 		return localVarHTTPResponse, newErr
 	}
 
 	return localVarHTTPResponse, nil
 }
 
-type apiGetCarrierProposedAssignmentRequest struct {
+type apiListCarrierProposedAssignmentsRequest struct {
 	ctx        _context.Context
 	apiService *CarrierProposedAssignmentsApiService
 	limit      *int64
 	after      *string
-	driverIds  *string
+	driverIds  *[]string
 	activeTime *time.Time
 }
 
-func (r apiGetCarrierProposedAssignmentRequest) Limit(limit int64) apiGetCarrierProposedAssignmentRequest {
+func (r apiListCarrierProposedAssignmentsRequest) Limit(limit int64) apiListCarrierProposedAssignmentsRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r apiGetCarrierProposedAssignmentRequest) After(after string) apiGetCarrierProposedAssignmentRequest {
+func (r apiListCarrierProposedAssignmentsRequest) After(after string) apiListCarrierProposedAssignmentsRequest {
 	r.after = &after
 	return r
 }
 
-func (r apiGetCarrierProposedAssignmentRequest) DriverIds(driverIds string) apiGetCarrierProposedAssignmentRequest {
+func (r apiListCarrierProposedAssignmentsRequest) DriverIds(driverIds []string) apiListCarrierProposedAssignmentsRequest {
 	r.driverIds = &driverIds
 	return r
 }
 
-func (r apiGetCarrierProposedAssignmentRequest) ActiveTime(activeTime time.Time) apiGetCarrierProposedAssignmentRequest {
+func (r apiListCarrierProposedAssignmentsRequest) ActiveTime(activeTime time.Time) apiListCarrierProposedAssignmentsRequest {
 	r.activeTime = &activeTime
 	return r
 }
 
 /*
-GetCarrierProposedAssignment Retrieve assignments
+ListCarrierProposedAssignments Retrieve assignments
 Show the assignments that drivers would see in the future.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetCarrierProposedAssignmentRequest
+@return apiListCarrierProposedAssignmentsRequest
 */
-func (a *CarrierProposedAssignmentsApiService) GetCarrierProposedAssignment(ctx _context.Context) apiGetCarrierProposedAssignmentRequest {
-	return apiGetCarrierProposedAssignmentRequest{
+func (a *CarrierProposedAssignmentsApiService) ListCarrierProposedAssignments(ctx _context.Context) apiListCarrierProposedAssignmentsRequest {
+	return apiListCarrierProposedAssignmentsRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -281,19 +288,19 @@ func (a *CarrierProposedAssignmentsApiService) GetCarrierProposedAssignment(ctx 
 
 /*
 Execute executes the request
- @return InlineResponse2001
+ @return ListCarrierProposedAssignmentResponse
 */
-func (r apiGetCarrierProposedAssignmentRequest) Execute() (InlineResponse2001, *_nethttp.Response, error) {
+func (r apiListCarrierProposedAssignmentsRequest) Execute() (ListCarrierProposedAssignmentResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2001
+		localVarReturnValue  ListCarrierProposedAssignmentResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "CarrierProposedAssignmentsApiService.GetCarrierProposedAssignment")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "CarrierProposedAssignmentsApiService.ListCarrierProposedAssignments")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -311,7 +318,7 @@ func (r apiGetCarrierProposedAssignmentRequest) Execute() (InlineResponse2001, *
 		localVarQueryParams.Add("after", parameterToString(*r.after, ""))
 	}
 	if r.driverIds != nil {
-		localVarQueryParams.Add("driverIds", parameterToString(*r.driverIds, ""))
+		localVarQueryParams.Add("driverIds", parameterToString(*r.driverIds, "csv"))
 	}
 	if r.activeTime != nil {
 		localVarQueryParams.Add("activeTime", parameterToString(*r.activeTime, ""))
@@ -355,7 +362,7 @@ func (r apiGetCarrierProposedAssignmentRequest) Execute() (InlineResponse2001, *
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2001
+			var v ListCarrierProposedAssignmentResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

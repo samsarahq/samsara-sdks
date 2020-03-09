@@ -4,141 +4,44 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Samsara ID for the driver. | [optional] 
-**StaticAssignedVehicle** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**Tags** | Pointer to [**[]TagTinyResponse**](tagTinyResponse.md) | The tags this driver belongs to. | [optional] 
-**VehicleGroupTag** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**CarrierSettings** | Pointer to [**DriverBaseCarrierSettings**](DriverBase_carrierSettings.md) |  | [optional] 
-**EldAdverseWeatherExemptionEnabled** | Pointer to **bool** | Flag indicating this driver may use Adverse Weather exemptions in ELD logs. | [optional] 
-**EldBigDayExemptionEnabled** | Pointer to **bool** | Flag indicating this driver may use Big Day exemption in ELD logs. | [optional] 
-**EldDayStartHour** | Pointer to **int32** | &#x60;0&#x60; indicating midnight-to-midnight ELD driving hours, &#x60;12&#x60; to indicate noon-to-noon driving hours. | [optional] 
-**EldExempt** | Pointer to **bool** | Flag indicating this driver is exempt from the Electronic Logging Mandate. | [optional] 
+**CarrierSettings** | Pointer to [**DriverCarrierSettings**](DriverCarrierSettings.md) |  | [optional] 
+**CreatedAtTime** | Pointer to [**time.Time**](time.Time.md) | The date and time this driver was created in RFC 3339 format. | [optional] 
+**DriverActivationStatus** | Pointer to [**DriverActivationStatus**](DriverActivationStatus.md) |  | [optional] 
+**EldAdverseWeatherExemptionEnabled** | Pointer to **bool** | Flag indicating this driver may use Adverse Weather exemptions in ELD logs. | [optional] [default to false]
+**EldBigDayExemptionEnabled** | Pointer to **bool** | Flag indicating this driver may use Big Day exemption in ELD logs. | [optional] [default to false]
+**EldDayStartHour** | Pointer to **int32** | &#x60;0&#x60; indicating midnight-to-midnight ELD driving hours, &#x60;12&#x60; to indicate noon-to-noon driving hours. | [optional] [default to 0]
+**EldExempt** | Pointer to **bool** | Flag indicating this driver is exempt from the Electronic Logging Mandate. | [optional] [default to false]
 **EldExemptReason** | Pointer to **string** | Reason that this driver is exempt from the Electronic Logging Mandate (see eldExempt). | [optional] 
 **EldPcEnabled** | Pointer to **bool** | Flag indicating this driver may select the Personal Conveyance duty status in ELD logs. | [optional] [default to false]
 **EldYmEnabled** | Pointer to **bool** | Flag indicating this driver may select the Yard Move duty status in ELD logs. | [optional] [default to false]
-**ExternalIds** | Pointer to **map[string]string** | User-defined dictionary of external IDs (key-value pairs). Both the keys and the values of the dictionary are of type string and must be alphanumeric. Each organization can have at most 10 unique external ID keys. To delete an external ID, set its value to null or the empty string (&#x60;\&quot;\&quot;&#x60;). An external ID can be used as a path parameter to retrieve or update that resource. | [optional] 
-**IsDeactivated** | Pointer to **bool** | A boolean that indicates whether or not this driver is deactivated. | [optional] 
+**ExternalIds** | Pointer to **map[string]string** | The [external IDs](https://developers.samsara.com/docs/external-ids) for the given object. | [optional] 
+**Id** | Pointer to **string** | Samsara ID for the driver. | [optional] 
+**IsDeactivated** | Pointer to **bool** | [DEPRECATED] A boolean indicating whether or not the driver is deactivated. Use &#x60;driverActivationStatus&#x60; instead. | [optional] 
 **LicenseNumber** | Pointer to **string** | Driver&#39;s state issued license number. The combination of this number and &#x60;licenseState&#x60; must be unique. | [optional] 
 **LicenseState** | Pointer to **string** | Abbreviation of state that issued driver&#39;s license. | [optional] 
-**Locale** | Pointer to **string** | Locale override (uncommon). | [optional] 
+**Locale** | Pointer to [**DriverLocale**](DriverLocale.md) |  | [optional] 
 **Name** | Pointer to **string** | Driver&#39;s name. | [optional] 
 **Notes** | Pointer to **string** | Notes about the driver. | [optional] 
-**Phone** | Pointer to **string** | Driver&#39;s phone number. | [optional] 
+**Phone** | Pointer to **string** | Phone number of the driver. | [optional] 
+**StaticAssignedVehicle** | Pointer to [**DriverStaticAssignedVehicle**](DriverStaticAssignedVehicle.md) |  | [optional] 
 **TachographCardNumber** | Pointer to **string** | Driver&#39;s assigned tachograph card number (Europe specific) | [optional] 
-**Timezone** | Pointer to **string** | Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. | [optional] 
+**Tags** | Pointer to [**[]TagTinyResponse**](tagTinyResponse.md) | The tags this driver belongs to. | [optional] 
+**Timezone** | Pointer to **string** | Home terminal timezone, in order to indicate what time zone should be used to calculate the ELD logs. Driver timezones use [IANA timezone database](https://www.iana.org/time-zones) keys (e.g. &#x60;America/Los_Angeles&#x60;, &#x60;America/New_York&#x60;, &#x60;Europe/London&#x60;, etc.). You can find a mapping of common timezone formats to IANA timezone keys [here](https://unicode.org/cldr/charts/latest/supplemental/zone_tzid.html). | [optional] [default to America/Los_Angeles]
+**UpdatedAtTime** | Pointer to [**time.Time**](time.Time.md) | The date and time this driver was last updated in RFC 3339 format. | [optional] 
 **Username** | Pointer to **string** | Driver&#39;s login username into the driver app. The username may not contain spaces or the &#39;@&#39; symbol. The username must be unique. | [optional] 
+**VehicleGroupTag** | Pointer to [**DriverVehicleGroupTag**](DriverVehicleGroupTag.md) |  | [optional] 
 
 ## Methods
 
-### GetId
-
-`func (o *Driver) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *Driver) GetIdOk() (string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### HasId
-
-`func (o *Driver) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### SetId
-
-`func (o *Driver) SetId(v string)`
-
-SetId gets a reference to the given string and assigns it to the Id field.
-
-### GetStaticAssignedVehicle
-
-`func (o *Driver) GetStaticAssignedVehicle() map[string]interface{}`
-
-GetStaticAssignedVehicle returns the StaticAssignedVehicle field if non-nil, zero value otherwise.
-
-### GetStaticAssignedVehicleOk
-
-`func (o *Driver) GetStaticAssignedVehicleOk() (map[string]interface{}, bool)`
-
-GetStaticAssignedVehicleOk returns a tuple with the StaticAssignedVehicle field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### HasStaticAssignedVehicle
-
-`func (o *Driver) HasStaticAssignedVehicle() bool`
-
-HasStaticAssignedVehicle returns a boolean if a field has been set.
-
-### SetStaticAssignedVehicle
-
-`func (o *Driver) SetStaticAssignedVehicle(v map[string]interface{})`
-
-SetStaticAssignedVehicle gets a reference to the given map[string]interface{} and assigns it to the StaticAssignedVehicle field.
-
-### GetTags
-
-`func (o *Driver) GetTags() []TagTinyResponse`
-
-GetTags returns the Tags field if non-nil, zero value otherwise.
-
-### GetTagsOk
-
-`func (o *Driver) GetTagsOk() ([]TagTinyResponse, bool)`
-
-GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### HasTags
-
-`func (o *Driver) HasTags() bool`
-
-HasTags returns a boolean if a field has been set.
-
-### SetTags
-
-`func (o *Driver) SetTags(v []TagTinyResponse)`
-
-SetTags gets a reference to the given []TagTinyResponse and assigns it to the Tags field.
-
-### GetVehicleGroupTag
-
-`func (o *Driver) GetVehicleGroupTag() map[string]interface{}`
-
-GetVehicleGroupTag returns the VehicleGroupTag field if non-nil, zero value otherwise.
-
-### GetVehicleGroupTagOk
-
-`func (o *Driver) GetVehicleGroupTagOk() (map[string]interface{}, bool)`
-
-GetVehicleGroupTagOk returns a tuple with the VehicleGroupTag field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### HasVehicleGroupTag
-
-`func (o *Driver) HasVehicleGroupTag() bool`
-
-HasVehicleGroupTag returns a boolean if a field has been set.
-
-### SetVehicleGroupTag
-
-`func (o *Driver) SetVehicleGroupTag(v map[string]interface{})`
-
-SetVehicleGroupTag gets a reference to the given map[string]interface{} and assigns it to the VehicleGroupTag field.
-
 ### GetCarrierSettings
 
-`func (o *Driver) GetCarrierSettings() DriverBaseCarrierSettings`
+`func (o *Driver) GetCarrierSettings() DriverCarrierSettings`
 
 GetCarrierSettings returns the CarrierSettings field if non-nil, zero value otherwise.
 
 ### GetCarrierSettingsOk
 
-`func (o *Driver) GetCarrierSettingsOk() (DriverBaseCarrierSettings, bool)`
+`func (o *Driver) GetCarrierSettingsOk() (DriverCarrierSettings, bool)`
 
 GetCarrierSettingsOk returns a tuple with the CarrierSettings field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -151,9 +54,59 @@ HasCarrierSettings returns a boolean if a field has been set.
 
 ### SetCarrierSettings
 
-`func (o *Driver) SetCarrierSettings(v DriverBaseCarrierSettings)`
+`func (o *Driver) SetCarrierSettings(v DriverCarrierSettings)`
 
-SetCarrierSettings gets a reference to the given DriverBaseCarrierSettings and assigns it to the CarrierSettings field.
+SetCarrierSettings gets a reference to the given DriverCarrierSettings and assigns it to the CarrierSettings field.
+
+### GetCreatedAtTime
+
+`func (o *Driver) GetCreatedAtTime() time.Time`
+
+GetCreatedAtTime returns the CreatedAtTime field if non-nil, zero value otherwise.
+
+### GetCreatedAtTimeOk
+
+`func (o *Driver) GetCreatedAtTimeOk() (time.Time, bool)`
+
+GetCreatedAtTimeOk returns a tuple with the CreatedAtTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasCreatedAtTime
+
+`func (o *Driver) HasCreatedAtTime() bool`
+
+HasCreatedAtTime returns a boolean if a field has been set.
+
+### SetCreatedAtTime
+
+`func (o *Driver) SetCreatedAtTime(v time.Time)`
+
+SetCreatedAtTime gets a reference to the given time.Time and assigns it to the CreatedAtTime field.
+
+### GetDriverActivationStatus
+
+`func (o *Driver) GetDriverActivationStatus() DriverActivationStatus`
+
+GetDriverActivationStatus returns the DriverActivationStatus field if non-nil, zero value otherwise.
+
+### GetDriverActivationStatusOk
+
+`func (o *Driver) GetDriverActivationStatusOk() (DriverActivationStatus, bool)`
+
+GetDriverActivationStatusOk returns a tuple with the DriverActivationStatus field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasDriverActivationStatus
+
+`func (o *Driver) HasDriverActivationStatus() bool`
+
+HasDriverActivationStatus returns a boolean if a field has been set.
+
+### SetDriverActivationStatus
+
+`func (o *Driver) SetDriverActivationStatus(v DriverActivationStatus)`
+
+SetDriverActivationStatus gets a reference to the given DriverActivationStatus and assigns it to the DriverActivationStatus field.
 
 ### GetEldAdverseWeatherExemptionEnabled
 
@@ -355,6 +308,31 @@ HasExternalIds returns a boolean if a field has been set.
 
 SetExternalIds gets a reference to the given map[string]string and assigns it to the ExternalIds field.
 
+### GetId
+
+`func (o *Driver) GetId() string`
+
+GetId returns the Id field if non-nil, zero value otherwise.
+
+### GetIdOk
+
+`func (o *Driver) GetIdOk() (string, bool)`
+
+GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasId
+
+`func (o *Driver) HasId() bool`
+
+HasId returns a boolean if a field has been set.
+
+### SetId
+
+`func (o *Driver) SetId(v string)`
+
+SetId gets a reference to the given string and assigns it to the Id field.
+
 ### GetIsDeactivated
 
 `func (o *Driver) GetIsDeactivated() bool`
@@ -432,13 +410,13 @@ SetLicenseState gets a reference to the given string and assigns it to the Licen
 
 ### GetLocale
 
-`func (o *Driver) GetLocale() string`
+`func (o *Driver) GetLocale() DriverLocale`
 
 GetLocale returns the Locale field if non-nil, zero value otherwise.
 
 ### GetLocaleOk
 
-`func (o *Driver) GetLocaleOk() (string, bool)`
+`func (o *Driver) GetLocaleOk() (DriverLocale, bool)`
 
 GetLocaleOk returns a tuple with the Locale field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -451,9 +429,9 @@ HasLocale returns a boolean if a field has been set.
 
 ### SetLocale
 
-`func (o *Driver) SetLocale(v string)`
+`func (o *Driver) SetLocale(v DriverLocale)`
 
-SetLocale gets a reference to the given string and assigns it to the Locale field.
+SetLocale gets a reference to the given DriverLocale and assigns it to the Locale field.
 
 ### GetName
 
@@ -530,6 +508,31 @@ HasPhone returns a boolean if a field has been set.
 
 SetPhone gets a reference to the given string and assigns it to the Phone field.
 
+### GetStaticAssignedVehicle
+
+`func (o *Driver) GetStaticAssignedVehicle() DriverStaticAssignedVehicle`
+
+GetStaticAssignedVehicle returns the StaticAssignedVehicle field if non-nil, zero value otherwise.
+
+### GetStaticAssignedVehicleOk
+
+`func (o *Driver) GetStaticAssignedVehicleOk() (DriverStaticAssignedVehicle, bool)`
+
+GetStaticAssignedVehicleOk returns a tuple with the StaticAssignedVehicle field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasStaticAssignedVehicle
+
+`func (o *Driver) HasStaticAssignedVehicle() bool`
+
+HasStaticAssignedVehicle returns a boolean if a field has been set.
+
+### SetStaticAssignedVehicle
+
+`func (o *Driver) SetStaticAssignedVehicle(v DriverStaticAssignedVehicle)`
+
+SetStaticAssignedVehicle gets a reference to the given DriverStaticAssignedVehicle and assigns it to the StaticAssignedVehicle field.
+
 ### GetTachographCardNumber
 
 `func (o *Driver) GetTachographCardNumber() string`
@@ -554,6 +557,31 @@ HasTachographCardNumber returns a boolean if a field has been set.
 `func (o *Driver) SetTachographCardNumber(v string)`
 
 SetTachographCardNumber gets a reference to the given string and assigns it to the TachographCardNumber field.
+
+### GetTags
+
+`func (o *Driver) GetTags() []TagTinyResponse`
+
+GetTags returns the Tags field if non-nil, zero value otherwise.
+
+### GetTagsOk
+
+`func (o *Driver) GetTagsOk() ([]TagTinyResponse, bool)`
+
+GetTagsOk returns a tuple with the Tags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasTags
+
+`func (o *Driver) HasTags() bool`
+
+HasTags returns a boolean if a field has been set.
+
+### SetTags
+
+`func (o *Driver) SetTags(v []TagTinyResponse)`
+
+SetTags gets a reference to the given []TagTinyResponse and assigns it to the Tags field.
 
 ### GetTimezone
 
@@ -580,6 +608,31 @@ HasTimezone returns a boolean if a field has been set.
 
 SetTimezone gets a reference to the given string and assigns it to the Timezone field.
 
+### GetUpdatedAtTime
+
+`func (o *Driver) GetUpdatedAtTime() time.Time`
+
+GetUpdatedAtTime returns the UpdatedAtTime field if non-nil, zero value otherwise.
+
+### GetUpdatedAtTimeOk
+
+`func (o *Driver) GetUpdatedAtTimeOk() (time.Time, bool)`
+
+GetUpdatedAtTimeOk returns a tuple with the UpdatedAtTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasUpdatedAtTime
+
+`func (o *Driver) HasUpdatedAtTime() bool`
+
+HasUpdatedAtTime returns a boolean if a field has been set.
+
+### SetUpdatedAtTime
+
+`func (o *Driver) SetUpdatedAtTime(v time.Time)`
+
+SetUpdatedAtTime gets a reference to the given time.Time and assigns it to the UpdatedAtTime field.
+
 ### GetUsername
 
 `func (o *Driver) GetUsername() string`
@@ -604,6 +657,31 @@ HasUsername returns a boolean if a field has been set.
 `func (o *Driver) SetUsername(v string)`
 
 SetUsername gets a reference to the given string and assigns it to the Username field.
+
+### GetVehicleGroupTag
+
+`func (o *Driver) GetVehicleGroupTag() DriverVehicleGroupTag`
+
+GetVehicleGroupTag returns the VehicleGroupTag field if non-nil, zero value otherwise.
+
+### GetVehicleGroupTagOk
+
+`func (o *Driver) GetVehicleGroupTagOk() (DriverVehicleGroupTag, bool)`
+
+GetVehicleGroupTagOk returns a tuple with the VehicleGroupTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### HasVehicleGroupTag
+
+`func (o *Driver) HasVehicleGroupTag() bool`
+
+HasVehicleGroupTag returns a boolean if a field has been set.
+
+### SetVehicleGroupTag
+
+`func (o *Driver) SetVehicleGroupTag(v DriverVehicleGroupTag)`
+
+SetVehicleGroupTag gets a reference to the given DriverVehicleGroupTag and assigns it to the VehicleGroupTag field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

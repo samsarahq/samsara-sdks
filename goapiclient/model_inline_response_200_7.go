@@ -16,40 +16,74 @@ import (
 
 // InlineResponse2007 struct for InlineResponse2007
 type InlineResponse2007 struct {
-	Data *UnassignedDrivingSegmentResponse `json:"data,omitempty"`
+	Assets     *[]V1AssetCurrentLocationsResponse `json:"assets,omitempty"`
+	Pagination *V1Pagination                      `json:"pagination,omitempty"`
 }
 
-// GetData returns the Data field value if set, zero value otherwise.
-func (o *InlineResponse2007) GetData() UnassignedDrivingSegmentResponse {
-	if o == nil || o.Data == nil {
-		var ret UnassignedDrivingSegmentResponse
+// GetAssets returns the Assets field value if set, zero value otherwise.
+func (o *InlineResponse2007) GetAssets() []V1AssetCurrentLocationsResponse {
+	if o == nil || o.Assets == nil {
+		var ret []V1AssetCurrentLocationsResponse
 		return ret
 	}
-	return *o.Data
+	return *o.Assets
 }
 
-// GetDataOk returns a tuple with the Data field value if set, zero value otherwise
+// GetAssetsOk returns a tuple with the Assets field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *InlineResponse2007) GetDataOk() (UnassignedDrivingSegmentResponse, bool) {
-	if o == nil || o.Data == nil {
-		var ret UnassignedDrivingSegmentResponse
+func (o *InlineResponse2007) GetAssetsOk() ([]V1AssetCurrentLocationsResponse, bool) {
+	if o == nil || o.Assets == nil {
+		var ret []V1AssetCurrentLocationsResponse
 		return ret, false
 	}
-	return *o.Data, true
+	return *o.Assets, true
 }
 
-// HasData returns a boolean if a field has been set.
-func (o *InlineResponse2007) HasData() bool {
-	if o != nil && o.Data != nil {
+// HasAssets returns a boolean if a field has been set.
+func (o *InlineResponse2007) HasAssets() bool {
+	if o != nil && o.Assets != nil {
 		return true
 	}
 
 	return false
 }
 
-// SetData gets a reference to the given UnassignedDrivingSegmentResponse and assigns it to the Data field.
-func (o *InlineResponse2007) SetData(v UnassignedDrivingSegmentResponse) {
-	o.Data = &v
+// SetAssets gets a reference to the given []V1AssetCurrentLocationsResponse and assigns it to the Assets field.
+func (o *InlineResponse2007) SetAssets(v []V1AssetCurrentLocationsResponse) {
+	o.Assets = &v
+}
+
+// GetPagination returns the Pagination field value if set, zero value otherwise.
+func (o *InlineResponse2007) GetPagination() V1Pagination {
+	if o == nil || o.Pagination == nil {
+		var ret V1Pagination
+		return ret
+	}
+	return *o.Pagination
+}
+
+// GetPaginationOk returns a tuple with the Pagination field value if set, zero value otherwise
+// and a boolean to check if the value has been set.
+func (o *InlineResponse2007) GetPaginationOk() (V1Pagination, bool) {
+	if o == nil || o.Pagination == nil {
+		var ret V1Pagination
+		return ret, false
+	}
+	return *o.Pagination, true
+}
+
+// HasPagination returns a boolean if a field has been set.
+func (o *InlineResponse2007) HasPagination() bool {
+	if o != nil && o.Pagination != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetPagination gets a reference to the given V1Pagination and assigns it to the Pagination field.
+func (o *InlineResponse2007) SetPagination(v V1Pagination) {
+	o.Pagination = &v
 }
 
 type NullableInlineResponse2007 struct {

@@ -50,16 +50,16 @@ func (a *MessagesApiService) CreateMessagesKondo(ctx _context.Context) apiCreate
 
 /*
 Execute executes the request
- @return InlineResponse20010
+ @return InlineResponse2005
 */
-func (r apiCreateMessagesKondoRequest) Execute() (InlineResponse20010, *_nethttp.Response, error) {
+func (r apiCreateMessagesKondoRequest) Execute() (InlineResponse2005, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20010
+		localVarReturnValue  InlineResponse2005
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MessagesApiService.CreateMessagesKondo")
@@ -118,7 +118,7 @@ func (r apiCreateMessagesKondoRequest) Execute() (InlineResponse20010, *_nethttp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20010
+			var v InlineResponse2005
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -182,16 +182,16 @@ func (a *MessagesApiService) V1createMessages(ctx _context.Context) apiV1createM
 
 /*
 Execute executes the request
- @return InlineResponse20020
+ @return InlineResponse20011
 */
-func (r apiV1createMessagesRequest) Execute() (InlineResponse20020, *_nethttp.Response, error) {
+func (r apiV1createMessagesRequest) Execute() (InlineResponse20011, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20020
+		localVarReturnValue  InlineResponse20011
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MessagesApiService.V1createMessages")
@@ -250,7 +250,7 @@ func (r apiV1createMessagesRequest) Execute() (InlineResponse20020, *_nethttp.Re
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20020
+			var v InlineResponse20011
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -320,16 +320,16 @@ func (a *MessagesApiService) V1getMessages(ctx _context.Context) apiV1getMessage
 
 /*
 Execute executes the request
- @return InlineResponse20019
+ @return InlineResponse20010
 */
-func (r apiV1getMessagesRequest) Execute() (InlineResponse20019, *_nethttp.Response, error) {
+func (r apiV1getMessagesRequest) Execute() (InlineResponse20010, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20019
+		localVarReturnValue  InlineResponse20010
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "MessagesApiService.V1getMessages")
@@ -388,7 +388,7 @@ func (r apiV1getMessagesRequest) Execute() (InlineResponse20019, *_nethttp.Respo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20019
+			var v InlineResponse20010
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

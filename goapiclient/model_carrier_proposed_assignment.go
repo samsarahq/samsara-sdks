@@ -12,27 +12,32 @@ package goapiclient
 import (
 	"bytes"
 	"encoding/json"
+	"time"
 )
 
 // CarrierProposedAssignment A carrier proposed assignment object
 type CarrierProposedAssignment struct {
-	AcceptedTime  *map[string]interface{} `json:"acceptedTime,omitempty"`
-	ActiveTime    *map[string]interface{} `json:"activeTime,omitempty"`
-	FirstSeenTime *map[string]interface{} `json:"firstSeenTime,omitempty"`
-	// Samsara ID for the assignment.
-	Id           *string                 `json:"id,omitempty"`
-	RejectedTime *map[string]interface{} `json:"rejectedTime,omitempty"`
+	// Time when the driver accepted this assignment in the mobile app. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	AcceptedTime *time.Time `json:"acceptedTime,omitempty"`
+	// Time after which this assignment will be active and visible to the driver on the mobile app. Not setting it makes it active now. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	ActiveTime time.Time `json:"activeTime"`
+	// Time when the driver first saw this assignment in the mobile app. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	FirstSeenTime *time.Time `json:"firstSeenTime,omitempty"`
+	// Time when the driver rejected this assignment in the mobile app. UTC timestamp in RFC 3339 format. Example: `2020-01-27T07:06:25Z`.
+	RejectedTime *time.Time `json:"rejectedTime,omitempty"`
 	// Shipping Documents that this assignment will propose to the driver.
 	ShippingDocs *string `json:"shippingDocs,omitempty"`
 	// Trailers that this assignment will propose to the driver.
 	Trailers *[]TrailerNameOnlyResponse `json:"trailers,omitempty"`
-	Vehicle  *map[string]interface{}    `json:"vehicle,omitempty"`
+	// Samsara ID for the assignment.
+	Uuid    string                            `json:"uuid"`
+	Vehicle *CarrierProposedAssignmentVehicle `json:"vehicle,omitempty"`
 }
 
 // GetAcceptedTime returns the AcceptedTime field value if set, zero value otherwise.
-func (o *CarrierProposedAssignment) GetAcceptedTime() map[string]interface{} {
+func (o *CarrierProposedAssignment) GetAcceptedTime() time.Time {
 	if o == nil || o.AcceptedTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret
 	}
 	return *o.AcceptedTime
@@ -40,9 +45,9 @@ func (o *CarrierProposedAssignment) GetAcceptedTime() map[string]interface{} {
 
 // GetAcceptedTimeOk returns a tuple with the AcceptedTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *CarrierProposedAssignment) GetAcceptedTimeOk() (map[string]interface{}, bool) {
+func (o *CarrierProposedAssignment) GetAcceptedTimeOk() (time.Time, bool) {
 	if o == nil || o.AcceptedTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret, false
 	}
 	return *o.AcceptedTime, true
@@ -57,48 +62,30 @@ func (o *CarrierProposedAssignment) HasAcceptedTime() bool {
 	return false
 }
 
-// SetAcceptedTime gets a reference to the given map[string]interface{} and assigns it to the AcceptedTime field.
-func (o *CarrierProposedAssignment) SetAcceptedTime(v map[string]interface{}) {
+// SetAcceptedTime gets a reference to the given time.Time and assigns it to the AcceptedTime field.
+func (o *CarrierProposedAssignment) SetAcceptedTime(v time.Time) {
 	o.AcceptedTime = &v
 }
 
-// GetActiveTime returns the ActiveTime field value if set, zero value otherwise.
-func (o *CarrierProposedAssignment) GetActiveTime() map[string]interface{} {
-	if o == nil || o.ActiveTime == nil {
-		var ret map[string]interface{}
+// GetActiveTime returns the ActiveTime field value
+func (o *CarrierProposedAssignment) GetActiveTime() time.Time {
+	if o == nil {
+		var ret time.Time
 		return ret
 	}
-	return *o.ActiveTime
+
+	return o.ActiveTime
 }
 
-// GetActiveTimeOk returns a tuple with the ActiveTime field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *CarrierProposedAssignment) GetActiveTimeOk() (map[string]interface{}, bool) {
-	if o == nil || o.ActiveTime == nil {
-		var ret map[string]interface{}
-		return ret, false
-	}
-	return *o.ActiveTime, true
-}
-
-// HasActiveTime returns a boolean if a field has been set.
-func (o *CarrierProposedAssignment) HasActiveTime() bool {
-	if o != nil && o.ActiveTime != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetActiveTime gets a reference to the given map[string]interface{} and assigns it to the ActiveTime field.
-func (o *CarrierProposedAssignment) SetActiveTime(v map[string]interface{}) {
-	o.ActiveTime = &v
+// SetActiveTime sets field value
+func (o *CarrierProposedAssignment) SetActiveTime(v time.Time) {
+	o.ActiveTime = v
 }
 
 // GetFirstSeenTime returns the FirstSeenTime field value if set, zero value otherwise.
-func (o *CarrierProposedAssignment) GetFirstSeenTime() map[string]interface{} {
+func (o *CarrierProposedAssignment) GetFirstSeenTime() time.Time {
 	if o == nil || o.FirstSeenTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret
 	}
 	return *o.FirstSeenTime
@@ -106,9 +93,9 @@ func (o *CarrierProposedAssignment) GetFirstSeenTime() map[string]interface{} {
 
 // GetFirstSeenTimeOk returns a tuple with the FirstSeenTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *CarrierProposedAssignment) GetFirstSeenTimeOk() (map[string]interface{}, bool) {
+func (o *CarrierProposedAssignment) GetFirstSeenTimeOk() (time.Time, bool) {
 	if o == nil || o.FirstSeenTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret, false
 	}
 	return *o.FirstSeenTime, true
@@ -123,48 +110,15 @@ func (o *CarrierProposedAssignment) HasFirstSeenTime() bool {
 	return false
 }
 
-// SetFirstSeenTime gets a reference to the given map[string]interface{} and assigns it to the FirstSeenTime field.
-func (o *CarrierProposedAssignment) SetFirstSeenTime(v map[string]interface{}) {
+// SetFirstSeenTime gets a reference to the given time.Time and assigns it to the FirstSeenTime field.
+func (o *CarrierProposedAssignment) SetFirstSeenTime(v time.Time) {
 	o.FirstSeenTime = &v
 }
 
-// GetId returns the Id field value if set, zero value otherwise.
-func (o *CarrierProposedAssignment) GetId() string {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret
-	}
-	return *o.Id
-}
-
-// GetIdOk returns a tuple with the Id field value if set, zero value otherwise
-// and a boolean to check if the value has been set.
-func (o *CarrierProposedAssignment) GetIdOk() (string, bool) {
-	if o == nil || o.Id == nil {
-		var ret string
-		return ret, false
-	}
-	return *o.Id, true
-}
-
-// HasId returns a boolean if a field has been set.
-func (o *CarrierProposedAssignment) HasId() bool {
-	if o != nil && o.Id != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetId gets a reference to the given string and assigns it to the Id field.
-func (o *CarrierProposedAssignment) SetId(v string) {
-	o.Id = &v
-}
-
 // GetRejectedTime returns the RejectedTime field value if set, zero value otherwise.
-func (o *CarrierProposedAssignment) GetRejectedTime() map[string]interface{} {
+func (o *CarrierProposedAssignment) GetRejectedTime() time.Time {
 	if o == nil || o.RejectedTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret
 	}
 	return *o.RejectedTime
@@ -172,9 +126,9 @@ func (o *CarrierProposedAssignment) GetRejectedTime() map[string]interface{} {
 
 // GetRejectedTimeOk returns a tuple with the RejectedTime field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *CarrierProposedAssignment) GetRejectedTimeOk() (map[string]interface{}, bool) {
+func (o *CarrierProposedAssignment) GetRejectedTimeOk() (time.Time, bool) {
 	if o == nil || o.RejectedTime == nil {
-		var ret map[string]interface{}
+		var ret time.Time
 		return ret, false
 	}
 	return *o.RejectedTime, true
@@ -189,8 +143,8 @@ func (o *CarrierProposedAssignment) HasRejectedTime() bool {
 	return false
 }
 
-// SetRejectedTime gets a reference to the given map[string]interface{} and assigns it to the RejectedTime field.
-func (o *CarrierProposedAssignment) SetRejectedTime(v map[string]interface{}) {
+// SetRejectedTime gets a reference to the given time.Time and assigns it to the RejectedTime field.
+func (o *CarrierProposedAssignment) SetRejectedTime(v time.Time) {
 	o.RejectedTime = &v
 }
 
@@ -260,10 +214,25 @@ func (o *CarrierProposedAssignment) SetTrailers(v []TrailerNameOnlyResponse) {
 	o.Trailers = &v
 }
 
+// GetUuid returns the Uuid field value
+func (o *CarrierProposedAssignment) GetUuid() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Uuid
+}
+
+// SetUuid sets field value
+func (o *CarrierProposedAssignment) SetUuid(v string) {
+	o.Uuid = v
+}
+
 // GetVehicle returns the Vehicle field value if set, zero value otherwise.
-func (o *CarrierProposedAssignment) GetVehicle() map[string]interface{} {
+func (o *CarrierProposedAssignment) GetVehicle() CarrierProposedAssignmentVehicle {
 	if o == nil || o.Vehicle == nil {
-		var ret map[string]interface{}
+		var ret CarrierProposedAssignmentVehicle
 		return ret
 	}
 	return *o.Vehicle
@@ -271,9 +240,9 @@ func (o *CarrierProposedAssignment) GetVehicle() map[string]interface{} {
 
 // GetVehicleOk returns a tuple with the Vehicle field value if set, zero value otherwise
 // and a boolean to check if the value has been set.
-func (o *CarrierProposedAssignment) GetVehicleOk() (map[string]interface{}, bool) {
+func (o *CarrierProposedAssignment) GetVehicleOk() (CarrierProposedAssignmentVehicle, bool) {
 	if o == nil || o.Vehicle == nil {
-		var ret map[string]interface{}
+		var ret CarrierProposedAssignmentVehicle
 		return ret, false
 	}
 	return *o.Vehicle, true
@@ -288,8 +257,8 @@ func (o *CarrierProposedAssignment) HasVehicle() bool {
 	return false
 }
 
-// SetVehicle gets a reference to the given map[string]interface{} and assigns it to the Vehicle field.
-func (o *CarrierProposedAssignment) SetVehicle(v map[string]interface{}) {
+// SetVehicle gets a reference to the given CarrierProposedAssignmentVehicle and assigns it to the Vehicle field.
+func (o *CarrierProposedAssignment) SetVehicle(v CarrierProposedAssignmentVehicle) {
 	o.Vehicle = &v
 }
 

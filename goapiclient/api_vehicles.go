@@ -26,21 +26,21 @@ var (
 // VehiclesApiService VehiclesApi service
 type VehiclesApiService service
 
-type apiGetVehicleByIdRequest struct {
+type apiGetVehicleRequest struct {
 	ctx        _context.Context
 	apiService *VehiclesApiService
 	id         string
 }
 
 /*
-GetVehicleById Retrieve a vehicle
+GetVehicle Retrieve a vehicle
 Get information about a specific vehicle.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID of the vehicle. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `maintenanceId:250020`
-@return apiGetVehicleByIdRequest
+@return apiGetVehicleRequest
 */
-func (a *VehiclesApiService) GetVehicleById(ctx _context.Context, id string) apiGetVehicleByIdRequest {
-	return apiGetVehicleByIdRequest{
+func (a *VehiclesApiService) GetVehicle(ctx _context.Context, id string) apiGetVehicleRequest {
+	return apiGetVehicleRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -49,19 +49,19 @@ func (a *VehiclesApiService) GetVehicleById(ctx _context.Context, id string) api
 
 /*
 Execute executes the request
- @return InlineResponse2008
+ @return VehicleResponse
 */
-func (r apiGetVehicleByIdRequest) Execute() (InlineResponse2008, *_nethttp.Response, error) {
+func (r apiGetVehicleRequest) Execute() (VehicleResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2008
+		localVarReturnValue  VehicleResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.GetVehicleById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.GetVehicle")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -112,7 +112,7 @@ func (r apiGetVehicleByIdRequest) Execute() (InlineResponse2008, *_nethttp.Respo
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2008
+			var v VehicleResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -168,7 +168,7 @@ func (r apiGetVehicleLocationsRequest) VehicleIds(vehicleIds []string) apiGetVeh
 
 /*
 GetVehicleLocations Get most recent vehicle locations
-Returns last known location for all vehicles (Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.
+Returns last known location for all vehicles (connected via Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return apiGetVehicleLocationsRequest
 */
@@ -468,7 +468,7 @@ func (r apiGetVehicleLocationsHistoryRequest) VehicleIds(vehicleIds []string) ap
 
 /*
 GetVehicleLocationsHistory Get historical vehicle locations
-Returns all known vehicle location changes during the given time range for all vehicles (Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.
+Returns all known vehicle locations during the given time range for all vehicles (connected via Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-locations) for more details.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return apiGetVehicleLocationsHistoryRequest
 */
@@ -593,16 +593,167 @@ func (r apiGetVehicleLocationsHistoryRequest) Execute() (VehicleLocationsListRes
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetVehicleStatsFeedRequest struct {
+type apiGetVehicleStatsRequest struct {
 	ctx        _context.Context
 	apiService *VehiclesApiService
-	types      *string
+	types      *[]string
 	after      *string
 	tagIds     *[]string
 	vehicleIds *[]string
 }
 
-func (r apiGetVehicleStatsFeedRequest) Types(types string) apiGetVehicleStatsFeedRequest {
+func (r apiGetVehicleStatsRequest) Types(types []string) apiGetVehicleStatsRequest {
+	r.types = &types
+	return r
+}
+
+func (r apiGetVehicleStatsRequest) After(after string) apiGetVehicleStatsRequest {
+	r.after = &after
+	return r
+}
+
+func (r apiGetVehicleStatsRequest) TagIds(tagIds []string) apiGetVehicleStatsRequest {
+	r.tagIds = &tagIds
+	return r
+}
+
+func (r apiGetVehicleStatsRequest) VehicleIds(vehicleIds []string) apiGetVehicleStatsRequest {
+	r.vehicleIds = &vehicleIds
+	return r
+}
+
+/*
+GetVehicleStats List most recent vehicle stats
+Returns last known stats for all vehicles (connected via Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-stats) for more details.
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+@return apiGetVehicleStatsRequest
+*/
+func (a *VehiclesApiService) GetVehicleStats(ctx _context.Context) apiGetVehicleStatsRequest {
+	return apiGetVehicleStatsRequest{
+		apiService: a,
+		ctx:        ctx,
+	}
+}
+
+/*
+Execute executes the request
+ @return VehicleStatsResponse
+*/
+func (r apiGetVehicleStatsRequest) Execute() (VehicleStatsResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  VehicleStatsResponse
+	)
+
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.GetVehicleStats")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/fleet/vehicles/stats"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.types == nil {
+		return localVarReturnValue, nil, reportError("types is required and must be specified")
+	}
+
+	if r.after != nil {
+		localVarQueryParams.Add("after", parameterToString(*r.after, ""))
+	}
+	if r.tagIds != nil {
+		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
+	}
+	if r.vehicleIds != nil {
+		localVarQueryParams.Add("vehicleIds", parameterToString(*r.vehicleIds, "csv"))
+	}
+	localVarQueryParams.Add("types", parameterToString(*r.types, "csv"))
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 200 {
+			var v VehicleStatsResponse
+			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		var v StandardErrorResponse
+		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+		if err != nil {
+			newErr.error = err.Error()
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type apiGetVehicleStatsFeedRequest struct {
+	ctx        _context.Context
+	apiService *VehiclesApiService
+	types      *[]string
+	after      *string
+	tagIds     *[]string
+	vehicleIds *[]string
+}
+
+func (r apiGetVehicleStatsFeedRequest) Types(types []string) apiGetVehicleStatsFeedRequest {
 	r.types = &types
 	return r
 }
@@ -623,14 +774,14 @@ func (r apiGetVehicleStatsFeedRequest) VehicleIds(vehicleIds []string) apiGetVeh
 }
 
 /*
-GetVehicleStatsFeed Follow a real-time feed of vehicle stats
-Follow a continuous feed of all vehicle stats from Samsara Vehicle Gateways.
+GetVehicleStatsFeed Follow a feed of vehicle stats
+Follow a continuous feed of vehicle stats from Samsara Vehicle Gateways.
 
 Your first call to this endpoint will provide you with the most recent stats for each vehicle and a `pagination` object that contains an `endCursor`.
 
 You can provide the `endCursor` to the `after` parameter of this endpoint to get vehicle stat updates since that `endCursor`.
 
-If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates. See [here](https://developers.samsara.com/docs/vehicle-stats) for more details.
+If `hasNextPage` is `false`, no updates are readily available yet. Each stat type has a different refresh rate, but in general we'd suggest waiting a minimum of 5 seconds before requesting updates. See [this guide](https://developers.samsara.com/docs/vehicle-stats#section-follow-a-real-time-feed-of-vehicle-stats) for more details.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return apiGetVehicleStatsFeedRequest
 */
@@ -679,7 +830,7 @@ func (r apiGetVehicleStatsFeedRequest) Execute() (VehicleStatsListResponse, *_ne
 	if r.vehicleIds != nil {
 		localVarQueryParams.Add("vehicleIds", parameterToString(*r.vehicleIds, "csv"))
 	}
-	localVarQueryParams.Add("types", parameterToString(*r.types, ""))
+	localVarQueryParams.Add("types", parameterToString(*r.types, "csv"))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -755,7 +906,7 @@ type apiGetVehicleStatsHistoryRequest struct {
 	apiService *VehiclesApiService
 	startTime  *time.Time
 	endTime    *time.Time
-	types      *string
+	types      *[]string
 	after      *string
 	tagIds     *[]string
 	vehicleIds *[]string
@@ -771,7 +922,7 @@ func (r apiGetVehicleStatsHistoryRequest) EndTime(endTime time.Time) apiGetVehic
 	return r
 }
 
-func (r apiGetVehicleStatsHistoryRequest) Types(types string) apiGetVehicleStatsHistoryRequest {
+func (r apiGetVehicleStatsHistoryRequest) Types(types []string) apiGetVehicleStatsHistoryRequest {
 	r.types = &types
 	return r
 }
@@ -793,7 +944,7 @@ func (r apiGetVehicleStatsHistoryRequest) VehicleIds(vehicleIds []string) apiGet
 
 /*
 GetVehicleStatsHistory Get historical vehicle stats
-Returns all known vehicle stats changes during the given time range for all vehicles (Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-stats) for more details.
+Returns vehicle stats events during the given time range for all vehicles (connected via Samsara Vehicle Gateways). This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-stats) for more details.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return apiGetVehicleStatsHistoryRequest
 */
@@ -852,7 +1003,7 @@ func (r apiGetVehicleStatsHistoryRequest) Execute() (VehicleStatsListResponse, *
 	if r.vehicleIds != nil {
 		localVarQueryParams.Add("vehicleIds", parameterToString(*r.vehicleIds, "csv"))
 	}
-	localVarQueryParams.Add("types", parameterToString(*r.types, ""))
+	localVarQueryParams.Add("types", parameterToString(*r.types, "csv"))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -923,158 +1074,7 @@ func (r apiGetVehicleStatsHistoryRequest) Execute() (VehicleStatsListResponse, *
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiGetVehicleStatsSnapshotRequest struct {
-	ctx        _context.Context
-	apiService *VehiclesApiService
-	types      *string
-	after      *string
-	tagIds     *[]string
-	vehicleIds *[]string
-}
-
-func (r apiGetVehicleStatsSnapshotRequest) Types(types string) apiGetVehicleStatsSnapshotRequest {
-	r.types = &types
-	return r
-}
-
-func (r apiGetVehicleStatsSnapshotRequest) After(after string) apiGetVehicleStatsSnapshotRequest {
-	r.after = &after
-	return r
-}
-
-func (r apiGetVehicleStatsSnapshotRequest) TagIds(tagIds []string) apiGetVehicleStatsSnapshotRequest {
-	r.tagIds = &tagIds
-	return r
-}
-
-func (r apiGetVehicleStatsSnapshotRequest) VehicleIds(vehicleIds []string) apiGetVehicleStatsSnapshotRequest {
-	r.vehicleIds = &vehicleIds
-	return r
-}
-
-/*
-GetVehicleStatsSnapshot List most recent vehicle stats
-Returns last known stats for all vehicles. This can be optionally filtered by tags or specific vehicle IDs. See [here](https://developers.samsara.com/docs/vehicle-stats) for more details.
- * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiGetVehicleStatsSnapshotRequest
-*/
-func (a *VehiclesApiService) GetVehicleStatsSnapshot(ctx _context.Context) apiGetVehicleStatsSnapshotRequest {
-	return apiGetVehicleStatsSnapshotRequest{
-		apiService: a,
-		ctx:        ctx,
-	}
-}
-
-/*
-Execute executes the request
- @return map[string]interface{}
-*/
-func (r apiGetVehicleStatsSnapshotRequest) Execute() (map[string]interface{}, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
-	)
-
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.GetVehicleStatsSnapshot")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/fleet/vehicles/stats"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.types == nil {
-		return localVarReturnValue, nil, reportError("types is required and must be specified")
-	}
-
-	if r.after != nil {
-		localVarQueryParams.Add("after", parameterToString(*r.after, ""))
-	}
-	if r.tagIds != nil {
-		localVarQueryParams.Add("tagIds", parameterToString(*r.tagIds, "csv"))
-	}
-	if r.vehicleIds != nil {
-		localVarQueryParams.Add("vehicleIds", parameterToString(*r.vehicleIds, "csv"))
-	}
-	localVarQueryParams.Add("types", parameterToString(*r.types, ""))
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := r.apiService.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 200 {
-			var v map[string]interface{}
-			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		var v StandardErrorResponse
-		err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-		if err != nil {
-			newErr.error = err.Error()
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		newErr.model = v
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = r.apiService.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type apiListVehiclesKondoRequest struct {
+type apiListVehiclesRequest struct {
 	ctx        _context.Context
 	apiService *VehiclesApiService
 	limit      *int64
@@ -1082,29 +1082,29 @@ type apiListVehiclesKondoRequest struct {
 	tagIds     *[]string
 }
 
-func (r apiListVehiclesKondoRequest) Limit(limit int64) apiListVehiclesKondoRequest {
+func (r apiListVehiclesRequest) Limit(limit int64) apiListVehiclesRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r apiListVehiclesKondoRequest) After(after string) apiListVehiclesKondoRequest {
+func (r apiListVehiclesRequest) After(after string) apiListVehiclesRequest {
 	r.after = &after
 	return r
 }
 
-func (r apiListVehiclesKondoRequest) TagIds(tagIds []string) apiListVehiclesKondoRequest {
+func (r apiListVehiclesRequest) TagIds(tagIds []string) apiListVehiclesRequest {
 	r.tagIds = &tagIds
 	return r
 }
 
 /*
-ListVehiclesKondo List all vehicles
-Returns a list of all vehicles in an organization, ordered by vehicle ID.
+ListVehicles List all vehicles
+Returns a list of all vehicles.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
-@return apiListVehiclesKondoRequest
+@return apiListVehiclesRequest
 */
-func (a *VehiclesApiService) ListVehiclesKondo(ctx _context.Context) apiListVehiclesKondoRequest {
-	return apiListVehiclesKondoRequest{
+func (a *VehiclesApiService) ListVehicles(ctx _context.Context) apiListVehiclesRequest {
+	return apiListVehiclesRequest{
 		apiService: a,
 		ctx:        ctx,
 	}
@@ -1112,19 +1112,19 @@ func (a *VehiclesApiService) ListVehiclesKondo(ctx _context.Context) apiListVehi
 
 /*
 Execute executes the request
- @return VehicleListResponse
+ @return ListVehiclesResponse
 */
-func (r apiListVehiclesKondoRequest) Execute() (VehicleListResponse, *_nethttp.Response, error) {
+func (r apiListVehiclesRequest) Execute() (ListVehiclesResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  VehicleListResponse
+		localVarReturnValue  ListVehiclesResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.ListVehiclesKondo")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.ListVehicles")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1183,7 +1183,7 @@ func (r apiListVehiclesKondoRequest) Execute() (VehicleListResponse, *_nethttp.R
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v VehicleListResponse
+			var v ListVehiclesResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1214,27 +1214,33 @@ func (r apiListVehiclesKondoRequest) Execute() (VehicleListResponse, *_nethttp.R
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type apiUpdateVehicleByIdRequest struct {
-	ctx              _context.Context
-	apiService       *VehiclesApiService
-	id               string
-	vehiclePatchBody *VehiclePatch
+type apiUpdateVehicleRequest struct {
+	ctx        _context.Context
+	apiService *VehiclesApiService
+	id         string
+	vehicle    *UpdateVehicleRequest
 }
 
-func (r apiUpdateVehicleByIdRequest) VehiclePatchBody(vehiclePatchBody VehiclePatch) apiUpdateVehicleByIdRequest {
-	r.vehiclePatchBody = &vehiclePatchBody
+func (r apiUpdateVehicleRequest) Vehicle(vehicle UpdateVehicleRequest) apiUpdateVehicleRequest {
+	r.vehicle = &vehicle
 	return r
 }
 
 /*
-UpdateVehicleById Update a vehicle
-Patches the given vehicle object.
+UpdateVehicle Update a vehicle
+Updates the given Vehicle object.
+
+**Note:** Vehicle objects are automatically created when Samsara Vehicle Gateways are installed. You cannot create a Vehicle object via API.
+
+You are able to *update* many of the fields of a Vehicle.
+
+**Note**: There are no required fields in the request body, and you only need to provide the fields you wish to update.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id ID of the vehicle. This can either be the Samsara-specified ID, or an external ID. External IDs are customer specified key-value pairs created in the POST or PATCH requests of this resource. To specify an external ID as part of a path parameter, use the following format: `key:value`. For example, `maintenanceId:250020`
-@return apiUpdateVehicleByIdRequest
+@return apiUpdateVehicleRequest
 */
-func (a *VehiclesApiService) UpdateVehicleById(ctx _context.Context, id string) apiUpdateVehicleByIdRequest {
-	return apiUpdateVehicleByIdRequest{
+func (a *VehiclesApiService) UpdateVehicle(ctx _context.Context, id string) apiUpdateVehicleRequest {
+	return apiUpdateVehicleRequest{
 		apiService: a,
 		ctx:        ctx,
 		id:         id,
@@ -1243,19 +1249,19 @@ func (a *VehiclesApiService) UpdateVehicleById(ctx _context.Context, id string) 
 
 /*
 Execute executes the request
- @return InlineResponse2008
+ @return VehicleResponse
 */
-func (r apiUpdateVehicleByIdRequest) Execute() (InlineResponse2008, *_nethttp.Response, error) {
+func (r apiUpdateVehicleRequest) Execute() (VehicleResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPatch
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse2008
+		localVarReturnValue  VehicleResponse
 	)
 
-	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.UpdateVehicleById")
+	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "VehiclesApiService.UpdateVehicle")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -1266,6 +1272,10 @@ func (r apiUpdateVehicleByIdRequest) Execute() (InlineResponse2008, *_nethttp.Re
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
+
+	if r.vehicle == nil {
+		return localVarReturnValue, nil, reportError("vehicle is required and must be specified")
+	}
 
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"application/json"}
@@ -1285,7 +1295,7 @@ func (r apiUpdateVehicleByIdRequest) Execute() (InlineResponse2008, *_nethttp.Re
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.vehiclePatchBody
+	localVarPostBody = r.vehicle
 	req, err := r.apiService.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
 		return localVarReturnValue, nil, err
@@ -1308,7 +1318,7 @@ func (r apiUpdateVehicleByIdRequest) Execute() (InlineResponse2008, *_nethttp.Re
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse2008
+			var v VehicleResponse
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

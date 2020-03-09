@@ -4,35 +4,35 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthorSignature** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**EndTime** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
+**AuthorSignature** | Pointer to [**DvirAuthorSignature**](DvirAuthorSignature.md) |  | [optional] 
+**EndTime** | Pointer to [**time.Time**](time.Time.md) | Time when driver signed and completed this DVIR. UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | [optional] 
 **Id** | Pointer to **string** | Unique Samsara ID for the DVIR. | 
 **LicensePlate** | Pointer to **string** | The license plate of this vehicle. | [optional] 
 **Location** | Pointer to **string** | Optional string if your jurisdiction requires a location of the DVIR. | [optional] 
 **MechanicNotes** | Pointer to **string** | The mechanics notes on the DVIR. | [optional] 
 **OdometerMeters** | Pointer to **int32** | The odometer reading in meters. | [optional] 
-**SafetyStatus** | Pointer to **string** | The condition of vechile on which DVIR was done. | [optional] [default to SAFETY_STATUS_UNSAFE]
-**SecondSignature** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**StartTime** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**ThirdSignature** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**Trailer** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**TrailerDefects** | Pointer to [**[]DvirAllOf0TrailerDefectsItems**](dvirAllOf0TrailerDefectsItems.md) | Defects registered for the trailer which was part of the DVIR. | [optional] 
+**SafetyStatus** | Pointer to **string** | The condition of vehicle on which DVIR was done. | [optional] [default to SAFETY_STATUS_UNSAFE]
+**SecondSignature** | Pointer to [**DvirSecondSignature**](DvirSecondSignature.md) |  | [optional] 
+**StartTime** | Pointer to [**time.Time**](time.Time.md) | Time when driver began filling out this DVIR. UTC timestamp in RFC 3339 format. Example: &#x60;2020-01-27T07:06:25Z&#x60;. | [optional] 
+**ThirdSignature** | Pointer to [**DvirThirdSignature**](DvirThirdSignature.md) |  | [optional] 
+**Trailer** | Pointer to [**DvirTrailer**](DvirTrailer.md) |  | [optional] 
+**TrailerDefects** | Pointer to [**[]DvirTrailerDefectsItems**](dvirTrailerDefectsItems.md) | Defects registered for the trailer which was part of the DVIR. | [optional] 
 **TrailerName** | Pointer to **string** | The name of the trailer the DVIR was submitted for.  Only included for tractor+trailer DVIRs. | [optional] 
 **Type** | Pointer to **string** | Inspection type of the DVIR. | [optional] [default to TYPE_UNSPECIFIED]
-**Vehicle** | Pointer to [**map[string]interface{}**](map[string]interface{}.md) |  | [optional] 
-**VehicleDefects** | Pointer to [**[]DvirAllOf0TrailerDefectsItems**](dvirAllOf0TrailerDefectsItems.md) | Defects registered for the vehicle which was part of the DVIR. | [optional] 
+**Vehicle** | Pointer to [**DvirVehicle**](DvirVehicle.md) |  | [optional] 
+**VehicleDefects** | Pointer to [**[]DvirTrailerDefectsItems**](dvirTrailerDefectsItems.md) | Defects registered for the vehicle which was part of the DVIR. | [optional] 
 
 ## Methods
 
 ### GetAuthorSignature
 
-`func (o *Dvir) GetAuthorSignature() map[string]interface{}`
+`func (o *Dvir) GetAuthorSignature() DvirAuthorSignature`
 
 GetAuthorSignature returns the AuthorSignature field if non-nil, zero value otherwise.
 
 ### GetAuthorSignatureOk
 
-`func (o *Dvir) GetAuthorSignatureOk() (map[string]interface{}, bool)`
+`func (o *Dvir) GetAuthorSignatureOk() (DvirAuthorSignature, bool)`
 
 GetAuthorSignatureOk returns a tuple with the AuthorSignature field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -45,19 +45,19 @@ HasAuthorSignature returns a boolean if a field has been set.
 
 ### SetAuthorSignature
 
-`func (o *Dvir) SetAuthorSignature(v map[string]interface{})`
+`func (o *Dvir) SetAuthorSignature(v DvirAuthorSignature)`
 
-SetAuthorSignature gets a reference to the given map[string]interface{} and assigns it to the AuthorSignature field.
+SetAuthorSignature gets a reference to the given DvirAuthorSignature and assigns it to the AuthorSignature field.
 
 ### GetEndTime
 
-`func (o *Dvir) GetEndTime() map[string]interface{}`
+`func (o *Dvir) GetEndTime() time.Time`
 
 GetEndTime returns the EndTime field if non-nil, zero value otherwise.
 
 ### GetEndTimeOk
 
-`func (o *Dvir) GetEndTimeOk() (map[string]interface{}, bool)`
+`func (o *Dvir) GetEndTimeOk() (time.Time, bool)`
 
 GetEndTimeOk returns a tuple with the EndTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -70,9 +70,9 @@ HasEndTime returns a boolean if a field has been set.
 
 ### SetEndTime
 
-`func (o *Dvir) SetEndTime(v map[string]interface{})`
+`func (o *Dvir) SetEndTime(v time.Time)`
 
-SetEndTime gets a reference to the given map[string]interface{} and assigns it to the EndTime field.
+SetEndTime gets a reference to the given time.Time and assigns it to the EndTime field.
 
 ### GetId
 
@@ -226,13 +226,13 @@ SetSafetyStatus gets a reference to the given string and assigns it to the Safet
 
 ### GetSecondSignature
 
-`func (o *Dvir) GetSecondSignature() map[string]interface{}`
+`func (o *Dvir) GetSecondSignature() DvirSecondSignature`
 
 GetSecondSignature returns the SecondSignature field if non-nil, zero value otherwise.
 
 ### GetSecondSignatureOk
 
-`func (o *Dvir) GetSecondSignatureOk() (map[string]interface{}, bool)`
+`func (o *Dvir) GetSecondSignatureOk() (DvirSecondSignature, bool)`
 
 GetSecondSignatureOk returns a tuple with the SecondSignature field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -245,19 +245,19 @@ HasSecondSignature returns a boolean if a field has been set.
 
 ### SetSecondSignature
 
-`func (o *Dvir) SetSecondSignature(v map[string]interface{})`
+`func (o *Dvir) SetSecondSignature(v DvirSecondSignature)`
 
-SetSecondSignature gets a reference to the given map[string]interface{} and assigns it to the SecondSignature field.
+SetSecondSignature gets a reference to the given DvirSecondSignature and assigns it to the SecondSignature field.
 
 ### GetStartTime
 
-`func (o *Dvir) GetStartTime() map[string]interface{}`
+`func (o *Dvir) GetStartTime() time.Time`
 
 GetStartTime returns the StartTime field if non-nil, zero value otherwise.
 
 ### GetStartTimeOk
 
-`func (o *Dvir) GetStartTimeOk() (map[string]interface{}, bool)`
+`func (o *Dvir) GetStartTimeOk() (time.Time, bool)`
 
 GetStartTimeOk returns a tuple with the StartTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -270,19 +270,19 @@ HasStartTime returns a boolean if a field has been set.
 
 ### SetStartTime
 
-`func (o *Dvir) SetStartTime(v map[string]interface{})`
+`func (o *Dvir) SetStartTime(v time.Time)`
 
-SetStartTime gets a reference to the given map[string]interface{} and assigns it to the StartTime field.
+SetStartTime gets a reference to the given time.Time and assigns it to the StartTime field.
 
 ### GetThirdSignature
 
-`func (o *Dvir) GetThirdSignature() map[string]interface{}`
+`func (o *Dvir) GetThirdSignature() DvirThirdSignature`
 
 GetThirdSignature returns the ThirdSignature field if non-nil, zero value otherwise.
 
 ### GetThirdSignatureOk
 
-`func (o *Dvir) GetThirdSignatureOk() (map[string]interface{}, bool)`
+`func (o *Dvir) GetThirdSignatureOk() (DvirThirdSignature, bool)`
 
 GetThirdSignatureOk returns a tuple with the ThirdSignature field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -295,19 +295,19 @@ HasThirdSignature returns a boolean if a field has been set.
 
 ### SetThirdSignature
 
-`func (o *Dvir) SetThirdSignature(v map[string]interface{})`
+`func (o *Dvir) SetThirdSignature(v DvirThirdSignature)`
 
-SetThirdSignature gets a reference to the given map[string]interface{} and assigns it to the ThirdSignature field.
+SetThirdSignature gets a reference to the given DvirThirdSignature and assigns it to the ThirdSignature field.
 
 ### GetTrailer
 
-`func (o *Dvir) GetTrailer() map[string]interface{}`
+`func (o *Dvir) GetTrailer() DvirTrailer`
 
 GetTrailer returns the Trailer field if non-nil, zero value otherwise.
 
 ### GetTrailerOk
 
-`func (o *Dvir) GetTrailerOk() (map[string]interface{}, bool)`
+`func (o *Dvir) GetTrailerOk() (DvirTrailer, bool)`
 
 GetTrailerOk returns a tuple with the Trailer field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -320,19 +320,19 @@ HasTrailer returns a boolean if a field has been set.
 
 ### SetTrailer
 
-`func (o *Dvir) SetTrailer(v map[string]interface{})`
+`func (o *Dvir) SetTrailer(v DvirTrailer)`
 
-SetTrailer gets a reference to the given map[string]interface{} and assigns it to the Trailer field.
+SetTrailer gets a reference to the given DvirTrailer and assigns it to the Trailer field.
 
 ### GetTrailerDefects
 
-`func (o *Dvir) GetTrailerDefects() []DvirAllOf0TrailerDefectsItems`
+`func (o *Dvir) GetTrailerDefects() []DvirTrailerDefectsItems`
 
 GetTrailerDefects returns the TrailerDefects field if non-nil, zero value otherwise.
 
 ### GetTrailerDefectsOk
 
-`func (o *Dvir) GetTrailerDefectsOk() ([]DvirAllOf0TrailerDefectsItems, bool)`
+`func (o *Dvir) GetTrailerDefectsOk() ([]DvirTrailerDefectsItems, bool)`
 
 GetTrailerDefectsOk returns a tuple with the TrailerDefects field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -345,9 +345,9 @@ HasTrailerDefects returns a boolean if a field has been set.
 
 ### SetTrailerDefects
 
-`func (o *Dvir) SetTrailerDefects(v []DvirAllOf0TrailerDefectsItems)`
+`func (o *Dvir) SetTrailerDefects(v []DvirTrailerDefectsItems)`
 
-SetTrailerDefects gets a reference to the given []DvirAllOf0TrailerDefectsItems and assigns it to the TrailerDefects field.
+SetTrailerDefects gets a reference to the given []DvirTrailerDefectsItems and assigns it to the TrailerDefects field.
 
 ### GetTrailerName
 
@@ -401,13 +401,13 @@ SetType gets a reference to the given string and assigns it to the Type field.
 
 ### GetVehicle
 
-`func (o *Dvir) GetVehicle() map[string]interface{}`
+`func (o *Dvir) GetVehicle() DvirVehicle`
 
 GetVehicle returns the Vehicle field if non-nil, zero value otherwise.
 
 ### GetVehicleOk
 
-`func (o *Dvir) GetVehicleOk() (map[string]interface{}, bool)`
+`func (o *Dvir) GetVehicleOk() (DvirVehicle, bool)`
 
 GetVehicleOk returns a tuple with the Vehicle field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -420,19 +420,19 @@ HasVehicle returns a boolean if a field has been set.
 
 ### SetVehicle
 
-`func (o *Dvir) SetVehicle(v map[string]interface{})`
+`func (o *Dvir) SetVehicle(v DvirVehicle)`
 
-SetVehicle gets a reference to the given map[string]interface{} and assigns it to the Vehicle field.
+SetVehicle gets a reference to the given DvirVehicle and assigns it to the Vehicle field.
 
 ### GetVehicleDefects
 
-`func (o *Dvir) GetVehicleDefects() []DvirAllOf0TrailerDefectsItems`
+`func (o *Dvir) GetVehicleDefects() []DvirTrailerDefectsItems`
 
 GetVehicleDefects returns the VehicleDefects field if non-nil, zero value otherwise.
 
 ### GetVehicleDefectsOk
 
-`func (o *Dvir) GetVehicleDefectsOk() ([]DvirAllOf0TrailerDefectsItems, bool)`
+`func (o *Dvir) GetVehicleDefectsOk() ([]DvirTrailerDefectsItems, bool)`
 
 GetVehicleDefectsOk returns a tuple with the VehicleDefects field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -445,9 +445,9 @@ HasVehicleDefects returns a boolean if a field has been set.
 
 ### SetVehicleDefects
 
-`func (o *Dvir) SetVehicleDefects(v []DvirAllOf0TrailerDefectsItems)`
+`func (o *Dvir) SetVehicleDefects(v []DvirTrailerDefectsItems)`
 
-SetVehicleDefects gets a reference to the given []DvirAllOf0TrailerDefectsItems and assigns it to the VehicleDefects field.
+SetVehicleDefects gets a reference to the given []DvirTrailerDefectsItems and assigns it to the VehicleDefects field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

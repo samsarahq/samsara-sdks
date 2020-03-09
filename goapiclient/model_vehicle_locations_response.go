@@ -16,7 +16,7 @@ import (
 
 // VehicleLocationsResponse Most recent vehicle locations and pagination info.
 type VehicleLocationsResponse struct {
-	// Most recent vehicle locations.
+	// List of the most recent locations for the specified vehicles.
 	Data       []VehicleLocationsResponseData `json:"data"`
 	Pagination PaginationResponse             `json:"pagination"`
 }

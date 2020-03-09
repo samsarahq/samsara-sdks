@@ -70,16 +70,16 @@ func (a *AssetsApiService) V1getAllAssetCurrentLocations(ctx _context.Context) a
 
 /*
 Execute executes the request
- @return InlineResponse20016
+ @return InlineResponse2007
 */
-func (r apiV1getAllAssetCurrentLocationsRequest) Execute() (InlineResponse20016, *_nethttp.Response, error) {
+func (r apiV1getAllAssetCurrentLocationsRequest) Execute() (InlineResponse2007, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20016
+		localVarReturnValue  InlineResponse2007
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.V1getAllAssetCurrentLocations")
@@ -141,7 +141,7 @@ func (r apiV1getAllAssetCurrentLocationsRequest) Execute() (InlineResponse20016,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20016
+			var v InlineResponse2007
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -199,16 +199,16 @@ func (a *AssetsApiService) V1getAllAssets(ctx _context.Context) apiV1getAllAsset
 
 /*
 Execute executes the request
- @return InlineResponse20015
+ @return InlineResponse2006
 */
-func (r apiV1getAllAssetsRequest) Execute() (InlineResponse20015, *_nethttp.Response, error) {
+func (r apiV1getAllAssetsRequest) Execute() (InlineResponse2006, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20015
+		localVarReturnValue  InlineResponse2006
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.V1getAllAssets")
@@ -261,7 +261,7 @@ func (r apiV1getAllAssetsRequest) Execute() (InlineResponse20015, *_nethttp.Resp
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20015
+			var v InlineResponse2006
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -641,16 +641,16 @@ func (a *AssetsApiService) V1getAssetsReefers(ctx _context.Context) apiV1getAsse
 
 /*
 Execute executes the request
- @return InlineResponse20017
+ @return InlineResponse2008
 */
-func (r apiV1getAssetsReefersRequest) Execute() (InlineResponse20017, *_nethttp.Response, error) {
+func (r apiV1getAssetsReefersRequest) Execute() (InlineResponse2008, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  InlineResponse20017
+		localVarReturnValue  InlineResponse2008
 	)
 
 	localBasePath, err := r.apiService.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.V1getAssetsReefers")
@@ -722,7 +722,7 @@ func (r apiV1getAssetsReefersRequest) Execute() (InlineResponse20017, *_nethttp.
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 200 {
-			var v InlineResponse20017
+			var v InlineResponse2008
 			err = r.apiService.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

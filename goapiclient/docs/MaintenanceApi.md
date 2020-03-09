@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**CreateDvir**](MaintenanceApi.md#CreateDvir) | **Post** /fleet/dvirs | Create a mechanic DVIR
 [**GetDvirById**](MaintenanceApi.md#GetDvirById) | **Get** /fleet/dvirs/{id} | Retrieve a DVIR
 [**GetDvirDefects**](MaintenanceApi.md#GetDvirDefects) | **Get** /fleet/defects | Get all defects
-[**GetDvirsHistory**](MaintenanceApi.md#GetDvirsHistory) | **Get** /fleet/dvirs/history | Get all DVIRs
+[**GetDvirHistory**](MaintenanceApi.md#GetDvirHistory) | **Get** /fleet/dvirs/history | Get all DVIRs
 [**ResolveDvirDefect**](MaintenanceApi.md#ResolveDvirDefect) | **Patch** /fleet/defects/{id} | Resolve a defect
 [**UpdateDvirById**](MaintenanceApi.md#UpdateDvirById) | **Patch** /fleet/dvirs/{id} | Resolve a DVIR
 [**V1createDvir**](MaintenanceApi.md#V1createDvir) | **Post** /v1/fleet/maintenance/dvirs | Create a DVIR
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## CreateDvir
 
-> InlineResponse2004 CreateDvir(ctx).Dvir(dvir).Execute()
+> DvirResponse CreateDvir(ctx).Dvir(dvir).Execute()
 
 Create a mechanic DVIR
 
@@ -35,11 +35,11 @@ Other parameters are passed through a pointer to a apiCreateDvirRequest struct v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dvir** | [**DvirCreate**](DvirCreate.md) | The DVIR to create. | 
+ **dvir** | [**CreateDvirRequest**](CreateDvirRequest.md) | The DVIR to create. | 
 
 ### Return type
 
-[**InlineResponse2004**](inline_response_200_4.md)
+[**DvirResponse**](DvirResponse.md)
 
 ### Authorization
 
@@ -57,7 +57,7 @@ No authorization required
 
 ## GetDvirById
 
-> InlineResponse2004 GetDvirById(ctx, id).Execute()
+> DvirResponse GetDvirById(ctx, id).Execute()
 
 Retrieve a DVIR
 
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](inline_response_200_4.md)
+[**DvirResponse**](DvirResponse.md)
 
 ### Authorization
 
@@ -117,8 +117,8 @@ Other parameters are passed through a pointer to a apiGetDvirDefectsRequest stru
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **startTime** | **time.Time** | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
- **endTime** | **time.Time** | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). | 
+ **startTime** | **time.Time** | A start time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.* | 
+ **endTime** | **time.Time** | An end time in RFC 3339 format. Millisecond precision and timezones are supported. (Examples: 2019-06-13T19:08:25Z, 2019-06-13T19:08:25.455Z, OR 2015-09-15T14:00:12-04:00). *The maximum time period you can query for is 30 days.* | 
  **limit** | **int64** | The limit for how many objects will be in the response. Default and max for this value is 512 objects. | [default to 512]
  **after** | **string** | If specified, this should be the endCursor value from the previous page of results. When present, this request will return the next page of results that occur immediately after the previous page of results. | 
  **isResolved** | **bool** | A filter on the data based on resolution status. Example: &#x60;isResolved&#x3D;true&#x60; | 
@@ -141,9 +141,9 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetDvirsHistory
+## GetDvirHistory
 
-> map[string]interface{} GetDvirsHistory(ctx).StartTime(startTime).EndTime(endTime).Limit(limit).After(after).TagIds(tagIds).VehicleIds(vehicleIds).TrailerIds(trailerIds).Execute()
+> DvirsListResponse GetDvirHistory(ctx).StartTime(startTime).EndTime(endTime).Limit(limit).After(after).TagIds(tagIds).VehicleIds(vehicleIds).TrailerIds(trailerIds).Execute()
 
 Get all DVIRs
 
@@ -155,7 +155,7 @@ Get all DVIRs
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetDvirsHistoryRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetDvirHistoryRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**map[string]interface{}**](map[string]interface{}.md)
+[**DvirsListResponse**](DvirsListResponse.md)
 
 ### Authorization
 
@@ -232,7 +232,7 @@ No authorization required
 
 ## UpdateDvirById
 
-> InlineResponse2004 UpdateDvirById(ctx, id).Dvir(dvir).Execute()
+> DvirResponse UpdateDvirById(ctx, id).Dvir(dvir).Execute()
 
 Resolve a DVIR
 
@@ -254,11 +254,11 @@ Other parameters are passed through a pointer to a apiUpdateDvirByIdRequest stru
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **dvir** | [**DvirPatch**](DvirPatch.md) | The dvir fields to update. | 
+ **dvir** | [**UpdateDvirRequest**](UpdateDvirRequest.md) | The dvir fields to update. | 
 
 ### Return type
 
-[**InlineResponse2004**](inline_response_200_4.md)
+[**DvirResponse**](DvirResponse.md)
 
 ### Authorization
 
@@ -355,7 +355,7 @@ No authorization required
 
 ## V1getFleetMaintenanceList
 
-> InlineResponse20018 V1getFleetMaintenanceList(ctx).Execute()
+> InlineResponse2009 V1getFleetMaintenanceList(ctx).Execute()
 
 Get vehicles with engine faults or check lights
 
@@ -372,7 +372,7 @@ Other parameters are passed through a pointer to a apiV1getFleetMaintenanceListR
 
 ### Return type
 
-[**InlineResponse20018**](inline_response_200_18.md)
+[**InlineResponse2009**](inline_response_200_9.md)
 
 ### Authorization
 

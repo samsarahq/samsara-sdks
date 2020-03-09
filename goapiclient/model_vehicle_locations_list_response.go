@@ -14,9 +14,9 @@ import (
 	"encoding/json"
 )
 
-// VehicleLocationsListResponse List of vehicle locations and pagination info.
+// VehicleLocationsListResponse List of vehicle location events and pagination info.
 type VehicleLocationsListResponse struct {
-	// List of vehicle locations.
+	// A list of vehicles and an array of location events for each vehicle.
 	Data       []VehicleLocationsListResponseData `json:"data"`
 	Pagination PaginationResponse                 `json:"pagination"`
 }

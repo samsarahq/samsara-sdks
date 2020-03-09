@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Activity** | Pointer to [**[]TachographActivity**](TachographActivity.md) | List of all driver tachograph activities in a specified time range. | [optional] 
-**Id** | Pointer to **string** | ID of the driver | [optional] 
+**Driver** | Pointer to [**DriverTinyResponse**](driverTinyResponse.md) |  | [optional] 
 
 ## Methods
 
@@ -34,30 +34,30 @@ HasActivity returns a boolean if a field has been set.
 
 SetActivity gets a reference to the given []TachographActivity and assigns it to the Activity field.
 
-### GetId
+### GetDriver
 
-`func (o *TachographActivityListWrapper) GetId() string`
+`func (o *TachographActivityListWrapper) GetDriver() DriverTinyResponse`
 
-GetId returns the Id field if non-nil, zero value otherwise.
+GetDriver returns the Driver field if non-nil, zero value otherwise.
 
-### GetIdOk
+### GetDriverOk
 
-`func (o *TachographActivityListWrapper) GetIdOk() (string, bool)`
+`func (o *TachographActivityListWrapper) GetDriverOk() (DriverTinyResponse, bool)`
 
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
+GetDriverOk returns a tuple with the Driver field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### HasId
+### HasDriver
 
-`func (o *TachographActivityListWrapper) HasId() bool`
+`func (o *TachographActivityListWrapper) HasDriver() bool`
 
-HasId returns a boolean if a field has been set.
+HasDriver returns a boolean if a field has been set.
 
-### SetId
+### SetDriver
 
-`func (o *TachographActivityListWrapper) SetId(v string)`
+`func (o *TachographActivityListWrapper) SetDriver(v DriverTinyResponse)`
 
-SetId gets a reference to the given string and assigns it to the Id field.
+SetDriver gets a reference to the given DriverTinyResponse and assigns it to the Driver field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

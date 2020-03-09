@@ -4,23 +4,23 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AuthType** | Pointer to **string** | The authentication type the user uses to authenticate. To use SAML this organization must have a configured SAML integration. | 
+**AuthType** | Pointer to [**UserAuthType**](UserAuthType.md) |  | 
 **Email** | Pointer to **string** | The email address of this user. | 
-**Id** | Pointer to **string** | Unique ID for the user. | 
+**Id** | Pointer to **string** | ID of the user. | 
 **Name** | Pointer to **string** | The first and last name of the user. | 
-**Roles** | Pointer to [**[]UserRoleResponse**](UserRoleResponse.md) |  | 
+**Roles** | Pointer to [**[]UserRoleAssignment**](UserRoleAssignment.md) | The list of roles that applies to this user. A user may have \&quot;organizational\&quot; roles, which apply to the user at the organizational level, and \&quot;tag-specific\&quot; roles, which apply to the user for a given tag. | 
 
 ## Methods
 
 ### GetAuthType
 
-`func (o *User) GetAuthType() string`
+`func (o *User) GetAuthType() UserAuthType`
 
 GetAuthType returns the AuthType field if non-nil, zero value otherwise.
 
 ### GetAuthTypeOk
 
-`func (o *User) GetAuthTypeOk() (string, bool)`
+`func (o *User) GetAuthTypeOk() (UserAuthType, bool)`
 
 GetAuthTypeOk returns a tuple with the AuthType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -33,9 +33,9 @@ HasAuthType returns a boolean if a field has been set.
 
 ### SetAuthType
 
-`func (o *User) SetAuthType(v string)`
+`func (o *User) SetAuthType(v UserAuthType)`
 
-SetAuthType gets a reference to the given string and assigns it to the AuthType field.
+SetAuthType gets a reference to the given UserAuthType and assigns it to the AuthType field.
 
 ### GetEmail
 
@@ -114,13 +114,13 @@ SetName gets a reference to the given string and assigns it to the Name field.
 
 ### GetRoles
 
-`func (o *User) GetRoles() []UserRoleResponse`
+`func (o *User) GetRoles() []UserRoleAssignment`
 
 GetRoles returns the Roles field if non-nil, zero value otherwise.
 
 ### GetRolesOk
 
-`func (o *User) GetRolesOk() ([]UserRoleResponse, bool)`
+`func (o *User) GetRolesOk() ([]UserRoleAssignment, bool)`
 
 GetRolesOk returns a tuple with the Roles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
@@ -133,9 +133,9 @@ HasRoles returns a boolean if a field has been set.
 
 ### SetRoles
 
-`func (o *User) SetRoles(v []UserRoleResponse)`
+`func (o *User) SetRoles(v []UserRoleAssignment)`
 
-SetRoles gets a reference to the given []UserRoleResponse and assigns it to the Roles field.
+SetRoles gets a reference to the given []UserRoleAssignment and assigns it to the Roles field.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
