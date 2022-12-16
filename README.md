@@ -1,4 +1,4 @@
-# samsara-sdks
+# [UNSUPPORTED] samsara-sdks
 
 This repo hosts a beta version of the Samsara SDKs.
 
